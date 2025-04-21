@@ -1,0 +1,78 @@
+h1 {
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+}
+.display-none {
+    display: none;
+}
+.display-block {
+    display: block;
+}
+.underlinedDarkTurquoise {
+    text-decoration: underline;
+    text-decoration-color: darkturquoise;
+    text-decoration-style: wavy;
+}
+.underlinedBlue {
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+.underlinedDarkViolet {
+    color: darkviolet;
+    text-decoration: underline;
+    text-decoration-color: darkviolet;
+}
+.display-flex {
+    display: flex;
+}
+.col-flex30 {
+    flex: 30%;
+}
+.col-flex50 {
+    flex: 50%;
+}
+.border-green {
+    border: 1px solid green;
+}
+.border-blue {
+    border: 1px solid blue;
+}
+.border-black {
+    border: 1px solid black;
+}
+.padding10px {
+    padding: 10px;
+}
+.margin10px {
+    margin: 10px;
+}
+.margin5px-left {
+    margin-left: 10px;
+}
+.margin5px-right {
+    margin-right: 10px;
+}
+.background-color-lightgray {
+    background-color: lightgray;
+}
+.background-color-whitesmoke {
+    background-color: whitesmoke;
+}
+.max-height-90vh {
+    max-height: 90vh;
+}
+.max-height-85vh {
+    max-height: 85vh;
+}
+.overflow-hidden {
+    /* needed for scroll bar*/
+    overflow: hidden;
+}
+.overflow-auto {
+    /* needed for scroll bar*/
+    overflow: auto;
+}
