@@ -1,3 +1,15 @@
+import os
 from pathlib import Path
+import structlog
 
-root_folder = Path(__file__).parent.parent
+from my_ghost_writer import session_logger
+
+
+PROJECT_ROOT_FOLDER = Path(__file__).parent.parent
+STATIC_FOLDER = PROJECT_ROOT_FOLDER / "static"
+ALLOWED_ORIGIN_LIST = os.getenv('ALLOWED_ORIGIN', 'http://localhost:7860').split(",")
+LOG_JSON_FORMAT = bool(os.getenv("LOG_JSON_FORMAT"))
+IS_TESTING = bool(os.getenv('IS_TESTING', ""))
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+session_logger.setup_logging(json_logs=LOG_JSON_FORMAT, log_level=LOG_LEVEL)
+app_logger = structlog.stdlib.get_logger(__name__)

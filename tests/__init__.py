@@ -1,4 +1,4 @@
-from my_ghost_writer.constants import root_folder
+from my_ghost_writer.constants import PROJECT_ROOT_FOLDER
 
 
-EVENTS_FOLDER = root_folder / "tests" / "events"
+EVENTS_FOLDER = PROJECT_ROOT_FOLDER / "tests" / "events"

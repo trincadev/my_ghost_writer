@@ -1,25 +1,41 @@
 import json
 import os
 from dotenv import load_dotenv
+
+from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
-from my_ghost_writer.constants import root_folder
+from my_ghost_writer.constants import ALLOWED_ORIGIN_LIST, IS_TESTING, LOG_LEVEL, STATIC_FOLDER, app_logger
 from my_ghost_writer.type_hints import RequestTextFrequencyBody
 
 
 load_dotenv()
-DEBUG = os.getenv("DEBUG", "")
-static_folder = root_folder / "static"
 fastapi_title = "My Ghost Writer"
 app = FastAPI(title=fastapi_title, version="1.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGIN_LIST,
+    allow_credentials=True,
+    allow_methods=["GET", "POST"]
+)
+
+
+@app.middleware("http")
+async def request_middleware(request, call_next):
+    from my_ghost_writer.middlewares import logging_middleware
+
+    return await logging_middleware(request, call_next)
 
 
 @app.get("/health")
 def health():
-    print("still alive...")
+    from nltk import __version__ as nltk_version
+    from fastapi import __version__ as fastapi_version
+    app_logger.info(f"still alive... FastAPI version:{fastapi_version}, nltk version:{nltk_version}!")
     return "Still alive..."
 
 
@@ -31,13 +47,12 @@ def get_word_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
 
     t0 = datetime.now()
-    if len(body) < 30:
-        print(f"body: {type(body)}, {body}.")
+    app_logger.info(f"body type: {type(body)}.")
+    app_logger.debug(f"body: {body}.")
     body = json.loads(body)
     text = body["text"]
-    if len(text) < 30:
-        print(f"text from request: {text} ...")
-    print(f"DEBUG: '{DEBUG}', length of text: {len(text)}.")
+    app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}.")
+    app_logger.debug(f"text from request: {text} ...")
     ps = PorterStemmer()
     text_split_newline = text.split("\n")
     row_words_tokens = []
@@ -47,28 +62,32 @@ def get_word_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
         row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
     words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps)
     dumped = json.dumps(words_stems_dict)
-    if DEBUG:
-        print(f"dumped: {dumped} ...")
+    app_logger.debug(f"dumped: {dumped} ...")
     t1 = datetime.now()
     duration = (t1 - t0).total_seconds()
     n_total_rows = len(text_split_newline)
-    content = {'words_frequency': dumped, "duration": f"{duration:.3f}", "n_total_rows": n_total_rows}
-    print(f"content: {content["duration"]}, {content["n_total_rows"]} ...")
-    return JSONResponse(status_code=200, content=content)
+    content_response = {'words_frequency': dumped, "duration": f"{duration:.3f}", "n_total_rows": n_total_rows}
+    app_logger.info(f"content_response: {content_response["duration"]}, {content_response["n_total_rows"]} ...")
+    app_logger.debug(f"content_response: {content_response} ...")
+    return JSONResponse(status_code=200, content=content_response)
 
 
-app.mount("/static", StaticFiles(directory=static_folder, html=True), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_FOLDER, html=True), name="static")
+
+# add the CorrelationIdMiddleware AFTER the @app.middleware("http") decorated function to avoid missing request id
+app.add_middleware(CorrelationIdMiddleware)
 
 
 @app.get("/")
 @app.get("/static/")
 def index() -> FileResponse:
-    return FileResponse(path=static_folder / "index.html", media_type="text/html")
+    return FileResponse(path=STATIC_FOLDER / "index.html", media_type="text/html")
 
 
 if __name__ == "__main__":
     try:
-        uvicorn.run("app:app", host="0.0.0.0", port=7860, reload=bool(DEBUG))
+        uvicorn.run("app:app", host="0.0.0.0", port=7860, reload=bool(IS_TESTING))
     except Exception as ex:
         print(f"fastapi/gradio application {fastapi_title}, exception:{ex}!")
+        app_logger.exception(f"fastapi/gradio application {fastapi_title}, exception:{ex}!")
         raise ex

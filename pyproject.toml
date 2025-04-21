@@ -7,7 +7,7 @@ authors = [
 ]
 license = {text = "AGPL-3.0"}
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<4.0.0"
 dependencies = [
     "nltk (>=3.9.1,<4.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
@@ -27,6 +27,7 @@ optional = true
 [tool.poetry.group.webserver.dependencies]
 fastapi = "^0.115.12"
 uvicorn = "^0.34.2"
+asgi-correlation-id = "^4.3.4"
 
 [tool.pytest.ini_options]
 addopts = "--cov=my_ghost_writer --cov-report html"
