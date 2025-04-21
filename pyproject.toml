@@ -1,0 +1,18 @@
+[project]
+name = "my-ghost-writer"
+version = "0.1.0"
+description = "A simple help for writers"
+authors = [
+    {name = "alessandro trinca tornidor",email = "alessandro@trinca.tornidor.com"}
+]
+license = {text = "AGPL-3.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "nltk (>=3.9.1,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
