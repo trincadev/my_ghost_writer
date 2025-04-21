@@ -1,0 +1,13 @@
+
+    - table "id-table-13-nth":
+      - caption
+      - rowgroup:
+        - row "word row nth offsets":
+          - cell "word"
+          - cell "row nth"
+          - cell "offsets"
+      - rowgroup:
+        - row "id-table-13-row-0-nth":
+          - cell "table"
+          - cell "0"
+          - cell "101,106"
