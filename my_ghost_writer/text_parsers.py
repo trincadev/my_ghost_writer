@@ -21,7 +21,7 @@ def clean_string(s: str) -> str:
 
 
 def get_words_tokens_and_indexes(
-        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, min_len_words=3, sort_type=""
+        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, min_len_words=3
     ) -> dict:
     """
     Get the words tokens and their indexes in the text.
@@ -31,7 +31,6 @@ def get_words_tokens_and_indexes(
         offsets_tokens_list (list): List of offsets for each token.
         ps (PorterStemmer): The stemmer to use.
         min_len_words (int): Minimum length of words to include.
-        sort_type (str): The type of sorting to apply. Can be "" (no sorting - default), "count" (by words count), "word" (alphabetical).
 
     Returns:
         dict: Dictionary with stemmed words as keys and a list of dictionaries
