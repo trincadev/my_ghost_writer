@@ -1,5 +1,12 @@
 const wordsFrequencyTableTitleText = "Word Frequency Table"
 
+/**
+ * Read and preview a selected text file.
+ *
+ * @function previewFile
+ * @description Displays the contents of a selected text file within an element with id 'editor'.
+ * @param {none}
+ */
 const previewFile = () => {
     const editor = document.getElementById("editor");
     const [file] = document.querySelector("input[type=file]").files;
@@ -13,10 +20,20 @@ const previewFile = () => {
         reader.readAsText(file);
     }
 }
-const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc) => {
+
+/**
+ * Scrolls an editor element to a specific y coordinate (calculated using given lines/rows number).
+ *
+ * @function scrollToGivenPoint
+ * @param {HTMLElement} editorElement The HTML element id of the editor.
+ * @param {number} line The line/row number to scroll to (0-indexed).
+ * @param {number} nTotalRows The total number of text lines/rows.
+ * @param {number} [negativeOffsetPerc=0.12] An optional percentage value to add a negative offset, preventing scrolling beyond the end of the viewport.
+ */
+const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=0.12) => {
     // try to scroll div to row... font-size on div is 12px
     let scrollHeight = parseFloat(editorElement.scrollHeight, 10)
-    console.log("setCaret::updatedOffsetPosition:scroll to line/height position/int height position:", line, editorElement.scrollHeight, scrollHeight, "#")
+    console.log(`setCaret::updatedOffsetPosition:scroll to line/height position/int height position:", ${line}, ${editorElement.scrollHeight}, ${scrollHeight}`)
     let offsetToScrollPerc = line / nTotalRows
     let offsetToScroll = scrollHeight * offsetToScrollPerc
     // if already at the end of the page, don't scroll anymore to avoid missing words in the upper side of the viewport
@@ -24,9 +41,18 @@ const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc)
         offsetToScroll -= offsetToScroll * negativeOffsetPerc
     }
     let offsetToScrollInt = parseInt(offsetToScroll, 10)
-    console.log("setCaret::offsetToScroll:", offsetToScrollInt, "|", offsetToScroll, "#")
+    console.log(`setCaret::offsetToScroll: '${offsetToScrollInt}', '${offsetToScroll}'`)
     editorElement.scrollTo(0, offsetToScrollInt)
 }
+
+/**
+ * Scrolls the editor to a specified position and sets the caret at that point.
+ *
+ * @param {number} line - The line/row number (0-indexed) where the caret should be placed.
+ * @param {Array<number>} offsetColumn - A number array containing two numbers representing the column offsets for the start and end of the selection range.
+ * @param {number} nTotalRows - The total number of lines/rows in the editor for scrolling purposes.
+ * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
+ */
 const setCaret = (line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) => {
     let editorElement = document.getElementById("editor");
     let validChildNodes = []
@@ -48,10 +74,24 @@ const setCaret = (line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) => {
     editorElement.focus();
     scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc);
 }
+
+/**
+ * Updates the CSS class of an HTML element with the specified ID.
+ *
+ * @param {string} elementId - The ID of the HTML element to update.
+ * @param {string} currentClass - The new CSS class to apply to the element.
+ */
 const setElementCssClass = (elementId, currentClass) => {
     let spanWaitingFor = document.getElementById(elementId)
     spanWaitingFor.setAttribute("class", currentClass)
 }
+
+/**
+ * Fetches word frequency data from the server and populates the words frequency tables.
+ * 
+ * @async
+ * @function getWordFrequency
+ */
 const getWordFrequency = async () => {
     let text = document.getElementById("editor")
     // replace repeated newlines to prepare setCaret() use
@@ -83,6 +123,13 @@ const getWordFrequency = async () => {
         setElementCssClass("waiting-for-be-error", "display-block")
     }
 }
+
+/**
+ * Populate the word frequency tables in the UI with data from the provided JSON object.
+ *
+ * @param {string} wordsFrequencyObj - The JSON string containing word frequencies.
+ * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
+ */
 const populateWordFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
     const wfo = JSON.parse(wordsFrequencyObj)
     const reduced = Object.values(wfo)
@@ -94,6 +141,15 @@ const populateWordFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
         insertCurrentTable(i, reduced[i], nTotalRows, wordsFrequency);
     }
 }
+
+/**
+ * Inserts a table into the DOM displaying the frequency of word prefixes and their corresponding row nths and offsets.
+ *
+ * @param {number} i - The current index being processed (needed for adding unique HTML id/aria-labels).
+ * @param {object} iReduced - An object containing the reduced data for the current index, including word prefix, count, and offsets array.
+ * @param {number} nTotalRows - The total number of lines/rows in the table.
+ * @param {object} wordsFrequency - A container element to hold all tables representing word frequencies.
+ */
 const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
     let currentTableWordFreq = document.createElement("table")
     currentTableWordFreq.setAttribute("class", "border-black")
@@ -119,6 +175,16 @@ const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
     currentTableWordFreq.appendChild(currentTBody)
     wordsFrequency.appendChild(currentTableWordFreq)
 }
+
+/**
+ * Inserts a new table row into the specified tbody with an associated click event listener.
+ *
+ * @param {HTMLTableSectionElement} currentTBody - The tbody element where the new row will be inserted.
+ * @param {number} i - A reference number for the parent's position in the DOM (needed for adding unique HTML id/aria-labels).
+ * @param {number} ii - A counter of how many lines/rows have been added to the table (needed for adding unique HTML id/aria-labels).
+ * @param {object} nthOffset - An object containing information about a single offset word, including its row number and word text.
+ * @param {number} nTotalRows - The total number of lines/rows in the table.
+ */
 const insertCellIntoTRow = (currentTBody, i, ii, nthOffset, nTotalRows) => {
     let nthRowBody = currentTBody.insertRow()
     nthRowBody.setAttribute("id", `id-table-${i}-row-${ii}-nth`)
