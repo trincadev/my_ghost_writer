@@ -9,9 +9,23 @@ license = {text = "AGPL-3.0"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "nltk (>=3.9.1,<4.0.0)"
+    "nltk (>=3.9.1,<4.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)"
 ]
 
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+
+[tool.poetry.group.webserver]
+optional = true
+
+[tool.poetry.group.webserver.dependencies]
+fastapi = "^0.115.12"
+uvicorn = "^0.34.2"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
