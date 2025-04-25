@@ -74,6 +74,9 @@ td {
 .margin5px-top {
     margin-top: 5px;
 }
+.margin2px-bottom {
+    margin-bottom: 2px;
+}
 .background-color-lightgray {
     background-color: lightgray;
 }
@@ -83,8 +86,8 @@ td {
 .max-height-90vh {
     max-height: 90vh;
 }
-.max-height-83vh {
-    max-height: 83vh;
+.max-height-80vh {
+    max-height: 80vh;
 }
 .overflow-hidden {
     /* needed for scroll bar*/
@@ -93,4 +96,10 @@ td {
 .overflow-auto {
     /* needed for scroll bar*/
     overflow: auto;
+}
+.width-50perc {
+    width: 50%;
+}
+.width-80perc {
+    width: 80%;
 }

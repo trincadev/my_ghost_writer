@@ -17,16 +17,46 @@
         <div id="id-container-row-global-editor-frequency" class="display-flex">
             <div id="id-col1-editor" class="col-flex50 border-black padding10px margin10px overflow-hidden background-color-lightgray">
                 <h4>Text Editor</h4>
-                <div id="editor" contenteditable="true" class="max-height-83vh overflow-auto background-color-whitesmoke" aria-label="editor">
+                <div id="editor" contenteditable="true" class="max-height-80vh overflow-auto background-color-whitesmoke" aria-label="editor">
                     Hi there, how are you? There are some pasties for you. Can you give me also... Take a pasty from the table there!
                 </div>
             </div>
-            <div id="id-col2-word-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
-                <h4 id="id-word-frequency-table-title">Word Frequency Table</h4>
+            <div id="id-col2-words-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
+                <div class="display-flex">
+                    <div class="width-50perc">
+                        <h4 id="id-words-frequency-table-title">Word Frequency Table</h4>
+                        <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" />
+                        <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordFrequencyTables()">Submit</button>
+                    </div>
+                    <div class="display-flex width-50perc margin2px-bottom">
+                        <form id="form2" aria-label="form2">
+                            <fieldset>
+                                <legend>Sorting method:</legend>
+                                <div>
+                                    <input type="radio" id="sort-by-count" aria-label="sort-by-count" name="sort" value="count"/>
+                                    <label for="sort-by-count" id="sort-by-count-label" aria-label="sort-by-count-label">Count</label>
+                                    <input type="radio" id="sort-by-name" aria-label="sort-by-name" name="sort" value="word_prefix" />
+                                    <label for="sort-by-name" id="sort-by-name-label" aria-label="sort-by-name-label">Name</label>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="form1" aria-label="form1">
+                            <fieldset>
+                                <legend>Order:</legend>
+                                <div>
+                                    <input type="radio" id="order-by-count" aria-label="order-by-count" name="order" value="asc" />
+                                    <label for="order-by-count" id="order-by-count-label" aria-label="order-by-count-label">Ascending</label>
+                                    <input type="radio" id="order-by-name" aria-label="order-by-name" name="order" value="desc" checked/>
+                                    <label for="order-by-name" id="order-by-name-label" aria-label="order-by-name-label">Descending</label>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
                 <span id="id-n-total-rows" aria-label="id-n-total-rows" class="display-none"></span>
                 <span id="waiting-for-be" class="display-none">waiting for backend response...</span>
                 <span id="waiting-for-be-error" class="display-none">Error!</span>
-                <div id="words-frequency" class="max-height-83vh overflow-auto background-color-whitesmoke" aria-label="words-frequency"></div>
+                <div id="words-frequency" class="max-height-80vh overflow-auto background-color-whitesmoke" aria-label="words-frequency"></div>
             </div>
         </div>
     </body>

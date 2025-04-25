@@ -1,4 +1,15 @@
 const wordsFrequencyTableTitleText = "Word Frequency Table"
+let wfo = {
+    "word_frequency": {},
+    "nTotalRows": null
+}
+
+const getFormDataByKey = (formId, key) => {
+    let formElement = document.getElementById(formId)
+    const data = new FormData(formElement);
+    let dataValue = data.get(key)
+    return dataValue
+}
 
 /**
  * Read and preview a selected text file.
@@ -33,7 +44,6 @@ const previewFile = () => {
 const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=0.12) => {
     // try to scroll div to row... font-size on div is 12px
     let scrollHeight = parseFloat(editorElement.scrollHeight, 10)
-    console.log(`setCaret::updatedOffsetPosition:scroll to line/height position/int height position:", ${line}, ${editorElement.scrollHeight}, ${scrollHeight}`)
     let offsetToScrollPerc = line / nTotalRows
     let offsetToScroll = scrollHeight * offsetToScrollPerc
     // if already at the end of the page, don't scroll anymore to avoid missing words in the upper side of the viewport
@@ -41,7 +51,6 @@ const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=
         offsetToScroll -= offsetToScroll * negativeOffsetPerc
     }
     let offsetToScrollInt = parseInt(offsetToScroll, 10)
-    console.log(`setCaret::offsetToScroll: '${offsetToScrollInt}', '${offsetToScroll}'`)
     editorElement.scrollTo(0, offsetToScrollInt)
 }
 
@@ -99,7 +108,7 @@ const getWordFrequency = async () => {
     let bodyRequest = {"text": text.innerText}
     setElementCssClass("waiting-for-be-error", "display-none")
     setElementCssClass("waiting-for-be", "display-block")
-    let wordsFrequencyTableTitleEl = document.getElementById("id-word-frequency-table-title")
+    let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
     wordsFrequencyTableTitleEl.innerText = wordsFrequencyTableTitleText
     let wordsFrequency = document.getElementById("words-frequency")
     wordsFrequency.innerHTML = ""
@@ -108,19 +117,75 @@ const getWordFrequency = async () => {
             method: "POST",
             body: JSON.stringify(bodyRequest)
         })
-        console.log(`getWordFreq::response.status: '${response.status}'`)
         console.assert(response.status, 200)
         let bodyResponseJson = await response.json()
         setElementCssClass("waiting-for-be", "display-none")
-        console.log(`getWordFreq::body keys: '${Object.keys(bodyResponseJson)}'`)
         let freq = bodyResponseJson["words_frequency"]
         let nTotalRows = bodyResponseJson["n_total_rows"]
-        console.log(`getWordFreq::tot: '${nTotalRows}'`)
+        console.log(`getWordFreq::nTotalRows: '${nTotalRows}'`)
         populateWordFrequencyTables(freq, bodyResponseJson["n_total_rows"])
     } catch (err) {
         console.error("getWordFrequency::err:", err, "#")
         setElementCssClass("waiting-for-be", "display-none")
         setElementCssClass("waiting-for-be-error", "display-block")
+    }
+}
+
+function dynamicsort(property, order) {
+    let sort_order = 1;
+    if(order === "desc"){
+        sort_order = -1;
+    }
+    return function (a, b){
+        // a should come before b in the sorted order
+        if(a[property] < b[property]){
+                return -1 * sort_order;
+        // a should come after b in the sorted order
+        }else if(a[property] > b[property]){
+                return 1 * sort_order;
+        // a and b are the same
+        }else{
+                return 0 * sort_order;
+        }
+    }
+}
+
+function filteredArray(arr, key, value) {
+    const newArray = [];
+    for(let i=0, l=arr.length; i<l; i++) {
+        let currentElement = arr[i]
+        let currentValue = currentElement[key]
+        if(currentValue.toLowerCase().includes(value)) {
+            newArray.push(arr[i]);
+        }
+    }
+   return newArray;
+}
+
+const updateWordFrequencyTables = () => {
+    let nTotalRows = wfo["nTotalRows"]
+    if (nTotalRows === null || nTotalRows < 1) {
+        alert("let's get some data before updating the result table...")
+    }
+
+    let _wfo = wfo["word_frequency"]
+    let reduced = Object.values(_wfo)
+    let order = getFormDataByKey("form1", "order")
+    let sort = getFormDataByKey("form2", "sort")
+    reduced.sort(dynamicsort(sort, order))
+
+    let inputFilter = document.getElementById("filter-words-frequency")
+    let inputFilterValue = inputFilter.value
+    if (inputFilterValue != undefined && inputFilter.value !== "") {
+        reduced = filteredArray(reduced, "word_prefix", inputFilterValue)
+    }
+
+    let wordsFrequency = document.getElementById("words-frequency")
+    wordsFrequency.innerHTML = ""
+    let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
+    wordsFrequencyTableTitleEl.innerText = `${wordsFrequencyTableTitleText} (${reduced.length} word groups, ${nTotalRows} rows)`
+    for (let i=0; i<reduced.length; i++ ) {
+        insertCurrentTable(i, reduced[i], nTotalRows, wordsFrequency);
     }
 }
 
@@ -131,15 +196,9 @@ const getWordFrequency = async () => {
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
  */
 const populateWordFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
-    const wfo = JSON.parse(wordsFrequencyObj)
-    const reduced = Object.values(wfo)
-    let wordsFrequency = document.getElementById("words-frequency")
-    wordsFrequency.innerHTML = ""
-    let wordsFrequencyTableTitleEl = document.getElementById("id-word-frequency-table-title")
-    wordsFrequencyTableTitleEl.innerText = `${wordsFrequencyTableTitleText} (${reduced.length} word groups, ${nTotalRows} rows)`
-    for (let i=0; i<reduced.length; i++ ) {
-        insertCurrentTable(i, reduced[i], nTotalRows, wordsFrequency);
-    }
+    wfo["word_frequency"] = JSON.parse(wordsFrequencyObj)
+    wfo["nTotalRows"] = nTotalRows
+    updateWordFrequencyTables()
 }
 
 /**
