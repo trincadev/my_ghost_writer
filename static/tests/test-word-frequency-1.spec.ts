@@ -16,7 +16,10 @@ test(`test: word frequency (short text input)`, async ({ page }) => {
   await expect(table0).toMatchAriaSnapshot(dataTable0)
   await expect(table13).toMatchAriaSnapshot(dataTableLast)
 
-  let cellArray1 = [{ table: 0, row: 0 }, { table: 0, row: 1 }, { table: 5, row: 0 }, { table: 13, row: 0 }]
+  let cellArray1 = [
+    { table: 0, row: 0, word: "there" }, { table: 0, row: 1, word: "There" },
+    { table: 5, row: 0, word: "pasties" }, { table: 13, row: 0, word: "table" }
+  ]
   for (let idx in cellArray1) {
     await loopOverTablesAndClickOnUrls(page, cellArray1[idx], 0)
   }
@@ -42,9 +45,10 @@ test(`test: word frequency (long, multi line text input)`, async ({ page }) => {
   
   console.log("try with a new array of tables/rows...")
   let cellArray2 = [
-    { table: 1, row: 1 }, { table: 1, row: 2 }, { table: 1, row: 3 }, { table: 2, row: 0 }, { table: 2, row: 1 },
-    { table: 2, row: 2 }, { table: 0, row: 1 }, { table: 8, row: 1 }, { table: 8, row: 4 }, { table: 737, row: 1 },
-    { table: 737, row: 3 }
+    { table: 1, row: 1, word: "upon" }, { table: 1, row: 2, word: "upon" }, { table: 1, row: 3, word: "upon" },
+    { table: 2, row: 0, word: "time" }, { table: 2, row: 1, word: "time" }, { table: 2, row: 2, word: "time" },
+    { table: 0, row: 1, word: "Once" }, { table: 8, row: 1, word: "young" }, { table: 8, row: 4, word: "young" },
+    { table: 737, row: 1, word: "Isst" }, { table: 737, row: 3, word: "Isst" }
   ]
   for (let idx in cellArray2) {
     await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100)
