@@ -10,7 +10,7 @@ const expectedInitialCount = 14;
     {count: expectedInitialCount, filter: "", testIdx: 2},
 ].forEach(({ count, filter, testIdx }) => {
     test(`words frequency: filtering, ordering and sorting - ${testIdx}, sort/order ${sortOrder}.`, async ({ page }) => {
-        await page.goto('http://localhost:7860/');
+        await page.goto(process.env.DOMAIN_PORT ?? "/");
         await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
         let containerTable = page.getByLabel('words-frequency', { exact: true })
         await page.waitForTimeout(100)

@@ -5,7 +5,7 @@ import { assertTableStap } from './test-helper'
 const count = 14
 test.describe(`word frequency: sorting output with ${14} tables`, () => {
     test.beforeEach(async({page}) => {
-        await page.goto('http://localhost:7860/');
+        await page.goto(process.env.DOMAIN_PORT ?? "/");
         await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
     });
     

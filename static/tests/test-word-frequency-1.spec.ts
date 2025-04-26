@@ -5,7 +5,7 @@ import { fileReader, loopOverTablesAndClickOnUrls } from './test-helper'
 test(`test: word frequency (short text input)`, async ({ page }) => {
   const wordFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-word-frequency-1-table0-aria-snapshot.txt`
   const wordFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-word-frequency-1-table13-aria-snapshot.txt`
-  await page.goto(process.env.DOMAIN ?? "http://localhost:7860/");
+  await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
 
   await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
@@ -28,7 +28,7 @@ test(`test: word frequency (short text input)`, async ({ page }) => {
 
 test(`test: word frequency (long, multi line text input)`, async ({ page }) => {
   const testLLMTextFilePath = `${import.meta.dirname}/../../tests/events/llm_generated_story_1.txt`
-  await page.goto(process.env.DOMAIN ?? "http://localhost:7860/");
+  await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
 
   console.log("Let's try with a much longer, multiline text while scrolling the conteditable div on click")

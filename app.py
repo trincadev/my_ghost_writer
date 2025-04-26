@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
-from my_ghost_writer.constants import ALLOWED_ORIGIN_LIST, IS_TESTING, LOG_LEVEL, STATIC_FOLDER, app_logger
+from my_ghost_writer.constants import ALLOWED_ORIGIN_LIST, DOMAIN, IS_TESTING, LOG_LEVEL, PORT, STATIC_FOLDER, app_logger
 from my_ghost_writer.type_hints import RequestTextFrequencyBody
 
 
@@ -87,7 +87,7 @@ def index() -> FileResponse:
 
 if __name__ == "__main__":
     try:
-        uvicorn.run("app:app", host="0.0.0.0", port=7860, reload=bool(IS_TESTING))
+        uvicorn.run("app:app", host=DOMAIN, port=PORT, reload=bool(IS_TESTING))
     except Exception as ex:
         print(f"fastapi/gradio application {fastapi_title}, exception:{ex}!")
         app_logger.exception(f"fastapi/gradio application {fastapi_title}, exception:{ex}!")

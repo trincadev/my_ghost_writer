@@ -7,7 +7,9 @@ from my_ghost_writer import session_logger
 
 PROJECT_ROOT_FOLDER = Path(__file__).parent.parent
 STATIC_FOLDER = PROJECT_ROOT_FOLDER / "static"
-ALLOWED_ORIGIN_LIST = os.getenv('ALLOWED_ORIGIN', 'http://localhost:7860').split(",")
+DOMAIN=os.getenv("DOMAIN", "localhost")
+PORT=os.getenv("PORT", 7860)
+ALLOWED_ORIGIN_LIST = os.getenv('ALLOWED_ORIGIN', f'http://{DOMAIN}:{PORT}').split(",")
 LOG_JSON_FORMAT = bool(os.getenv("LOG_JSON_FORMAT"))
 IS_TESTING = bool(os.getenv('IS_TESTING', ""))
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
