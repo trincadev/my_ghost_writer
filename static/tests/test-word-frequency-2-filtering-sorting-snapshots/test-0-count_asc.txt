@@ -1,0 +1,32 @@
+- table "id-table-0-nth":
+  - caption: "there: 3 repetitions"
+  - rowgroup:
+    - row "word row nth offsets":
+      - cell "word"
+      - cell "row nth"
+      - cell "offsets"
+  - rowgroup:
+    - row "id-table-0-row-0-nth":
+      - cell "there"
+      - cell "0"
+      - cell "3,8"
+    - row "id-table-0-row-1-nth":
+      - cell "There"
+      - cell "0"
+      - cell "23,28"
+    - row "id-table-0-row-2-nth":
+      - cell "there"
+      - cell "0"
+      - cell "107,112"
+- table "id-table-1-nth":
+  - caption: "the: 1 repetitions"
+  - rowgroup:
+    - row "word row nth offsets":
+      - cell "word"
+      - cell "row nth"
+      - cell "offsets"
+  - rowgroup:
+    - row "id-table-1-row-0-nth":
+      - cell "the"
+      - cell "0"
+      - cell "97,100"
