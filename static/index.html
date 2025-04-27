@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1 class="h1">Word Frequency Statistics in text</h1>
+        <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
         <div class="margin10px">
             <button id="btn4-getWordFrequency" aria-label="btn4-getWordFrequency" onclick="getWordFrequency()" type="submit">get words frequency</button>
             <label for="id-input-file-selector" class="margin5px-left">Text file selector</label>
@@ -29,7 +30,7 @@
                         <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordFrequencyTables()">Submit</button>
                     </div>
                     <div class="display-flex width-50perc margin2px-bottom">
-                        <form id="form2" aria-label="form2">
+                        <form id="id-form-sort-by" aria-label="id-form-sort-by">
                             <fieldset>
                                 <legend>Sorting method:</legend>
                                 <div>
@@ -40,12 +41,12 @@
                                 </div>
                             </fieldset>
                         </form>
-                        <form id="form1" aria-label="form1">
+                        <form id="id-form-order-by" aria-label="id-form-order-by">
                             <fieldset>
                                 <legend>Order:</legend>
                                 <div>
                                     <input type="radio" id="order-by-asc" aria-label="order-by-asc" name="order" value="asc" />
-                                    <label for="order-by-count" id="order-by-count-label" aria-label="order-by-count-label">Ascending</label>
+                                    <label for="order-by-asc" id="order-by-asc-label" aria-label="order-by-asc-label">Ascending</label>
                                     <input type="radio" id="order-by-desc" aria-label="order-by-desc" name="order" value="desc" checked/>
                                     <label for="order-desc" id="order-by-desc-label" aria-label="order-by-desc-label">Descending</label>
                                 </div>

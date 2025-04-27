@@ -103,3 +103,19 @@ td {
 .width-80perc {
     width: 80%;
 }
+#id-landscape-message {
+    display: none;
+}
+.id-orientation-message {
+    display: none;
+}
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    .id-orientation-message {
+        display: block;
+        text-align: center;
+    }
+    .id-orientation-message:before {
+        color: red;
+        content: "(Mobile users: use this in landscape mode!)"
+    }
+}
