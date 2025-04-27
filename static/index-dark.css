@@ -5,7 +5,7 @@
     margin-block-start: 5px;
     margin-block-end: 5px;
 }
-#id-col2-words-frequency > div > div > h4 {
+#id-col1-editor > h4,#id-col2-words-frequency > div > div > h4 {
     font-size: 18px;
     margin-block-start: 2px;
     margin-block-end: 2px;
@@ -16,11 +16,7 @@
     text-align: left;
     font-weight: bold;
 }
-#words-frequency > table > thead > tr > td {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-#words-frequency > table > tbody > tr > td {
+#words-frequency > table > thead > tr > td, #words-frequency > table > tbody > tr > td {
     padding-left: 10px;
     padding-right: 10px;
 }
