@@ -8,7 +8,14 @@ const remoteWebServer = ""
 const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
 
-const getFormDataByKey = (formId, key) => {
+/**
+ * Retrieves the value of a form field by its key from a FormData object.
+ *
+ * @param {string} formId - The ID of the HTML form element that contains the field.
+ * @param {string} key - The name attribute of the form field to retrieve.
+ * @returns {*} The value of the form field, or null if it does not exist in the FormData object.
+ */
+function getFormDataByKey(formId, key) {
     let formElement = document.getElementById(formId)
     const data = new FormData(formElement);
     let dataValue = data.get(key)
@@ -22,7 +29,7 @@ const getFormDataByKey = (formId, key) => {
  * @description Displays the contents of a selected text file within an element with id 'editor'.
  * @param {none}
  */
-const previewFile = () => {
+function previewFile() {
     const editor = document.getElementById(editorFieldLabel);
     const [file] = document.querySelector("input[type=file]").files;
     const reader = new FileReader();
@@ -45,7 +52,7 @@ const previewFile = () => {
  * @param {number} nTotalRows The total number of text lines/rows.
  * @param {number} [negativeOffsetPerc=0.12] An optional percentage value to add a negative offset, preventing scrolling beyond the end of the viewport.
  */
-const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=0.12) => {
+function scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc=0.12) {
     // try to scroll div to row... font-size on div is 12px
     let scrollHeight = parseFloat(editorElement.scrollHeight, 10)
     let offsetToScrollPerc = line / nTotalRows
@@ -66,7 +73,7 @@ const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=
  * @param {number} nTotalRows - The total number of lines/rows in the editor for scrolling purposes.
  * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
  */
-const setCaret = (line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) => {
+function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
     let editorElement = document.getElementById(editorFieldLabel);
     let validChildNodes = []
     // use a for loop because of better performance
@@ -105,7 +112,7 @@ const setElementCssClass = (elementId, currentClass) => {
  * @async
  * @function getWordsFrequency
  */
-const getWordsFrequency = async () => {
+async function getWordsFrequency() {
     let text = document.getElementById(editorFieldLabel)
     // replace repeated newlines to prepare setCaret() use
     text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
@@ -135,26 +142,41 @@ const getWordsFrequency = async () => {
     }
 }
 
-function dynamicsort(property, order) {
-    let sort_order = 1;
-    if(order === "desc"){
-        sort_order = -1;
-    }
+/**
+ * Returns a sorting function for the given property and order.
+ *
+ * @param {string} property - The property to sort by.
+ * @param {string} order - The order of sorting ('asc' or 'desc').
+ * @returns {function} A comparison function that sorts data in the specified order.
+ */
+function dynamicSort(property, order) {
+    let sort_order = order === "desc" ? -1 : 1
     return function (a, b){
         // a should come before b in the sorted order
         if(a[property] < b[property]){
-                return -1 * sort_order;
+            return -1 * sort_order;
         // a should come after b in the sorted order
         }else if(a[property] > b[property]){
-                return 1 * sort_order;
+            return 1 * sort_order;
         // a and b are the same
-        }else{
-                return 0 * sort_order;
         }
+        return 0 * sort_order;
     }
 }
 
-function filteredArray(arr, key, value) {
+/**
+ * This function filters an array based on a property key and the value to use for filter.
+ *
+ * @description
+ *   The function iterates over each element in the array.
+ *   If the element's value for the specified key matches the search value (it's included, case-insensitive), it is added to the new array.
+ *
+ * @param {array} arr - The array to filter.
+ * @param {string} key - The property key to match against.
+ * @param {string} value - The value to search for in the array elements.
+ * @returns {array} A new array containing only the elements that match the specified value.
+ */
+function arrayFilter(arr, key, value) {
     const newArray = [];
     for(let i=0, l=arr.length; i<l; i++) {
         let currentElement = arr[i]
@@ -166,7 +188,17 @@ function filteredArray(arr, key, value) {
    return newArray;
 }
 
-const updateWordsFrequencyTables = () => {
+/**
+ * Updates the words frequency tables with new data.
+ *
+ * @description
+ *   This function is called whenever a change in form input fields or the uploaded text file affects the words frequency table's content.
+ *   It sorts and filters the word groups based on user preferences, and updates the HTML elements containing these tables.
+ *
+ * @async
+ * @function updateWordsFrequencyTables
+ */
+async function updateWordsFrequencyTables() {
     let nTotalRows = wfo["nTotalRows"]
     if (nTotalRows === null || nTotalRows < 1) {
         alert("let's get some data before updating the result table...")
@@ -176,12 +208,12 @@ const updateWordsFrequencyTables = () => {
     let reduced = Object.values(_wfo)
     let order = getFormDataByKey("id-form-order-by", "order")
     let sort = getFormDataByKey("id-form-sort-by", "sort")
-    reduced.sort(dynamicsort(sort, order))
+    reduced.sort(dynamicSort(sort, order))
 
     let inputFilter = document.getElementById("filter-words-frequency")
     let inputFilterValue = inputFilter.value
     if (inputFilterValue != undefined && inputFilter.value !== "") {
-        reduced = filteredArray(reduced, "word_prefix", inputFilterValue)
+        reduced = arrayFilter(reduced, "word_prefix", inputFilterValue)
     }
 
     let wordsFrequency = document.getElementById("words-frequency")
@@ -199,7 +231,7 @@ const updateWordsFrequencyTables = () => {
  * @param {string} wordsFrequencyObj - The JSON string containing word frequencies.
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
  */
-const populateWordsFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
+function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
     wfo["words_frequency"] = JSON.parse(wordsFrequencyObj)
     wfo["nTotalRows"] = nTotalRows
     updateWordsFrequencyTables()
@@ -213,7 +245,7 @@ const populateWordsFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
  * @param {number} nTotalRows - The total number of lines/rows in the table.
  * @param {object} wordsFrequency - A container element to hold all tables representing word frequencies.
  */
-const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
+function insertCurrentTable(i, iReduced, nTotalRows, wordsFrequency) {
     let currentTableWordsFreq = document.createElement("table")
     currentTableWordsFreq.setAttribute("class", "border-black")
     currentTableWordsFreq.setAttribute("id", `id-table-${i}-nth`)
@@ -248,7 +280,7 @@ const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
  * @param {object} nthOffset - An object containing information about a single offset word, including its row number and word text.
  * @param {number} nTotalRows - The total number of lines/rows in the table.
  */
-const insertCellIntoTRow = (currentTBody, i, ii, nthOffset, nTotalRows) => {
+function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
     let nthRowBody = currentTBody.insertRow()
     nthRowBody.setAttribute("id", `id-table-${i}-row-${ii}-nth`)
     nthRowBody.setAttribute("aria-label", `id-table-${i}-row-${ii}-nth`)
