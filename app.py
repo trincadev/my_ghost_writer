@@ -1,6 +1,4 @@
 import json
-import os
-from dotenv import load_dotenv
 
 from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi import FastAPI
@@ -13,7 +11,6 @@ from my_ghost_writer.constants import ALLOWED_ORIGIN_LIST, DOMAIN, IS_TESTING, L
 from my_ghost_writer.type_hints import RequestTextFrequencyBody
 
 
-load_dotenv()
 fastapi_title = "My Ghost Writer"
 app = FastAPI(title=fastapi_title, version="1.0")
 app_logger.info(f"allowed_origins:{ALLOWED_ORIGIN_LIST}...")
