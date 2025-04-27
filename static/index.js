@@ -170,8 +170,8 @@ const updateWordFrequencyTables = () => {
 
     let _wfo = wfo["word_frequency"]
     let reduced = Object.values(_wfo)
-    let order = getFormDataByKey("form1", "order")
-    let sort = getFormDataByKey("form2", "sort")
+    let order = getFormDataByKey("id-form-order-by", "order")
+    let sort = getFormDataByKey("id-form-sort-by", "sort")
     reduced.sort(dynamicsort(sort, order))
 
     let inputFilter = document.getElementById("filter-words-frequency")
