@@ -2,13 +2,13 @@ import 'dotenv/config'
 import { test, expect } from '@playwright/test';
 import { fileReader, loopOverTablesAndClickOnUrls } from './test-helper'
 
-test(`test: word frequency (short text input)`, async ({ page }) => {
-  const wordFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-word-frequency-1-table0-aria-snapshot.txt`
-  const wordFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-word-frequency-1-table13-aria-snapshot.txt`
+test(`test: words frequency (short text input)`, async ({ page }) => {
+  const wordFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
+  const wordFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table13-aria-snapshot.txt`
   await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
 
-  await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
+  await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();
   let table0 = page.getByRole('table', { name: 'id-table-0-nth' })
   let dataTable0 = await fileReader(wordFreqTable0AriaSnapshot1FilePath)
   let table13 = page.getByRole('table', { name: 'id-table-13-nth' })
@@ -26,7 +26,7 @@ test(`test: word frequency (short text input)`, async ({ page }) => {
   console.log("end!")
 });
 
-test(`test: word frequency (long, multi line text input)`, async ({ page }) => {
+test(`test: words frequency (long, multi line text input)`, async ({ page }) => {
   const testLLMTextFilePath = `${import.meta.dirname}/../../tests/events/llm_generated_story_1.txt`
   await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
@@ -41,7 +41,7 @@ test(`test: word frequency (long, multi line text input)`, async ({ page }) => {
   await fileChooser.setFiles(testLLMTextFilePath);
   await page.waitForTimeout(200)
 
-  await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
+  await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();
   
   console.log("try with a new array of tables/rows...")
   let cellArray2 = [

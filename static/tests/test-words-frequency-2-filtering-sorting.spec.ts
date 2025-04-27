@@ -11,7 +11,7 @@ const expectedInitialCount = 14;
 ].forEach(({ count, filter, testIdx }) => {
     test(`words frequency: filtering, ordering and sorting - ${testIdx}, sort/order ${sortOrder}.`, async ({ page }) => {
         await page.goto(process.env.DOMAIN_PORT ?? "/");
-        await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
+        await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();
         let containerTable = page.getByLabel('words-frequency', { exact: true })
         await page.waitForTimeout(100)
         let initialCount = await containerTable.getByRole("table").count()
@@ -25,6 +25,6 @@ const expectedInitialCount = 14;
         await page.getByRole('button', { name: 'btn-filter-words-frequency' }).click();
         await page.waitForTimeout(100)
         console.log(`words frequency table (${testIdx}, sort/order ${sortOrder}) filtered by '${filter}', checking for assertions...`)
-        await assertTableStap(page, count, sortOrder, testIdx, "test-word-frequency-2-filtering-sorting-snapshots", "read")
+        await assertTableStap(page, count, sortOrder, testIdx, "test-words-frequency-2-filtering-sorting-snapshots", "read")
     })
 });

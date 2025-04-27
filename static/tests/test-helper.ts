@@ -69,7 +69,7 @@ export const assertTableStap = async (page: Page, count: number, sortOrder: stri
     const ariaSnapshot = await fileReader(`${import.meta.dirname}/${subFolderName}/test-${testIdx}-${sortOrder}.txt`)
     expect(containerTablesAriaSnap).toBe(ariaSnapshot)
   } else if (action === "write") {
-    // the automatic aria snapshot test save system doesn't work, we save it manually test-word-frequency-2-filtering-sorting-snapshots
+    // the automatic aria snapshot test save system doesn't work, we save it manually test-words-frequency-2-filtering-sorting-snapshots
     fileWriter(`${import.meta.dirname}/${subFolderName}/test-${testIdx}-${sortOrder}.txt`, containerTablesAriaSnap)
   } else {
     throw Error(`Wrong condition: '${action}'`)

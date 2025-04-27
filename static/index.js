@@ -1,6 +1,6 @@
-const wordsFrequencyTableTitleText = "Word Frequency Table"
+const wordsFrequencyTableTitleText = "Words Frequency Table"
 let wfo = {
-    "word_frequency": {},
+    "words_frequency": {},
     "nTotalRows": null
 }
 
@@ -96,12 +96,12 @@ const setElementCssClass = (elementId, currentClass) => {
 }
 
 /**
- * Fetches word frequency data from the server and populates the words frequency tables.
+ * Fetches words frequency data from the server and populates the words frequency tables.
  * 
  * @async
- * @function getWordFrequency
+ * @function getWordsFrequency
  */
-const getWordFrequency = async () => {
+const getWordsFrequency = async () => {
     let text = document.getElementById("editor")
     // replace repeated newlines to prepare setCaret() use
     text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
@@ -123,9 +123,9 @@ const getWordFrequency = async () => {
         let freq = bodyResponseJson["words_frequency"]
         let nTotalRows = bodyResponseJson["n_total_rows"]
         console.log(`getWordFreq::nTotalRows: '${nTotalRows}'`)
-        populateWordFrequencyTables(freq, bodyResponseJson["n_total_rows"])
+        populateWordsFrequencyTables(freq, bodyResponseJson["n_total_rows"])
     } catch (err) {
-        console.error("getWordFrequency::err:", err, "#")
+        console.error("getWordsFrequency::err:", err, "#")
         setElementCssClass("waiting-for-be", "display-none")
         setElementCssClass("waiting-for-be-error", "display-block")
     }
@@ -162,13 +162,13 @@ function filteredArray(arr, key, value) {
    return newArray;
 }
 
-const updateWordFrequencyTables = () => {
+const updateWordsFrequencyTables = () => {
     let nTotalRows = wfo["nTotalRows"]
     if (nTotalRows === null || nTotalRows < 1) {
         alert("let's get some data before updating the result table...")
     }
 
-    let _wfo = wfo["word_frequency"]
+    let _wfo = wfo["words_frequency"]
     let reduced = Object.values(_wfo)
     let order = getFormDataByKey("id-form-order-by", "order")
     let sort = getFormDataByKey("id-form-sort-by", "sort")
@@ -190,15 +190,15 @@ const updateWordFrequencyTables = () => {
 }
 
 /**
- * Populate the word frequency tables in the UI with data from the provided JSON object.
+ * Populate the words frequency tables in the UI with data from the provided JSON object.
  *
  * @param {string} wordsFrequencyObj - The JSON string containing word frequencies.
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
  */
-const populateWordFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
-    wfo["word_frequency"] = JSON.parse(wordsFrequencyObj)
+const populateWordsFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
+    wfo["words_frequency"] = JSON.parse(wordsFrequencyObj)
     wfo["nTotalRows"] = nTotalRows
-    updateWordFrequencyTables()
+    updateWordsFrequencyTables()
 }
 
 /**

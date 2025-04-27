@@ -38,7 +38,7 @@ def health():
 
 
 @app.post("/words-frequency")
-def get_word_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
+def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     from datetime import datetime
     from nltk import PorterStemmer
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer

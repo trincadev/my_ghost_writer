@@ -3,10 +3,10 @@ import { test } from '@playwright/test';
 import { assertTableStap } from './test-helper'
 
 const count = 14
-test.describe(`word frequency: sorting output with ${14} tables`, () => {
+test.describe(`words frequency: sorting output with ${14} tables`, () => {
     test.beforeEach(async({page}) => {
         await page.goto(process.env.DOMAIN_PORT ?? "/");
-        await page.getByRole('button', { name: 'btn4-getWordFrequency' }).click();
+        await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();
     });
     
     [
@@ -30,8 +30,8 @@ test.describe(`word frequency: sorting output with ${14} tables`, () => {
             await page.waitForTimeout(100)
             console.log(`test${testIdx}, sortOrder:${sortOrder}.`)
             // decomment to manually update the aria snapshot, since the automatic creation and update doesn't work
-            // await assertTableStap(page, count, sortOrder, testIdx, "test-word-frequency-3-sorting-snapshots", "write")
-            await assertTableStap(page, count, sortOrder, testIdx, "test-word-frequency-3-sorting-snapshots", "read")
+            // await assertTableStap(page, count, sortOrder, testIdx, "test-words-frequency-3-sorting-snapshots", "write")
+            await assertTableStap(page, count, sortOrder, testIdx, "test-words-frequency-3-sorting-snapshots", "read")
         })
     });
 

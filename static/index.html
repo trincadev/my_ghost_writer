@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Word Frequency Statistics</title>
+        <title>Words Frequency Statistics</title>
         <link rel="stylesheet" href="/static/index.css">
         <script src="/static/index.js"></script>
     </head>
     <body>
-        <h1 class="h1">Word Frequency Statistics in text</h1>
+        <h1 class="h1">Words Frequency Statistics in text</h1>
         <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
         <div class="margin10px">
-            <button id="btn4-getWordFrequency" aria-label="btn4-getWordFrequency" onclick="getWordFrequency()" type="submit">get words frequency</button>
+            <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit">get words frequency</button>
             <label for="id-input-file-selector" class="margin5px-left">Text file selector</label>
             <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" />
         </div>
@@ -25,9 +25,9 @@
             <div id="id-col2-words-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
                 <div class="display-flex">
                     <div class="width-50perc">
-                        <h4 id="id-words-frequency-table-title">Word Frequency Table</h4>
+                        <h4 id="id-words-frequency-table-title">Words Frequency Table</h4>
                         <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" />
-                        <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordFrequencyTables()">Submit</button>
+                        <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordsFrequencyTables()">Submit</button>
                     </div>
                     <div class="display-flex width-50perc margin2px-bottom">
                         <form id="id-form-sort-by" aria-label="id-form-sort-by">
