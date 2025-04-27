@@ -29,6 +29,7 @@ test.describe(`word frequency: sorting output with ${14} tables`, () => {
             await page.getByRole('button', { name: 'btn-filter-words-frequency' }).click();
             await page.waitForTimeout(100)
             console.log(`test${testIdx}, sortOrder:${sortOrder}.`)
+            // decomment to manually update the aria snapshot, since the automatic creation and update doesn't work
             // await assertTableStap(page, count, sortOrder, testIdx, "test-word-frequency-3-sorting-snapshots", "write")
             await assertTableStap(page, count, sortOrder, testIdx, "test-word-frequency-3-sorting-snapshots", "read")
         })
