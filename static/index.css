@@ -1,22 +1,22 @@
-h1 {
+#id-title.h1 {
     font-size: 24px;
     margin-left: 10px;
     margin-right: 10px;
     margin-block-start: 5px;
     margin-block-end: 5px;
 }
-h4 {
+#id-col1-editor > h4,#id-col2-words-frequency > div > div > h4 {
     font-size: 18px;
     margin-block-start: 2px;
     margin-block-end: 2px;
 }
-caption {
+#words-frequency > table > caption {
     margin-left: 12px;
     margin-top: 10px;
     text-align: left;
     font-weight: bold;
 }
-td {
+#words-frequency > table > thead > tr > td, #words-frequency > table > tbody > tr > td {
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -88,6 +88,9 @@ td {
 }
 .max-height-80vh {
     max-height: 80vh;
+}
+.max-height-80perc {
+    max-height: 80%;
 }
 .overflow-hidden {
     /* needed for scroll bar*/
