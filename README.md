@@ -22,9 +22,15 @@ A simple helper for writers.
 
 ## Getting Started
 
-1. Clone the repository using `git clone`
-2. Install the project dependencies using `poetry install`
-3. Run the application using `uvicorn main:app --host 0.0.0.0 --port 7860`
+In a linux/WSL environment (I didn't tried with MacOS or Windows):
+
+1. Clone the repository using `git clone https://github.com/trincadev/my_ghost_writer`, `cd my_ghost_writer`
+2. Create a [virtualenv](https://virtualenv.pypa.io/en/latest/user_guide.html) and install the project dependencies using an existing python version with
+
+   * [poetry](https://python-poetry.org/) (`poetry env use 3.12.10`, `poetry install`, `eval $(poetry env activate)`)
+   * `python -m venv .venv`, `source .venv/bin/activate`, `pip install -r requirements.txt` (and the other requirements files if you need also the webserver and/or the test environment)
+
+3. Run the application using `python app.py`
 
 ## Contributing
 
