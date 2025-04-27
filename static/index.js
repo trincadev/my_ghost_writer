@@ -3,6 +3,10 @@ let wfo = {
     "words_frequency": {},
     "nTotalRows": null
 }
+const editorFieldLabel = "editor"
+const remoteWebServer = ""
+const underlinedPrimary = "underlinedBlue"
+const underlinedClicked = "underlinedDarkViolet"
 
 const getFormDataByKey = (formId, key) => {
     let formElement = document.getElementById(formId)
@@ -19,7 +23,7 @@ const getFormDataByKey = (formId, key) => {
  * @param {none}
  */
 const previewFile = () => {
-    const editor = document.getElementById("editor");
+    const editor = document.getElementById(editorFieldLabel);
     const [file] = document.querySelector("input[type=file]").files;
     const reader = new FileReader();
     reader.addEventListener("load", () => {
@@ -63,7 +67,7 @@ const scrollToGivenPoint = (editorElement, line, nTotalRows, negativeOffsetPerc=
  * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
  */
 const setCaret = (line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) => {
-    let editorElement = document.getElementById("editor");
+    let editorElement = document.getElementById(editorFieldLabel);
     let validChildNodes = []
     // use a for loop because of better performance
     for (let i=0; i < editorElement.childNodes.length; i++) {
@@ -102,7 +106,7 @@ const setElementCssClass = (elementId, currentClass) => {
  * @function getWordsFrequency
  */
 const getWordsFrequency = async () => {
-    let text = document.getElementById("editor")
+    let text = document.getElementById(editorFieldLabel)
     // replace repeated newlines to prepare setCaret() use
     text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
     let bodyRequest = {"text": text.innerText}
@@ -113,7 +117,7 @@ const getWordsFrequency = async () => {
     let wordsFrequency = document.getElementById("words-frequency")
     wordsFrequency.innerHTML = ""
     try {
-        let response = await fetch("/words-frequency", {
+        let response = await fetch(`${remoteWebServer}/words-frequency`, {
             method: "POST",
             body: JSON.stringify(bodyRequest)
         })
@@ -256,13 +260,13 @@ const insertCellIntoTRow = (currentTBody, i, ii, nthOffset, nTotalRows) => {
         setCaret(nRow, offsetWord, nTotalRows)
         try {
             let oldClassElement = document.getElementsByClassName('underlinedDarkViolet')
-            oldClassElement[0].className = "underlinedBlue"
+            oldClassElement[0].className = underlinedPrimary
         } catch {
             console.log("first click...")
         }
-        currentUrl.className = "underlinedDarkViolet"
+        currentUrl.className = underlinedClicked
     })
-    currentUrl.className = "underlinedBlue"
+    currentUrl.className = underlinedPrimary
     currentUrl.innerText = nthOffset["word"]
     currentCell.appendChild(currentUrl)
     nthRowBody.insertCell().textContent = nthOffset["n_row"]

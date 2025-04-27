@@ -1,25 +1,3 @@
-h1 {
-    font-size: 24px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-block-start: 5px;
-    margin-block-end: 5px;
-}
-h4 {
-    font-size: 18px;
-    margin-block-start: 2px;
-    margin-block-end: 2px;
-}
-caption {
-    margin-left: 12px;
-    margin-top: 10px;
-    text-align: left;
-    font-weight: bold;
-}
-td {
-    padding-left: 10px;
-    padding-right: 10px;
-}
 .display-none {
     display: none;
 }
@@ -31,12 +9,12 @@ td {
     text-decoration-color: darkturquoise;
     text-decoration-style: wavy;
 }
-.underlinedBlue {
-    color: blue;
+.underlinedYellow {
+    color: yellow;
     text-decoration: underline;
-    text-decoration-color: blue;
+    text-decoration-color: yellow;
 }
-.underlinedDarkViolet {
+.underlinedViolet {
     color: violet;
     text-decoration: underline;
     text-decoration-color: violet;
@@ -109,17 +87,11 @@ td {
 .id-orientation-message {
     display: none;
 }
-@media (prefers-color-scheme: dark) {
-    .underlinedBlue {
-        color: yellow;
-        text-decoration: underline;
-        text-decoration-color: yellow;
-    }
-    .underlinedDarkViolet {
-        color: violet;
-        text-decoration: underline;
-        text-decoration-color: violet;
-    }
+.background-color-verydarkgrey {
+    background-color: #404040;
+}
+.font-size-12px {
+    font-size: small;
 }
 @media screen and (max-width: 1024px) and (orientation: portrait) {
     .id-orientation-message {
