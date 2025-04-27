@@ -3,16 +3,16 @@ import { test, expect } from '@playwright/test';
 import { fileReader, loopOverTablesAndClickOnUrls } from './test-helper'
 
 test(`test: words frequency (short text input)`, async ({ page }) => {
-  const wordFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
-  const wordFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table13-aria-snapshot.txt`
+  const WordsFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
+  const WordsFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table13-aria-snapshot.txt`
   await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
 
   await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();
   let table0 = page.getByRole('table', { name: 'id-table-0-nth' })
-  let dataTable0 = await fileReader(wordFreqTable0AriaSnapshot1FilePath)
+  let dataTable0 = await fileReader(WordsFreqTable0AriaSnapshot1FilePath)
   let table13 = page.getByRole('table', { name: 'id-table-13-nth' })
-  let dataTableLast = await fileReader(wordFreqTable13AriaSnapshot1FilePath)
+  let dataTableLast = await fileReader(WordsFreqTable13AriaSnapshot1FilePath)
   await expect(table0).toMatchAriaSnapshot(dataTable0)
   await expect(table13).toMatchAriaSnapshot(dataTableLast)
 

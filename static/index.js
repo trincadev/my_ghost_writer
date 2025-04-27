@@ -122,7 +122,7 @@ const getWordsFrequency = async () => {
         setElementCssClass("waiting-for-be", "display-none")
         let freq = bodyResponseJson["words_frequency"]
         let nTotalRows = bodyResponseJson["n_total_rows"]
-        console.log(`getWordFreq::nTotalRows: '${nTotalRows}'`)
+        console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
         populateWordsFrequencyTables(freq, bodyResponseJson["n_total_rows"])
     } catch (err) {
         console.error("getWordsFrequency::err:", err, "#")
@@ -210,12 +210,12 @@ const populateWordsFrequencyTables = (wordsFrequencyObj, nTotalRows) => {
  * @param {object} wordsFrequency - A container element to hold all tables representing word frequencies.
  */
 const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
-    let currentTableWordFreq = document.createElement("table")
-    currentTableWordFreq.setAttribute("class", "border-black")
-    currentTableWordFreq.setAttribute("id", `id-table-${i}-nth`)
-    currentTableWordFreq.setAttribute("aria-label", `id-table-${i}-nth`)
+    let currentTableWordsFreq = document.createElement("table")
+    currentTableWordsFreq.setAttribute("class", "border-black")
+    currentTableWordsFreq.setAttribute("id", `id-table-${i}-nth`)
+    currentTableWordsFreq.setAttribute("aria-label", `id-table-${i}-nth`)
 
-    let currentCaption = currentTableWordFreq.createCaption()
+    let currentCaption = currentTableWordsFreq.createCaption()
     currentCaption.setAttribute("aria-label", `id-table-${i}-caption`)
     currentCaption.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
 
@@ -230,9 +230,9 @@ const insertCurrentTable = (i, iReduced, nTotalRows, wordsFrequency) => {
     for (let ii = 0; ii < offsetsArray.length; ii++) {
         insertCellIntoTRow(currentTBody, i, ii, offsetsArray[ii], nTotalRows)
     }
-    currentTableWordFreq.appendChild(currentTHead)
-    currentTableWordFreq.appendChild(currentTBody)
-    wordsFrequency.appendChild(currentTableWordFreq)
+    currentTableWordsFreq.appendChild(currentTHead)
+    currentTableWordsFreq.appendChild(currentTBody)
+    wordsFrequency.appendChild(currentTableWordsFreq)
 }
 
 /**
