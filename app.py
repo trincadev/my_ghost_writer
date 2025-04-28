@@ -40,9 +40,7 @@ def health():
 @app.post("/words-frequency")
 def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     from datetime import datetime
-    from nltk import PorterStemmer
-    from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
-    from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
+    from my_ghost_writer.text_parsers import text_stemming
 
     t0 = datetime.now()
     app_logger.info(f"body type: {type(body)}.")
@@ -51,14 +49,7 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     text = body["text"]
     app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}.")
     app_logger.debug(f"text from request: {text} ...")
-    ps = PorterStemmer()
-    text_split_newline = text.split("\n")
-    row_words_tokens = []
-    row_offsets_tokens = []
-    for row in text_split_newline:
-        row_words_tokens.append(wordpunct_tokenize(row))
-        row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
-    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps)
+    text_split_newline, words_stems_dict = text_stemming(text)
     dumped = json.dumps(words_stems_dict)
     app_logger.debug(f"dumped: {dumped} ...")
     t1 = datetime.now()

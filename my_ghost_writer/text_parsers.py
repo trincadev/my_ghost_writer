@@ -20,6 +20,22 @@ def clean_string(s: str) -> str:
     return cleaned_word.translate(str.maketrans("", "", "\n\r"))
 
 
+def text_stemming(text):
+    from nltk import PorterStemmer
+    from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
+    from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
+    
+    ps = PorterStemmer()
+    text_split_newline = text.split("\n")
+    row_words_tokens = []
+    row_offsets_tokens = []
+    for row in text_split_newline:
+        row_words_tokens.append(wordpunct_tokenize(row))
+        row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
+    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps)
+    return text_split_newline,words_stems_dict
+
+
 def get_words_tokens_and_indexes(
         words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, min_len_words=3
     ) -> dict:
