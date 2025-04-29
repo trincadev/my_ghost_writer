@@ -10,8 +10,8 @@ from tests import EVENTS_FOLDER
 class TestTextParsers(unittest.TestCase):
     def setUp(self):
         with open(EVENTS_FOLDER / "llm_generated_story_1.txt", "r") as src_text:
-            text = src_text.read()
-            self.text_split_newline = text.split("\n")
+            self.original_text = src_text.read()
+            self.text_split_newline = self.original_text.split("\n")
 
             self.row_words_tokens = []
             self.row_offsets_tokens = []
@@ -48,13 +48,21 @@ class TestTextParsers(unittest.TestCase):
             expected_cleaned_words = json.load(src_json)
         self.assertDictEqual(output, expected_cleaned_words)
 
-    def test_stemming(self):
+    def test_get_words_tokens_and_indexes(self):
         from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
         words_stems_dict = get_words_tokens_and_indexes(self.row_words_tokens, self.row_offsets_tokens, self.ps)
 
         with open(EVENTS_FOLDER / "stem_words.json", "r") as dst_json:
             expected_words_stems_dict = json.load(dst_json)
         self.assertDictEqual(words_stems_dict, expected_words_stems_dict)
+
+    def test_text_stemming(self):
+        from my_ghost_writer.text_parsers import text_stemming
+        n_total_rows, words_stems_dict = text_stemming(self.original_text)
+        self.assertEqual(n_total_rows, len(self.text_split_newline))
+        with open(EVENTS_FOLDER / "stem_words.json", "r") as dst_json:
+            expected_words_stems_dict = json.load(dst_json)
+        self.assertDictEqual(words_stems_dict, expected_words_stems_dict)        
 
 
 if __name__ == "__main__":
