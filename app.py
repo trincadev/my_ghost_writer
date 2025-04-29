@@ -49,12 +49,11 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     text = body["text"]
     app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}.")
     app_logger.debug(f"text from request: {text} ...")
-    text_split_newline, words_stems_dict = text_stemming(text)
+    n_total_rows, words_stems_dict = text_stemming(text)
     dumped = json.dumps(words_stems_dict)
     app_logger.debug(f"dumped: {dumped} ...")
     t1 = datetime.now()
     duration = (t1 - t0).total_seconds()
-    n_total_rows = len(text_split_newline)
     content_response = {'words_frequency': dumped, "duration": f"{duration:.3f}", "n_total_rows": n_total_rows}
     app_logger.info(f"content_response: {content_response["duration"]}, {content_response["n_total_rows"]} ...")
     app_logger.debug(f"content_response: {content_response} ...")

@@ -20,7 +20,18 @@ def clean_string(s: str) -> str:
     return cleaned_word.translate(str.maketrans("", "", "\n\r"))
 
 
-def text_stemming(text):
+def text_stemming(text) -> tuple[int, dict]:
+    """
+    Applies Porter Stemmer algorithm to reduce words in a given text to their base form,
+    then it uses WordPunctTokenizer() to produce a dict of words frequency with, for
+    every recognized base form, a list of these repeated words with their position.
+
+    Args:
+        text (str): Input string containing the text to be stemmed.
+
+    Returns:
+        tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the words frequency dict
+    """
     from nltk import PorterStemmer
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
     from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
@@ -33,7 +44,8 @@ def text_stemming(text):
         row_words_tokens.append(wordpunct_tokenize(row))
         row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
     words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps)
-    return text_split_newline,words_stems_dict
+    n_total_rows = len(text_split_newline)
+    return n_total_rows, words_stems_dict
 
 
 def get_words_tokens_and_indexes(
