@@ -26,7 +26,7 @@
             <div id="id-col2-words-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
                 <div class="display-flex">
                     <div class="width-50perc">
-                        <h4 id="id-words-frequency-table-title">Words Frequency Table</h4>
+                        <h4 id="id-words-frequency-table-title" aria-label="id-words-frequency-table-title">Words Frequency Table</h4>
                         <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" />
                         <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordsFrequencyTables()">Submit</button>
                     </div>
@@ -49,7 +49,7 @@
                                     <input type="radio" id="order-by-asc" aria-label="order-by-asc" name="order" value="asc" />
                                     <label for="order-by-asc" id="order-by-asc-label" aria-label="order-by-asc-label">Ascending</label>
                                     <input type="radio" id="order-by-desc" aria-label="order-by-desc" name="order" value="desc" checked/>
-                                    <label for="order-desc" id="order-by-desc-label" aria-label="order-by-desc-label">Descending</label>
+                                    <label for="order-by-desc" id="order-by-desc-label" aria-label="order-by-desc-label">Descending</label>
                                 </div>
                             </fieldset>
                         </form>
