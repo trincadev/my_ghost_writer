@@ -82,7 +82,7 @@ export const assertTableStap = async (page: Page, count: number, sortOrder: stri
 }
 
 export async function testWithLoop(page: Page, testLLMTextFilePath: string, cellArray2: CellArray[], assertTitleString: string) {
-  await page.goto(process.env.DOMAIN_PORT ?? "/");
+  // await page.goto(process.env.DOMAIN_PORT ?? "/");
   console.log(page.url())
 
   console.log("Let's try with a much longer, multiline text while scrolling the conteditable div on click")

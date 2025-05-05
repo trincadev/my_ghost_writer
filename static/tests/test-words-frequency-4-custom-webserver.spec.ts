@@ -2,14 +2,17 @@ import 'dotenv/config'
 import {test, expect} from '@playwright/test';
 import {fileReader, loopOverTablesAndClickOnUrls, testWithLoop} from './test-helper'
 
-test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PORT}:`, () => {
-  test.beforeEach(`only open the page...`, async ({ page }) => {
+test.describe(`Words Frequency - custom webserver:`, () => {
+  test.beforeEach(`open the page and choose a custom endpoint url...`, async ({ page }) => {
     await page.goto(process.env.DOMAIN_PORT ?? "/");
+    let customWebserverUrl = process.env.CUSTOM_WEB_SERVER_URL ?? "/";
+    await page.getByRole('checkbox', { name: 'id-input-webserver-checkbox' }).check();
+    await page.getByRole('textbox', { name: 'id-input-webserver' }).fill(`${customWebserverUrl}///`);
+    await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();    
   })
   test(`short, mono line text input`, async ({ page }) => {
     const WordsFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
     const WordsFreqTable13AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table13-aria-snapshot.txt`
-    await page.goto(process.env.DOMAIN_PORT ?? "/");
     console.log(page.url())
 
     await page.getByRole('button', { name: 'btn4-get-words-frequency' }).click();

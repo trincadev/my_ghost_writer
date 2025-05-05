@@ -2,9 +2,10 @@ import 'dotenv/config'
 import {test, expect} from '@playwright/test';
 import {fileReader, loopOverTablesAndClickOnUrls, testWithLoop} from './test-helper'
 
-test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PORT}:`, () => {
-  test.beforeEach(`only open the page...`, async ({ page }) => {
+test.describe(`Words Frequency - embedded stemmer:`, () => {
+  test.beforeEach(`open the page and choose the embedded...`, async ({ page }) => {
     await page.goto(process.env.DOMAIN_PORT ?? "/");
+    await page.getByRole('checkbox', { name: 'id-stemmer-embedded' }).check();
   })
   test(`short, mono line text input`, async ({ page }) => {
     const WordsFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
@@ -48,8 +49,8 @@ test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PO
       { table: 1, row: 1, word: "upon" }, { table: 1, row: 2, word: "upon" }, { table: 1, row: 3, word: "upon" },
       { table: 2, row: 0, word: "time" }, { table: 2, row: 1, word: "time" }, { table: 2, row: 2, word: "time" },
       { table: 0, row: 1, word: "Once" }, { table: 8, row: 1, word: "young" }, { table: 8, row: 4, word: "young" },
-      { table: 737, row: 1, word: "Isst" }, { table: 737, row: 3, word: "Isst" }
+      { table: 739, row: 1, word: "Isst" }, { table: 739, row: 3, word: "Isst" }
     ]
-    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Table (749 word groups, 98 rows)");
+    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Table (751 word groups, 98 rows)");
   });  
 })
