@@ -4,9 +4,298 @@ let wfo = {
     "nTotalRows": null
 }
 const editorFieldLabel = "editor"
-const remoteWebServer = ""
 const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
+
+const stemmer = (function(){
+    let step2list = {
+            "ational" : "ate",
+            "tional" : "tion",
+            "enci" : "ence",
+            "anci" : "ance",
+            "izer" : "ize",
+            "bli" : "ble",
+            "alli" : "al",
+            "entli" : "ent",
+            "eli" : "e",
+            "ousli" : "ous",
+            "ization" : "ize",
+            "ation" : "ate",
+            "ator" : "ate",
+            "alism" : "al",
+            "iveness" : "ive",
+            "fulness" : "ful",
+            "ousness" : "ous",
+            "aliti" : "al",
+            "iviti" : "ive",
+            "biliti" : "ble",
+            "logi" : "log"
+        },
+
+        step3list = {
+            "icate" : "ic",
+            "ative" : "",
+            "alize" : "al",
+            "iciti" : "ic",
+            "ical" : "ic",
+            "ful" : "",
+            "ness" : ""
+        },
+
+        c = "[^aeiou]",          // consonant
+        v = "[aeiouy]",          // vowel
+        C = c + "[^aeiouy]*",    // consonant sequence
+        V = v + "[aeiou]*",      // vowel sequence
+
+        mgr0 = "^(" + C + ")?" + V + C,               // [C]VC... is m>0
+        meq1 = "^(" + C + ")?" + V + C + "(" + V + ")?$",  // [C]VC[V] is m=1
+        mgr1 = "^(" + C + ")?" + V + C + V + C,       // [C]VCVC... is m>1
+        s_v = "^(" + C + ")?" + v;                   // vowel in stem
+
+    return function (w) {
+        let stem,
+            suffix,
+            firstch,
+            re,
+            re2,
+            re3,
+            re4,
+            origword = w;
+
+        if (w.length < 3) { return w; }
+
+        firstch = w.substr(0,1);
+        if (firstch == "y") {
+            w = firstch.toUpperCase() + w.substr(1);
+        }
+
+        // Step 1a
+        re = /^(.+?)(ss|i)es$/;
+        re2 = /^(.+?)([^s])s$/;
+
+        if (re.test(w)) { w = w.replace(re,"$1$2"); }
+        else if (re2.test(w)) {	w = w.replace(re2,"$1$2"); }
+
+        // Step 1b
+        re = /^(.+?)eed$/;
+        re2 = /^(.+?)(ed|ing)$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            re = new RegExp(mgr0);
+            if (re.test(fp[1])) {
+                re = /.$/;
+                w = w.replace(re,"");
+            }
+        } else if (re2.test(w)) {
+            let fp = re2.exec(w);
+            stem = fp[1];
+            re2 = new RegExp(s_v);
+            if (re2.test(stem)) {
+                w = stem;
+                re2 = /(at|bl|iz)$/;
+                re3 = new RegExp("([^aeiouylsz])\\1$");
+                re4 = new RegExp("^" + C + v + "[^aeiouwxy]$");
+                if (re2.test(w)) {	w = w + "e"; }
+                else if (re3.test(w)) { re = /.$/; w = w.replace(re,""); }
+                else if (re4.test(w)) { w = w + "e"; }
+            }
+        }
+
+        // Step 1c
+        re = /^(.+?)y$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            stem = fp[1];
+            re = new RegExp(s_v);
+            if (re.test(stem)) { w = stem + "i"; }
+        }
+
+        // Step 2
+        re = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            stem = fp[1];
+            suffix = fp[2];
+            re = new RegExp(mgr0);
+            if (re.test(stem)) {
+                w = stem + step2list[suffix];
+            }
+        }
+
+        // Step 3
+        re = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            stem = fp[1];
+            suffix = fp[2];
+            re = new RegExp(mgr0);
+            if (re.test(stem)) {
+                w = stem + step3list[suffix];
+            }
+        }
+
+        // Step 4
+        re = /^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/;
+        re2 = /^(.+?)(s|t)(ion)$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            stem = fp[1];
+            re = new RegExp(mgr1);
+            if (re.test(stem)) {
+                w = stem;
+            }
+        } else if (re2.test(w)) {
+            let fp = re2.exec(w);
+            stem = fp[1] + fp[2];
+            re2 = new RegExp(mgr1);
+            if (re2.test(stem)) {
+                w = stem;
+            }
+        }
+
+        // Step 5
+        re = /^(.+?)e$/;
+        if (re.test(w)) {
+            let fp = re.exec(w);
+            stem = fp[1];
+            re = new RegExp(mgr1);
+            re2 = new RegExp(meq1);
+            re3 = new RegExp("^" + C + v + "[^aeiouwxy]$");
+            if (re.test(stem) || (re2.test(stem) && !(re3.test(stem)))) {
+                w = stem;
+            }
+        }
+
+        re = /ll$/;
+        re2 = new RegExp(mgr1);
+        if (re.test(w) && re2.test(w)) {
+            re = /.$/;
+            w = w.replace(re,"");
+        }
+
+        // and turn initial Y back to y
+        if (firstch == "y") {
+            w = firstch.toLowerCase() + w.substr(1);
+        }
+
+        return w;
+    }
+})();
+function filterElementsFromList (inputArray,  filterWhitespaces = false, filterArgs=["", " "]) {
+    if (filterWhitespaces) {
+        inputArray = inputArray.filter(e => String(e).trim());
+    }
+    return inputArray.filter((x) => !filterArgs.includes(x));
+}
+function customTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
+    const results = s.split(pattern)
+    return filterElementsFromList(results, filterWhitespaces)
+}
+
+/**
+ * Applies Porter Stemmer algorithm to reduce words in a given text to their base form,
+ * then produces a dictionary of word frequencies with, for every recognized base form,
+ * a list of these repeated words with their position.
+ *
+ * @param {string} text - Input string containing the text to be stemmed.
+ * @returns {Object} - An object containing the number of processed rows and the words frequency dictionary.
+ */
+function textStemming(text) {
+    const textSplitNewline = text.split('\n');
+    const rowWordsTokens = [];
+    const rowOffsetsTokens = [];
+
+    textSplitNewline.forEach((row, rowIndex) => {
+        const tokens = customTokenize(row);
+        const offsets = getOffsets(row, tokens);
+        rowWordsTokens.push(tokens);
+        rowOffsetsTokens.push(offsets);
+    });
+
+    const wordsStemsDict = getWordsTokensAndIndexes(rowWordsTokens, rowOffsetsTokens);
+    const nTotalRows = textSplitNewline.length;
+
+    return { nTotalRows, wordsStemsDict };
+}
+
+/**
+ * Get the words tokens and their indexes in the text.
+ *
+ * @param {Array<Array<string>>} wordsTokensList - List of words tokens.
+ * @param {Array<Array<Object>>} offsetsTokensList - List of offsets for each token.
+ * @param {number} [minLenWords=3] - Minimum length of words to include.
+ * @returns {Object} - Dictionary with stemmed words as keys and a list of dictionaries
+ *                     containing the original word and its offsets as values.
+ */
+function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, minLenWords = 3) {
+    const wordsStemsDict = {};
+
+    wordsTokensList.forEach((wordsTokens, nRow) => {
+        wordsTokens.forEach((word, index) => {
+            const cleanedWord = cleanString(word);
+            if (cleanedWord.length < minLenWords) return;
+
+            // const stem = ps.stem(cleanedWord);
+            const stem = stemmer(cleanedWord);
+            if (!wordsStemsDict[stem]) {
+                wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
+            }
+
+            const offsets = offsetsTokensList[nRow][index];
+            updateStemsList(wordsStemsDict[stem], word, offsets, nRow);
+        });
+    });
+
+    return wordsStemsDict;
+}
+
+/**
+ * Update the stems list with the new stem and its count.
+ *
+ * @param {Object} currentStemObj - Object containing the current stem count and list of words.
+ * @param {string} word - The word to stem.
+ * @param {Object} offsets - Object containing the start and end offsets of the word.
+ * @param {number} nRow - The row number in the original text.
+ */
+function updateStemsList(currentStemObj, word, offsets, nRow) {
+    currentStemObj.count += 1;
+    currentStemObj.offsets_array.push({
+        word,
+        offsets: [offsets.start, offsets.end], // Convert offsets to an array format
+        n_row: nRow
+    });
+}
+
+/**
+ * Clean a given string by removing punctuation and converting it to lowercase.
+ *
+ * @param {string} s - The string to clean.
+ * @returns {string} - The cleaned string.
+ */
+function cleanString(s) {
+    return s.replace(/[^\w\s]|_/g, '').replace(/\s+/g, '').toLowerCase();
+}
+
+/**
+ * Get the offsets of each token in the original text.
+ *
+ * @param {string} text - The original text.
+ * @param {Array<string>} tokens - The tokens extracted from the text.
+ * @returns {Array<Object>} - Array of objects containing the start and end offsets of each token.
+ */
+function getOffsets(text, tokens) {
+    const offsets = [];
+    let currentIndex = 0;
+
+    tokens.forEach(token => {
+        const start = text.indexOf(token, currentIndex);
+        const end = start + token.length;
+        offsets.push({ start, end });
+        currentIndex = end;
+    });
+
+    return offsets;
+}
 
 /**
  * Retrieves the value of a form field by its key from a FormData object.
@@ -106,6 +395,15 @@ const setElementCssClass = (elementId, currentClass) => {
     spanWaitingFor.setAttribute("class", currentClass)
 }
 
+function parseWebserverDomain () {
+    const remoteWebServer = document.getElementById("id-input-webserver")
+    console.log("remoteWebServer", remoteWebServer, "#")
+    const remoteWebServerValue = remoteWebServer.value || "http://localhost:7860"
+    console.log("remoteWebServerValue:", remoteWebServerValue, "#")
+    const remoteWebServerDomain = remoteWebServerValue.trim().replace(/\/$/, '')
+    return `${remoteWebServerDomain}/words-frequency`
+}
+
 /**
  * Fetches words frequency data from the server and populates the words frequency tables.
  * 
@@ -123,22 +421,46 @@ async function getWordsFrequency() {
     wordsFrequencyTableTitleEl.innerText = wordsFrequencyTableTitleText
     let wordsFrequency = document.getElementById("words-frequency")
     wordsFrequency.innerHTML = ""
-    try {
-        let response = await fetch(`${remoteWebServer}/words-frequency`, {
-            method: "POST",
-            body: JSON.stringify(bodyRequest)
-        })
-        console.assert(response.status, 200)
-        let bodyResponseJson = await response.json()
-        setElementCssClass("waiting-for-be", "display-none")
-        let freq = bodyResponseJson["words_frequency"]
-        let nTotalRows = bodyResponseJson["n_total_rows"]
-        console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
-        populateWordsFrequencyTables(freq, bodyResponseJson["n_total_rows"])
-    } catch (err) {
-        console.error("getWordsFrequency::err:", err, "#")
-        setElementCssClass("waiting-for-be", "display-none")
-        setElementCssClass("waiting-for-be-error", "display-block")
+    const useEmbeddedStemmer = document.getElementById('id-stemmer-embedded')
+    const useEmbeddedStemmerValue = useEmbeddedStemmer.checked || false
+    console.log("useEmbeddedStemmer", useEmbeddedStemmer, ", useEmbeddedStemmerValue:", useEmbeddedStemmerValue, "#")
+    if (useEmbeddedStemmerValue) {
+        console.log("useEmbeddedStemmer...")
+        try {
+            const bodyResponseJson = textStemming(text.innerText)
+            setElementCssClass("waiting-for-be", "display-none")
+            let freq = bodyResponseJson["wordsStemsDict"]
+            let nTotalRows = bodyResponseJson["nTotalRows"]
+            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
+            populateWordsFrequencyTables(freq, nTotalRows)
+        } catch (err) {
+            console.log("bodyResponseJson", typeof bodyResponseJson, ", keys:", bodyResponseJson.keys(), "#")
+            console.error("getWordsFrequency::err on useEmbeddedStemmer:", err, "#")
+            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClass("waiting-for-be-error", "display-block")
+
+        }
+    } else {
+        console.log("else, use the default webserver...")
+        const wordsFrequencyURL = parseWebserverDomain()
+        try {
+            let response = await fetch(wordsFrequencyURL, {
+                method: "POST",
+                body: JSON.stringify(bodyRequest)
+            })
+            console.assert(response.status, 200)
+            let bodyResponseJson = await response.json()
+            setElementCssClass("waiting-for-be", "display-none")
+            let freq = bodyResponseJson["words_frequency"]
+            let nTotalRows = bodyResponseJson["n_total_rows"]
+            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
+            populateWordsFrequencyTables(freq, nTotalRows)
+        } catch (err) {
+            console.error("getWordsFrequency::err on webserver request/response:", err, "#")
+            console.log(`wordsFrequencyURL:`, typeof wordsFrequency, "=>", wordsFrequencyURL, "#")
+            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClass("waiting-for-be-error", "display-block")
+        }
     }
 }
 
@@ -232,7 +554,10 @@ async function updateWordsFrequencyTables() {
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
  */
 function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
-    wfo["words_frequency"] = JSON.parse(wordsFrequencyObj)
+    wfo["words_frequency"] = wordsFrequencyObj
+    if (typeof wordsFrequencyObj === "string") {
+        wfo["words_frequency"] = JSON.parse(wordsFrequencyObj)
+    }
     wfo["nTotalRows"] = nTotalRows
     updateWordsFrequencyTables()
 }
