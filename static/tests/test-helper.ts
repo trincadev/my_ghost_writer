@@ -15,6 +15,11 @@ export interface ArrayTables {
   array: CurrentTableContent[] 
 }
 export type role = "alert"|"alertdialog"|"application"|"article"|"banner"|"blockquote"|"button"|"caption"|"cell"|"checkbox"|"code"|"columnheader"|"combobox"|"complementary"|"contentinfo"|"definition"|"deletion"|"dialog"|"directory"|"document"|"emphasis"|"feed"|"figure"|"form"|"generic"|"grid"|"gridcell"|"group"|"heading"|"img"|"insertion"|"link"|"list"|"listbox"|"listitem"|"log"|"main"|"marquee"|"math"|"meter"|"menu"|"menubar"|"menuitem"|"menuitemcheckbox"|"menuitemradio"|"navigation"|"none"|"note"|"option"|"paragraph"|"presentation"|"progressbar"|"radio"|"radiogroup"|"region"|"row"|"rowgroup"|"rowheader"|"scrollbar"|"search"|"searchbox"|"separator"|"slider"|"spinbutton"|"status"|"strong"|"subscript"|"superscript"|"switch"|"tab"|"table"|"tablist"|"tabpanel"|"term"|"textbox"|"time"|"timer"|"toolbar"|"tooltip"|"tree"|"treegrid"|"treeitem"
+interface CellArray {
+  table: number;
+  row: number;
+  word: string;
+}
 
 export const fileReader = async (filePath: string): Promise<string> => {
     try {
@@ -74,4 +79,35 @@ export const assertTableStap = async (page: Page, count: number, sortOrder: stri
   } else {
     throw Error(`Wrong condition: '${action}'`)
   }
+}
+
+export async function testWithLoop(page: Page, testLLMTextFilePath: string, cellArray2: CellArray[], assertTitleString: string) {
+  await page.goto(process.env.DOMAIN_PORT ?? "/");
+  console.log(page.url())
+
+  console.log("Let's try with a much longer, multiline text while scrolling the conteditable div on click")
+  console.log("first upload a new, longer, multiline text then populate again the words frequency tables and re-try again the word links")
+
+  const fileChooserPromise = page.waitForEvent('filechooser');
+  await page.getByRole('button', {name: 'id-input-file-selector'}).click();
+  await page.waitForTimeout(200)
+  const fileChooser = await fileChooserPromise;
+  await fileChooser.setFiles(testLLMTextFilePath);
+  await page.waitForTimeout(200)
+
+  await page.getByRole('button', {name: 'btn4-get-words-frequency'}).click();
+
+  const wordsFreqTableTitle = page.getByLabel('id-words-frequency-table-title')
+  console.log("assertTitleString:", assertTitleString, "#")
+  await expect(wordsFreqTableTitle).toContainText(assertTitleString);
+  const editor = page.getByLabel("editor");
+  // avoid snapshot differences due to spellcheck
+  editor.evaluate((el: HTMLDivElement) => el.setAttribute("spellcheck", "false"))
+  await page.waitForTimeout(100)
+
+  console.log("try with a new array of tables/rows...")
+  for (let idx in cellArray2) {
+    await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100)
+  }
+  console.log("end!")
 }
