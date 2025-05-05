@@ -7,6 +7,9 @@ const editorFieldLabel = "editor"
 const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
 
+// lunr.stemmer
+// Copyright (C) 2020 Oliver Nightingale, Code included under the MIT license
+// Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
 const stemmer = (function(){
     let step2list = {
             "ational" : "ate",
@@ -181,12 +184,28 @@ const stemmer = (function(){
         return w;
     }
 })();
+/**
+ * Filters elements from a list based on specified criteria.
+ *
+ * @param {Array} inputArray - The array to be filtered.
+ * @param {boolean} filterWhitespaces - If true, removes whitespace-only elements.
+ * @param {Array} filterArgs - An array of strings to be filtered out from the input array.
+ * @returns {Array} - The filtered array.
+ */
 function filterElementsFromList (inputArray,  filterWhitespaces = false, filterArgs=["", " "]) {
     if (filterWhitespaces) {
         inputArray = inputArray.filter(e => String(e).trim());
     }
     return inputArray.filter((x) => !filterArgs.includes(x));
 }
+/**
+ * Tokenizes a string based on a specified pattern.
+ *
+ * @param {string} s - The string to be tokenized.
+ * @param {RegExp} pattern - The regular expression pattern to use for tokenization.
+ * @param {boolean} filterWhitespaces - If true, removes whitespace-only elements from the result.
+ * @returns {Array} - The tokenized array.
+ */
 function customTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
     const results = s.split(pattern)
     return filterElementsFromList(results, filterWhitespaces)
@@ -406,6 +425,7 @@ function parseWebserverDomain () {
 
 /**
  * Fetches words frequency data from the server and populates the words frequency tables.
+ * The user can choose to use an embedded stemmer or a remote web server for processing.
  * 
  * @async
  * @function getWordsFrequency
