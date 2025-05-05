@@ -200,13 +200,14 @@ function filterElementsFromList (inputArray,  filterWhitespaces = false, filterA
 }
 /**
  * Tokenizes a string based on a specified pattern.
+ * Based on the WordPunctTokenizer from https://github.com/NaturalNode/natural
  *
  * @param {string} s - The string to be tokenized.
  * @param {RegExp} pattern - The regular expression pattern to use for tokenization.
  * @param {boolean} filterWhitespaces - If true, removes whitespace-only elements from the result.
  * @returns {Array} - The tokenized array.
  */
-function customTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
+function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
     const results = s.split(pattern)
     return filterElementsFromList(results, filterWhitespaces)
 }
@@ -225,7 +226,7 @@ function textStemming(text) {
     const rowOffsetsTokens = [];
 
     textSplitNewline.forEach((row, rowIndex) => {
-        const tokens = customTokenize(row);
+        const tokens = customWordPunctTokenize(row);
         const offsets = getOffsets(row, tokens);
         rowWordsTokens.push(tokens);
         rowOffsetsTokens.push(offsets);
@@ -253,8 +254,8 @@ function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, minLenWord
         wordsTokens.forEach((word, index) => {
             const cleanedWord = cleanString(word);
             if (cleanedWord.length < minLenWords) return;
-
-            // const stem = ps.stem(cleanedWord);
+            
+            // Apply stemming
             const stem = stemmer(cleanedWord);
             if (!wordsStemsDict[stem]) {
                 wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
@@ -419,7 +420,7 @@ function parseWebserverDomain () {
     console.log("remoteWebServer", remoteWebServer, "#")
     const remoteWebServerValue = remoteWebServer.value || "http://localhost:7860"
     console.log("remoteWebServerValue:", remoteWebServerValue, "#")
-    const remoteWebServerDomain = remoteWebServerValue.trim().replace(/\/$/, '')
+    const remoteWebServerDomain = remoteWebServerValue.trim().replace(/\/+$/, '')
     return `${remoteWebServerDomain}/words-frequency`
 }
 
