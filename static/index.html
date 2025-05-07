@@ -12,17 +12,19 @@
         <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
         <div class="margin10px">
             <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit">get words frequency</button>
-            <label for="id-input-webserver-checkbox" class="margin5px-left">Use a custom webserver endpoint</label>
+            <label for="id-input-webserver-wordfreq-checkbox" class="margin5px-left">Use a custom webserver endpoint</label>
+
             <input
                 type="checkbox"
-                id="id-input-webserver-checkbox"
-                aria-label="id-input-webserver-checkbox"
-                name="id-input-webserver-checkbox"
-                onchange="document.getElementById('id-input-webserver').disabled = !this.checked"
+                id="id-input-webserver-wordfreq-checkbox"
+                aria-label="id-input-webserver-wordfreq-checkbox"
+                name="id-input-webserver-wordfreq-checkbox"
+                onchange="document.getElementById('id-input-webserver-wordfreq').disabled=!this.checked;document.getElementById('id-wordfreq-show-analyzer').innerText=this.checked?'webserver':'embedded';"
+                checked
             />
-            <input type="URL" id="id-input-webserver" aria-label="id-input-webserver" value="http://localhost:7860" disabled />
-            <label for="id-stemmer-embedded" class="margin5px-left">Use the embedded stemmer</label>
-            <input type="checkbox" id="id-stemmer-embedded" aria-label="id-stemmer-embedded" name="id-stemmer-embedded" />
+            <input type="URL" id="id-input-webserver-wordfreq" aria-label="id-input-webserver-wordfreq" value="http://localhost:7860" />
+            <span>Currently using: <span id="id-wordfreq-show-analyzer" aria-label="id-wordfreq-show-analyzer">webserver</span></span>
+
             <label for="id-input-file-selector" class="margin5px-left">Text file selector</label>
             <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" />
         </div>
@@ -37,8 +39,8 @@
             <div id="id-col2-words-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
                 <div class="display-flex">
                     <div class="width-50perc">
-                        <h4 id="id-words-frequency-table-title" aria-label="id-words-frequency-table-title">Words Frequency Table</h4>
-                        <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" />
+                        <h4 id="id-words-frequency-table-title" aria-label="id-words-frequency-table-title">Words Frequency Stats</h4>
+                        <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" onkeydown="updateWordsFreqIfPressEnter()"/>
                         <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordsFrequencyTables()">Submit</button>
                     </div>
                     <div class="display-flex width-50perc margin2px-bottom">

@@ -1,11 +1,71 @@
-const wordsFrequencyTableTitleText = "Words Frequency Table"
+const wordsFrequencyTableTitleText = "Words Frequency Stats"
 let wfo = {
     "words_frequency": {},
     "nTotalRows": null
 }
 const editorFieldLabel = "editor"
+const remoteWebServer = "http://localhost:7860"
 const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
+
+/**
+ * Object containing functions for word frequency analysis.
+ *
+ * @property {function} 'id-input-webserver-wordfreq-checkbox' - Analyzes input text using webserver API.
+ * @property {function} 'stemmer-embedded' - Analyzes input text using embedded functionality.
+ */
+const wordsFrequencyAnalyzers = {
+    /**
+     * Analyzes input text using 'My Ghost Writer' webserver API.
+     *
+     * @param {string} inputText - Text to analyze.
+     * @returns {Promise<Object>} Response from webserver API containing word frequency data.
+     */
+    "id-input-webserver-wordfreq-checkbox": async function(inputText) {
+        let bodyRequest = {"text": inputText}
+        console.log("use the webserver for word freq analysis...")
+        const wordsFrequencyURL = parseWebserverDomain()
+        try {
+            let response = await fetch(wordsFrequencyURL, {
+                method: "POST",
+                body: JSON.stringify(bodyRequest)
+            })
+            console.assert(response.status === 200, `response.status: ${response.status}!`)
+            let bodyResponseJson = await response.json()
+            setElementCssClass("waiting-for-be", "display-none")
+            let freq = bodyResponseJson["words_frequency"]
+            let nTotalRows = bodyResponseJson["n_total_rows"]
+            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
+            populateWordsFrequencyTables(freq, nTotalRows)
+        } catch (err) {
+            console.error("getWordsFrequency::err on webserver request/response:", err, "#")
+            console.log(`wordsFrequencyURL:`, typeof wordsFrequency, "=>", wordsFrequencyURL, "#")
+            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClass("waiting-for-be-error", "display-block")
+        }
+    },
+    /**
+     * Analyzes input text using embedded functionality.
+     *
+     * @param {string} inputText - Text to analyze.
+     * @returns {Object} Word frequency data from embedded functionality.
+     */
+    'stemmer-embedded': function(inputText) {
+        console.log("use the embedded functionality for word freq analysis...")
+        try {
+            const bodyResponseJson = textStemming(inputText)
+            setElementCssClass("waiting-for-be", "display-none")
+            let freq = bodyResponseJson["wordsStemsDict"]
+            let nTotalRows = bodyResponseJson["nTotalRows"]
+            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
+            populateWordsFrequencyTables(freq, nTotalRows)
+        } catch (err) {
+            console.error("getWordsFrequency::err on useWordfreqWebserver:", err, "#")
+            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClass("waiting-for-be-error", "display-block")
+        }
+    }
+}
 
 // lunr.stemmer
 // Copyright (C) 2020 Oliver Nightingale, Code included under the MIT license
@@ -184,6 +244,7 @@ const stemmer = (function(){
         return w;
     }
 })();
+const porterStemmer = stemmer
 /**
  * Filters elements from a list based on specified criteria.
  *
@@ -416,10 +477,9 @@ const setElementCssClass = (elementId, currentClass) => {
 }
 
 function parseWebserverDomain () {
-    const remoteWebServer = document.getElementById("id-input-webserver")
-    console.log("remoteWebServer", remoteWebServer, "#")
-    const remoteWebServerValue = remoteWebServer.value || "http://localhost:7860"
-    console.log("remoteWebServerValue:", remoteWebServerValue, "#")
+    const remoteWebServerEl = document.getElementById("id-input-webserver-wordfreq")
+    console.log("remoteWebServer.value:", remoteWebServerEl.value, "#")
+    const remoteWebServerValue = remoteWebServerEl.value ?? remoteWebServer
     const remoteWebServerDomain = remoteWebServerValue.trim().replace(/\/+$/, '')
     return `${remoteWebServerDomain}/words-frequency`
 }
@@ -435,53 +495,24 @@ async function getWordsFrequency() {
     let text = document.getElementById(editorFieldLabel)
     // replace repeated newlines to prepare setCaret() use
     text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
-    let bodyRequest = {"text": text.innerText}
     setElementCssClass("waiting-for-be-error", "display-none")
     setElementCssClass("waiting-for-be", "display-block")
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
     wordsFrequencyTableTitleEl.innerText = wordsFrequencyTableTitleText
     let wordsFrequency = document.getElementById("words-frequency")
     wordsFrequency.innerHTML = ""
-    const useEmbeddedStemmer = document.getElementById('id-stemmer-embedded')
-    const useEmbeddedStemmerValue = useEmbeddedStemmer.checked || false
-    console.log("useEmbeddedStemmer", useEmbeddedStemmer, ", useEmbeddedStemmerValue:", useEmbeddedStemmerValue, "#")
-    if (useEmbeddedStemmerValue) {
-        console.log("useEmbeddedStemmer...")
-        try {
-            const bodyResponseJson = textStemming(text.innerText)
-            setElementCssClass("waiting-for-be", "display-none")
-            let freq = bodyResponseJson["wordsStemsDict"]
-            let nTotalRows = bodyResponseJson["nTotalRows"]
-            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
-            populateWordsFrequencyTables(freq, nTotalRows)
-        } catch (err) {
-            console.log("bodyResponseJson", typeof bodyResponseJson, ", keys:", bodyResponseJson.keys(), "#")
-            console.error("getWordsFrequency::err on useEmbeddedStemmer:", err, "#")
-            setElementCssClass("waiting-for-be", "display-none")
-            setElementCssClass("waiting-for-be-error", "display-block")
-
-        }
-    } else {
-        console.log("else, use the default webserver...")
-        const wordsFrequencyURL = parseWebserverDomain()
-        try {
-            let response = await fetch(wordsFrequencyURL, {
-                method: "POST",
-                body: JSON.stringify(bodyRequest)
-            })
-            console.assert(response.status, 200)
-            let bodyResponseJson = await response.json()
-            setElementCssClass("waiting-for-be", "display-none")
-            let freq = bodyResponseJson["words_frequency"]
-            let nTotalRows = bodyResponseJson["n_total_rows"]
-            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
-            populateWordsFrequencyTables(freq, nTotalRows)
-        } catch (err) {
-            console.error("getWordsFrequency::err on webserver request/response:", err, "#")
-            console.log(`wordsFrequencyURL:`, typeof wordsFrequency, "=>", wordsFrequencyURL, "#")
-            setElementCssClass("waiting-for-be", "display-none")
-            setElementCssClass("waiting-for-be-error", "display-block")
-        }
+    const choiceWordFreqAnalyzerEl = document.getElementById('id-input-webserver-wordfreq-checkbox')
+    console.log("choiceWordFreqAnalyzerEl checked:", choiceWordFreqAnalyzerEl.checked, "#")
+    switch (choiceWordFreqAnalyzerEl.checked) {
+        case true: // webserver
+            await wordsFrequencyAnalyzers['id-input-webserver-wordfreq-checkbox'](text.innerText)
+            break;
+        case false: // embedded
+            wordsFrequencyAnalyzers['stemmer-embedded'](text.innerText)
+            break;
+        default:
+            console.warn("No valid analyzer selected.");
+            break;
     }
 }
 
@@ -649,4 +680,18 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
     currentCell.appendChild(currentUrl)
     nthRowBody.insertCell().textContent = nthOffset["n_row"]
     nthRowBody.insertCell().textContent = nthOffset["offsets"]
+}
+
+/**
+ * Updates the words frequency tables with new data if enter key is pressed.
+ * If the event target has a value (i.e., it's an input field) and the event key is "Enter",
+ * call the updateWordsFrequencyTables function to update the words frequency tables.
+ *
+ * @async
+ * @function updateWordsFreqIfPressEnter
+ */
+function updateWordsFreqIfPressEnter() {
+    if(event.key==='Enter'){
+        updateWordsFrequencyTables()
+    }
 }
