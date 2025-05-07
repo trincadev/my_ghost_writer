@@ -586,7 +586,7 @@ async function updateWordsFrequencyTables() {
 
     let inputFilter = document.getElementById("filter-words-frequency")
     let inputFilterValue = inputFilter.value
-    if (inputFilterValue != undefined && inputFilter.value !== "") {
+    if (inputFilterValue !== undefined && inputFilter.value !== "") {
         reduced = arrayFilter(reduced, "word_prefix", inputFilterValue)
     }
 
