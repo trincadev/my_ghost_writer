@@ -33,7 +33,8 @@ async def request_middleware(request, call_next):
 def health():
     from nltk import __version__ as nltk_version
     from fastapi import __version__ as fastapi_version
-    app_logger.info(f"still alive... FastAPI version:{fastapi_version}, nltk version:{nltk_version}!")
+    from my_ghost_writer.__version__ import __version__ as ghost_writer_version
+    app_logger.info(f"still alive... FastAPI version:{fastapi_version}, nltk version:{nltk_version}, my-ghost-writer version:{ghost_writer_version}!")
     return "Still alive..."
 
 
