@@ -20,6 +20,7 @@ display_help() {
     echo 'Usage: install.sh <option>'
     echo 'Options:'
     echo '   -h --help                                     Show help'
+    echo '   -d --download-nltk                            Download required NLTK data files (crubadan, optional since you could download them manually or have them already)'
     echo '   -i --only-install                             Only install the python package and its dependencies (optional, without this option the script will install the package and run it)'
     echo "   -p --python-executable <python_executable>    Specifies the python executable to use (optional, without this option the default python3 executable (${python_executable}) will be used)"
     echo "   -o --allowed-origin <allowed_origin>          Specifies the allowed origin for the webserver (optional, without this option the default value (${ALLOWED_ORIGIN}) will be used)"
@@ -63,6 +64,11 @@ case $key in
     only_install=YES
     shift # past argument
     ;;
+    -d|--download-nltk)
+    download_nltk=YES
+    echo "# download_nltk: '${download_nltk}'"
+    shift # past argument
+    ;;
     *) echo "Unknown parameter passed: '$1'";
     display_help
     exit 1
@@ -103,6 +109,12 @@ installer(){
     # gitlab prefix: https://gitlab.com/{GITLAB_USER}/{GITLAB_REPO}/-/raw
     URL_REPOSITORY_PREFIX="https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/refs/tags/${MGW_VERSION}"
     python -m pip install my-ghost-writer -r "${URL_REPOSITORY_PREFIX}/requirements-webserver.txt"
+    
+    if [ "$download_nltk" = "YES" ]; then
+        echo -e "\n# install required NLTK data files (crubadan):"
+        python -m nltk.downloader -d "${VIRTUALENV_FOLDER}/nltk_data" crubadan
+    fi
+
     echo -e "\n# installed my-ghost-writer version: ${MGW_VERSION}!"
 }
 
