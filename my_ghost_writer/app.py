@@ -64,7 +64,7 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
 try:
     app.mount("/static", StaticFiles(directory=STATIC_FOLDER, html=True), name="static")
 except Exception as ex_mount_static:
-    app_logger.error(f"Failed to mount static folder: {STATIC_FOLDER}, exception: {ex_mount_static}!")
+    app_logger.error(f"Failed to mount static folder: {STATIC_FOLDER}, exception: {ex_mount_static}, API_MODE: {API_MODE}!")
     if not API_MODE:
         app_logger.exception(f"since API_MODE is {API_MODE} we will raise the exception!")
         raise ex_mount_static
@@ -79,7 +79,7 @@ try:
     def index() -> FileResponse:
         return FileResponse(path=STATIC_FOLDER / "index.html", media_type="text/html")
 except Exception as ex_route_main:
-    app_logger.error(f"Failed to prepare the main route, exception: {ex_route_main}!")
+    app_logger.error(f"Failed to prepare the main route, exception: {ex_route_main}, API_MODE: {API_MODE}!")
     if not API_MODE:
         app_logger.exception(f"since API_MODE is {API_MODE} we will raise the exception!")
         raise ex_route_main
@@ -87,9 +87,17 @@ except Exception as ex_route_main:
 
 if __name__ == "__main__":
     try:
-        app_logger.info(f"Starting fastapi/gradio application {fastapi_title}, run in api mode: {API_MODE}...")
+        app_logger.info(f"Starting fastapi/gradio application {fastapi_title}, run in api mode: {API_MODE} (no static folder and main route)...")
         uvicorn.run("my_ghost_writer.app:app", host=DOMAIN, port=PORT, reload=bool(IS_TESTING))
     except Exception as ex_run:
         print(f"fastapi/gradio application {fastapi_title}, exception:{ex_run}!")
         app_logger.exception(f"fastapi/gradio application {fastapi_title}, exception:{ex_run}!")
+        # important env variables: ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT, STATIC_FOLDER
+        app_logger.error(f"ALLOWED_ORIGIN_LIST: '{ALLOWED_ORIGIN_LIST}'")
+        app_logger.error(f"API_MODE: '{API_MODE}'")
+        app_logger.error(f"DOMAIN: '{DOMAIN}'")
+        app_logger.error(f"IS_TESTING: '{IS_TESTING}'")
+        app_logger.error(f"LOG_LEVEL: '{LOG_LEVEL}'")
+        app_logger.error(f"PORT: '{PORT}'")
+        app_logger.error(f"STATIC_FOLDER: '{STATIC_FOLDER}'")
         raise ex_run
