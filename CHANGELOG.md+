@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Now it can work when executed as a python module, using API_MODE or STATIC_FOLDER env variables (see README.md)
+
 ## 0.1.0
 
 First version:
