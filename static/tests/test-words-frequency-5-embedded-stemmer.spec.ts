@@ -5,7 +5,13 @@ import {fileReader, loopOverTablesAndClickOnUrls, testWithLoop} from './test-hel
 test.describe(`Words Frequency - embedded stemmer:`, () => {
   test.beforeEach(`open the page and choose the embedded...`, async ({ page }) => {
     await page.goto(process.env.DOMAIN_PORT ?? "/");
-    await page.getByRole('checkbox', { name: 'id-stemmer-embedded' }).check();
+    const idInputWebserverWordfreqCheckbox = page.getByRole('checkbox', { name: 'id-input-webserver-wordfreq-checkbox' })
+    await expect(idInputWebserverWordfreqCheckbox).toBeChecked()
+    await page.waitForTimeout(100)
+    await idInputWebserverWordfreqCheckbox.click();
+    await page.waitForTimeout(100)
+    await expect(idInputWebserverWordfreqCheckbox).not.toBeChecked()
+    await page.waitForTimeout(100)
   })
   test(`short, mono line text input`, async ({ page }) => {
     const WordsFreqTable0AriaSnapshot1FilePath = `${import.meta.dirname}/test-words-frequency-1-table0-aria-snapshot.txt`
@@ -27,7 +33,7 @@ test.describe(`Words Frequency - embedded stemmer:`, () => {
     ]
     // short, mono line text input
     const wordsFreqTableTitle = page.getByLabel('id-words-frequency-table-title')
-    await expect(wordsFreqTableTitle).toContainText('Words Frequency Table (14 word groups, 1 rows)');
+    await expect(wordsFreqTableTitle).toContainText('Words Frequency Stats (14 word groups, 1 rows)');
     for (let idx in cellArray1) {
       await loopOverTablesAndClickOnUrls(page, cellArray1[idx], 0)
     }
@@ -40,7 +46,7 @@ test.describe(`Words Frequency - embedded stemmer:`, () => {
       { table: 1, row: 1, word: "upon" }, { table: 2, row: 0, word: "time" },
       { table: 0, row: 0, word: "Once" }, { table: 96, row: 0, word: "soft" }
     ]
-    await testWithLoop(page, testLLMTextFilePath, cellArray_short_multiline, 'Words Frequency Table (98 word groups, 4 rows)');
+    await testWithLoop(page, testLLMTextFilePath, cellArray_short_multiline, 'Words Frequency Stats (98 word groups, 4 rows)');
   });
 
   test(`long, multi line text input`, async ({ page }) => {
@@ -51,6 +57,6 @@ test.describe(`Words Frequency - embedded stemmer:`, () => {
       { table: 0, row: 1, word: "Once" }, { table: 8, row: 1, word: "young" }, { table: 8, row: 4, word: "young" },
       { table: 739, row: 1, word: "Isst" }, { table: 739, row: 3, word: "Isst" }
     ]
-    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Table (751 word groups, 98 rows)");
+    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Stats (751 word groups, 98 rows)");
   });  
 })

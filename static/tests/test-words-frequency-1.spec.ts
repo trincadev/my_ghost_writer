@@ -26,7 +26,7 @@ test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PO
     ]
     // short, mono line text input
     const wordsFreqTableTitle = page.getByLabel('id-words-frequency-table-title')
-    await expect(wordsFreqTableTitle).toContainText('Words Frequency Table (14 word groups, 1 rows)');
+    await expect(wordsFreqTableTitle).toContainText('Words Frequency Stats (14 word groups, 1 rows)');
     for (let idx in cellArray1) {
       await loopOverTablesAndClickOnUrls(page, cellArray1[idx], 0)
     }
@@ -39,7 +39,7 @@ test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PO
       { table: 1, row: 1, word: "upon" }, { table: 2, row: 0, word: "time" },
       { table: 0, row: 0, word: "Once" }, { table: 96, row: 0, word: "soft" }
     ]
-    await testWithLoop(page, testLLMTextFilePath, cellArray_short_multiline, 'Words Frequency Table (98 word groups, 4 rows)');
+    await testWithLoop(page, testLLMTextFilePath, cellArray_short_multiline, 'Words Frequency Stats (98 word groups, 4 rows)');
   });
 
   test(`long, multi line text input`, async ({ page }) => {
@@ -50,6 +50,6 @@ test.describe(`Words Frequency - webserver processing on ${process.env.DOMAIN_PO
       { table: 0, row: 1, word: "Once" }, { table: 8, row: 1, word: "young" }, { table: 8, row: 4, word: "young" },
       { table: 737, row: 1, word: "Isst" }, { table: 737, row: 3, word: "Isst" }
     ]
-    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Table (749 word groups, 98 rows)");
+    await testWithLoop(page, testLLMTextFilePath, cellArray_long_multiline, "Words Frequency Stats (749 word groups, 98 rows)");
   });  
 })
