@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- add an installation script (python required), mostly useful for lite.koboldai.net users
+
 ## 0.2.1
 
 - Now it can import My Ghost Writer version

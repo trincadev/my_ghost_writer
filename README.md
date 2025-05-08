@@ -34,6 +34,8 @@ In a Linux/WSL environment (I didn't tried with MacOS or Windows):
    * `python my_ghost_writer/app.py` using the python app.py file path
    * `python -m ghost_writer.app.py` using the python module
 
+### Run as a python module
+
 If using the webserver with the module (`python -m ghost_writer.app.py`) it's necessary one of these env variables:
 
 * `STATIC_FOLDER` to define a custom path for the static folder. Probably you should also download the static files:
@@ -43,6 +45,29 @@ If using the webserver with the module (`python -m ghost_writer.app.py`) it's ne
 * `API_MODE` to avoid mounting the static folder. This will define only the API endpoints
   * `/health`
   * `/words-frequency`
+
+### Installation script
+
+An alternate way to use the project is installing it using `install.sh`. e.g.
+
+```bash
+bash ./install.sh
+```
+
+If you want to run my custom frontend using this script (available on default on port 7860):
+
+1. use the install-only option
+2. define a custom path for `STATIC_FOLDER` and use it for the module execution:
+
+```bash
+# run the script with the install-only option
+bash install.sh -i
+
+# run the python module with the custom STATIC_FOLDER env variable, e.g.
+# if you already created STATIC_FOLDER within the current directory with the needed files within, see above
+export STATIC_FOLDER=$PWD/static
+python -m my_ghost_writer.app
+```
 
 ## Contributing
 
