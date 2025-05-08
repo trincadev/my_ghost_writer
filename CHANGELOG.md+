@@ -1,0 +1,8 @@
+# Changelog
+
+## 0.1.0
+
+First version:
+
+- It can extract a word frequency map from a text where word prefixes are keys and each value contains an array of words with their position within the text.
+- first integration with lite.koboldai.net
