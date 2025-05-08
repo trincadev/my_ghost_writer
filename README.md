@@ -30,7 +30,19 @@ In a Linux/WSL environment (I didn't tried with MacOS or Windows):
    * [poetry](https://python-poetry.org/) (`poetry env use 3.12.10`, `poetry install`, `eval $(poetry env activate)`)
    * `python -m venv .venv`, `source .venv/bin/activate`, `pip install -r requirements.txt` (and the other requirements files if you need also the webserver and/or the test environment)
 
-3. Run the application using `python my_ghost_writer/app.py`
+3. Run the application using:
+   * `python my_ghost_writer/app.py` using the python app.py file path
+   * `python -m ghost_writer.app.py` using the python module
+
+If using the webserver with the module (`python -m ghost_writer.app.py`) it's necessary one of these env variables:
+
+* `STATIC_FOLDER` to define a custom path for the static folder. Probably you should also download the static files:
+  * `index.html`
+  * `index.js`
+  * `index.css`
+* `API_MODE` to avoid mounting the static folder. This will define only the API endpoints
+  * `/health`
+  * `/words-frequency`
 
 ## Contributing
 
