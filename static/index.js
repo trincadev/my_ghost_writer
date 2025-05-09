@@ -70,7 +70,7 @@ const wordsFrequencyAnalyzers = {
 // lunr.stemmer
 // Copyright (C) 2020 Oliver Nightingale, Code included under the MIT license
 // Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
-const stemmer = (function(){
+const porterStemmer = (function(){
     let step2list = {
             "ational" : "ate",
             "tional" : "tion",
@@ -244,7 +244,6 @@ const stemmer = (function(){
         return w;
     }
 })();
-const porterStemmer = stemmer
 /**
  * Filters elements from a list based on specified criteria.
  *
@@ -317,7 +316,7 @@ function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, minLenWord
             if (cleanedWord.length < minLenWords) return;
             
             // Apply stemming
-            const stem = stemmer(cleanedWord);
+            const stem = porterStemmer(cleanedWord);
             if (!wordsStemsDict[stem]) {
                 wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
             }
