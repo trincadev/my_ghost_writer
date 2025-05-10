@@ -7,6 +7,8 @@ const editorFieldLabel = "editor"
 const remoteWebServer = "http://localhost:7860"
 const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
+const underlinedPrimaryTable = "underlinedBlueTable"
+const underlinedClickedTable = "underlinedDarkVioletTable"
 
 /**
  * Object containing functions for word frequency analysis.
@@ -32,7 +34,7 @@ const wordsFrequencyAnalyzers = {
             })
             console.assert(response.status === 200, `response.status: ${response.status}!`)
             let bodyResponseJson = await response.json()
-            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClassById("waiting-for-be", "display-none")
             let freq = bodyResponseJson["words_frequency"]
             let nTotalRows = bodyResponseJson["n_total_rows"]
             console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
@@ -40,8 +42,8 @@ const wordsFrequencyAnalyzers = {
         } catch (err) {
             console.error("getWordsFrequency::err on webserver request/response:", err, "#")
             console.log(`wordsFrequencyURL:`, typeof wordsFrequency, "=>", wordsFrequencyURL, "#")
-            setElementCssClass("waiting-for-be", "display-none")
-            setElementCssClass("waiting-for-be-error", "display-block")
+            setElementCssClassById("waiting-for-be", "display-none")
+            setElementCssClassById("waiting-for-be-error", "display-block")
         }
     },
     /**
@@ -54,15 +56,15 @@ const wordsFrequencyAnalyzers = {
         console.log("use the embedded functionality for word freq analysis...")
         try {
             const bodyResponseJson = textStemming(inputText)
-            setElementCssClass("waiting-for-be", "display-none")
+            setElementCssClassById("waiting-for-be", "display-none")
             let freq = bodyResponseJson["wordsStemsDict"]
             let nTotalRows = bodyResponseJson["nTotalRows"]
             console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
             populateWordsFrequencyTables(freq, nTotalRows)
         } catch (err) {
             console.error("getWordsFrequency::err on useWordfreqWebserver:", err, "#")
-            setElementCssClass("waiting-for-be", "display-none")
-            setElementCssClass("waiting-for-be-error", "display-block")
+            setElementCssClassById("waiting-for-be", "display-none")
+            setElementCssClassById("waiting-for-be-error", "display-block")
         }
     }
 }
@@ -470,9 +472,18 @@ function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
  * @param {string} elementId - The ID of the HTML element to update.
  * @param {string} currentClass - The new CSS class to apply to the element.
  */
-const setElementCssClass = (elementId, currentClass) => {
-    let spanWaitingFor = document.getElementById(elementId)
-    spanWaitingFor.setAttribute("class", currentClass)
+function setElementCssClassById(elementId, currentClass) {
+    let elementWithClassToChange = document.getElementById(elementId)
+    elementWithClassToChange.setAttribute("class", currentClass)
+}
+
+function setElementCssClassByOldClass(oldClassName, currentClass) {
+    try {
+        let oldClassElement = document.getElementsByClassName(oldClassName)
+        oldClassElement[0].className = currentClass
+    } catch {
+        console.log("not found...")
+    }
 }
 
 function parseWebserverDomain () {
@@ -494,12 +505,14 @@ async function getWordsFrequency() {
     let text = document.getElementById(editorFieldLabel)
     // replace repeated newlines to prepare setCaret() use
     text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
-    setElementCssClass("waiting-for-be-error", "display-none")
-    setElementCssClass("waiting-for-be", "display-block")
+    setElementCssClassById("waiting-for-be-error", "display-none")
+    setElementCssClassById("waiting-for-be", "display-block")
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
     wordsFrequencyTableTitleEl.innerText = wordsFrequencyTableTitleText
-    let wordsFrequency = document.getElementById("words-frequency")
-    wordsFrequency.innerHTML = ""
+    let listOfWords = document.getElementById("id-list-of-words")
+    listOfWords.innerHTML = ""
+    let currentTableOfWords = document.getElementById("id-current-table-of-words")
+    currentTableOfWords.innerHTML = ""
     const choiceWordFreqAnalyzerEl = document.getElementById('id-input-webserver-wordfreq-checkbox')
     console.log("choiceWordFreqAnalyzerEl checked:", choiceWordFreqAnalyzerEl.checked, "#")
     switch (choiceWordFreqAnalyzerEl.checked) {
@@ -589,13 +602,18 @@ async function updateWordsFrequencyTables() {
         reduced = arrayFilter(reduced, "word_prefix", inputFilterValue)
     }
 
-    let wordsFrequency = document.getElementById("words-frequency")
-    wordsFrequency.innerHTML = ""
+    let listOfWords = document.getElementById("id-list-of-words")
+    listOfWords.innerHTML = ""
+    let currentTableOfWords = document.getElementById("id-current-table-of-words")
+    currentTableOfWords.innerHTML = ""
+
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
     wordsFrequencyTableTitleEl.innerText = `${wordsFrequencyTableTitleText} (${reduced.length} word groups, ${nTotalRows} rows)`
+    const wordListElement = document.createElement("list")
     for (let i=0; i<reduced.length; i++ ) {
-        insertCurrentTable(i, reduced[i], nTotalRows, wordsFrequency);
+        insertListOfWords(i, reduced[i], nTotalRows, wordListElement, currentTableOfWords);
     }
+    listOfWords.append(wordListElement)
 }
 
 /**
@@ -619,9 +637,9 @@ function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
  * @param {number} i - The current index being processed (needed for adding unique HTML id/aria-labels).
  * @param {object} iReduced - An object containing the reduced data for the current index, including word prefix, count, and offsets array.
  * @param {number} nTotalRows - The total number of lines/rows in the table.
- * @param {object} wordsFrequency - A container element to hold all tables representing word frequencies.
+ * @param {object} currentTableOfWords - A container element to hold the current table representing chosen word positions.
  */
-function insertCurrentTable(i, iReduced, nTotalRows, wordsFrequency) {
+function insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords) {
     let currentTableWordsFreq = document.createElement("table")
     currentTableWordsFreq.setAttribute("class", "border-black")
     currentTableWordsFreq.setAttribute("id", `id-table-${i}-nth`)
@@ -644,7 +662,25 @@ function insertCurrentTable(i, iReduced, nTotalRows, wordsFrequency) {
     }
     currentTableWordsFreq.appendChild(currentTHead)
     currentTableWordsFreq.appendChild(currentTBody)
-    wordsFrequency.appendChild(currentTableWordsFreq)
+    currentTableOfWords.appendChild(currentTableWordsFreq)
+}
+
+function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTableOfWords) {
+    const li = document.createElement("li");
+    const a = document.createElement("a")
+    a.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
+    a.addEventListener("click",  function() {
+        let currentTableOfWords = document.getElementById("id-current-table-of-words")
+        console.log("currentTableOfWords:", currentTableOfWords.innerText, "#")
+        currentTableOfWords.innerHTML = ""
+        console.log("a::", `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`, "#")
+        insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords)
+        setElementCssClassByOldClass(underlinedClicked, underlinedPrimary)
+        a.className = underlinedClicked
+    });
+    a.className = underlinedPrimary
+    li.appendChild(a);
+    wordListElement.appendChild(li);
 }
 
 /**
@@ -666,13 +702,8 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
         let nRow = nthOffset["n_row"]
         let offsetWord = nthOffset["offsets"]
         setCaret(nRow, offsetWord, nTotalRows)
-        try {
-            let oldClassElement = document.getElementsByClassName('underlinedDarkViolet')
-            oldClassElement[0].className = underlinedPrimary
-        } catch {
-            console.log("first click...")
-        }
-        currentUrl.className = underlinedClicked
+        setElementCssClassByOldClass(underlinedClickedTable, underlinedPrimaryTable)
+        currentUrl.className = underlinedClickedTable
     })
     currentUrl.className = underlinedPrimary
     currentUrl.innerText = nthOffset["word"]

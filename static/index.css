@@ -31,12 +31,12 @@
     text-decoration-color: darkturquoise;
     text-decoration-style: wavy;
 }
-.underlinedBlue {
+.underlinedBlue, .underlinedBlueTable {
     color: blue;
     text-decoration: underline;
     text-decoration-color: blue;
 }
-.underlinedDarkViolet {
+.underlinedDarkViolet, .underlinedDarkVioletTable {
     color: violet;
     text-decoration: underline;
     text-decoration-color: violet;
