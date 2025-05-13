@@ -660,8 +660,6 @@ function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTabl
     const a = document.createElement("a")
     a.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
     a.addEventListener("click",  function() {
-        let currentTableOfWords = document.getElementById("id-current-table-of-words")
-        console.log("currentTableOfWords:", currentTableOfWords.innerText, "#")
         currentTableOfWords.innerHTML = ""
         console.log("a::", `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`, "#")
         insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords)
