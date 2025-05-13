@@ -551,27 +551,17 @@ function dynamicSort(property, order) {
 }
 
 /**
- * This function filters an array based on a property key and the value to use for filter.
+ * Filters an array of objects by checking if a specified nested value exists within any object.
+ * The search is case-insensitive and checks all nested properties by converting the object to a JSON string.
  *
- * @description
- *   The function iterates over each element in the array.
- *   If the element's value for the specified key matches the search value (it's included, case-insensitive), it is added to the new array.
- *
- * @param {array} arr - The array to filter.
- * @param {string} key - The property key to match against.
- * @param {string} value - The value to search for in the array elements.
- * @returns {array} A new array containing only the elements that match the specified value.
+ * @param {Array<Object>} array - The array of objects to filter.
+ * @param {string} nestedValue - The value to search for within the objects.
+ * @returns {Array<Object>} - A new array containing objects where the nested value is found.
  */
-function arrayFilter(arr, key, value) {
-    const newArray = [];
-    for(let i=0, l=arr.length; i<l; i++) {
-        let currentElement = arr[i]
-        let currentValue = currentElement[key]
-        if(currentValue.toLowerCase().includes(value)) {
-            newArray.push(arr[i]);
-        }
-    }
-   return newArray;
+function arrayFilterNestedValue(array, nestedValue) {
+    return array.filter(item => {
+        return JSON.stringify(item).toLowerCase().includes(nestedValue.toLowerCase());
+    });
 }
 
 /**
@@ -599,7 +589,7 @@ async function updateWordsFrequencyTables() {
     let inputFilter = document.getElementById("filter-words-frequency")
     let inputFilterValue = inputFilter.value
     if (inputFilterValue !== undefined && inputFilter.value !== "") {
-        reduced = arrayFilter(reduced, "word_prefix", inputFilterValue)
+        reduced = arrayFilterNestedValue(reduced, inputFilterValue)
     }
 
     let listOfWords = document.getElementById("id-list-of-words")
