@@ -305,17 +305,15 @@ function textStemming(text) {
  *
  * @param {Array<Array<string>>} wordsTokensList - List of words tokens.
  * @param {Array<Array<Object>>} offsetsTokensList - List of offsets for each token.
- * @param {number} [minLenWords=3] - Minimum length of words to include.
  * @returns {Object} - Dictionary with stemmed words as keys and a list of dictionaries
  *                     containing the original word and its offsets as values.
  */
-function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, minLenWords = 3) {
+function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList) {
     const wordsStemsDict = {};
 
     wordsTokensList.forEach((wordsTokens, nRow) => {
         wordsTokens.forEach((word, index) => {
             const cleanedWord = cleanString(word);
-            if (cleanedWord.length < minLenWords) return;
             
             // Apply stemming
             const stem = porterStemmer(cleanedWord);
