@@ -1,0 +1,3140 @@
+{
+  "onc": {
+    "count": 1,
+    "word_prefix": "onc",
+    "offsets_array": [
+      {
+        "word": "Once",
+        "offsets": [
+          21,
+          25
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "upon": {
+    "count": 2,
+    "word_prefix": "upon",
+    "offsets_array": [
+      {
+        "word": "upon",
+        "offsets": [
+          26,
+          30
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "upon",
+        "offsets": [
+          75,
+          79
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "a": {
+    "count": 10,
+    "word_prefix": "a",
+    "offsets_array": [
+      {
+        "word": "a",
+        "offsets": [
+          31,
+          32
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "a",
+        "offsets": [
+          79,
+          80
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "a",
+        "offsets": [
+          80,
+          81
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "a",
+        "offsets": [
+          111,
+          112
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "a",
+        "offsets": [
+          205,
+          206
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "a",
+        "offsets": [
+          231,
+          232
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "a",
+        "offsets": [
+          89,
+          90
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "a",
+        "offsets": [
+          132,
+          133
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "a",
+        "offsets": [
+          214,
+          215
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "a",
+        "offsets": [
+          105,
+          106
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "time": {
+    "count": 1,
+    "word_prefix": "time",
+    "offsets_array": [
+      {
+        "word": "time",
+        "offsets": [
+          33,
+          37
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  ",": {
+    "count": 13,
+    "word_prefix": ",",
+    "offsets_array": [
+      {
+        "word": ",",
+        "offsets": [
+          37,
+          38
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ",",
+        "offsets": [
+          65,
+          66
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ",",
+        "offsets": [
+          221,
+          222
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ",",
+        "offsets": [
+          55,
+          56
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ",",
+        "offsets": [
+          181,
+          182
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ",",
+        "offsets": [
+          238,
+          239
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ",",
+        "offsets": [
+          370,
+          371
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ",",
+        "offsets": [
+          122,
+          123
+        ],
+        "n_row": 6
+      },
+      {
+        "word": ",",
+        "offsets": [
+          24,
+          25
+        ],
+        "n_row": 16
+      },
+      {
+        "word": ",",
+        "offsets": [
+          38,
+          39
+        ],
+        "n_row": 16
+      },
+      {
+        "word": ",",
+        "offsets": [
+          103,
+          104
+        ],
+        "n_row": 16
+      },
+      {
+        "word": ",",
+        "offsets": [
+          31,
+          32
+        ],
+        "n_row": 22
+      },
+      {
+        "word": ",",
+        "offsets": [
+          63,
+          64
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "in": {
+    "count": 2,
+    "word_prefix": "in",
+    "offsets_array": [
+      {
+        "word": "in",
+        "offsets": [
+          39,
+          41
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "in",
+        "offsets": [
+          211,
+          213
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "the": {
+    "count": 13,
+    "word_prefix": "the",
+    "offsets_array": [
+      {
+        "word": "the",
+        "offsets": [
+          42,
+          45
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "the",
+        "offsets": [
+          166,
+          169
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "the",
+        "offsets": [
+          269,
+          272
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "the",
+        "offsets": [
+          313,
+          316
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "the",
+        "offsets": [
+          46,
+          49
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "the",
+        "offsets": [
+          263,
+          266
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "The",
+        "offsets": [
+          21,
+          24
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "the",
+        "offsets": [
+          47,
+          50
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "the",
+        "offsets": [
+          163,
+          166
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "The",
+        "offsets": [
+          174,
+          177
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "The",
+        "offsets": [
+          64,
+          67
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "the",
+        "offsets": [
+          43,
+          46
+        ],
+        "n_row": 12
+      },
+      {
+        "word": "the",
+        "offsets": [
+          78,
+          81
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "kingdom": {
+    "count": 1,
+    "word_prefix": "kingdom",
+    "offsets_array": [
+      {
+        "word": "kingdom",
+        "offsets": [
+          46,
+          53
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "of": {
+    "count": 3,
+    "word_prefix": "of",
+    "offsets_array": [
+      {
+        "word": "of",
+        "offsets": [
+          54,
+          56
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "of",
+        "offsets": [
+          125,
+          127
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "of",
+        "offsets": [
+          160,
+          162
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "elwoodia": {
+    "count": 1,
+    "word_prefix": "elwoodia",
+    "offsets_array": [
+      {
+        "word": "Elwoodia",
+        "offsets": [
+          57,
+          65
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "there": {
+    "count": 2,
+    "word_prefix": "there",
+    "offsets_array": [
+      {
+        "word": "there",
+        "offsets": [
+          67,
+          72
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "There",
+        "offsets": [
+          213,
+          218
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "live": {
+    "count": 1,
+    "word_prefix": "live",
+    "offsets_array": [
+      {
+        "word": "lived",
+        "offsets": [
+          73,
+          78
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "young": {
+    "count": 2,
+    "word_prefix": "young",
+    "offsets_array": [
+      {
+        "word": "young",
+        "offsets": [
+          81,
+          86
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "young",
+        "offsets": [
+          96,
+          101
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "and": {
+    "count": 5,
+    "word_prefix": "and",
+    "offsets_array": [
+      {
+        "word": "and",
+        "offsets": [
+          87,
+          90
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "and",
+        "offsets": [
+          187,
+          190
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "and",
+        "offsets": [
+          284,
+          287
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "and",
+        "offsets": [
+          372,
+          375
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "and",
+        "offsets": [
+          201,
+          204
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "wise": {
+    "count": 1,
+    "word_prefix": "wise",
+    "offsets_array": [
+      {
+        "word": "wise",
+        "offsets": [
+          91,
+          95
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "princess": {
+    "count": 1,
+    "word_prefix": "princess",
+    "offsets_array": [
+      {
+        "word": "Princess",
+        "offsets": [
+          102,
+          110
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "name": {
+    "count": 1,
+    "word_prefix": "name",
+    "offsets_array": [
+      {
+        "word": "named",
+        "offsets": [
+          111,
+          116
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "isabella": {
+    "count": 6,
+    "word_prefix": "isabella",
+    "offsets_array": [
+      {
+        "word": "Isabella",
+        "offsets": [
+          117,
+          125
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "Isabella",
+        "offsets": [
+          57,
+          65
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "Isabella",
+        "offsets": [
+          76,
+          84
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "Isabella",
+        "offsets": [
+          192,
+          200
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "Isabella",
+        "offsets": [
+          25,
+          33
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "Isabella",
+        "offsets": [
+          95,
+          103
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  ".": {
+    "count": 17,
+    "word_prefix": ".",
+    "offsets_array": [
+      {
+        "word": ".",
+        "offsets": [
+          125,
+          126
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ".",
+        "offsets": [
+          212,
+          213
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ".",
+        "offsets": [
+          329,
+          330
+        ],
+        "n_row": 0
+      },
+      {
+        "word": ".",
+        "offsets": [
+          172,
+          173
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ".",
+        "offsets": [
+          211,
+          212
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ".",
+        "offsets": [
+          273,
+          274
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ".",
+        "offsets": [
+          420,
+          421
+        ],
+        "n_row": 2
+      },
+      {
+        "word": ".",
+        "offsets": [
+          102,
+          103
+        ],
+        "n_row": 6
+      },
+      {
+        "word": ".",
+        "offsets": [
+          172,
+          173
+        ],
+        "n_row": 6
+      },
+      {
+        "word": ".",
+        "offsets": [
+          226,
+          227
+        ],
+        "n_row": 6
+      },
+      {
+        "word": ".",
+        "offsets": [
+          33,
+          34
+        ],
+        "n_row": 10
+      },
+      {
+        "word": ".",
+        "offsets": [
+          78,
+          79
+        ],
+        "n_row": 10
+      },
+      {
+        "word": ".",
+        "offsets": [
+          122,
+          123
+        ],
+        "n_row": 10
+      },
+      {
+        "word": ".",
+        "offsets": [
+          120,
+          121
+        ],
+        "n_row": 16
+      },
+      {
+        "word": ".",
+        "offsets": [
+          96,
+          97
+        ],
+        "n_row": 22
+      },
+      {
+        "word": ".",
+        "offsets": [
+          113,
+          114
+        ],
+        "n_row": 22
+      },
+      {
+        "word": ".",
+        "offsets": [
+          36,
+          37
+        ],
+        "n_row": 24
+      }
+    ]
+  },
+  "she": {
+    "count": 16,
+    "word_prefix": "she",
+    "offsets_array": [
+      {
+        "word": "She",
+        "offsets": [
+          127,
+          130
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "she",
+        "offsets": [
+          223,
+          226
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "she",
+        "offsets": [
+          24,
+          27
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          103,
+          106
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          183,
+          186
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          219,
+          222
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          298,
+          301
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          405,
+          408
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "she",
+        "offsets": [
+          107,
+          110
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "she",
+        "offsets": [
+          124,
+          127
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "She",
+        "offsets": [
+          80,
+          83
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "She",
+        "offsets": [
+          53,
+          56
+        ],
+        "n_row": 12
+      },
+      {
+        "word": "She",
+        "offsets": [
+          122,
+          125
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "She",
+        "offsets": [
+          21,
+          24
+        ],
+        "n_row": 18
+      },
+      {
+        "word": "She",
+        "offsets": [
+          98,
+          101
+        ],
+        "n_row": 22
+      },
+      {
+        "word": "She",
+        "offsets": [
+          21,
+          24
+        ],
+        "n_row": 24
+      }
+    ]
+  },
+  "love": {
+    "count": 1,
+    "word_prefix": "love",
+    "offsets_array": [
+      {
+        "word": "loved",
+        "offsets": [
+          131,
+          136
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "noth": {
+    "count": 1,
+    "word_prefix": "noth",
+    "offsets_array": [
+      {
+        "word": "nothing",
+        "offsets": [
+          137,
+          144
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "more": {
+    "count": 1,
+    "word_prefix": "more",
+    "offsets_array": [
+      {
+        "word": "more",
+        "offsets": [
+          145,
+          149
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "than": {
+    "count": 2,
+    "word_prefix": "than",
+    "offsets_array": [
+      {
+        "word": "than",
+        "offsets": [
+          150,
+          154
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "than",
+        "offsets": [
+          390,
+          394
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "to": {
+    "count": 6,
+    "word_prefix": "to",
+    "offsets_array": [
+      {
+        "word": "to",
+        "offsets": [
+          155,
+          157
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "to",
+        "offsets": [
+          251,
+          253
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "to",
+        "offsets": [
+          197,
+          199
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "to",
+        "offsets": [
+          69,
+          71
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "to",
+        "offsets": [
+          189,
+          191
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "to",
+        "offsets": [
+          47,
+          49
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "explor": {
+    "count": 1,
+    "word_prefix": "explor",
+    "offsets_array": [
+      {
+        "word": "explore",
+        "offsets": [
+          158,
+          165
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "world": {
+    "count": 1,
+    "word_prefix": "world",
+    "offsets_array": [
+      {
+        "word": "world",
+        "offsets": [
+          170,
+          175
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "around": {
+    "count": 2,
+    "word_prefix": "around",
+    "offsets_array": [
+      {
+        "word": "around",
+        "offsets": [
+          176,
+          182
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "around",
+        "offsets": [
+          156,
+          162
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "her": {
+    "count": 1,
+    "word_prefix": "her",
+    "offsets_array": [
+      {
+        "word": "her",
+        "offsets": [
+          183,
+          186
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "experi": {
+    "count": 1,
+    "word_prefix": "experi",
+    "offsets_array": [
+      {
+        "word": "experience",
+        "offsets": [
+          191,
+          201
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "new": {
+    "count": 1,
+    "word_prefix": "new",
+    "offsets_array": [
+      {
+        "word": "new",
+        "offsets": [
+          202,
+          205
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "thing": {
+    "count": 1,
+    "word_prefix": "thing",
+    "offsets_array": [
+      {
+        "word": "things",
+        "offsets": [
+          206,
+          212
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "one": {
+    "count": 1,
+    "word_prefix": "one",
+    "offsets_array": [
+      {
+        "word": "One",
+        "offsets": [
+          214,
+          217
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "day": {
+    "count": 1,
+    "word_prefix": "day",
+    "offsets_array": [
+      {
+        "word": "day",
+        "offsets": [
+          218,
+          221
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "set": {
+    "count": 1,
+    "word_prefix": "set",
+    "offsets_array": [
+      {
+        "word": "set",
+        "offsets": [
+          227,
+          230
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "off": {
+    "count": 1,
+    "word_prefix": "off",
+    "offsets_array": [
+      {
+        "word": "off",
+        "offsets": [
+          231,
+          234
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "on": {
+    "count": 2,
+    "word_prefix": "on",
+    "offsets_array": [
+      {
+        "word": "on",
+        "offsets": [
+          235,
+          237
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "on",
+        "offsets": [
+          153,
+          155
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "an": {
+    "count": 1,
+    "word_prefix": "an",
+    "offsets_array": [
+      {
+        "word": "an",
+        "offsets": [
+          238,
+          240
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "adventur": {
+    "count": 1,
+    "word_prefix": "adventur",
+    "offsets_array": [
+      {
+        "word": "adventure",
+        "offsets": [
+          241,
+          250
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "find": {
+    "count": 2,
+    "word_prefix": "find",
+    "offsets_array": [
+      {
+        "word": "find",
+        "offsets": [
+          254,
+          258
+        ],
+        "n_row": 0
+      },
+      {
+        "word": "find",
+        "offsets": [
+          50,
+          54
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "out": {
+    "count": 1,
+    "word_prefix": "out",
+    "offsets_array": [
+      {
+        "word": "out",
+        "offsets": [
+          259,
+          262
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "about": {
+    "count": 1,
+    "word_prefix": "about",
+    "offsets_array": [
+      {
+        "word": "about",
+        "offsets": [
+          263,
+          268
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "mysteri": {
+    "count": 1,
+    "word_prefix": "mysteri",
+    "offsets_array": [
+      {
+        "word": "mysterious",
+        "offsets": [
+          273,
+          283
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "enchant": {
+    "count": 1,
+    "word_prefix": "enchant",
+    "offsets_array": [
+      {
+        "word": "enchanting",
+        "offsets": [
+          288,
+          298
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "forest": {
+    "count": 1,
+    "word_prefix": "forest",
+    "offsets_array": [
+      {
+        "word": "forest",
+        "offsets": [
+          299,
+          305
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "beyond": {
+    "count": 1,
+    "word_prefix": "beyond",
+    "offsets_array": [
+      {
+        "word": "beyond",
+        "offsets": [
+          306,
+          312
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "villag": {
+    "count": 1,
+    "word_prefix": "villag",
+    "offsets_array": [
+      {
+        "word": "village",
+        "offsets": [
+          317,
+          324
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "gate": {
+    "count": 1,
+    "word_prefix": "gate",
+    "offsets_array": [
+      {
+        "word": "gate",
+        "offsets": [
+          325,
+          329
+        ],
+        "n_row": 0
+      }
+    ]
+  },
+  "as": {
+    "count": 2,
+    "word_prefix": "as",
+    "offsets_array": [
+      {
+        "word": "As",
+        "offsets": [
+          21,
+          23
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "As",
+        "offsets": [
+          104,
+          106
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "journey": {
+    "count": 1,
+    "word_prefix": "journey",
+    "offsets_array": [
+      {
+        "word": "journeyed",
+        "offsets": [
+          28,
+          37
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "through": {
+    "count": 1,
+    "word_prefix": "through",
+    "offsets_array": [
+      {
+        "word": "through",
+        "offsets": [
+          38,
+          45
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "wood": {
+    "count": 1,
+    "word_prefix": "wood",
+    "offsets_array": [
+      {
+        "word": "woods",
+        "offsets": [
+          50,
+          55
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "stumbl": {
+    "count": 1,
+    "word_prefix": "stumbl",
+    "offsets_array": [
+      {
+        "word": "stumbled",
+        "offsets": [
+          66,
+          74
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "larg": {
+    "count": 2,
+    "word_prefix": "larg",
+    "offsets_array": [
+      {
+        "word": "large",
+        "offsets": [
+          82,
+          87
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "large",
+        "offsets": [
+          233,
+          238
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "clear": {
+    "count": 1,
+    "word_prefix": "clear",
+    "offsets_array": [
+      {
+        "word": "clearing",
+        "offsets": [
+          88,
+          96
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "where": {
+    "count": 2,
+    "word_prefix": "where",
+    "offsets_array": [
+      {
+        "word": "where",
+        "offsets": [
+          97,
+          102
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "where",
+        "offsets": [
+          47,
+          52
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "saw": {
+    "count": 2,
+    "word_prefix": "saw",
+    "offsets_array": [
+      {
+        "word": "saw",
+        "offsets": [
+          107,
+          110
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "saw",
+        "offsets": [
+          128,
+          131
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "small": {
+    "count": 2,
+    "word_prefix": "small",
+    "offsets_array": [
+      {
+        "word": "small",
+        "offsets": [
+          113,
+          118
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "small",
+        "offsets": [
+          82,
+          87
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "group": {
+    "count": 1,
+    "word_prefix": "group",
+    "offsets_array": [
+      {
+        "word": "group",
+        "offsets": [
+          119,
+          124
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "woodland": {
+    "count": 1,
+    "word_prefix": "woodland",
+    "offsets_array": [
+      {
+        "word": "woodland",
+        "offsets": [
+          128,
+          136
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "creatur": {
+    "count": 3,
+    "word_prefix": "creatur",
+    "offsets_array": [
+      {
+        "word": "creatures",
+        "offsets": [
+          137,
+          146
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "creatures",
+        "offsets": [
+          25,
+          34
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "creature",
+        "offsets": [
+          88,
+          96
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "gather": {
+    "count": 1,
+    "word_prefix": "gather",
+    "offsets_array": [
+      {
+        "word": "gathered",
+        "offsets": [
+          147,
+          155
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "someth": {
+    "count": 1,
+    "word_prefix": "someth",
+    "offsets_array": [
+      {
+        "word": "something",
+        "offsets": [
+          163,
+          172
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "curiou": {
+    "count": 1,
+    "word_prefix": "curiou",
+    "offsets_array": [
+      {
+        "word": "Curious",
+        "offsets": [
+          174,
+          181
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "went": {
+    "count": 1,
+    "word_prefix": "went",
+    "offsets_array": [
+      {
+        "word": "went",
+        "offsets": [
+          187,
+          191
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "over": {
+    "count": 1,
+    "word_prefix": "over",
+    "offsets_array": [
+      {
+        "word": "over",
+        "offsets": [
+          192,
+          196
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "take": {
+    "count": 1,
+    "word_prefix": "take",
+    "offsets_array": [
+      {
+        "word": "take",
+        "offsets": [
+          200,
+          204
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "look": {
+    "count": 2,
+    "word_prefix": "look",
+    "offsets_array": [
+      {
+        "word": "look",
+        "offsets": [
+          207,
+          211
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "look",
+        "offsets": [
+          98,
+          102
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "notic": {
+    "count": 1,
+    "word_prefix": "notic",
+    "offsets_array": [
+      {
+        "word": "noticed",
+        "offsets": [
+          223,
+          230
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "red": {
+    "count": 1,
+    "word_prefix": "red",
+    "offsets_array": [
+      {
+        "word": "red",
+        "offsets": [
+          240,
+          243
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "appl": {
+    "count": 3,
+    "word_prefix": "appl",
+    "offsets_array": [
+      {
+        "word": "apple",
+        "offsets": [
+          244,
+          249
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "apple",
+        "offsets": [
+          51,
+          56
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "apple",
+        "offsets": [
+          167,
+          172
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "lie": {
+    "count": 1,
+    "word_prefix": "lie",
+    "offsets_array": [
+      {
+        "word": "lying",
+        "offsets": [
+          250,
+          255
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "across": {
+    "count": 1,
+    "word_prefix": "across",
+    "offsets_array": [
+      {
+        "word": "across",
+        "offsets": [
+          256,
+          262
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "ground": {
+    "count": 1,
+    "word_prefix": "ground",
+    "offsets_array": [
+      {
+        "word": "ground",
+        "offsets": [
+          267,
+          273
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "it": {
+    "count": 4,
+    "word_prefix": "it",
+    "offsets_array": [
+      {
+        "word": "It",
+        "offsets": [
+          275,
+          277
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "it",
+        "offsets": [
+          331,
+          333
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "its",
+        "offsets": [
+          342,
+          345
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "it",
+        "offsets": [
+          376,
+          378
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "wa": {
+    "count": 6,
+    "word_prefix": "wa",
+    "offsets_array": [
+      {
+        "word": "was",
+        "offsets": [
+          278,
+          281
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "was",
+        "offsets": [
+          352,
+          355
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "was",
+        "offsets": [
+          379,
+          382
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "was",
+        "offsets": [
+          84,
+          87
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "was",
+        "offsets": [
+          126,
+          129
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "was",
+        "offsets": [
+          25,
+          28
+        ],
+        "n_row": 18
+      }
+    ]
+  },
+  "so": {
+    "count": 1,
+    "word_prefix": "so",
+    "offsets_array": [
+      {
+        "word": "so",
+        "offsets": [
+          282,
+          284
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "unusu": {
+    "count": 1,
+    "word_prefix": "unusu",
+    "offsets_array": [
+      {
+        "word": "unusual",
+        "offsets": [
+          285,
+          292
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "that": {
+    "count": 2,
+    "word_prefix": "that",
+    "offsets_array": [
+      {
+        "word": "that",
+        "offsets": [
+          293,
+          297
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "that",
+        "offsets": [
+          55,
+          59
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "had": {
+    "count": 1,
+    "word_prefix": "had",
+    "offsets_array": [
+      {
+        "word": "had",
+        "offsets": [
+          302,
+          305
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "never": {
+    "count": 2,
+    "word_prefix": "never",
+    "offsets_array": [
+      {
+        "word": "never",
+        "offsets": [
+          306,
+          311
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "never",
+        "offsets": [
+          103,
+          108
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "seen": {
+    "count": 2,
+    "word_prefix": "seen",
+    "offsets_array": [
+      {
+        "word": "seen",
+        "offsets": [
+          312,
+          316
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "seen",
+        "offsets": [
+          416,
+          420
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "anyth": {
+    "count": 1,
+    "word_prefix": "anyth",
+    "offsets_array": [
+      {
+        "word": "anything",
+        "offsets": [
+          317,
+          325
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "like": {
+    "count": 1,
+    "word_prefix": "like",
+    "offsets_array": [
+      {
+        "word": "like",
+        "offsets": [
+          326,
+          330
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "befor": {
+    "count": 2,
+    "word_prefix": "befor",
+    "offsets_array": [
+      {
+        "word": "before",
+        "offsets": [
+          334,
+          340
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "before",
+        "offsets": [
+          116,
+          122
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  ";": {
+    "count": 1,
+    "word_prefix": ";",
+    "offsets_array": [
+      {
+        "word": ";",
+        "offsets": [
+          340,
+          341
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "shape": {
+    "count": 1,
+    "word_prefix": "shape",
+    "offsets_array": [
+      {
+        "word": "shape",
+        "offsets": [
+          346,
+          351
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "round": {
+    "count": 1,
+    "word_prefix": "round",
+    "offsets_array": [
+      {
+        "word": "round",
+        "offsets": [
+          356,
+          361
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "but": {
+    "count": 2,
+    "word_prefix": "but",
+    "offsets_array": [
+      {
+        "word": "but",
+        "offsets": [
+          362,
+          365
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "but",
+        "offsets": [
+          40,
+          43
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "oval": {
+    "count": 1,
+    "word_prefix": "oval",
+    "offsets_array": [
+      {
+        "word": "oval",
+        "offsets": [
+          366,
+          370
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "larger": {
+    "count": 1,
+    "word_prefix": "larger",
+    "offsets_array": [
+      {
+        "word": "larger",
+        "offsets": [
+          383,
+          389
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "ani": {
+    "count": 1,
+    "word_prefix": "ani",
+    "offsets_array": [
+      {
+        "word": "any",
+        "offsets": [
+          395,
+          398
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "fruit": {
+    "count": 1,
+    "word_prefix": "fruit",
+    "offsets_array": [
+      {
+        "word": "fruit",
+        "offsets": [
+          399,
+          404
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "'": {
+    "count": 2,
+    "word_prefix": "'",
+    "offsets_array": [
+      {
+        "word": "'",
+        "offsets": [
+          408,
+          409
+        ],
+        "n_row": 2
+      },
+      {
+        "word": "'",
+        "offsets": [
+          31,
+          32
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "d": {
+    "count": 1,
+    "word_prefix": "d",
+    "offsets_array": [
+      {
+        "word": "d",
+        "offsets": [
+          409,
+          410
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "ever": {
+    "count": 1,
+    "word_prefix": "ever",
+    "offsets_array": [
+      {
+        "word": "ever",
+        "offsets": [
+          411,
+          415
+        ],
+        "n_row": 2
+      }
+    ]
+  },
+  "surround": {
+    "count": 1,
+    "word_prefix": "surround",
+    "offsets_array": [
+      {
+        "word": "surrounding",
+        "offsets": [
+          35,
+          46
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "move": {
+    "count": 1,
+    "word_prefix": "move",
+    "offsets_array": [
+      {
+        "word": "moved",
+        "offsets": [
+          57,
+          62
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "asid": {
+    "count": 1,
+    "word_prefix": "asid",
+    "offsets_array": [
+      {
+        "word": "aside",
+        "offsets": [
+          63,
+          68
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "let": {
+    "count": 1,
+    "word_prefix": "let",
+    "offsets_array": [
+      {
+        "word": "let",
+        "offsets": [
+          72,
+          75
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "get": {
+    "count": 1,
+    "word_prefix": "get",
+    "offsets_array": [
+      {
+        "word": "get",
+        "offsets": [
+          85,
+          88
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "closer": {
+    "count": 2,
+    "word_prefix": "closer",
+    "offsets_array": [
+      {
+        "word": "closer",
+        "offsets": [
+          91,
+          97
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "closer",
+        "offsets": [
+          116,
+          122
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "came": {
+    "count": 1,
+    "word_prefix": "came",
+    "offsets_array": [
+      {
+        "word": "came",
+        "offsets": [
+          111,
+          115
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "tini": {
+    "count": 1,
+    "word_prefix": "tini",
+    "offsets_array": [
+      {
+        "word": "tiny",
+        "offsets": [
+          134,
+          138
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "fairi": {
+    "count": 3,
+    "word_prefix": "fairi",
+    "offsets_array": [
+      {
+        "word": "fairy",
+        "offsets": [
+          139,
+          144
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "fairy",
+        "offsets": [
+          178,
+          183
+        ],
+        "n_row": 6
+      },
+      {
+        "word": "fairy",
+        "offsets": [
+          68,
+          73
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "perch": {
+    "count": 1,
+    "word_prefix": "perch",
+    "offsets_array": [
+      {
+        "word": "perched",
+        "offsets": [
+          145,
+          152
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "top": {
+    "count": 1,
+    "word_prefix": "top",
+    "offsets_array": [
+      {
+        "word": "top",
+        "offsets": [
+          156,
+          159
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "flew": {
+    "count": 1,
+    "word_prefix": "flew",
+    "offsets_array": [
+      {
+        "word": "flew",
+        "offsets": [
+          184,
+          188
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "spoke": {
+    "count": 1,
+    "word_prefix": "spoke",
+    "offsets_array": [
+      {
+        "word": "spoke",
+        "offsets": [
+          205,
+          210
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "soft": {
+    "count": 1,
+    "word_prefix": "soft",
+    "offsets_array": [
+      {
+        "word": "soft",
+        "offsets": [
+          216,
+          220
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "voic": {
+    "count": 1,
+    "word_prefix": "voic",
+    "offsets_array": [
+      {
+        "word": "voice",
+        "offsets": [
+          221,
+          226
+        ],
+        "n_row": 6
+      }
+    ]
+  },
+  "\"": {
+    "count": 4,
+    "word_prefix": "\"",
+    "offsets_array": [
+      {
+        "word": "\"",
+        "offsets": [
+          21,
+          22
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "\"",
+        "offsets": [
+          52,
+          53
+        ],
+        "n_row": 12
+      },
+      {
+        "word": "\"",
+        "offsets": [
+          21,
+          22
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "\"",
+        "offsets": [
+          21,
+          22
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "hi": {
+    "count": 2,
+    "word_prefix": "hi",
+    "offsets_array": [
+      {
+        "word": "Hi",
+        "offsets": [
+          22,
+          24
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "his",
+        "offsets": [
+          53,
+          56
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "do": {
+    "count": 1,
+    "word_prefix": "do",
+    "offsets_array": [
+      {
+        "word": "Do",
+        "offsets": [
+          35,
+          37
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "you": {
+    "count": 2,
+    "word_prefix": "you",
+    "offsets_array": [
+      {
+        "word": "you",
+        "offsets": [
+          38,
+          41
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "you",
+        "offsets": [
+          28,
+          31
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "know": {
+    "count": 3,
+    "word_prefix": "know",
+    "offsets_array": [
+      {
+        "word": "know",
+        "offsets": [
+          42,
+          46
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "know",
+        "offsets": [
+          34,
+          38
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "knows",
+        "offsets": [
+          77,
+          82
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "harri": {
+    "count": 3,
+    "word_prefix": "harri",
+    "offsets_array": [
+      {
+        "word": "Harry",
+        "offsets": [
+          53,
+          58
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "Harry",
+        "offsets": [
+          64,
+          69
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "Harry",
+        "offsets": [
+          65,
+          70
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "is": {
+    "count": 1,
+    "word_prefix": "is",
+    "offsets_array": [
+      {
+        "word": "is",
+        "offsets": [
+          59,
+          61
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "?\"": {
+    "count": 1,
+    "word_prefix": "?\"",
+    "offsets_array": [
+      {
+        "word": "?\"",
+        "offsets": [
+          61,
+          63
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "said": {
+    "count": 2,
+    "word_prefix": "said",
+    "offsets_array": [
+      {
+        "word": "said",
+        "offsets": [
+          74,
+          78
+        ],
+        "n_row": 10
+      },
+      {
+        "word": "Said",
+        "offsets": [
+          73,
+          77
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "shi": {
+    "count": 1,
+    "word_prefix": "shi",
+    "offsets_array": [
+      {
+        "word": "shy",
+        "offsets": [
+          88,
+          91
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "sinc": {
+    "count": 1,
+    "word_prefix": "sinc",
+    "offsets_array": [
+      {
+        "word": "since",
+        "offsets": [
+          92,
+          97
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "they": {
+    "count": 1,
+    "word_prefix": "they",
+    "offsets_array": [
+      {
+        "word": "they",
+        "offsets": [
+          98,
+          102
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "spoken": {
+    "count": 1,
+    "word_prefix": "spoken",
+    "offsets_array": [
+      {
+        "word": "spoken",
+        "offsets": [
+          109,
+          115
+        ],
+        "n_row": 10
+      }
+    ]
+  },
+  "anoth": {
+    "count": 1,
+    "word_prefix": "anoth",
+    "offsets_array": [
+      {
+        "word": "Another",
+        "offsets": [
+          21,
+          28
+        ],
+        "n_row": 12
+      }
+    ]
+  },
+  "sentenc": {
+    "count": 1,
+    "word_prefix": "sentenc",
+    "offsets_array": [
+      {
+        "word": "sentence",
+        "offsets": [
+          29,
+          37
+        ],
+        "n_row": 12
+      }
+    ]
+  },
+  "with": {
+    "count": 1,
+    "word_prefix": "with",
+    "offsets_array": [
+      {
+        "word": "with",
+        "offsets": [
+          38,
+          42
+        ],
+        "n_row": 12
+      }
+    ]
+  },
+  "word": {
+    "count": 1,
+    "word_prefix": "word",
+    "offsets_array": [
+      {
+        "word": "word",
+        "offsets": [
+          47,
+          51
+        ],
+        "n_row": 12
+      }
+    ]
+  },
+  "\".": {
+    "count": 1,
+    "word_prefix": "\".",
+    "offsets_array": [
+      {
+        "word": "\".",
+        "offsets": [
+          56,
+          58
+        ],
+        "n_row": 12
+      }
+    ]
+  },
+  "no": {
+    "count": 1,
+    "word_prefix": "no",
+    "offsets_array": [
+      {
+        "word": "No",
+        "offsets": [
+          22,
+          24
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "i": {
+    "count": 2,
+    "word_prefix": "i",
+    "offsets_array": [
+      {
+        "word": "I",
+        "offsets": [
+          26,
+          27
+        ],
+        "n_row": 16
+      },
+      {
+        "word": "I",
+        "offsets": [
+          33,
+          34
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "don": {
+    "count": 1,
+    "word_prefix": "don",
+    "offsets_array": [
+      {
+        "word": "don",
+        "offsets": [
+          28,
+          31
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "t": {
+    "count": 1,
+    "word_prefix": "t",
+    "offsets_array": [
+      {
+        "word": "t",
+        "offsets": [
+          32,
+          33
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "probabl": {
+    "count": 1,
+    "word_prefix": "probabl",
+    "offsets_array": [
+      {
+        "word": "probably",
+        "offsets": [
+          44,
+          52
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "father": {
+    "count": 1,
+    "word_prefix": "father",
+    "offsets_array": [
+      {
+        "word": "father",
+        "offsets": [
+          57,
+          63
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "senior": {
+    "count": 1,
+    "word_prefix": "senior",
+    "offsets_array": [
+      {
+        "word": "Senior",
+        "offsets": [
+          70,
+          76
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  ".\"": {
+    "count": 1,
+    "word_prefix": ".\"",
+    "offsets_array": [
+      {
+        "word": ".\"",
+        "offsets": [
+          82,
+          84
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "respond": {
+    "count": 1,
+    "word_prefix": "respond",
+    "offsets_array": [
+      {
+        "word": "Responded",
+        "offsets": [
+          85,
+          94
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "littl": {
+    "count": 1,
+    "word_prefix": "littl",
+    "offsets_array": [
+      {
+        "word": "little",
+        "offsets": [
+          107,
+          113
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "unsur": {
+    "count": 1,
+    "word_prefix": "unsur",
+    "offsets_array": [
+      {
+        "word": "unsure",
+        "offsets": [
+          114,
+          120
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "afraid": {
+    "count": 1,
+    "word_prefix": "afraid",
+    "offsets_array": [
+      {
+        "word": "afraid",
+        "offsets": [
+          130,
+          136
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "...": {
+    "count": 1,
+    "word_prefix": "...",
+    "offsets_array": [
+      {
+        "word": "...",
+        "offsets": [
+          136,
+          139
+        ],
+        "n_row": 16
+      }
+    ]
+  },
+  "right": {
+    "count": 1,
+    "word_prefix": "right",
+    "offsets_array": [
+      {
+        "word": "right",
+        "offsets": [
+          29,
+          34
+        ],
+        "n_row": 18
+      }
+    ]
+  },
+  "?": {
+    "count": 1,
+    "word_prefix": "?",
+    "offsets_array": [
+      {
+        "word": "?",
+        "offsets": [
+          34,
+          35
+        ],
+        "n_row": 18
+      }
+    ]
+  },
+  "thank": {
+    "count": 1,
+    "word_prefix": "thank",
+    "offsets_array": [
+      {
+        "word": "Thank",
+        "offsets": [
+          22,
+          27
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "realli": {
+    "count": 1,
+    "word_prefix": "realli",
+    "offsets_array": [
+      {
+        "word": "really",
+        "offsets": [
+          35,
+          41
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "need": {
+    "count": 1,
+    "word_prefix": "need",
+    "offsets_array": [
+      {
+        "word": "need",
+        "offsets": [
+          42,
+          46
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "boy": {
+    "count": 1,
+    "word_prefix": "boy",
+    "offsets_array": [
+      {
+        "word": "boy",
+        "offsets": [
+          60,
+          63
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "!\"": {
+    "count": 1,
+    "word_prefix": "!\"",
+    "offsets_array": [
+      {
+        "word": "!\"",
+        "offsets": [
+          70,
+          72
+        ],
+        "n_row": 22
+      }
+    ]
+  },
+  "turn": {
+    "count": 2,
+    "word_prefix": "turn",
+    "offsets_array": [
+      {
+        "word": "turned",
+        "offsets": [
+          102,
+          108
+        ],
+        "n_row": 22
+      },
+      {
+        "word": "turned",
+        "offsets": [
+          25,
+          31
+        ],
+        "n_row": 24
+      }
+    ]
+  },
+  "back": {
+    "count": 2,
+    "word_prefix": "back",
+    "offsets_array": [
+      {
+        "word": "back",
+        "offsets": [
+          109,
+          113
+        ],
+        "n_row": 22
+      },
+      {
+        "word": "back",
+        "offsets": [
+          32,
+          36
+        ],
+        "n_row": 24
+      }
+    ]
+  }
+}
