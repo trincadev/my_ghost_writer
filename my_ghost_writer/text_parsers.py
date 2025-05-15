@@ -1,28 +1,11 @@
 from typing import Iterator
 
+from my_ghost_writer.type_hints import RequestTextRowsList, ResponseTextRowsDict
 
-def clean_string(s: str) -> str:
+
+def text_stemming(text: str | RequestTextRowsList) -> ResponseTextRowsDict:
     """
-    Clean a given string by removing punctuation using
-    1. nltk.classify.TextCat()'s remove_punctuation() method
-    2. removing new line characters
-    and converting the string to lowercase.
-
-    Args:
-        s (str): The string to clean.
-
-    Returns:
-        str: The cleaned string.
-    """
-    from nltk.classify import TextCat
-    tc = TextCat()
-    cleaned_word = tc.remove_punctuation(text=s)
-    return cleaned_word.translate(str.maketrans("", "", "\n\r"))
-
-
-def text_stemming(text) -> tuple[int, dict]:
-    """
-    Applies Porter Stemmer algorithm to reduce words in a given text to their base form,
+    Applies Porter Stemmer algorithm to reduce words in a given text to their base form;
     then it uses WordPunctTokenizer() to produce a dict of words frequency with, for
     every recognized base form, a list of these repeated words with their position.
 
@@ -40,8 +23,17 @@ def text_stemming(text) -> tuple[int, dict]:
     ps = PorterStemmer()
     try:
         valid_textrows_with_num = json.loads(text)
-    except TypeError:
-        valid_textrows_with_num = text
+        print("valid_textrows_with_num::json:", valid_textrows_with_num, "#")
+    except (TypeError, json.decoder.JSONDecodeError):
+        pass
+        if isinstance(text, list):
+            valid_textrows_with_num = text
+            print("valid_textrows_with_num::list:", valid_textrows_with_num, "#")
+        elif isinstance(text, str):
+            valid_textrows_with_num = [{"idxRow": i, "text": row} for i, row in enumerate(text.split("\n"))]
+            print("valid_textrows_with_num::str:", valid_textrows_with_num, "#")
+        else:
+            raise TypeError(f"Invalid input type. Expected json str or list of dictionaries, not '{type(text)}'.")
     row_words_tokens = []
     row_offsets_tokens = []
     idx_rows = []
@@ -59,13 +51,13 @@ def get_words_tokens_and_indexes(
         words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, idx_rows_list: list[int]
     ) -> dict:
     """
-    Get the words tokens and their indexes in the text.
+    Get the word tokens and their indexes in the text.
 
     Args:
         words_tokens_list (list): List of words tokens.
         offsets_tokens_list (list): List of offsets for each token.
         ps (PorterStemmer): The stemmer to use.
-        min_len_words (int): Minimum length of words to include.
+        idx_rows_list (list[int]): List of row indices corresponding to the tokens.
 
     Returns:
         dict: Dictionary with stemmed words as keys and a list of dictionaries
@@ -84,7 +76,7 @@ def get_words_tokens_and_indexes(
 
 def update_stems_list(current_stem_tuple: dict, word: str, offsets: list, n_row: int) -> tuple:
     """
-    Update the stems list with the new stem and its count.
+    Update the stem list with the new stem and its count.
 
     Args:
         current_stem_tuple (tuple): Tuple containing the current stem count and list of words.

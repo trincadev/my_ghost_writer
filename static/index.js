@@ -280,25 +280,32 @@ function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|
  *
  */
 function textStemming(textSplitNewline) {
-    // const textSplitNewline = text.split('\n');
-    // "text" now it's an array of object [{nRow: 0, text: "...."}]
-    const rowWordsTokens = [];
-    const rowOffsetsTokens = [];
-    const idxRows = []
+    // "text" now it's an array of object
+    // textSplitNewline: [{idxRow: number, text: string}]
+    const wordsStemsDict = {};
+    let nTotalRows = textSplitNewline.length;
 
     textSplitNewline.forEach((data) => {
-        const row = data.row
-        const idxRow = data.idxRow
+        const row = data.text;
+        const idxRow = data.idxRow;
         const tokens = customWordPunctTokenize(row);
         const offsets = getOffsets(row, tokens);
-        idxRows.push(idxRow)
-        rowWordsTokens.push(tokens);
-        rowOffsetsTokens.push(offsets);
+
+        tokens.forEach((word, i) => {
+            const wordLower = word.toLowerCase();
+            const stem = porterStemmer(wordLower);
+            if (!wordsStemsDict[stem]) {
+                wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
+            }
+            wordsStemsDict[stem].count += 1;
+            wordsStemsDict[stem].offsets_array.push({
+                word: word, // keep original casing for display
+                offsets: [offsets[i].start, offsets[i].end],
+                n_row: idxRow
+            });
+        });
     });
-
-    const wordsStemsDict = getWordsTokensAndIndexes(rowWordsTokens, rowOffsetsTokens, idxRows);
-    const nTotalRows = textSplitNewline.length;
-
+    console.log("textStemming::wordsStemsDict:", wordsStemsDict, "#")
     return { nTotalRows, wordsStemsDict };
 }
 
@@ -315,16 +322,15 @@ function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, idxRowsLis
 
     wordsTokensList.forEach((wordsTokens, n) => {
         const idxRow = idxRowsList[n]
-        wordsTokens.forEach((word, index) => {
-            const cleanedWord = cleanString(word);
-            
+        wordsTokens.forEach((word, index) => {            
             // Apply stemming
-            const stem = porterStemmer(cleanedWord);
+            const stem = porterStemmer(word);
             if (!wordsStemsDict[stem]) {
                 wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
             }
 
-            const offsets = offsetsTokensList[idxRow][index];
+            const currentOffset = offsetsTokensList[idxRow];
+            const offsets = currentOffset[index];
             updateStemsList(wordsStemsDict[stem], word, offsets, idxRow);
         });
     });
@@ -347,16 +353,6 @@ function updateStemsList(currentStemObj, word, offsets, nRow) {
         offsets: [offsets.start, offsets.end], // Convert offsets to an array format
         n_row: nRow
     });
-}
-
-/**
- * Clean a given string by removing punctuation and converting it to lowercase.
- *
- * @param {string} s - The string to clean.
- * @returns {string} - The cleaned string.
- */
-function cleanString(s) {
-    return s.replace(/[^\w\s]|_/g, '').replace(/\s+/g, '').toLowerCase();
 }
 
 /**
