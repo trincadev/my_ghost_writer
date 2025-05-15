@@ -20,11 +20,11 @@ const wordsFrequencyAnalyzers = {
     /**
      * Analyzes input text using 'My Ghost Writer' webserver API.
      *
-     * @param {string} inputText - Text to analyze.
+     * @param {string} arrayOfValidTextChildWithNrow - array of text rows to analyze.
      * @returns {Promise<Object>} Response from webserver API containing word frequency data.
      */
-    "id-input-webserver-wordfreq-checkbox": async function(inputText) {
-        let bodyRequest = {"text": inputText}
+    "id-input-webserver-wordfreq-checkbox": async function(arrayOfValidTextChildWithNrow) {
+        let bodyRequest = {"text": arrayOfValidTextChildWithNrow}
         console.log("use the webserver for word freq analysis...")
         const wordsFrequencyURL = parseWebserverDomain()
         try {
@@ -37,11 +37,11 @@ const wordsFrequencyAnalyzers = {
             setElementCssClassById("waiting-for-be", "display-none")
             let freq = bodyResponseJson["words_frequency"]
             let nTotalRows = bodyResponseJson["n_total_rows"]
-            console.log(`getWordsFreq::nTotalRows: '${nTotalRows}'`)
+            console.log(`wordsFrequencyAnalyzers::nTotalRows: '${nTotalRows}'`)
             populateWordsFrequencyTables(freq, nTotalRows)
         } catch (err) {
-            console.error("getWordsFrequency::err on webserver request/response:", err, "#")
-            console.log(`wordsFrequencyURL:`, typeof wordsFrequency, "=>", wordsFrequencyURL, "#")
+            console.error("wordsFrequencyAnalyzers::err on webserver request/response:", err, "#")
+            console.log(`wordsFrequencyAnalyzers::wordsFrequencyURL: ${typeof wordsFrequencyURL}:`, wordsFrequencyURL, "#")
             setElementCssClassById("waiting-for-be", "display-none")
             setElementCssClassById("waiting-for-be-error", "display-block")
         }
@@ -246,12 +246,12 @@ const porterStemmer = (function(){
         return w;
     }
 })();
+
 /**
- * Filters elements from a list based on specified criteria.
- *
- * @param {Array} inputArray - The array to be filtered.
- * @param {boolean} filterWhitespaces - If true, removes whitespace-only elements.
- * @param {Array} filterArgs - An array of strings to be filtered out from the input array.
+ * Filters elements from an array based on specified conditions.
+ * @param {Array} inputArray - The array of elements to filter.
+ * @param {boolean} [filterWhitespaces=false] - Whether to remove whitespace elements.
+ * @param {Array<string>} [filterArgs=["", " "]] - List of elements to exclude from the array.
  * @returns {Array} - The filtered array.
  */
 function filterElementsFromList (inputArray,  filterWhitespaces = false, filterArgs=["", " "]) {
@@ -260,14 +260,13 @@ function filterElementsFromList (inputArray,  filterWhitespaces = false, filterA
     }
     return inputArray.filter((x) => !filterArgs.includes(x));
 }
+
 /**
- * Tokenizes a string based on a specified pattern.
- * Based on the WordPunctTokenizer from https://github.com/NaturalNode/natural
- *
- * @param {string} s - The string to be tokenized.
- * @param {RegExp} pattern - The regular expression pattern to use for tokenization.
- * @param {boolean} filterWhitespaces - If true, removes whitespace-only elements from the result.
- * @returns {Array} - The tokenized array.
+ * Tokenizes a string using a custom pattern and filters out specified elements.
+ * @param {string} s - The input string to tokenize.
+ * @param {RegExp} [pattern=/([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i] - The regex pattern for tokenization.
+ * @param {boolean} [filterWhitespaces=true] - Whether to remove whitespace elements after tokenization.
+ * @returns {Array} - The list of tokens filtered based on specified conditions.
  */
 function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
     const results = s.split(pattern)
@@ -279,22 +278,25 @@ function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|
  * then produces a dictionary of word frequencies with, for every recognized base form,
  * a list of these repeated words with their position.
  *
- * @param {string} text - Input string containing the text to be stemmed.
- * @returns {Object} - An object containing the number of processed rows and the words frequency dictionary.
  */
-function textStemming(text) {
-    const textSplitNewline = text.split('\n');
+function textStemming(textSplitNewline) {
+    // const textSplitNewline = text.split('\n');
+    // "text" now it's an array of object [{nRow: 0, text: "...."}]
     const rowWordsTokens = [];
     const rowOffsetsTokens = [];
+    const idxRows = []
 
-    textSplitNewline.forEach((row, rowIndex) => {
+    textSplitNewline.forEach((data) => {
+        const row = data.row
+        const idxRow = data.idxRow
         const tokens = customWordPunctTokenize(row);
         const offsets = getOffsets(row, tokens);
+        idxRows.push(idxRow)
         rowWordsTokens.push(tokens);
         rowOffsetsTokens.push(offsets);
     });
 
-    const wordsStemsDict = getWordsTokensAndIndexes(rowWordsTokens, rowOffsetsTokens);
+    const wordsStemsDict = getWordsTokensAndIndexes(rowWordsTokens, rowOffsetsTokens, idxRows);
     const nTotalRows = textSplitNewline.length;
 
     return { nTotalRows, wordsStemsDict };
@@ -308,10 +310,11 @@ function textStemming(text) {
  * @returns {Object} - Dictionary with stemmed words as keys and a list of dictionaries
  *                     containing the original word and its offsets as values.
  */
-function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList) {
+function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, idxRowsList) {
     const wordsStemsDict = {};
 
-    wordsTokensList.forEach((wordsTokens, nRow) => {
+    wordsTokensList.forEach((wordsTokens, n) => {
+        const idxRow = idxRowsList[n]
         wordsTokens.forEach((word, index) => {
             const cleanedWord = cleanString(word);
             
@@ -321,8 +324,8 @@ function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList) {
                 wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
             }
 
-            const offsets = offsetsTokensList[nRow][index];
-            updateStemsList(wordsStemsDict[stem], word, offsets, nRow);
+            const offsets = offsetsTokensList[idxRow][index];
+            updateStemsList(wordsStemsDict[stem], word, offsets, idxRow);
         });
     });
 
@@ -443,21 +446,15 @@ function scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc=
  * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
  */
 function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
-    let editorElement = document.getElementById(editorFieldLabel);
-    let validChildNodes = []
-    // use a for loop because of better performance
-    for (let i=0; i < editorElement.childNodes.length; i++) {
-        let childNode = editorElement.childNodes[i]
-        if (childNode.innerHTML !== "") {
-            validChildNodes.push(childNode)
-        }
-    }
+    const editorElement = document.getElementById(editorFieldLabel)
+    const childNodes = editorElement.childNodes
     let rng = document.createRange();
     let sel = window.getSelection();
     let col0 = offsetColumn[0]
     let col1 = offsetColumn[1]
-    rng.setStart(validChildNodes[line], col0);
-    rng.setEnd(validChildNodes[line], col1)
+    let childNode = childNodes[line]
+    rng.setStart(childNode, col0)
+    rng.setEnd(childNode, col1)
     sel.removeAllRanges();
     sel.addRange(rng);
     editorElement.focus();
@@ -475,6 +472,13 @@ function setElementCssClassById(elementId, currentClass) {
     elementWithClassToChange.setAttribute("class", currentClass)
 }
 
+
+/**
+ * Sets a CSS class by replacing an old class.
+ * @param {HTMLElement} element - The element to set the CSS class on.
+ * @param {string} oldClass - The old class name to replace.
+ * @param {string} newClass - The new class name to set.
+ */
 function setElementCssClassByOldClass(oldClassName, currentClass) {
     try {
         let oldClassElement = document.getElementsByClassName(oldClassName)
@@ -484,6 +488,10 @@ function setElementCssClassByOldClass(oldClassName, currentClass) {
     }
 }
 
+/**
+ * Parses the web server domain from an input element.
+ * @returns {string} The parsed web server domain.
+ */
 function parseWebserverDomain () {
     const remoteWebServerEl = document.getElementById("id-input-webserver-wordfreq")
     console.log("remoteWebServer.value:", remoteWebServerEl.value, "#")
@@ -500,9 +508,7 @@ function parseWebserverDomain () {
  * @function getWordsFrequency
  */
 async function getWordsFrequency() {
-    let text = document.getElementById(editorFieldLabel)
-    // replace repeated newlines to prepare setCaret() use
-    text.innerText = text.innerText.replace(/[\r\n]+/g, '\n')
+    let {validChildContent} = getValidChildNodesFromEditorById(editorFieldLabel)
     setElementCssClassById("waiting-for-be-error", "display-none")
     setElementCssClassById("waiting-for-be", "display-block")
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
@@ -515,10 +521,10 @@ async function getWordsFrequency() {
     console.log("choiceWordFreqAnalyzerEl checked:", choiceWordFreqAnalyzerEl.checked, "#")
     switch (choiceWordFreqAnalyzerEl.checked) {
         case true: // webserver
-            await wordsFrequencyAnalyzers['id-input-webserver-wordfreq-checkbox'](text.innerText)
+            await wordsFrequencyAnalyzers['id-input-webserver-wordfreq-checkbox'](validChildContent)
             break;
         case false: // embedded
-            wordsFrequencyAnalyzers['stemmer-embedded'](text.innerText)
+            wordsFrequencyAnalyzers['stemmer-embedded'](validChildContent)
             break;
         default:
             console.warn("No valid analyzer selected.");
@@ -653,6 +659,14 @@ function insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords) {
     currentTableOfWords.appendChild(currentTableWordsFreq)
 }
 
+/**
+ * Inserts a list of words into a word list element based on the current table of words.
+ * @param {number} i - The index of the current row.
+ * @param {Object} iReduced - An object containing information about the current word prefix and count.
+ * @param {number} nTotalRows - The total number of rows.
+ * @param {HTMLElement} wordListElement - The element to insert the list of words into.
+ * @param {HTMLElement} currentTableOfWords - The element to insert the current table of words into.
+ */
 function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTableOfWords) {
     const li = document.createElement("li");
     const a = document.createElement("a")
@@ -710,4 +724,27 @@ function updateWordsFreqIfPressEnter() {
     if(event.key==='Enter'){
         updateWordsFrequencyTables()
     }
+}
+
+/**
+ * Retrieves valid child nodes from an editor element by ID.
+ * @param {string} idElement - The ID of the editor element to retrieve child nodes from.
+ * @returns {Object} An object containing arrays of valid child nodes and their corresponding content, as well as the editor element itself.
+ */
+function getValidChildNodesFromEditorById(idElement) {
+    let editorElement = document.getElementById(idElement)
+    let validChildNodes = []
+    let validChildContent = []
+    // use a for loop because of better performance
+    for (let i = 0; i < editorElement.childNodes.length; i++) {
+        let childNode = editorElement.childNodes[i]
+        if (childNode.nodeName === "#text" && childNode.wholeText.trim() !== "") {
+            validChildNodes.push(childNode)
+            validChildContent.push({
+                // DON'T TRIM childNode.wholeText, this would break setCaret() alignment!
+                idxRow: i, text: childNode.wholeText
+            })
+        }
+    }
+    return { validChildNodes, validChildContent, editorElement }
 }

@@ -32,24 +32,31 @@ def text_stemming(text) -> tuple[int, dict]:
     Returns:
         tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the words frequency dict
     """
+    import json
     from nltk import PorterStemmer
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
     from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
     
     ps = PorterStemmer()
-    text_split_newline = text.split("\n")
+    try:
+        valid_textrows_with_num = json.loads(text)
+    except TypeError:
+        valid_textrows_with_num = text
     row_words_tokens = []
     row_offsets_tokens = []
-    for row in text_split_newline:
+    idx_rows = []
+    for textrow in valid_textrows_with_num:
+        row = textrow["text"]
+        idx_rows.append(textrow["idxRow"])
         row_words_tokens.append(wordpunct_tokenize(row))
         row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
-    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps)
-    n_total_rows = len(text_split_newline)
+    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps, idx_rows)
+    n_total_rows = len(valid_textrows_with_num)
     return n_total_rows, words_stems_dict
 
 
 def get_words_tokens_and_indexes(
-        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, min_len_words=3
+        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, idx_rows_list: list[int]
     ) -> dict:
     """
     Get the words tokens and their indexes in the text.
@@ -65,11 +72,8 @@ def get_words_tokens_and_indexes(
               containing the original word and its offsets as values.
     """
     words_stems_dict = {}
-    for n_row, (words_tokens, offsets_tokens) in enumerate(zip(words_tokens_list, offsets_tokens_list)):
+    for (n_row, words_tokens, offsets_tokens) in zip(idx_rows_list, words_tokens_list, offsets_tokens_list):
         for word, offsets in zip(words_tokens, offsets_tokens):
-            cleaned_word = clean_string(word)
-            if len(cleaned_word) < min_len_words:
-                continue
             stem = ps.stem(word)
             if stem not in words_stems_dict:
                 words_stems_dict[stem] = {"count": 0, "word_prefix": stem, "offsets_array": []}
