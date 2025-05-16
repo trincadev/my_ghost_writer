@@ -61,6 +61,9 @@ const wordsFrequencyAnalyzers = {
             let nTotalRows = bodyResponseJson["nTotalRows"]
             console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
             populateWordsFrequencyTables(freq, nTotalRows)
+            // temp until we have the new UI
+            let hiddenOutputSpan = document.getElementById("id-hidden-editor")
+            hiddenOutputSpan.textContent = JSON.stringify(freq, null, 2)
         } catch (err) {
             console.error("getWordsFrequency::err on useWordfreqWebserver:", err, "#")
             setElementCssClassById("waiting-for-be", "display-none")
