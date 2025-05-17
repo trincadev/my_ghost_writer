@@ -255,41 +255,6 @@ const porterStemmer = (function(){
 })();
 
 /**
- * Recursively extracts all string values from any level of a nested object or array.
- *
- * This function traverses the input (which can be an object, array, or primitive)
- * and collects every string value it finds, regardless of the key or structure.
- * The result is a flat array of all string values found within the input.
- *
- * @param {*} obj - The input object, array, or value to search for strings.
- * @returns {Array<string>} An array containing all string values found in the input.
- *
- * @example
- * const data = [
- *   { word: "hello", nested: { value: "world" } },
- *   { words: ["foo", "bar"] },
- *   "baz"
- * ];
- * const result = extractStringValues(data);
- * // result: ["hello", "world", "foo", "bar", "baz"]
- */
-function extractStringValues(obj) {
-    let result = [];
-    if (typeof obj === "string") {
-        result.push(obj);
-    } else if (Array.isArray(obj)) {
-        for (const item of obj) {
-            result = result.concat(extractStringValues(item));
-        }
-    } else if (typeof obj === "object" && obj !== null) {
-        for (const key in obj) {
-            result = result.concat(extractStringValues(obj[key]));
-        }
-    }
-    return result;
-}
-
-/**
  * Filters elements from an array based on specified conditions.
  * @param {Array} inputArray - The array of elements to filter.
  * @param {boolean} [filterWhitespaces=false] - Whether to remove whitespace elements.
