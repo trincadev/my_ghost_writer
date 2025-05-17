@@ -9,6 +9,10 @@ const underlinedPrimary = "underlinedBlue"
 const underlinedClicked = "underlinedDarkViolet"
 const underlinedPrimaryTable = "underlinedBlueTable"
 const underlinedClickedTable = "underlinedDarkVioletTable"
+const objectChildNodeNamesToParse = {
+    "#text": "textContent",
+    "DIV": "innerText"
+}
 
 /**
  * Object containing functions for word frequency analysis.
@@ -487,8 +491,14 @@ function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
     let col0 = offsetColumn[0]
     let col1 = offsetColumn[1]
     let childNode = childNodes[line]
-    rng.setStart(childNode, col0)
-    rng.setEnd(childNode, col1)
+    /// handle case of childNodes not of type #text, e.g. DIV
+    try {
+        rng.setStart(childNode, col0)
+        rng.setEnd(childNode, col1)
+    } catch {
+        rng.setStart(childNode.firstChild, col0)
+        rng.setEnd(childNode.firstChild, col1)
+    }
     sel.removeAllRanges();
     sel.addRange(rng);
     editorElement.focus();
@@ -819,15 +829,21 @@ function getValidChildNodesFromEditorById(idElement) {
     let editorElement = document.getElementById(idElement)
     let validChildNodes = []
     let validChildContent = []
-    // use a for loop because of better performance
     for (let i = 0; i < editorElement.childNodes.length; i++) {
         let childNode = editorElement.childNodes[i]
-        if (childNode.nodeName === "#text" && childNode.wholeText.trim() !== "") {
-            validChildNodes.push(childNode)
-            validChildContent.push({
-                // DON'T TRIM childNode.wholeText, this would break setCaret() alignment!
-                idxRow: i, text: childNode.wholeText
-            })
+        // get the right child node text content field, then check if when trimmed it still has text within
+        const checkIsValidNode = Object.keys(objectChildNodeNamesToParse).includes(childNode.nodeName)
+        if (checkIsValidNode) {
+            const nodeTextField = objectChildNodeNamesToParse[childNode.nodeName]
+            const textFieldContent = childNode[nodeTextField]
+            if (textFieldContent.trim() !== "") {
+                validChildNodes.push(childNode)
+                validChildContent.push({
+                    // DON'T TRIM childNode.wholeText, this would break setCaret() alignment!
+                    idxRow: i, text: textFieldContent
+                })
+            }
+
         }
     }
     return { validChildNodes, validChildContent, editorElement }
