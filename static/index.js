@@ -347,7 +347,6 @@ function textStemming(textSplitNewline) {
             });
         });
     });
-    console.log("textStemming::wordsStemsDict:", wordsStemsDict, "#")
     return { nTotalRows, wordsStemsDict };
 }
 
@@ -527,9 +526,7 @@ function setElementCssClassByOldClass(oldClassName, currentClass) {
     try {
         let oldClassElement = document.getElementsByClassName(oldClassName)
         oldClassElement[0].className = currentClass
-    } catch {
-        console.log("not found...")
-    }
+    } catch {}
 }
 
 /**
@@ -562,7 +559,7 @@ async function getWordsFrequency() {
     let currentTableOfWords = document.getElementById("id-current-table-of-words")
     currentTableOfWords.innerHTML = ""
     const choiceWordFreqAnalyzerEl = document.getElementById('id-input-webserver-wordfreq-checkbox')
-    console.log("choiceWordFreqAnalyzerEl checked:", choiceWordFreqAnalyzerEl.checked, "#")
+    console.log("choiceWordFreqAnalyzerEl checked:", typeof choiceWordFreqAnalyzerEl.checked, choiceWordFreqAnalyzerEl.checked, "#")
     switch (choiceWordFreqAnalyzerEl.checked) {
         case true: // webserver
             await wordsFrequencyAnalyzers['id-input-webserver-wordfreq-checkbox'](validChildContent)
@@ -651,10 +648,8 @@ function extractStringValues(obj) {
  * // Returns: [{ a: "hello", b: { c: "world" } }]
  */
 function arrayFilterNestedValue(array, nestedValue) {
-    console.log("arrayFilterNestedValue...", array.length, "#")
     return array.filter(item => {
         let valuesFromObject = extractStringValues(item).join(" ")
-        console.log("arrayFilterNestedValue::contains:", valuesFromObject.toLowerCase().includes(nestedValue.toLowerCase()), valuesFromObject, "#")
         return valuesFromObject.toLowerCase().includes(nestedValue.toLowerCase());
     });
 }
@@ -683,9 +678,7 @@ async function updateWordsFrequencyTables() {
 
     let inputFilter = document.getElementById("filter-words-frequency")
     let inputFilterValue = inputFilter.value
-    console.log("updateWordsFrequencyTables::inputFilter.value:", inputFilter.value, inputFilterValue !== undefined && inputFilter.value !== "", "#")
     if (inputFilterValue !== undefined && inputFilter.value !== "") {
-        console.log("dentro...")
         reduced = arrayFilterNestedValue(reduced, inputFilterValue)
     }
 
@@ -766,7 +759,7 @@ function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTabl
     a.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
     a.addEventListener("click",  function() {
         currentTableOfWords.innerHTML = ""
-        console.log("a::", `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`, "#")
+        console.log(`insertListOfWords::'a', ${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`)
         insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords)
         setElementCssClassByOldClass(underlinedClicked, underlinedPrimary)
         a.className = underlinedClicked
@@ -814,7 +807,6 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
  * @function updateWordsFreqIfPressEnter
  */
 function updateWordsFreqIfPressEnter() {
-    console.log("updateWordsFreqIfPressEnter::", event.key, "#")
     if(event.key==='Enter'){
         updateWordsFrequencyTables()
     }
