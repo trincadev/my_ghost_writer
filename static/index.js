@@ -251,6 +251,41 @@ const porterStemmer = (function(){
 })();
 
 /**
+ * Recursively extracts all string values from any level of a nested object or array.
+ *
+ * This function traverses the input (which can be an object, array, or primitive)
+ * and collects every string value it finds, regardless of the key or structure.
+ * The result is a flat array of all string values found within the input.
+ *
+ * @param {*} obj - The input object, array, or value to search for strings.
+ * @returns {Array<string>} An array containing all string values found in the input.
+ *
+ * @example
+ * const data = [
+ *   { word: "hello", nested: { value: "world" } },
+ *   { words: ["foo", "bar"] },
+ *   "baz"
+ * ];
+ * const result = extractStringValues(data);
+ * // result: ["hello", "world", "foo", "bar", "baz"]
+ */
+function extractStringValues(obj) {
+    let result = [];
+    if (typeof obj === "string") {
+        result.push(obj);
+    } else if (Array.isArray(obj)) {
+        for (const item of obj) {
+            result = result.concat(extractStringValues(item));
+        }
+    } else if (typeof obj === "object" && obj !== null) {
+        for (const key in obj) {
+            result = result.concat(extractStringValues(obj[key]));
+        }
+    }
+    return result;
+}
+
+/**
  * Filters elements from an array based on specified conditions.
  * @param {Array} inputArray - The array of elements to filter.
  * @param {boolean} [filterWhitespaces=false] - Whether to remove whitespace elements.
@@ -554,16 +589,63 @@ function dynamicSort(property, order) {
 }
 
 /**
- * Filters an array of objects by checking if a specified nested value exists within any object.
- * The search is case-insensitive and checks all nested properties by converting the object to a JSON string.
+ * Recursively extracts all string values from any level of a nested object or array.
+ *
+ * This function traverses the input (which can be an object, array, or primitive)
+ * and collects every string value it finds, regardless of the key or structure.
+ * The result is a flat array of all string values found within the input.
+ *
+ * @param {*} obj - The input object, array, or value to search for strings.
+ * @returns {Array<string>} An array containing all string values found in the input.
+ *
+ * @example
+ * const data = [
+ *   { word: "hello", nested: { value: "world" } },
+ *   { words: ["foo", "bar"] },
+ *   "baz"
+ * ];
+ * const result = extractStringValues(data);
+ * // result: ["hello", "world", "foo", "bar", "baz"]
+ */
+function extractStringValues(obj) {
+    let result = [];
+    if (typeof obj === "string") {
+        result.push(obj);
+    } else if (Array.isArray(obj)) {
+        for (const item of obj) {
+            result = result.concat(extractStringValues(item));
+        }
+    } else if (typeof obj === "object" && obj !== null) {
+        for (const key in obj) {
+            result = result.concat(extractStringValues(obj[key]));
+        }
+    }
+    return result;
+}
+
+/**
+ * Filters an array of objects by checking if a specified value exists within any nested property.
+ * The search is case-insensitive and recursively collects all string values from each object,
+ * then checks if the concatenated string contains the search value.
  *
  * @param {Array<Object>} array - The array of objects to filter.
  * @param {string} nestedValue - The value to search for within the objects.
  * @returns {Array<Object>} - A new array containing objects where the nested value is found.
+ *
+ * @example
+ * const arr = [
+ *   { a: "hello", b: { c: "world" } },
+ *   { a: "foo", b: { c: "bar" } }
+ * ];
+ * arrayFilterNestedValue(arr, "World");
+ * // Returns: [{ a: "hello", b: { c: "world" } }]
  */
 function arrayFilterNestedValue(array, nestedValue) {
+    console.log("arrayFilterNestedValue...", array.length, "#")
     return array.filter(item => {
-        return JSON.stringify(item).toLowerCase().includes(nestedValue.toLowerCase());
+        let valuesFromObject = extractStringValues(item).join(" ")
+        console.log("arrayFilterNestedValue::contains:", valuesFromObject.toLowerCase().includes(nestedValue.toLowerCase()), valuesFromObject, "#")
+        return valuesFromObject.toLowerCase().includes(nestedValue.toLowerCase());
     });
 }
 
@@ -591,7 +673,9 @@ async function updateWordsFrequencyTables() {
 
     let inputFilter = document.getElementById("filter-words-frequency")
     let inputFilterValue = inputFilter.value
+    console.log("updateWordsFrequencyTables::inputFilter.value:", inputFilter.value, inputFilterValue !== undefined && inputFilter.value !== "", "#")
     if (inputFilterValue !== undefined && inputFilter.value !== "") {
+        console.log("dentro...")
         reduced = arrayFilterNestedValue(reduced, inputFilterValue)
     }
 
@@ -720,6 +804,7 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
  * @function updateWordsFreqIfPressEnter
  */
 function updateWordsFreqIfPressEnter() {
+    console.log("updateWordsFreqIfPressEnter::", event.key, "#")
     if(event.key==='Enter'){
         updateWordsFrequencyTables()
     }
