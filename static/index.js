@@ -11,7 +11,7 @@ const underlinedPrimaryTable = "underlinedBlueTable"
 const underlinedClickedTable = "underlinedDarkVioletTable"
 const objectChildNodeNamesToParse = {
     "#text": "textContent",
-    "DIV": "innerText"
+    "SPAN": "textContent"
 }
 
 /**
@@ -285,16 +285,21 @@ function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|
  * then produces a dictionary of word frequencies with, for every recognized base form,
  * a list of these repeated words with their position.
  *
+ * Handles nested SPAN childNodes and tracks idxRow, idxRowChild, idxRowParent.
+ *
+ * @param {Array<Object>} textSplitNewline - Array of objects: {idxRow, text, idxRowChild, idxRowParent}
+ * @returns {Object} - { nTotalRows, wordsStemsDict }
  */
 function textStemming(textSplitNewline) {
-    // "text" now it's an array of object
-    // textSplitNewline: [{idxRow: number, text: string}]
+    // textSplitNewline: [{idxRow: number, text: string, idxRowChild: number|null, idxRowParent: number|null}]
     const wordsStemsDict = {};
     let nTotalRows = textSplitNewline.length;
 
     textSplitNewline.forEach((data) => {
         const row = data.text;
         const idxRow = data.idxRow;
+        const idxRowChild = data.idxRowChild ?? null;
+        const idxRowParent = data.idxRowParent ?? null;
         const tokens = customWordPunctTokenize(row);
         const offsets = getOffsets(row, tokens);
 
@@ -308,7 +313,9 @@ function textStemming(textSplitNewline) {
             wordsStemsDict[stem].offsets_array.push({
                 word: word, // keep original casing for display
                 offsets: [offsets[i].start, offsets[i].end],
-                n_row: idxRow
+                n_row: idxRow,
+                n_row_child: idxRowChild,
+                n_row_parent: idxRowParent
             });
         });
     });
@@ -423,13 +430,13 @@ function previewFile() {
  * @function scrollToGivenPoint
  * @param {HTMLElement} editorElement The HTML element id of the editor.
  * @param {number} line The line/row number to scroll to (0-indexed).
- * @param {number} nTotalRows The total number of text lines/rows.
+ * @param {number} nTotalLines The total number of text lines/rows.
  * @param {number} [negativeOffsetPerc=0.12] An optional percentage value to add a negative offset, preventing scrolling beyond the end of the viewport.
  */
-function scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc=0.12) {
+function scrollToGivenPoint(editorElement, line, nTotalLines, negativeOffsetPerc=0.12) {
     // try to scroll div to row... font-size on div is 12px
     let scrollHeight = parseFloat(editorElement.scrollHeight, 10)
-    let offsetToScrollPerc = line / nTotalRows
+    let offsetToScrollPerc = line / nTotalLines
     let offsetToScroll = scrollHeight * offsetToScrollPerc
     // if already at the end of the page, don't scroll anymore to avoid missing words in the upper side of the viewport
     if (offsetToScrollPerc < (1 - negativeOffsetPerc)) {
@@ -447,7 +454,7 @@ function scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc=
  * @param {number} nTotalRows - The total number of lines/rows in the editor for scrolling purposes.
  * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
  */
-function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
+function setCaret(line, offsetColumn, nTotalRows, nRowChild, nRowParent, negativeOffsetPerc=0.12) {
     const editorElement = document.getElementById(editorFieldLabel)
     const childNodes = editorElement.childNodes
     let rng = document.createRange();
@@ -455,18 +462,29 @@ function setCaret(line, offsetColumn, nTotalRows, negativeOffsetPerc=0.12) {
     let col0 = offsetColumn[0]
     let col1 = offsetColumn[1]
     let childNode = childNodes[line]
+    let nTotalLines = childNodes.length
     /// handle case of childNodes not of type #text, e.g. DIV
-    try {
-        rng.setStart(childNode, col0)
-        rng.setEnd(childNode, col1)
-    } catch {
-        rng.setStart(childNode.firstChild, col0)
-        rng.setEnd(childNode.firstChild, col1)
+    // todo: if (childNode.nodeName === "#text") else {}
+    if (nRowParent !== null) {
+        console.assert(line === nRowParent, `line ${line} nth === parent line ${nRowParent} nth???`)
+    }
+    switch (childNode.nodeName) {
+        case "#text":
+            rng.setStart(childNode, col0)
+            rng.setEnd(childNode, col1)
+            break
+        case "SPAN":
+            let subChildNode = childNode.childNodes[nRowChild]
+            rng.setStart(subChildNode, col0)
+            rng.setEnd(subChildNode, col1)
+            break
+        default:
+            throw Error(`childNode.nodeName ${childNode.nodeName} not yet handled!`)
     }
     sel.removeAllRanges();
     sel.addRange(rng);
     editorElement.focus();
-    scrollToGivenPoint(editorElement, line, nTotalRows, negativeOffsetPerc);
+    scrollToGivenPoint(editorElement, line, nTotalLines, negativeOffsetPerc);
 }
 
 /**
@@ -751,8 +769,10 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
     let currentUrl = document.createElement("a")
     currentUrl.addEventListener("click", function() {
         let nRow = nthOffset["n_row"]
+        let nRowChild = nthOffset["n_row_child"]
+        let nRowParent = nthOffset["n_row_parent"]
         let offsetWord = nthOffset["offsets"]
-        setCaret(nRow, offsetWord, nTotalRows)
+        setCaret(nRow, offsetWord, nTotalRows, nRowChild, nRowParent)
         setElementCssClassByOldClass(underlinedClickedTable, underlinedPrimaryTable)
         currentUrl.className = underlinedClickedTable
     })
@@ -783,25 +803,74 @@ function updateWordsFreqIfPressEnter() {
  * @returns {Object} An object containing arrays of valid child nodes and their corresponding content, as well as the editor element itself.
  */
 function getValidChildNodesFromEditorById(idElement) {
-    let editorElement = document.getElementById(idElement)
-    let validChildNodes = []
-    let validChildContent = []
-    for (let i = 0; i < editorElement.childNodes.length; i++) {
-        let childNode = editorElement.childNodes[i]
-        // get the right child node text content field, then check if when trimmed it still has text within
-        const checkIsValidNode = Object.keys(objectChildNodeNamesToParse).includes(childNode.nodeName)
-        if (checkIsValidNode) {
-            const nodeTextField = objectChildNodeNamesToParse[childNode.nodeName]
-            const textFieldContent = childNode[nodeTextField]
-            if (textFieldContent.trim() !== "") {
-                validChildNodes.push(childNode)
-                validChildContent.push({
-                    // DON'T TRIM childNode.wholeText, this would break setCaret() alignment!
-                    idxRow: i, text: textFieldContent
-                })
-            }
+    const editorElement = document.getElementById(idElement);
+    let validChildContent = [];
+    const validNodeNames = Object.keys(objectChildNodeNamesToParse);
 
+    // Helper: check if a node has at least one valid child node with non-empty text.
+    function hasValidChild(node) {
+        for (let i = 0; i < node.childNodes.length; i++) {
+            const child = node.childNodes[i];
+            if (validNodeNames.includes(child.nodeName)) {
+                const prop = objectChildNodeNamesToParse[child.nodeName];
+                if (child[prop] && child[prop].trim() !== "") {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Recursive helper function.
+    // topIdx: index of the top-level child from the editor element.
+    // childIdx: index within the parent node, or null if top-level.
+    // parentId: for nested nodes, the top-level parent's index (from a SPAN); otherwise null.
+    function processNode(node, topIdx, childIdx = null, parentId = null) {
+        // For nodes that are not SPAN, push their text if valid.
+        if (node.nodeName !== "SPAN" && validNodeNames.includes(node.nodeName)) {
+            const textField = objectChildNodeNamesToParse[node.nodeName];
+            const textContent = node[textField];
+            if (textContent && textContent.trim() !== "") {
+                validChildContent.push({
+                    idxRow: topIdx,
+                    text: textContent,
+                    idxRowChild: childIdx,
+                    idxRowParent: parentId
+                });
+            }
+        }
+        // For SPAN nodes, decide: if it has no valid child, then push its own text;
+        // otherwise, rely on its children.
+        if (node.nodeName === "SPAN") {
+            if (!hasValidChild(node)) {
+                const textField = objectChildNodeNamesToParse[node.nodeName];
+                const textContent = node[textField];
+                if (textContent && textContent.trim() !== "") {
+                    validChildContent.push({
+                        idxRow: topIdx,
+                        text: textContent,
+                        idxRowChild: childIdx,
+                        idxRowParent: parentId
+                    });
+                }
+            }
+        }
+        // Recurse into childNodes.
+        if (node.childNodes && node.childNodes.length > 0) {
+            let newParentId = parentId;
+            if (node.nodeName === "SPAN") {
+                newParentId = topIdx;  // for nested nodes, use parent's top-level index.
+            }
+            for (let i = 0; i < node.childNodes.length; i++) {
+                processNode(node.childNodes[i], topIdx, i, newParentId);
+            }
         }
     }
-    return { validChildNodes, validChildContent, editorElement }
+
+    // Process each top-level child node of the editor.
+    for (let i = 0; i < editorElement.childNodes.length; i++) {
+        processNode(editorElement.childNodes[i], i);
+    }
+
+    return { validChildContent, editorElement };
 }

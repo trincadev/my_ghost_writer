@@ -20,6 +20,11 @@ class InputTextRow(TypedDict):
     text: str
 
 
+class InputTextRowWithParent(InputTextRow, total=False):
+    idxRowChild: int
+    idxRowParent: int
+
+
 class OffsetArray(TypedDict):
     """
     TypedDict for an offset array.
@@ -39,4 +44,5 @@ class WordStem(TypedDict):
 
 
 RequestTextRowsList = list[InputTextRow]
-ResponseTextRowsDict = int, dict[str, WordStem]
+RequestTextRowsParentList = list[InputTextRowWithParent]
+ResponseTextRowsDict = tuple[int, dict[str, WordStem]]

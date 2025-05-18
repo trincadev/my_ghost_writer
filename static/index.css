@@ -112,6 +112,34 @@
 .id-orientation-message {
     display: none;
 }
+
+/* Classic UI Main Text, lite.koboldai.net */
+#gamescreen {
+    overflow-x: hidden;
+    display: flex;
+    vertical-align: bottom;
+    font-size: 12pt;
+}
+#gamescreen span {
+    align-self: flex-end;
+}
+#gametext, #editor {
+    max-height: 100%;
+    width: 100%;
+    word-wrap: break-word;
+    padding: 10px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    height: 96%;
+    border: 1px solid black;
+}
+.calc98vh_less_240px {
+    height: calc(98vh - 160px);
+}
+.calc96vh_less_240px {
+    height: calc(96vh - 240px);
+}
+
 @media (prefers-color-scheme: dark) {
     .underlinedBlue {
         color: yellow;

@@ -13,7 +13,7 @@ from my_ghost_writer.type_hints import RequestTextFrequencyBody
 
 fastapi_title = "My Ghost Writer"
 app = FastAPI(title=fastapi_title, version="1.0")
-app_logger.info(f"allowed_origins:{ALLOWED_ORIGIN_LIST}...")
+app_logger.info(f"allowed_origins:{ALLOWED_ORIGIN_LIST}, IS_TESTING:{IS_TESTING}, LOG_LEVEL:{LOG_LEVEL}!")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGIN_LIST,
