@@ -24,8 +24,8 @@ const wordsFrequencyAnalyzers = {
     /**
      * Analyzes input text using 'My Ghost Writer' webserver API.
      *
-     * @param {string} arrayOfValidTextChildWithNrow - array of text rows to analyze.
-     * @returns {Promise<Object>} Response from webserver API containing word frequency data.
+     * @param {Array<Object>} arrayOfValidTextChildWithNrow - Array of objects representing text rows to analyze.
+     * @returns {Promise<void>} Populates the frequency tables with the response from the webserver.
      */
     "id-input-webserver-wordfreq-checkbox": async function(arrayOfValidTextChildWithNrow) {
         let bodyRequest = {"text": arrayOfValidTextChildWithNrow}
@@ -53,8 +53,8 @@ const wordsFrequencyAnalyzers = {
     /**
      * Analyzes input text using embedded functionality.
      *
-     * @param {string} inputText - Text to analyze.
-     * @returns {Object} Word frequency data from embedded functionality.
+     * @param {Array<Object>} inputText - Array of objects representing text rows to analyze.
+     * @returns {void} Populates the frequency tables with the embedded analysis.
      */
     'stemmer-embedded': function(inputText) {
         console.log("use the embedded functionality for word freq analysis...")
@@ -137,7 +137,7 @@ const porterStemmer = (function(){
         if (w.length < 3) { return w; }
 
         firstch = w.substr(0,1);
-        if (firstch == "y") {
+        if (firstch === "y") {
             w = firstch.toUpperCase() + w.substr(1);
         }
 
@@ -246,7 +246,7 @@ const porterStemmer = (function(){
         }
 
         // and turn initial Y back to y
-        if (firstch == "y") {
+        if (firstch === "y") {
             w = firstch.toLowerCase() + w.substr(1);
         }
 
@@ -257,11 +257,11 @@ const porterStemmer = (function(){
 /**
  * Filters elements from an array based on specified conditions.
  * @param {Array} inputArray - The array of elements to filter.
- * @param {boolean} [filterWhitespaces=false] - Whether to remove whitespace elements.
+ * @param {boolean} [filterWhitespaces=false] - Whether to remove elements that are only whitespace.
  * @param {Array<string>} [filterArgs=["", " "]] - List of elements to exclude from the array.
  * @returns {Array} - The filtered array.
  */
-function filterElementsFromList (inputArray,  filterWhitespaces = false, filterArgs=["", " "]) {
+function filterElementsFromList(inputArray,  filterWhitespaces = false, filterArgs=["", " "]) {
     if (filterWhitespaces) {
         inputArray = inputArray.filter(e => String(e).trim());
     }
@@ -273,7 +273,7 @@ function filterElementsFromList (inputArray,  filterWhitespaces = false, filterA
  * @param {string} s - The input string to tokenize.
  * @param {RegExp} [pattern=/([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i] - The regex pattern for tokenization.
  * @param {boolean} [filterWhitespaces=true] - Whether to remove whitespace elements after tokenization.
- * @returns {Array} - The list of tokens filtered based on specified conditions.
+ * @returns {Array<string>} - The list of tokens filtered based on specified conditions.
  */
 function customWordPunctTokenize(s, pattern = /([A-Za-zÀ-ÿ-]+|[0-9._]+|.|!|\?|'|"|:|;|,|-)/i, filterWhitespaces=true) {
     const results = s.split(pattern)
@@ -320,52 +320,6 @@ function textStemming(textSplitNewline) {
         });
     });
     return { nTotalRows, wordsStemsDict };
-}
-
-/**
- * Get the words tokens and their indexes in the text.
- *
- * @param {Array<Array<string>>} wordsTokensList - List of words tokens.
- * @param {Array<Array<Object>>} offsetsTokensList - List of offsets for each token.
- * @returns {Object} - Dictionary with stemmed words as keys and a list of dictionaries
- *                     containing the original word and its offsets as values.
- */
-function getWordsTokensAndIndexes(wordsTokensList, offsetsTokensList, idxRowsList) {
-    const wordsStemsDict = {};
-
-    wordsTokensList.forEach((wordsTokens, n) => {
-        const idxRow = idxRowsList[n]
-        wordsTokens.forEach((word, index) => {            
-            // Apply stemming
-            const stem = porterStemmer(word);
-            if (!wordsStemsDict[stem]) {
-                wordsStemsDict[stem] = { count: 0, word_prefix: stem, offsets_array: [] };
-            }
-
-            const currentOffset = offsetsTokensList[idxRow];
-            const offsets = currentOffset[index];
-            updateStemsList(wordsStemsDict[stem], word, offsets, idxRow);
-        });
-    });
-
-    return wordsStemsDict;
-}
-
-/**
- * Update the stems list with the new stem and its count.
- *
- * @param {Object} currentStemObj - Object containing the current stem count and list of words.
- * @param {string} word - The word to stem.
- * @param {Object} offsets - Object containing the start and end offsets of the word.
- * @param {number} nRow - The row number in the original text.
- */
-function updateStemsList(currentStemObj, word, offsets, nRow) {
-    currentStemObj.count += 1;
-    currentStemObj.offsets_array.push({
-        word,
-        offsets: [offsets.start, offsets.end], // Convert offsets to an array format
-        n_row: nRow
-    });
 }
 
 /**
@@ -425,25 +379,21 @@ function previewFile() {
 }
 
 /**
- * Scrolls an editor element to a specific y coordinate (calculated using given lines/rows number).
+ * Scrolls to the specified point within an element.
  *
- * @function scrollToGivenPoint
- * @param {HTMLElement} editorElement The HTML element id of the editor.
- * @param {number} line The line/row number to scroll to (0-indexed).
- * @param {number} nTotalLines The total number of text lines/rows.
- * @param {number} [negativeOffsetPerc=0.12] An optional percentage value to add a negative offset, preventing scrolling beyond the end of the viewport.
+ * @param {HTMLElement} editorElement - The target element to scroll.
+ * @param {number} yClientOffset - The offset from the top of the element to scroll to.
+ * @param {number} [negativeMultiplierFontSize=3] - Multiplier for font size adjustment.
  */
-function scrollToGivenPoint(editorElement, line, nTotalLines, negativeOffsetPerc=0.12) {
-    // try to scroll div to row... font-size on div is 12px
-    let scrollHeight = parseFloat(editorElement.scrollHeight, 10)
-    let offsetToScrollPerc = line / nTotalLines
-    let offsetToScroll = scrollHeight * offsetToScrollPerc
-    // if already at the end of the page, don't scroll anymore to avoid missing words in the upper side of the viewport
-    if (offsetToScrollPerc < (1 - negativeOffsetPerc)) {
-        offsetToScroll -= offsetToScroll * negativeOffsetPerc
+function scrollToGivenPoint(editorElement, yClientOffset, negativeMultiplierFontSize = 3) {
+    const editorComputedStyle = window.getComputedStyle(editorElement)
+    const fontSize = parseInt(editorComputedStyle.getPropertyValue("font-size"), 10)
+    const negativeOffset = fontSize * negativeMultiplierFontSize
+    const scrollHeight = editorElement.scrollHeight
+    if (yClientOffset < (scrollHeight - negativeOffset)) {
+        yClientOffset -= negativeOffset
     }
-    let offsetToScrollInt = parseInt(offsetToScroll, 10)
-    editorElement.scrollTo(0, offsetToScrollInt)
+    editorElement.scrollTo(0, yClientOffset)
 }
 
 /**
@@ -451,20 +401,21 @@ function scrollToGivenPoint(editorElement, line, nTotalLines, negativeOffsetPerc
  *
  * @param {number} line - The line/row number (0-indexed) where the caret should be placed.
  * @param {Array<number>} offsetColumn - A number array containing two numbers representing the column offsets for the start and end of the selection range.
- * @param {number} nTotalRows - The total number of lines/rows in the editor for scrolling purposes.
- * @param {number} [negativeOffsetPerc=0.12] - A percentage value used to offset the vertical scroll position (default: 0.12).
+ * @param {number} nRowChild - The index of the child node (if applicable).
+ * @param {number} nRowParent - The index of the parent node (if applicable).
  */
-function setCaret(line, offsetColumn, nTotalRows, nRowChild, nRowParent, negativeOffsetPerc=0.12) {
+function setCaret(line, offsetColumn, nRowChild, nRowParent) {
     const editorElement = document.getElementById(editorFieldLabel)
+    editorElement.scrollTo(0, 0) // workaround: first reset the scroll position moving it at editorElement beginning
+
     const childNodes = editorElement.childNodes
     let rng = document.createRange();
     let sel = window.getSelection();
     let col0 = offsetColumn[0]
     let col1 = offsetColumn[1]
     let childNode = childNodes[line]
-    let nTotalLines = childNodes.length
-    /// handle case of childNodes not of type #text, e.g. DIV
-    // todo: if (childNode.nodeName === "#text") else {}
+    let subChildNode;
+    /// handle case of childNodes not of type #text, e.g., SPAN
     if (nRowParent !== null) {
         console.assert(line === nRowParent, `line ${line} nth === parent line ${nRowParent} nth???`)
     }
@@ -474,7 +425,7 @@ function setCaret(line, offsetColumn, nTotalRows, nRowChild, nRowParent, negativ
             rng.setEnd(childNode, col1)
             break
         case "SPAN":
-            let subChildNode = childNode.childNodes[nRowChild]
+            subChildNode = childNode.childNodes[nRowChild]
             rng.setStart(subChildNode, col0)
             rng.setEnd(subChildNode, col1)
             break
@@ -484,7 +435,32 @@ function setCaret(line, offsetColumn, nTotalRows, nRowChild, nRowParent, negativ
     sel.removeAllRanges();
     sel.addRange(rng);
     editorElement.focus();
-    scrollToGivenPoint(editorElement, line, nTotalLines, negativeOffsetPerc);
+
+    const offsetsEditor = getOffsetsWithElement(editorElement)
+    const yBase = parseInt(offsetsEditor.top, 10)
+    const y = parseInt(getBoundingClientRect(rng).y, 10)
+    const yClientOffset = y - yBase
+
+    scrollToGivenPoint(editorElement, yClientOffset)
+}
+
+/**
+ * Gets the offsetTop and offsetHeight of an element.
+ * @param {HTMLElement} el - The element to get offsets from.
+ * @returns {Object} An object with 'top' and 'height' properties.
+ */
+function getOffsetsWithElement(el) {
+    return {top: el.offsetTop, height: el.offsetHeight}
+}
+
+/**
+ * Gets the bounding client rectangle of an element or range.
+ * @param {HTMLElement|Range} el - The element or range to get bounding rect from.
+ * @returns {Object} An object with x, y, bottom, and top properties.
+ */
+function getBoundingClientRect(el) {
+    let bounds = el.getBoundingClientRect();
+    return {x: bounds.left, y: bounds.y, bottom: bounds.bottom, top: bounds.top};
 }
 
 /**
@@ -498,12 +474,10 @@ function setElementCssClassById(elementId, currentClass) {
     elementWithClassToChange.setAttribute("class", currentClass)
 }
 
-
 /**
  * Sets a CSS class by replacing an old class.
- * @param {HTMLElement} element - The element to set the CSS class on.
- * @param {string} oldClass - The old class name to replace.
- * @param {string} newClass - The new class name to set.
+ * @param {string} oldClassName - The old class name to replace.
+ * @param {string} currentClass - The new class name to set.
  */
 function setElementCssClassByOldClass(oldClassName, currentClass) {
     try {
@@ -513,8 +487,8 @@ function setElementCssClassByOldClass(oldClassName, currentClass) {
 }
 
 /**
- * Parses the web server domain from an input element.
- * @returns {string} The parsed web server domain.
+ * Parses the web server domain from an input element and returns the full API endpoint.
+ * @returns {string} The parsed web server domain with /words-frequency endpoint.
  */
 function parseWebserverDomain () {
     const remoteWebServerEl = document.getElementById("id-input-webserver-wordfreq")
@@ -581,21 +555,11 @@ function dynamicSort(property, order) {
 /**
  * Recursively extracts all string values from any level of a nested object or array.
  *
- * This function traverses the input (which can be an object, array, or primitive)
- * and collects every string value it finds, regardless of the key or structure.
+ * Traverses the input (object, array, or primitive) and collects every string value found.
  * The result is a flat array of all string values found within the input.
  *
  * @param {*} obj - The input object, array, or value to search for strings.
  * @returns {Array<string>} An array containing all string values found in the input.
- *
- * @example
- * const data = [
- *   { word: "hello", nested: { value: "world" } },
- *   { words: ["foo", "bar"] },
- *   "baz"
- * ];
- * const result = extractStringValues(data);
- * // result: ["hello", "world", "foo", "bar", "baz"]
  */
 function extractStringValues(obj) {
     let result = [];
@@ -621,14 +585,6 @@ function extractStringValues(obj) {
  * @param {Array<Object>} array - The array of objects to filter.
  * @param {string} nestedValue - The value to search for within the objects.
  * @returns {Array<Object>} - A new array containing objects where the nested value is found.
- *
- * @example
- * const arr = [
- *   { a: "hello", b: { c: "world" } },
- *   { a: "foo", b: { c: "bar" } }
- * ];
- * arrayFilterNestedValue(arr, "World");
- * // Returns: [{ a: "hello", b: { c: "world" } }]
  */
 function arrayFilterNestedValue(array, nestedValue) {
     return array.filter(item => {
@@ -640,14 +596,12 @@ function arrayFilterNestedValue(array, nestedValue) {
 /**
  * Updates the words frequency tables with new data.
  *
- * @description
- *   This function is called whenever a change in form input fields or the uploaded text file affects the words frequency table's content.
- *   It sorts and filters the word groups based on user preferences, and updates the HTML elements containing these tables.
+ * Called whenever a change in form input fields or the uploaded text file affects the words frequency table's content.
+ * Sorts and filters the word groups based on user preferences, and updates the HTML elements containing these tables.
  *
- * @async
  * @function updateWordsFrequencyTables
  */
-async function updateWordsFrequencyTables() {
+function updateWordsFrequencyTables() {
     let nTotalRows = wfo["nTotalRows"]
     if (nTotalRows === null || nTotalRows < 1) {
         alert("let's get some data before updating the result table...")
@@ -674,15 +628,15 @@ async function updateWordsFrequencyTables() {
     wordsFrequencyTableTitleEl.innerText = `${wordsFrequencyTableTitleText} (${reduced.length} word groups, ${nTotalRows} rows)`
     const wordListElement = document.createElement("list")
     for (let i=0; i<reduced.length; i++ ) {
-        insertListOfWords(i, reduced[i], nTotalRows, wordListElement, currentTableOfWords);
+        insertListOfWords(i, reduced[i], wordListElement, currentTableOfWords);
     }
     listOfWords.append(wordListElement)
 }
 
 /**
- * Populate the words frequency tables in the UI with data from the provided JSON object.
+ * Populate the words frequency tables in the UI with data from the provided object or JSON string.
  *
- * @param {string} wordsFrequencyObj - The JSON string containing word frequencies.
+ * @param {Object|string} wordsFrequencyObj - The object or JSON string containing word frequencies.
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
  */
 function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
@@ -698,11 +652,10 @@ function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
  * Inserts a table into the DOM displaying the frequency of word prefixes and their corresponding row nths and offsets.
  *
  * @param {number} i - The current index being processed (needed for adding unique HTML id/aria-labels).
- * @param {object} iReduced - An object containing the reduced data for the current index, including word prefix, count, and offsets array.
- * @param {number} nTotalRows - The total number of lines/rows in the table.
- * @param {object} currentTableOfWords - A container element to hold the current table representing chosen word positions.
+ * @param {Object} iReduced - An object containing the reduced data for the current index, including word prefix, count, and offsets array.
+ * @param {HTMLElement} currentTableOfWords - A container element to hold the current table representing chosen word positions.
  */
-function insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords) {
+function insertCurrentTable(i, iReduced, currentTableOfWords) {
     let currentTableWordsFreq = document.createElement("table")
     currentTableWordsFreq.setAttribute("class", "border-black")
     currentTableWordsFreq.setAttribute("id", `id-table-${i}-nth`)
@@ -721,7 +674,7 @@ function insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords) {
     let currentTBody = document.createElement("tbody")
     let offsetsArray = iReduced.offsets_array
     for (let ii = 0; ii < offsetsArray.length; ii++) {
-        insertCellIntoTRow(currentTBody, i, ii, offsetsArray[ii], nTotalRows)
+        insertCellIntoTRow(currentTBody, i, ii, offsetsArray[ii])
     }
     currentTableWordsFreq.appendChild(currentTHead)
     currentTableWordsFreq.appendChild(currentTBody)
@@ -732,18 +685,17 @@ function insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords) {
  * Inserts a list of words into a word list element based on the current table of words.
  * @param {number} i - The index of the current row.
  * @param {Object} iReduced - An object containing information about the current word prefix and count.
- * @param {number} nTotalRows - The total number of rows.
  * @param {HTMLElement} wordListElement - The element to insert the list of words into.
  * @param {HTMLElement} currentTableOfWords - The element to insert the current table of words into.
  */
-function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTableOfWords) {
+function insertListOfWords(i, iReduced, wordListElement, currentTableOfWords) {
     const li = document.createElement("li");
     const a = document.createElement("a")
     a.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
     a.addEventListener("click",  function() {
         currentTableOfWords.innerHTML = ""
         console.log(`insertListOfWords::'a', ${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`)
-        insertCurrentTable(i, iReduced, nTotalRows, currentTableOfWords)
+        insertCurrentTable(i, iReduced, currentTableOfWords)
         setElementCssClassByOldClass(underlinedClicked, underlinedPrimary)
         a.className = underlinedClicked
     });
@@ -758,10 +710,9 @@ function insertListOfWords(i, iReduced, nTotalRows, wordListElement, currentTabl
  * @param {HTMLTableSectionElement} currentTBody - The tbody element where the new row will be inserted.
  * @param {number} i - A reference number for the parent's position in the DOM (needed for adding unique HTML id/aria-labels).
  * @param {number} ii - A counter of how many lines/rows have been added to the table (needed for adding unique HTML id/aria-labels).
- * @param {object} nthOffset - An object containing information about a single offset word, including its row number and word text.
- * @param {number} nTotalRows - The total number of lines/rows in the table.
+ * @param {Object} nthOffset - An object containing information about a single offset word, including its row number and word text.
  */
-function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
+function insertCellIntoTRow(currentTBody, i, ii, nthOffset) {
     let nthRowBody = currentTBody.insertRow()
     nthRowBody.setAttribute("id", `id-table-${i}-row-${ii}-nth`)
     nthRowBody.setAttribute("aria-label", `id-table-${i}-row-${ii}-nth`)
@@ -772,7 +723,7 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
         let nRowChild = nthOffset["n_row_child"]
         let nRowParent = nthOffset["n_row_parent"]
         let offsetWord = nthOffset["offsets"]
-        setCaret(nRow, offsetWord, nTotalRows, nRowChild, nRowParent)
+        setCaret(nRow, offsetWord, nRowChild, nRowParent)
         setElementCssClassByOldClass(underlinedClickedTable, underlinedPrimaryTable)
         currentUrl.className = underlinedClickedTable
     })
@@ -788,10 +739,9 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset, nTotalRows) {
  * If the event target has a value (i.e., it's an input field) and the event key is "Enter",
  * call the updateWordsFrequencyTables function to update the words frequency tables.
  *
- * @async
- * @function updateWordsFreqIfPressEnter
+ * @returns {void}
  */
-function updateWordsFreqIfPressEnter() {
+function updateWordsFreqIfPressEnterSimple() {
     if(event.key==='Enter'){
         updateWordsFrequencyTables()
     }
@@ -799,6 +749,9 @@ function updateWordsFreqIfPressEnter() {
 
 /**
  * Retrieves valid child nodes from an editor element by ID.
+ * Traverses the DOM structure of the editor and collects valid text content from text nodes and SPANs.
+ * Handles nested SPANs and tracks their positions for later processing.
+ *
  * @param {string} idElement - The ID of the editor element to retrieve child nodes from.
  * @returns {Object} An object containing arrays of valid child nodes and their corresponding content, as well as the editor element itself.
  */
@@ -873,4 +826,48 @@ function getValidChildNodesFromEditorById(idElement) {
     }
 
     return { validChildContent, editorElement };
+}
+
+/** Needed by lite.koboldai.net */
+function toggleWordsFreqNav(idElement) {
+    let x = document.getElementById(idElement);
+    if (x.classList.contains("collapse")) {
+        x.classList.remove("collapse");
+    } else {
+        x.classList.add("collapse");
+    }
+}
+
+function closeWordsFreqTopNav(idElement) {
+    let x = document.getElementById(idElement);
+    x.classList.add("collapse");
+}
+
+function toggleOrCloseByBoolAndId(idElement, boolFlag) {
+    switch (boolFlag) {
+        case boolFlag === true:
+            toggleWordsFreqNav(idElement)
+            break;
+        case boolFlag === false:
+            closeWordsFreqTopNav(idElement)
+            break;
+        default:
+            console.error("toggleOrCloseByBoolAndId::something is wrong: idElement => ", idElement, "#")
+            console.error("toggleOrCloseByBoolAndId::something is wrong: boolFlag => ", boolFlag, "#")
+    }
+}
+
+async function updateWordsFreqIfPressEnter() {
+    if (event.key === 'Enter') {
+        closeWordsFreqTopNav('wordsFreqNavbarNavDropdown')
+        const webserverIsCheckedEl = document.getElementById("id-input-webserver-wordfreq-checkbox")
+        const webserverIsChecked = webserverIsCheckedEl.checked
+        if (!webserverIsChecked) {
+            await getWordsFrequency()
+        } else {
+            // in case id-input-webserver-wordfreq-checkbox is checked, this will only fire updateWordsFrequencyTables()
+            // use instead btn4-get-words-frequency-get to fire getWordsFrequency()
+            updateWordsFrequencyTables()
+        }
+    }
 }
