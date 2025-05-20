@@ -6,10 +6,12 @@
       {
         "word": "Once",
         "offsets": [
-          21,
-          25
+          0,
+          4
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -20,48 +22,98 @@
       {
         "word": "upon",
         "offsets": [
-          26,
-          30
+          5,
+          9
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "upon",
         "offsets": [
-          75,
-          79
+          54,
+          58
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "a": {
-    "count": 10,
+    "count": 12,
     "word_prefix": "a",
     "offsets_array": [
       {
         "word": "a",
         "offsets": [
-          31,
-          32
+          10,
+          11
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "a",
         "offsets": [
-          79,
-          80
+          58,
+          59
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "a",
         "offsets": [
-          80,
-          81
+          59,
+          60
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "a",
+        "offsets": [
+          90,
+          91
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "a",
+        "offsets": [
+          184,
+          185
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "a",
+        "offsets": [
+          210,
+          211
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "a",
+        "offsets": [
+          68,
+          69
+        ],
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "a",
@@ -69,55 +121,49 @@
           111,
           112
         ],
-        "n_row": 2
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "a",
         "offsets": [
-          205,
-          206
+          193,
+          194
         ],
-        "n_row": 2
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "a",
         "offsets": [
-          231,
-          232
+          84,
+          85
         ],
-        "n_row": 2
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
-        "word": "a",
+        "word": "A",
         "offsets": [
-          89,
-          90
+          0,
+          1
         ],
-        "n_row": 6
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
-        "word": "a",
+        "word": "A",
         "offsets": [
-          132,
-          133
+          0,
+          1
         ],
-        "n_row": 6
-      },
-      {
-        "word": "a",
-        "offsets": [
-          214,
-          215
-        ],
-        "n_row": 6
-      },
-      {
-        "word": "a",
-        "offsets": [
-          105,
-          106
-        ],
-        "n_row": 16
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -128,252 +174,400 @@
       {
         "word": "time",
         "offsets": [
-          33,
-          37
+          12,
+          16
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   ",": {
-    "count": 13,
+    "count": 16,
     "word_prefix": ",",
     "offsets_array": [
       {
         "word": ",",
         "offsets": [
-          37,
-          38
+          16,
+          17
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          65,
-          66
+          44,
+          45
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          221,
-          222
+          200,
+          201
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          55,
-          56
+          34,
+          35
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          181,
-          182
+          160,
+          161
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          238,
-          239
+          217,
+          218
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          370,
-          371
+          349,
+          350
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          122,
-          123
+          101,
+          102
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          24,
-          25
+          3,
+          4
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          38,
-          39
+          17,
+          18
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          103,
-          104
+          82,
+          83
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          31,
-          32
+          10,
+          11
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ",",
         "offsets": [
-          63,
-          64
+          42,
+          43
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ",",
+        "offsets": [
+          30,
+          31
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ",",
+        "offsets": [
+          46,
+          47
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ",",
+        "offsets": [
+          10,
+          11
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "in": {
-    "count": 2,
+    "count": 3,
     "word_prefix": "in",
     "offsets_array": [
       {
         "word": "in",
         "offsets": [
-          39,
-          41
+          18,
+          20
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "in",
         "offsets": [
-          211,
-          213
+          190,
+          192
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "in",
+        "offsets": [
+          6,
+          8
+        ],
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "the": {
-    "count": 13,
+    "count": 18,
     "word_prefix": "the",
     "offsets_array": [
       {
         "word": "the",
         "offsets": [
-          42,
-          45
-        ],
-        "n_row": 0
-      },
-      {
-        "word": "the",
-        "offsets": [
-          166,
-          169
-        ],
-        "n_row": 0
-      },
-      {
-        "word": "the",
-        "offsets": [
-          269,
-          272
-        ],
-        "n_row": 0
-      },
-      {
-        "word": "the",
-        "offsets": [
-          313,
-          316
-        ],
-        "n_row": 0
-      },
-      {
-        "word": "the",
-        "offsets": [
-          46,
-          49
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "the",
-        "offsets": [
-          263,
-          266
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "The",
-        "offsets": [
           21,
           24
         ],
-        "n_row": 6
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "the",
         "offsets": [
-          47,
-          50
+          145,
+          148
         ],
-        "n_row": 6
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "the",
         "offsets": [
-          163,
-          166
+          248,
+          251
         ],
-        "n_row": 6
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          292,
+          295
+        ],
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          25,
+          28
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          242,
+          245
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "The",
         "offsets": [
-          174,
-          177
+          0,
+          3
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          26,
+          29
+        ],
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          142,
+          145
+        ],
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "The",
         "offsets": [
-          64,
-          67
+          153,
+          156
         ],
-        "n_row": 10
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
-        "word": "the",
+        "word": "The",
         "offsets": [
           43,
           46
         ],
-        "n_row": 12
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "the",
         "offsets": [
-          78,
-          81
+          22,
+          25
         ],
-        "n_row": 22
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          57,
+          60
+        ],
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "The",
+        "offsets": [
+          0,
+          3
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "The",
+        "offsets": [
+          0,
+          3
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "The",
+        "offsets": [
+          0,
+          3
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "The",
+        "offsets": [
+          0,
+          3
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "the",
+        "offsets": [
+          9,
+          12
+        ],
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -384,40 +578,58 @@
       {
         "word": "kingdom",
         "offsets": [
-          46,
-          53
+          25,
+          32
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "of": {
-    "count": 3,
+    "count": 4,
     "word_prefix": "of",
     "offsets_array": [
       {
         "word": "of",
         "offsets": [
-          54,
-          56
+          33,
+          35
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "of",
         "offsets": [
-          125,
-          127
+          104,
+          106
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "of",
         "offsets": [
-          160,
-          162
+          139,
+          141
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "of",
+        "offsets": [
+          35,
+          37
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -428,10 +640,12 @@
       {
         "word": "Elwoodia",
         "offsets": [
-          57,
-          65
+          36,
+          44
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -442,18 +656,22 @@
       {
         "word": "there",
         "offsets": [
-          67,
-          72
+          46,
+          51
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "There",
         "offsets": [
-          213,
-          218
+          192,
+          197
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -464,10 +682,12 @@
       {
         "word": "lived",
         "offsets": [
-          73,
-          78
+          52,
+          57
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -478,64 +698,88 @@
       {
         "word": "young",
         "offsets": [
-          81,
-          86
+          60,
+          65
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "young",
         "offsets": [
-          96,
-          101
+          75,
+          80
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "and": {
-    "count": 5,
+    "count": 6,
     "word_prefix": "and",
     "offsets_array": [
       {
         "word": "and",
         "offsets": [
-          87,
-          90
+          66,
+          69
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "and",
         "offsets": [
-          187,
-          190
+          166,
+          169
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "and",
         "offsets": [
-          284,
-          287
+          263,
+          266
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "and",
         "offsets": [
-          372,
-          375
+          351,
+          354
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "and",
         "offsets": [
-          201,
-          204
+          180,
+          183
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "and",
+        "offsets": [
+          63,
+          66
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -546,10 +790,12 @@
       {
         "word": "wise",
         "offsets": [
-          91,
-          95
+          70,
+          74
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -560,10 +806,12 @@
       {
         "word": "Princess",
         "offsets": [
-          102,
-          110
+          81,
+          89
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -574,10 +822,12 @@
       {
         "word": "named",
         "offsets": [
-          111,
-          116
+          90,
+          95
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -588,222 +838,424 @@
       {
         "word": "Isabella",
         "offsets": [
-          117,
-          125
+          96,
+          104
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Isabella",
         "offsets": [
-          57,
-          65
+          36,
+          44
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Isabella",
         "offsets": [
-          76,
-          84
+          55,
+          63
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Isabella",
         "offsets": [
-          192,
-          200
+          171,
+          179
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Isabella",
         "offsets": [
-          25,
-          33
+          4,
+          12
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Isabella",
         "offsets": [
-          95,
-          103
+          74,
+          82
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   ".": {
-    "count": 17,
+    "count": 26,
     "word_prefix": ".",
     "offsets_array": [
       {
         "word": ".",
         "offsets": [
-          125,
-          126
+          104,
+          105
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          212,
-          213
+          191,
+          192
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          329,
-          330
+          308,
+          309
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          172,
-          173
+          151,
+          152
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          211,
-          212
+          190,
+          191
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          273,
-          274
+          252,
+          253
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          420,
-          421
+          399,
+          400
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          102,
-          103
+          81,
+          82
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          172,
-          173
+          151,
+          152
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          226,
-          227
+          205,
+          206
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          33,
-          34
+          12,
+          13
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          78,
-          79
+          57,
+          58
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          122,
-          123
+          101,
+          102
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          120,
-          121
+          99,
+          100
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          96,
-          97
+          75,
+          76
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          113,
-          114
+          92,
+          93
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": ".",
         "offsets": [
-          36,
-          37
+          79,
+          80
         ],
-        "n_row": 24
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          22,
+          23
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          35,
+          36
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          23,
+          24
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          91,
+          92
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          50,
+          51
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          19,
+          20
+        ],
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          11,
+          12
+        ],
+        "n_row": 58,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          8,
+          9
+        ],
+        "n_row": 60,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": ".",
+        "offsets": [
+          18,
+          19
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "she": {
-    "count": 16,
+    "count": 17,
     "word_prefix": "she",
     "offsets_array": [
       {
         "word": "She",
         "offsets": [
-          127,
-          130
+          106,
+          109
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "she",
         "offsets": [
-          223,
-          226
+          202,
+          205
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "she",
         "offsets": [
-          24,
-          27
+          3,
+          6
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          82,
+          85
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          162,
+          165
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          198,
+          201
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          277,
+          280
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          384,
+          387
+        ],
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          86,
+          89
+        ],
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "she",
@@ -811,103 +1263,79 @@
           103,
           106
         ],
-        "n_row": 2
-      },
-      {
-        "word": "she",
-        "offsets": [
-          183,
-          186
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "she",
-        "offsets": [
-          219,
-          222
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "she",
-        "offsets": [
-          298,
-          301
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "she",
-        "offsets": [
-          405,
-          408
-        ],
-        "n_row": 2
-      },
-      {
-        "word": "she",
-        "offsets": [
-          107,
-          110
-        ],
-        "n_row": 6
-      },
-      {
-        "word": "she",
-        "offsets": [
-          124,
-          127
-        ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          80,
-          83
+          59,
+          62
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          53,
-          56
+          32,
+          35
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          122,
-          125
+          101,
+          104
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          21,
-          24
+          0,
+          3
         ],
-        "n_row": 18
+        "n_row": 20,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          98,
-          101
+          77,
+          80
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "She",
         "offsets": [
-          21,
-          24
+          0,
+          3
         ],
-        "n_row": 24
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "she",
+        "offsets": [
+          48,
+          51
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -918,10 +1346,12 @@
       {
         "word": "loved",
         "offsets": [
-          131,
-          136
+          110,
+          115
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -932,24 +1362,38 @@
       {
         "word": "nothing",
         "offsets": [
-          137,
-          144
+          116,
+          123
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "more": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "more",
     "offsets_array": [
       {
         "word": "more",
         "offsets": [
-          145,
-          149
+          124,
+          128
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "More",
+        "offsets": [
+          0,
+          4
+        ],
+        "n_row": 60,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -960,18 +1404,22 @@
       {
         "word": "than",
         "offsets": [
-          150,
-          154
+          129,
+          133
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "than",
         "offsets": [
-          390,
-          394
+          369,
+          373
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -982,50 +1430,62 @@
       {
         "word": "to",
         "offsets": [
-          155,
-          157
+          134,
+          136
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "to",
         "offsets": [
-          251,
-          253
+          230,
+          232
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "to",
         "offsets": [
-          197,
-          199
+          176,
+          178
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "to",
         "offsets": [
-          69,
-          71
+          48,
+          50
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "to",
         "offsets": [
-          189,
-          191
+          168,
+          170
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "to",
         "offsets": [
-          47,
-          49
+          26,
+          28
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1036,10 +1496,12 @@
       {
         "word": "explore",
         "offsets": [
-          158,
-          165
+          137,
+          144
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1050,10 +1512,12 @@
       {
         "word": "world",
         "offsets": [
-          170,
-          175
+          149,
+          154
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1064,32 +1528,48 @@
       {
         "word": "around",
         "offsets": [
-          176,
-          182
+          155,
+          161
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "around",
         "offsets": [
-          156,
-          162
+          135,
+          141
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "her": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "her",
     "offsets_array": [
       {
         "word": "her",
         "offsets": [
-          183,
-          186
+          162,
+          165
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "her",
+        "offsets": [
+          63,
+          66
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1100,10 +1580,12 @@
       {
         "word": "experience",
         "offsets": [
-          191,
-          201
+          170,
+          180
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1114,10 +1596,12 @@
       {
         "word": "new",
         "offsets": [
-          202,
-          205
+          181,
+          184
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1128,24 +1612,68 @@
       {
         "word": "things",
         "offsets": [
-          206,
-          212
+          185,
+          191
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "one": {
-    "count": 1,
+    "count": 5,
     "word_prefix": "one",
     "offsets_array": [
       {
         "word": "One",
         "offsets": [
-          214,
-          217
+          193,
+          196
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "One",
+        "offsets": [
+          24,
+          27
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "one",
+        "offsets": [
+          11,
+          14
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "one",
+        "offsets": [
+          9,
+          12
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "one",
+        "offsets": [
+          5,
+          8
+        ],
+        "n_row": 60,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1156,10 +1684,12 @@
       {
         "word": "day",
         "offsets": [
-          218,
-          221
+          197,
+          200
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1170,10 +1700,12 @@
       {
         "word": "set",
         "offsets": [
-          227,
-          230
+          206,
+          209
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1184,10 +1716,12 @@
       {
         "word": "off",
         "offsets": [
-          231,
-          234
+          210,
+          213
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1198,18 +1732,22 @@
       {
         "word": "on",
         "offsets": [
-          235,
-          237
+          214,
+          216
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "on",
         "offsets": [
-          153,
-          155
+          132,
+          134
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1220,10 +1758,12 @@
       {
         "word": "an",
         "offsets": [
-          238,
-          240
+          217,
+          219
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1234,10 +1774,12 @@
       {
         "word": "adventure",
         "offsets": [
-          241,
-          250
+          220,
+          229
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1248,18 +1790,22 @@
       {
         "word": "find",
         "offsets": [
-          254,
-          258
+          233,
+          237
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "find",
         "offsets": [
-          50,
-          54
+          29,
+          33
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1270,10 +1816,12 @@
       {
         "word": "out",
         "offsets": [
-          259,
-          262
+          238,
+          241
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1284,10 +1832,12 @@
       {
         "word": "about",
         "offsets": [
-          263,
-          268
+          242,
+          247
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1298,10 +1848,12 @@
       {
         "word": "mysterious",
         "offsets": [
-          273,
-          283
+          252,
+          262
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1312,10 +1864,12 @@
       {
         "word": "enchanting",
         "offsets": [
-          288,
-          298
+          267,
+          277
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1326,10 +1880,12 @@
       {
         "word": "forest",
         "offsets": [
-          299,
-          305
+          278,
+          284
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1340,10 +1896,12 @@
       {
         "word": "beyond",
         "offsets": [
-          306,
-          312
+          285,
+          291
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1354,10 +1912,12 @@
       {
         "word": "village",
         "offsets": [
-          317,
-          324
+          296,
+          303
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1368,10 +1928,12 @@
       {
         "word": "gate",
         "offsets": [
-          325,
-          329
+          304,
+          308
         ],
-        "n_row": 0
+        "n_row": 0,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1382,18 +1944,22 @@
       {
         "word": "As",
         "offsets": [
-          21,
-          23
+          0,
+          2
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "As",
         "offsets": [
-          104,
-          106
+          83,
+          85
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1404,10 +1970,12 @@
       {
         "word": "journeyed",
         "offsets": [
-          28,
-          37
+          7,
+          16
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1418,10 +1986,12 @@
       {
         "word": "through",
         "offsets": [
-          38,
-          45
+          17,
+          24
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1432,10 +2002,12 @@
       {
         "word": "woods",
         "offsets": [
-          50,
-          55
+          29,
+          34
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1446,10 +2018,12 @@
       {
         "word": "stumbled",
         "offsets": [
-          66,
-          74
+          45,
+          53
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1460,18 +2034,22 @@
       {
         "word": "large",
         "offsets": [
-          82,
-          87
+          61,
+          66
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "large",
         "offsets": [
-          233,
-          238
+          212,
+          217
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1482,10 +2060,12 @@
       {
         "word": "clearing",
         "offsets": [
-          88,
-          96
+          67,
+          75
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1496,18 +2076,22 @@
       {
         "word": "where",
         "offsets": [
-          97,
-          102
+          76,
+          81
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "where",
         "offsets": [
-          47,
-          52
+          26,
+          31
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1518,18 +2102,22 @@
       {
         "word": "saw",
         "offsets": [
-          107,
-          110
+          86,
+          89
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "saw",
         "offsets": [
-          128,
-          131
+          107,
+          110
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1540,18 +2128,22 @@
       {
         "word": "small",
         "offsets": [
-          113,
-          118
+          92,
+          97
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "small",
         "offsets": [
-          82,
-          87
+          61,
+          66
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1562,10 +2154,12 @@
       {
         "word": "group",
         "offsets": [
-          119,
-          124
+          98,
+          103
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1576,10 +2170,12 @@
       {
         "word": "woodland",
         "offsets": [
-          128,
-          136
+          107,
+          115
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1590,26 +2186,32 @@
       {
         "word": "creatures",
         "offsets": [
-          137,
-          146
+          116,
+          125
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "creatures",
         "offsets": [
-          25,
-          34
+          4,
+          13
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "creature",
         "offsets": [
-          88,
-          96
+          67,
+          75
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1620,10 +2222,12 @@
       {
         "word": "gathered",
         "offsets": [
-          147,
-          155
+          126,
+          134
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1634,10 +2238,12 @@
       {
         "word": "something",
         "offsets": [
-          163,
-          172
+          142,
+          151
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1648,10 +2254,12 @@
       {
         "word": "Curious",
         "offsets": [
-          174,
-          181
+          153,
+          160
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1662,10 +2270,12 @@
       {
         "word": "went",
         "offsets": [
-          187,
-          191
+          166,
+          170
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1676,10 +2286,12 @@
       {
         "word": "over",
         "offsets": [
-          192,
-          196
+          171,
+          175
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1690,10 +2302,12 @@
       {
         "word": "take",
         "offsets": [
-          200,
-          204
+          179,
+          183
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1704,18 +2318,22 @@
       {
         "word": "look",
         "offsets": [
-          207,
-          211
+          186,
+          190
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "look",
         "offsets": [
-          98,
-          102
+          77,
+          81
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1726,24 +2344,38 @@
       {
         "word": "noticed",
         "offsets": [
-          223,
-          230
+          202,
+          209
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "red": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "red",
     "offsets_array": [
       {
         "word": "red",
         "offsets": [
-          240,
-          243
+          219,
+          222
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "red",
+        "offsets": [
+          32,
+          35
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1754,26 +2386,32 @@
       {
         "word": "apple",
         "offsets": [
-          244,
-          249
+          223,
+          228
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "apple",
         "offsets": [
-          51,
-          56
+          30,
+          35
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "apple",
         "offsets": [
-          167,
-          172
+          146,
+          151
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1784,10 +2422,12 @@
       {
         "word": "lying",
         "offsets": [
-          250,
-          255
+          229,
+          234
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1798,10 +2438,12 @@
       {
         "word": "across",
         "offsets": [
-          256,
-          262
+          235,
+          241
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1812,102 +2454,184 @@
       {
         "word": "ground",
         "offsets": [
-          267,
-          273
+          246,
+          252
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "it": {
-    "count": 4,
+    "count": 5,
     "word_prefix": "it",
     "offsets_array": [
       {
         "word": "It",
         "offsets": [
-          275,
-          277
+          254,
+          256
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "it",
         "offsets": [
-          331,
-          333
+          310,
+          312
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "its",
         "offsets": [
-          342,
-          345
+          321,
+          324
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "it",
         "offsets": [
-          376,
-          378
+          355,
+          357
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "it",
+        "offsets": [
+          89,
+          91
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "wa": {
-    "count": 6,
+    "count": 11,
     "word_prefix": "wa",
     "offsets_array": [
       {
         "word": "was",
         "offsets": [
-          278,
-          281
+          257,
+          260
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "was",
         "offsets": [
-          352,
-          355
+          331,
+          334
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "was",
         "offsets": [
-          379,
-          382
+          358,
+          361
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "was",
         "offsets": [
-          84,
-          87
+          63,
+          66
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "was",
         "offsets": [
-          126,
-          129
+          105,
+          108
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "was",
         "offsets": [
-          25,
-          28
+          4,
+          7
         ],
-        "n_row": 18
+        "n_row": 20,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "was",
+        "offsets": [
+          10,
+          13
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "was",
+        "offsets": [
+          28,
+          31
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "was",
+        "offsets": [
+          15,
+          18
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "was",
+        "offsets": [
+          10,
+          13
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "was",
+        "offsets": [
+          13,
+          16
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1918,10 +2642,12 @@
       {
         "word": "so",
         "offsets": [
-          282,
-          284
+          261,
+          263
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1932,10 +2658,12 @@
       {
         "word": "unusual",
         "offsets": [
-          285,
-          292
+          264,
+          271
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1946,18 +2674,22 @@
       {
         "word": "that",
         "offsets": [
-          293,
-          297
+          272,
+          276
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "that",
         "offsets": [
-          55,
-          59
+          34,
+          38
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1968,10 +2700,12 @@
       {
         "word": "had",
         "offsets": [
-          302,
-          305
+          281,
+          284
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -1982,18 +2716,22 @@
       {
         "word": "never",
         "offsets": [
-          306,
-          311
+          285,
+          290
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "never",
         "offsets": [
-          103,
-          108
+          82,
+          87
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2004,18 +2742,22 @@
       {
         "word": "seen",
         "offsets": [
-          312,
-          316
+          291,
+          295
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "seen",
         "offsets": [
-          416,
-          420
+          395,
+          399
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2026,10 +2768,12 @@
       {
         "word": "anything",
         "offsets": [
-          317,
-          325
+          296,
+          304
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2040,10 +2784,12 @@
       {
         "word": "like",
         "offsets": [
-          326,
-          330
+          305,
+          309
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2054,18 +2800,22 @@
       {
         "word": "before",
         "offsets": [
-          334,
-          340
+          313,
+          319
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "before",
         "offsets": [
-          116,
-          122
+          95,
+          101
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2076,10 +2826,12 @@
       {
         "word": ";",
         "offsets": [
-          340,
-          341
+          319,
+          320
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2090,10 +2842,12 @@
       {
         "word": "shape",
         "offsets": [
-          346,
-          351
+          325,
+          330
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2104,10 +2858,12 @@
       {
         "word": "round",
         "offsets": [
-          356,
-          361
+          335,
+          340
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2118,18 +2874,22 @@
       {
         "word": "but",
         "offsets": [
-          362,
-          365
+          341,
+          344
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "but",
         "offsets": [
-          40,
-          43
+          19,
+          22
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2140,10 +2900,12 @@
       {
         "word": "oval",
         "offsets": [
-          366,
-          370
+          345,
+          349
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2154,10 +2916,12 @@
       {
         "word": "larger",
         "offsets": [
-          383,
-          389
+          362,
+          368
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2168,10 +2932,12 @@
       {
         "word": "any",
         "offsets": [
-          395,
-          398
+          374,
+          377
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2182,10 +2948,12 @@
       {
         "word": "fruit",
         "offsets": [
-          399,
-          404
+          378,
+          383
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2196,18 +2964,22 @@
       {
         "word": "'",
         "offsets": [
-          408,
-          409
+          387,
+          388
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "'",
         "offsets": [
-          31,
-          32
+          10,
+          11
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2218,10 +2990,12 @@
       {
         "word": "d",
         "offsets": [
-          409,
-          410
+          388,
+          389
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2232,10 +3006,12 @@
       {
         "word": "ever",
         "offsets": [
-          411,
-          415
+          390,
+          394
         ],
-        "n_row": 2
+        "n_row": 2,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2246,10 +3022,12 @@
       {
         "word": "surrounding",
         "offsets": [
-          35,
-          46
+          14,
+          25
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2260,10 +3038,12 @@
       {
         "word": "moved",
         "offsets": [
-          57,
-          62
+          36,
+          41
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2274,10 +3054,12 @@
       {
         "word": "aside",
         "offsets": [
-          63,
-          68
+          42,
+          47
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2288,10 +3070,12 @@
       {
         "word": "let",
         "offsets": [
-          72,
-          75
+          51,
+          54
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2302,10 +3086,12 @@
       {
         "word": "get",
         "offsets": [
-          85,
-          88
+          64,
+          67
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2316,18 +3102,22 @@
       {
         "word": "closer",
         "offsets": [
-          91,
-          97
+          70,
+          76
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "closer",
         "offsets": [
-          116,
-          122
+          95,
+          101
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2338,10 +3128,12 @@
       {
         "word": "came",
         "offsets": [
-          111,
-          115
+          90,
+          94
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2352,40 +3144,58 @@
       {
         "word": "tiny",
         "offsets": [
-          134,
-          138
+          113,
+          117
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "fairi": {
-    "count": 3,
+    "count": 4,
     "word_prefix": "fairi",
     "offsets_array": [
       {
         "word": "fairy",
         "offsets": [
-          139,
-          144
+          118,
+          123
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "fairy",
         "offsets": [
-          178,
-          183
+          157,
+          162
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "fairy",
         "offsets": [
-          68,
-          73
+          47,
+          52
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "fairy",
+        "offsets": [
+          4,
+          9
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2396,10 +3206,12 @@
       {
         "word": "perched",
         "offsets": [
-          145,
-          152
+          124,
+          131
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2410,10 +3222,12 @@
       {
         "word": "top",
         "offsets": [
-          156,
-          159
+          135,
+          138
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2424,10 +3238,12 @@
       {
         "word": "flew",
         "offsets": [
-          184,
-          188
+          163,
+          167
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2438,10 +3254,12 @@
       {
         "word": "spoke",
         "offsets": [
-          205,
-          210
+          184,
+          189
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2452,10 +3270,12 @@
       {
         "word": "soft",
         "offsets": [
-          216,
-          220
+          195,
+          199
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2466,10 +3286,12 @@
       {
         "word": "voice",
         "offsets": [
-          221,
-          226
+          200,
+          205
         ],
-        "n_row": 6
+        "n_row": 5,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2480,34 +3302,42 @@
       {
         "word": "\"",
         "offsets": [
-          21,
-          22
+          0,
+          1
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "\"",
         "offsets": [
-          52,
-          53
+          31,
+          32
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "\"",
         "offsets": [
-          21,
-          22
+          0,
+          1
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "\"",
         "offsets": [
-          21,
-          22
+          0,
+          1
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2518,18 +3348,22 @@
       {
         "word": "Hi",
         "offsets": [
-          22,
-          24
+          1,
+          3
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "his",
         "offsets": [
-          53,
-          56
+          32,
+          35
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2540,10 +3374,12 @@
       {
         "word": "Do",
         "offsets": [
-          35,
-          37
+          14,
+          16
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2554,18 +3390,22 @@
       {
         "word": "you",
         "offsets": [
-          38,
-          41
+          17,
+          20
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "you",
         "offsets": [
-          28,
-          31
+          7,
+          10
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2576,26 +3416,32 @@
       {
         "word": "know",
         "offsets": [
-          42,
-          46
+          21,
+          25
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "know",
         "offsets": [
-          34,
-          38
+          13,
+          17
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "knows",
         "offsets": [
-          77,
-          82
+          56,
+          61
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2606,26 +3452,32 @@
       {
         "word": "Harry",
         "offsets": [
-          53,
-          58
+          32,
+          37
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Harry",
         "offsets": [
-          64,
-          69
+          43,
+          48
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Harry",
         "offsets": [
-          65,
-          70
+          44,
+          49
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2636,10 +3488,12 @@
       {
         "word": "is",
         "offsets": [
-          59,
-          61
+          38,
+          40
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2650,10 +3504,12 @@
       {
         "word": "?\"",
         "offsets": [
-          61,
-          63
+          40,
+          42
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2664,18 +3520,22 @@
       {
         "word": "said",
         "offsets": [
-          74,
-          78
+          53,
+          57
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "Said",
         "offsets": [
-          73,
-          77
+          52,
+          56
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2686,10 +3546,12 @@
       {
         "word": "shy",
         "offsets": [
-          88,
-          91
+          67,
+          70
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2700,10 +3562,12 @@
       {
         "word": "since",
         "offsets": [
-          92,
-          97
+          71,
+          76
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2714,10 +3578,12 @@
       {
         "word": "they",
         "offsets": [
-          98,
-          102
+          77,
+          81
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2728,24 +3594,38 @@
       {
         "word": "spoken",
         "offsets": [
-          109,
-          115
+          88,
+          94
         ],
-        "n_row": 10
+        "n_row": 12,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "anoth": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "anoth",
     "offsets_array": [
       {
         "word": "Another",
         "offsets": [
-          21,
-          28
+          0,
+          7
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "Another",
+        "offsets": [
+          0,
+          7
+        ],
+        "n_row": 58,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2756,24 +3636,48 @@
       {
         "word": "sentence",
         "offsets": [
-          29,
-          37
+          8,
+          16
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "with": {
-    "count": 1,
+    "count": 3,
     "word_prefix": "with",
     "offsets_array": [
       {
         "word": "with",
         "offsets": [
-          38,
-          42
+          17,
+          21
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "with",
+        "offsets": [
+          40,
+          44
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "with",
+        "offsets": [
+          23,
+          27
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2784,10 +3688,12 @@
       {
         "word": "word",
         "offsets": [
-          47,
-          51
+          26,
+          30
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2798,10 +3704,12 @@
       {
         "word": "\".",
         "offsets": [
-          56,
-          58
+          35,
+          37
         ],
-        "n_row": 12
+        "n_row": 14,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2812,32 +3720,48 @@
       {
         "word": "No",
         "offsets": [
-          22,
-          24
+          1,
+          3
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "i": {
-    "count": 2,
+    "count": 3,
     "word_prefix": "i",
     "offsets_array": [
       {
         "word": "I",
         "offsets": [
-          26,
-          27
+          5,
+          6
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
         "word": "I",
         "offsets": [
-          33,
-          34
+          12,
+          13
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "I",
+        "offsets": [
+          12,
+          13
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2848,10 +3772,12 @@
       {
         "word": "don",
         "offsets": [
-          28,
-          31
+          7,
+          10
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2862,10 +3788,12 @@
       {
         "word": "t",
         "offsets": [
-          32,
-          33
+          11,
+          12
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2876,10 +3804,12 @@
       {
         "word": "probably",
         "offsets": [
-          44,
-          52
+          23,
+          31
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2890,10 +3820,12 @@
       {
         "word": "father",
         "offsets": [
-          57,
-          63
+          36,
+          42
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2904,10 +3836,12 @@
       {
         "word": "Senior",
         "offsets": [
-          70,
-          76
+          49,
+          55
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2918,10 +3852,12 @@
       {
         "word": ".\"",
         "offsets": [
-          82,
-          84
+          61,
+          63
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2932,10 +3868,12 @@
       {
         "word": "Responded",
         "offsets": [
-          85,
-          94
+          64,
+          73
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2946,10 +3884,12 @@
       {
         "word": "little",
         "offsets": [
-          107,
-          113
+          86,
+          92
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2960,10 +3900,12 @@
       {
         "word": "unsure",
         "offsets": [
-          114,
-          120
+          93,
+          99
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -2974,24 +3916,38 @@
       {
         "word": "afraid",
         "offsets": [
-          130,
-          136
+          109,
+          115
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "...": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "...",
     "offsets_array": [
       {
         "word": "...",
         "offsets": [
-          136,
-          139
+          115,
+          118
         ],
-        "n_row": 16
+        "n_row": 18,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "...",
+        "offsets": [
+          13,
+          16
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3002,24 +3958,70 @@
       {
         "word": "right",
         "offsets": [
-          29,
-          34
+          8,
+          13
         ],
-        "n_row": 18
+        "n_row": 20,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "?": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "?",
     "offsets_array": [
       {
         "word": "?",
         "offsets": [
-          34,
-          35
+          13,
+          14
         ],
-        "n_row": 18
+        "n_row": 20,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "?",
+        "offsets": [
+          6,
+          7
+        ],
+        "n_row": 27,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "or": {
+    "count": 1,
+    "word_prefix": "or",
+    "offsets_array": [
+      {
+        "word": "Or",
+        "offsets": [
+          0,
+          2
+        ],
+        "n_row": 27,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "not": {
+    "count": 1,
+    "word_prefix": "not",
+    "offsets_array": [
+      {
+        "word": "not",
+        "offsets": [
+          3,
+          6
+        ],
+        "n_row": 27,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3030,24 +4032,38 @@
       {
         "word": "Thank",
         "offsets": [
-          22,
-          27
+          1,
+          6
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "realli": {
-    "count": 1,
+    "count": 2,
     "word_prefix": "realli",
     "offsets_array": [
       {
         "word": "really",
         "offsets": [
-          35,
-          41
+          14,
+          20
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "really",
+        "offsets": [
+          14,
+          20
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3058,10 +4074,12 @@
       {
         "word": "need",
         "offsets": [
-          42,
-          46
+          21,
+          25
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3072,10 +4090,12 @@
       {
         "word": "boy",
         "offsets": [
-          60,
-          63
+          39,
+          42
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3086,10 +4106,12 @@
       {
         "word": "!\"",
         "offsets": [
-          70,
-          72
+          49,
+          51
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
@@ -3100,40 +4122,510 @@
       {
         "word": "turned",
         "offsets": [
-          102,
-          108
+          81,
+          87
         ],
-        "n_row": 22
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
       },
       {
-        "word": "turned",
+        "word": "turning",
         "offsets": [
-          25,
-          31
+          81,
+          88
         ],
-        "n_row": 24
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   },
   "back": {
-    "count": 2,
+    "count": 1,
     "word_prefix": "back",
     "offsets_array": [
       {
         "word": "back",
         "offsets": [
-          109,
-          113
+          88,
+          92
         ],
-        "n_row": 22
-      },
+        "n_row": 32,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "beauti": {
+    "count": 1,
+    "word_prefix": "beauti",
+    "offsets_array": [
       {
-        "word": "back",
+        "word": "beautiful",
+        "offsets": [
+          21,
+          30
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "dress": {
+    "count": 1,
+    "word_prefix": "dress",
+    "offsets_array": [
+      {
+        "word": "dressed",
         "offsets": [
           32,
-          36
+          39
         ],
-        "n_row": 24
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "colour": {
+    "count": 1,
+    "word_prefix": "colour",
+    "offsets_array": [
+      {
+        "word": "colourful",
+        "offsets": [
+          45,
+          54
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "flower": {
+    "count": 1,
+    "word_prefix": "flower",
+    "offsets_array": [
+      {
+        "word": "flowers",
+        "offsets": [
+          55,
+          62
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "green": {
+    "count": 1,
+    "word_prefix": "green",
+    "offsets_array": [
+      {
+        "word": "green",
+        "offsets": [
+          67,
+          72
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "leav": {
+    "count": 1,
+    "word_prefix": "leav",
+    "offsets_array": [
+      {
+        "word": "leaves",
+        "offsets": [
+          73,
+          79
+        ],
+        "n_row": 38,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "grab": {
+    "count": 1,
+    "word_prefix": "grab",
+    "offsets_array": [
+      {
+        "word": "grabbed",
+        "offsets": [
+          4,
+          11
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "some": {
+    "count": 1,
+    "word_prefix": "some",
+    "offsets_array": [
+      {
+        "word": "some",
+        "offsets": [
+          12,
+          16
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "rock": {
+    "count": 1,
+    "word_prefix": "rock",
+    "offsets_array": [
+      {
+        "word": "rocks",
+        "offsets": [
+          17,
+          22
+        ],
+        "n_row": 44,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "second": {
+    "count": 1,
+    "word_prefix": "second",
+    "offsets_array": [
+      {
+        "word": "second",
+        "offsets": [
+          4,
+          10
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "gray": {
+    "count": 1,
+    "word_prefix": "gray",
+    "offsets_array": [
+      {
+        "word": "gray",
+        "offsets": [
+          19,
+          23
+        ],
+        "n_row": 46,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "third": {
+    "count": 1,
+    "word_prefix": "third",
+    "offsets_array": [
+      {
+        "word": "third",
+        "offsets": [
+          4,
+          9
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "differ": {
+    "count": 1,
+    "word_prefix": "differ",
+    "offsets_array": [
+      {
+        "word": "different",
+        "offsets": [
+          17,
+          26
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  ":": {
+    "count": 1,
+    "word_prefix": ":",
+    "offsets_array": [
+      {
+        "word": ":",
+        "offsets": [
+          26,
+          27
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "almost": {
+    "count": 2,
+    "word_prefix": "almost",
+    "offsets_array": [
+      {
+        "word": "almost",
+        "offsets": [
+          28,
+          34
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "almost",
+        "offsets": [
+          52,
+          58
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "transpar": {
+    "count": 1,
+    "word_prefix": "transpar",
+    "offsets_array": [
+      {
+        "word": "transparent",
+        "offsets": [
+          35,
+          46
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "cut": {
+    "count": 1,
+    "word_prefix": "cut",
+    "offsets_array": [
+      {
+        "word": "cut",
+        "offsets": [
+          59,
+          62
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "finger": {
+    "count": 1,
+    "word_prefix": "finger",
+    "offsets_array": [
+      {
+        "word": "fingers",
+        "offsets": [
+          67,
+          74
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "while": {
+    "count": 1,
+    "word_prefix": "while",
+    "offsets_array": [
+      {
+        "word": "while",
+        "offsets": [
+          75,
+          80
+        ],
+        "n_row": 48,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "last": {
+    "count": 2,
+    "word_prefix": "last",
+    "offsets_array": [
+      {
+        "word": "last",
+        "offsets": [
+          4,
+          8
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "last",
+        "offsets": [
+          2,
+          6
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "black": {
+    "count": 1,
+    "word_prefix": "black",
+    "offsets_array": [
+      {
+        "word": "black",
+        "offsets": [
+          17,
+          22
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "plenti": {
+    "count": 1,
+    "word_prefix": "plenti",
+    "offsets_array": [
+      {
+        "word": "plenty",
+        "offsets": [
+          28,
+          34
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "hole": {
+    "count": 1,
+    "word_prefix": "hole",
+    "offsets_array": [
+      {
+        "word": "holes",
+        "offsets": [
+          38,
+          43
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "within": {
+    "count": 1,
+    "word_prefix": "within",
+    "offsets_array": [
+      {
+        "word": "within",
+        "offsets": [
+          44,
+          50
+        ],
+        "n_row": 50,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "row": {
+    "count": 3,
+    "word_prefix": "row",
+    "offsets_array": [
+      {
+        "word": "Row",
+        "offsets": [
+          2,
+          5
+        ],
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "row",
+        "offsets": [
+          8,
+          11
+        ],
+        "n_row": 58,
+        "n_row_child": null,
+        "n_row_parent": null
+      },
+      {
+        "word": "row",
+        "offsets": [
+          7,
+          10
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "middl": {
+    "count": 1,
+    "word_prefix": "middl",
+    "offsets_array": [
+      {
+        "word": "middle",
+        "offsets": [
+          13,
+          19
+        ],
+        "n_row": 55,
+        "n_row_child": null,
+        "n_row_parent": null
+      }
+    ]
+  },
+  "hope": {
+    "count": 1,
+    "word_prefix": "hope",
+    "offsets_array": [
+      {
+        "word": "hope",
+        "offsets": [
+          14,
+          18
+        ],
+        "n_row": 62,
+        "n_row_child": null,
+        "n_row_parent": null
       }
     ]
   }

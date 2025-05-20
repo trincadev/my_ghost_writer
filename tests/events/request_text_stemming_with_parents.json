@@ -1,0 +1,110 @@
+[
+    {
+        "idxRow": 0,
+        "text": "Once upon a time, in the kingdom of Elwoodia, there lived a young and wise young Princess named Isabella. She loved nothing more than to explore the world around her and experience new things. One day, she set off on an adventure to find out about the mysterious and enchanting forest beyond the village gate.",
+        "idxRowChild": null,
+        "idxRowParent": null
+    },
+    {
+        "idxRow": 2,
+        "text": "As she journeyed through the woods, Isabella stumbled upon a large clearing where she saw a small group of woodland creatures gathered around something. Curious, she went over to take a look. There she noticed a large, red apple lying across the ground. It was so unusual that she had never seen anything like it before; its shape was round but oval, and it was larger than any fruit she'd ever seen.",
+        "idxRowChild": null,
+        "idxRowParent": null
+    },
+    {
+        "idxRow": 5,
+        "text": "The creatures surrounding the apple moved aside to let Isabella get a closer look. As she came closer, she saw a tiny fairy perched on top of the apple. The fairy flew to Isabella and spoke in a soft voice.",
+        "idxRowChild": null,
+        "idxRowParent": null
+    },
+    {
+        "idxRow": 11,
+        "text": "\n\"Hi Isabella. Do you know where Harry is?\" The fairy said. She was shy since they never spoken before.",
+        "idxRowChild": 0,
+        "idxRowParent": 11
+    },
+    {
+        "idxRow": 11,
+        "text": "Another sentence with the word \"She\".",
+        "idxRowChild": 2,
+        "idxRowParent": 11
+    },
+    {
+        "idxRow": 11,
+        "text": "\n\"No, I don't know, but probably his father Harry Senior knows.\" Responded Isabella, a little unsure. She was afraid...",
+        "idxRowChild": 5,
+        "idxRowParent": 11
+    },
+    {
+        "idxRow": 11,
+        "text": "She was right?\n",
+        "idxRowChild": 7,
+        "idxRowParent": 11
+    },
+    {
+        "idxRow": 15,
+        "text": "\nOr not?",
+        "idxRowChild": 0,
+        "idxRowParent": 15
+    },
+    {
+        "idxRow": 15,
+        "text": "\n\"Thank you, I really need to find that boy, Harry!\" Said the small creature. She turned back.",
+        "idxRowChild": 4,
+        "idxRowParent": 15
+    },
+    {
+        "idxRow": 17,
+        "text": "\nThe fairy was really beautiful, dressed with colourful flowers and green leaves.",
+        "idxRowChild": 0,
+        "idxRowParent": 17
+    },
+    {
+        "idxRow": 21,
+        "text": "\nShe grabbed some rocks. One was red.",
+        "idxRowChild": 0,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "The second one was gray.",
+        "idxRowChild": 2,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "The third was... different: almost transparent, she almost cut her fingers while turning it.",
+        "idxRowChild": 4,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "The last one was black with plenty of holes within.",
+        "idxRowChild": 6,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "\nA Row in the middle.",
+        "idxRowChild": 10,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "\nAnother row.",
+        "idxRowChild": 12,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "More one.",
+        "idxRowChild": 14,
+        "idxRowParent": 21
+    },
+    {
+        "idxRow": 21,
+        "text": "A last row, I hope.\n",
+        "idxRowChild": 16,
+        "idxRowParent": 21
+    }
+]
