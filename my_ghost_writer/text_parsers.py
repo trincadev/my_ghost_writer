@@ -1,7 +1,12 @@
 from typing import Iterator
 
+from nltk import PorterStemmer
+
 from my_ghost_writer.constants import app_logger
 from my_ghost_writer.type_hints import RequestTextRowsParentList, ResponseTextRowsDict
+
+
+ps = PorterStemmer()
 
 
 def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict:
@@ -17,10 +22,8 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
         tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the words frequency dict
     """
     import json
-    from nltk import PorterStemmer
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
-    
-    ps = PorterStemmer()
+
     try:
         valid_textrows_with_num = json.loads(text)
         app_logger.info("valid_textrows_with_num::json")
@@ -51,13 +54,13 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
             idx_rows_parent.append(None)
         row_words_tokens.append(wordpunct_tokenize(row))
         row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
-    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps, idx_rows, idx_rows_child, idx_rows_parent)
+    words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, idx_rows, idx_rows_child, idx_rows_parent)
     n_total_rows = len(valid_textrows_with_num)
     return n_total_rows, words_stems_dict
 
 
 def get_words_tokens_and_indexes(
-        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, ps, idx_rows_list: list[int], idx_rows_child: list[int], idx_rows_parent: list[int]
+        words_tokens_list: list[str], offsets_tokens_list: list | Iterator, idx_rows_list: list[int], idx_rows_child: list[int], idx_rows_parent: list[int]
     ) -> dict:
     """
     Get the word tokens and their indexes in the text.

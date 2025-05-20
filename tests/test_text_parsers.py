@@ -44,7 +44,6 @@ class TestTextParsers(unittest.TestCase):
         words_stems_dict = get_words_tokens_and_indexes(
             row_words_tokens,
             row_offsets_tokens,
-            self.ps,
             idx_rows,
             idx_rows_child,
             idx_rows_parent
