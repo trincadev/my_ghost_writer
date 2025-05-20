@@ -19,7 +19,6 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
     import json
     from nltk import PorterStemmer
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
-    from my_ghost_writer.text_parsers import get_words_tokens_and_indexes
     
     ps = PorterStemmer()
     try:
@@ -33,7 +32,7 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
             valid_textrows_with_num = [{"idxRow": i, "text": row} for i, row in enumerate(text.split("\n"))]
             app_logger.info("valid_textrows_with_num::str:")
         else:
-            raise TypeError(f"Invalid input type. Expected json str or list of dictionaries, not '{type(text)}'.")
+            raise TypeError(f"Invalid input type. Expected plain text str, json str or list of dictionaries, not '{type(text)}'.")
     app_logger.debug(valid_textrows_with_num)
     app_logger.debug("=============================")
     row_words_tokens = []
@@ -44,8 +43,12 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
     for textrow in valid_textrows_with_num:
         row = textrow["text"]
         idx_rows.append(textrow["idxRow"])
-        idx_rows_child.append(textrow["idxRowChild"])
-        idx_rows_parent.append(textrow["idxRowParent"])
+        try:
+            idx_rows_child.append(textrow["idxRowChild"])
+            idx_rows_parent.append(textrow["idxRowParent"])
+        except KeyError:
+            idx_rows_child.append(None)
+            idx_rows_parent.append(None)
         row_words_tokens.append(wordpunct_tokenize(row))
         row_offsets_tokens.append(WordPunctTokenizer().span_tokenize(row))
     words_stems_dict = get_words_tokens_and_indexes(row_words_tokens, row_offsets_tokens, ps, idx_rows, idx_rows_child, idx_rows_parent)
@@ -64,6 +67,8 @@ def get_words_tokens_and_indexes(
         offsets_tokens_list (list): List of offsets for each token.
         ps (PorterStemmer): The stemmer to use.
         idx_rows_list (list[int]): List of row indices corresponding to the tokens.
+        idx_rows_child (list[int]): List of child row indices corresponding to the tokens.
+        idx_rows_parent (list[int]): List of parent row indices corresponding to the tokens.
 
     Returns:
         dict: Dictionary with stemmed words as keys and a list of dictionaries
@@ -89,6 +94,8 @@ def update_stems_list(current_stem_tuple: dict, word: str, offsets: list, n_row:
         offsets (list): List of offsets for the word.
         word (str): The word to stem.
         n_row (int): The row number in the original text.
+        n_row_child (int): The child row number in the original text.
+        n_row_parent (int): The parent row number in the original text.
 
     Returns:
         dict[str|list|int]: A dictionary with the stem string, its offsets and count.
