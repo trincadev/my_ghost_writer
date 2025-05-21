@@ -5,7 +5,7 @@
     margin-block-start: 5px;
     margin-block-end: 5px;
 }
-#id-col1-editor > h4,#id-col2-words-frequency > div > div > h4 {
+#id-col1-editor > h4,#id-col2-words-frequency > div > div > h4, #id-col2-words-frequency > h4 {
     font-size: 18px;
     margin-block-start: 2px;
     margin-block-end: 2px;
@@ -23,7 +23,7 @@
 .font-weight-bold {
     font-weight: bolder;
 }
-.display-none {
+.display-none, .collapse {
     display: none;
 }
 .display-block {
@@ -67,6 +67,9 @@
 }
 .margin10px {
     margin: 10px;
+}
+.margin2px {
+    margin: 2px;
 }
 .margin5px-left {
     margin-left: 10px;
@@ -115,6 +118,10 @@
 .id-orientation-message {
     display: none;
 }
+.scrollable-table-container {
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+}
 
 /* Classic UI Main Text, lite.koboldai.net */
 #gamescreen {
@@ -127,20 +134,22 @@
     align-self: flex-end;
 }
 #gametext, #editor {
-    max-height: 100%;
     width: 100%;
     word-wrap: break-word;
     padding: 10px;
     overflow-y: auto;
     white-space: pre-wrap;
-    height: 96%;
+    height: calc(100vh - 180px);
     border: 1px solid black;
 }
-.calc98vh_less_240px {
-    height: calc(98vh - 160px);
+.calc100vh_less_150px {
+    height: calc(100vh - 150px);
 }
 .calc96vh_less_240px {
     height: calc(96vh - 240px);
+}
+.calc100vh_less_200px {
+    height: calc(100vh - 200px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -153,6 +162,20 @@
         color: violet;
         text-decoration: underline;
         text-decoration-color: violet;
+    }
+}
+@media screen and (max-height: 767px) {
+    #gametext, #editor {
+        height: calc(100vh - 122px);
+    }
+    #gamescreen {
+        height: calc(100vh - 100px) !important;
+    }
+    #words-frequency {
+        height: calc(100vh - 100px) !important;
+    }
+    .scrollable-table-container {
+        max-height: calc(100vh - 130px) !important;
     }
 }
 @media screen and (max-width: 1024px) and (orientation: portrait) {

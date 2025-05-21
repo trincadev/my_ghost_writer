@@ -8,31 +8,40 @@
         <script src="/static/index.js"></script>
     </head>
     <body class="overflow-hidden">
-        <h1 id="id-title" class="h1">Words Frequency Statistics in text</h1>
-        <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
-        <div class="margin10px">
-            <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit">get words frequency</button>
-            <label for="id-input-webserver-wordfreq-checkbox" class="margin5px-left">Use a custom webserver endpoint</label>
+    <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
+        <div id="id-container-menu">
+            <div id="id-container-mobile-menu" class="collapse">
+                <button id="id-menu-mobile-top" onclick="toggleElementWithClassById('id-container-desktop-menu')">Global menu' word freq. stats</button>
+                <button id="id-menu-mobile-filter-sort-order" onclick="toggleElementWithClassById('id-container-filter-sort-order')">Menu' filter word freq.</button>
+            </div>
+            <div id="id-container-desktop-menu">
+                <h1 id="id-title" class="h1">Word Frequency Statistics in text</h1>
+                <div class="margin10px">
+                    <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit">get words frequency</button>
+                    <label for="id-input-webserver-wordfreq-checkbox" class="margin5px-left">Use a custom webserver endpoint</label>
 
-            <input
-                type="checkbox"
-                id="id-input-webserver-wordfreq-checkbox"
-                aria-label="id-input-webserver-wordfreq-checkbox"
-                name="id-input-webserver-wordfreq-checkbox"
-                onchange="document.getElementById('id-input-webserver-wordfreq').disabled=!this.checked;document.getElementById('id-wordfreq-show-analyzer').innerText=this.checked?'webserver':'embedded';"
-                checked
-            />
-            <input type="URL" id="id-input-webserver-wordfreq" aria-label="id-input-webserver-wordfreq" value="http://localhost:7860" />
-            <span>Currently using: <span id="id-wordfreq-show-analyzer" aria-label="id-wordfreq-show-analyzer">webserver</span></span>
+                    <input
+                            type="checkbox"
+                            id="id-input-webserver-wordfreq-checkbox"
+                            aria-label="id-input-webserver-wordfreq-checkbox"
+                            name="id-input-webserver-wordfreq-checkbox"
+                            onchange="toggleWebserverCheckbox()"
+                            checked
+                    />
+                    <input type="URL" id="id-input-webserver-wordfreq" aria-label="id-input-webserver-wordfreq" value="http://localhost:7860" />
+                    <span>Currently using: <span id="id-wordfreq-show-analyzer" aria-label="id-wordfreq-show-analyzer">webserver</span></span>
 
-            <label for="id-input-file-selector" class="margin5px-left">Text file selector</label>
-            <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" />
+                    <label for="id-input-file-selector" class="margin5px-left">Text file selector</label>
+                    <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" />
+                </div>
+            </div>
         </div>
+
         <div id="id-container-row-global-editor-frequency" class="display-flex">
             <div id="id-col1-editor" class="col-flex50 border-black padding10px margin10px overflow-hidden background-color-lightgray">
                 <h4>Text Editor</h4>
-                <div class="gamescreenbgnormal calc98vh_less_240px" id="gamescreen">
-                    <span id="editor" contenteditable="true" class="max-height-90vh calc96vh_less_240px overflow-auto background-color-whitesmoke" aria-label="editor">Once upon a time, in the kingdom of Elwoodia, there lived a young and wise young Princess named Isabella. She loved nothing more than to explore the world around her and experience new things. One day, she set off on an adventure to find out about the mysterious and enchanting forest beyond the village gate.<br>As she journeyed through the woods, Isabella stumbled upon a large clearing where she saw a small group of woodland creatures gathered around something. Curious, she went over to take a look. There she noticed a large, red apple lying across the ground. It was so unusual that she had never seen anything like it before; its shape was round but oval, and it was larger than any fruit she'd ever seen.<br><br>The creatures surrounding the apple moved aside to let Isabella get a closer look. As she came closer, she saw a tiny fairy perched on top of the apple. The fairy flew to Isabella and spoke in a soft voice.<br><br><br><br>
+                <div class="gamescreenbgnormal calc100vh_less_150px" id="gamescreen">
+                    <span id="editor" contenteditable="true" class="overflow-auto background-color-whitesmoke" aria-label="editor">Once upon a time, in the kingdom of Elwoodia, there lived a young and wise young Princess named Isabella. She loved nothing more than to explore the world around her and experience new things. One day, she set off on an adventure to find out about the mysterious and enchanting forest beyond the village gate.<br>As she journeyed through the woods, Isabella stumbled upon a large clearing where she saw a small group of woodland creatures gathered around something. Curious, she went over to take a look. There she noticed a large, red apple lying across the ground. It was so unusual that she had never seen anything like it before; its shape was round but oval, and it was larger than any fruit she'd ever seen.<br><br>The creatures surrounding the apple moved aside to let Isabella get a closer look. As she came closer, she saw a tiny fairy perched on top of the apple. The fairy flew to Isabella and spoke in a soft voice.<br><br><br><br>
 <span>
 "Hi Isabella. Do you know where Harry is?" The fairy said. She was shy since they never spoken before.<br>Another sentence with the word "She".<br><br>
 "No, I don't know, but probably his father Harry Senior knows." Responded Isabella, a little unsure. She was afraid...<br>She was right?
@@ -55,13 +64,14 @@ Another row.<br>More one.<br>A last row, I hope.
             </div>
             
             <div id="id-col2-words-frequency" class="col-flex50 border-blue padding10px margin10px overflow-hidden background-color-lightgray">
-                <div class="display-flex">
-                    <div class="width-50perc">
-                        <h4 id="id-words-frequency-table-title" aria-label="id-words-frequency-table-title">Words Frequency Stats</h4>
+                <h4 id="id-words-frequency-table-title-mobile" aria-label="id-words-frequency-table-title" class="collapse">Words Freq. Stats</h4>
+                <div id="id-container-filter-sort-order" class="display-flex">
+                    <div id="id-container-filter-word-list" class="width-50perc">
+                        <h4 id="id-words-frequency-table-title" aria-label="id-words-frequency-table-title">Words Freq. Stats</h4>
                         <input type="text" id="filter-words-frequency" aria-label="filter-words-frequency" placeholder="Filter the output table..." class="width-80perc" onkeydown="updateWordsFreqIfPressEnterSimple()"/>
                         <button type="submit" id="btn-filter-words-frequency" aria-label="btn-filter-words-frequency" onclick="updateWordsFrequencyTables()">Submit</button>
                     </div>
-                    <div class="display-flex width-50perc margin2px-bottom">
+                    <div id="id-container-sort-order-word-list" class="display-flex width-50perc margin2px-bottom">
                         <form id="id-form-sort-by" aria-label="id-form-sort-by">
                             <fieldset>
                                 <legend>Sort:</legend>
@@ -89,9 +99,12 @@ Another row.<br>More one.<br>A last row, I hope.
                 <span id="id-n-total-rows" aria-label="id-n-total-rows" class="display-none"></span>
                 <span id="waiting-for-be" class="display-none">waiting for backend response...</span>
                 <span id="waiting-for-be-error" class="display-none">Error!</span>
-                <div id="words-frequency" class="max-height-80vh overflow-hidden background-color-whitesmoke display-flex" aria-label="words-frequency">
+                <div id="words-frequency" class="calc100vh_less_200px overflow-hidden background-color-whitesmoke display-flex" aria-label="words-frequency">
                     <div id="id-list-of-words" class="margin10px overflow-auto" aria-label="id-list-of-words"></div>
-                    <div id="id-current-table-of-words" class="margin10px overflow-auto" aria-label="id-current-table-of-words"></div>
+                    <div id="id-current-table-of-words-container" class="">
+                        <span id="id-current-table-of-words-title"></span>
+                        <div id="id-current-table-of-words" class="overflow-auto" aria-label="id-current-table-of-words"></div>
+                    </div>
                 </div>
             </div>
             

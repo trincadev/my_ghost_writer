@@ -1,4 +1,5 @@
-const wordsFrequencyTableTitleText = "Words Frequency Stats"
+const wordsFrequencyTableTitleText = "Words Freq. Stats"
+const wordsFrequencyTableTitleMobileText = "Words Freq. Stats"
 let wfo = {
     "words_frequency": {},
     "nTotalRows": null,
@@ -14,6 +15,7 @@ const objectChildNodeNamesToParse = {
     "#text": "textContent",
     "SPAN": "textContent"
 }
+const mobileInnerSize = 767
 
 /**
  * Object containing functions for word frequency analysis.
@@ -506,15 +508,23 @@ function parseWebserverDomain () {
  * @function getWordsFrequency
  */
 async function getWordsFrequency() {
+    if (isMobile()) {
+        toggleElementWithClassById('id-container-desktop-menu')
+    }
     let {validChildContent} = getValidChildNodesFromEditorById(editorFieldLabel)
     setElementCssClassById("waiting-for-be-error", "display-none")
     setElementCssClassById("waiting-for-be", "display-block")
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
+    let wordsFrequencyTableTitleElMobile = document.getElementById("id-words-frequency-table-title-mobile")
+
     wordsFrequencyTableTitleEl.innerText = wordsFrequencyTableTitleText
+    wordsFrequencyTableTitleElMobile.innerText = wordsFrequencyTableTitleMobileText
     let listOfWords = document.getElementById("id-list-of-words")
     listOfWords.innerHTML = ""
     let currentTableOfWords = document.getElementById("id-current-table-of-words")
     currentTableOfWords.innerHTML = ""
+    let currentTableTitle = document.getElementById("id-current-table-of-words-title")
+    currentTableTitle.innerText = ""
     const choiceWordFreqAnalyzerEl = document.getElementById('id-input-webserver-wordfreq-checkbox')
     console.log("choiceWordFreqAnalyzerEl checked:", typeof choiceWordFreqAnalyzerEl.checked, choiceWordFreqAnalyzerEl.checked, "#")
     switch (choiceWordFreqAnalyzerEl.checked) {
@@ -626,6 +636,9 @@ function updateWordsFrequencyTables() {
 
     let wordsFrequencyTableTitleEl = document.getElementById("id-words-frequency-table-title")
     wordsFrequencyTableTitleEl.innerText = `${wordsFrequencyTableTitleText} (${reduced.length} word groups, ${nTotalRows} rows)`
+    let wordsFrequencyTableTitleMobileEl = document.getElementById("id-words-frequency-table-title-mobile")
+    wordsFrequencyTableTitleMobileEl.innerText = `${wordsFrequencyTableTitleMobileText} (${reduced.length} word groups, ${nTotalRows} rows)`
+
     const wordListElement = document.createElement("list")
     for (let i=0; i<reduced.length; i++ ) {
         insertListOfWords(i, reduced[i], wordListElement, currentTableOfWords);
@@ -663,17 +676,22 @@ function insertCurrentTable(i, iReduced, currentTableOfWords) {
     currentTableWordsFreq.setAttribute("id", `id-table-${i}-nth`)
     currentTableWordsFreq.setAttribute("aria-label", `id-table-${i}-nth`)
 
-    let currentCaption = currentTableWordsFreq.createCaption()
-    currentCaption.setAttribute("aria-label", `id-table-${i}-caption`)
-    currentCaption.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
-
+    // let currentCaption = currentTableWordsFreq.createCaption()
+    // currentCaption.setAttribute("aria-label", `id-table-${i}-caption`
+    const titleCurrentTable = document.getElementById("id-current-table-of-words-title")
+    titleCurrentTable.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
     let currentTBody = document.createElement("tbody")
     let offsetsArray = iReduced.offsets_array
     for (let ii = 0; ii < offsetsArray.length; ii++) {
         insertCellIntoTRow(currentTBody, i, ii, offsetsArray[ii])
     }
     currentTableWordsFreq.appendChild(currentTBody)
-    currentTableOfWords.appendChild(currentTableWordsFreq)
+
+    // Wrap the table in a scrollable container
+    let scrollableDiv = document.createElement("div")
+    scrollableDiv.className = "scrollable-table-container"
+    scrollableDiv.appendChild(currentTableWordsFreq)
+    currentTableOfWords.appendChild(scrollableDiv)
 }
 
 /**
@@ -929,24 +947,33 @@ function getValidChildNodesFromEditorById(idElement) {
 }
 
 /** Needed by lite.koboldai.net */
-function toggleWordsFreqNav(idElement) {
-    let x = document.getElementById(idElement);
-    if (x.classList.contains("collapse")) {
-        x.classList.remove("collapse");
+function toggleElementWithClassById(idElement, className="collapse") {
+    let elementWithClassToChange = document.getElementById(idElement)
+    if (elementWithClassToChange.classList.contains(className)) {
+        elementWithClassToChange.classList.remove(className);
     } else {
-        x.classList.add("collapse");
+        elementWithClassToChange.classList.add(className);
     }
 }
 
-function closeWordsFreqTopNav(idElement) {
-    let x = document.getElementById(idElement);
-    x.classList.add("collapse");
+function addClassById(idElement, className) {
+    let elementWithClassToChange = document.getElementById(idElement)
+    elementWithClassToChange.classList.add(className);
 }
 
-function toggleOrCloseByBoolAndId(idElement, boolFlag) {
+function closeWordsFreqTopNav(idElement) {
+    addClassById(idElement, "collapse")
+}
+
+function removeClassById(idElement, className) {
+    let elementWithClassToChange = document.getElementById(idElement)
+    elementWithClassToChange.classList.remove(className);
+}
+
+function toggleOrCloseByBoolAndId(idElement, boolFlag, className="collapse") {
     switch (boolFlag) {
         case boolFlag === true:
-            toggleWordsFreqNav(idElement)
+            toggleElementWithClassById(idElement, className)
             break;
         case boolFlag === false:
             closeWordsFreqTopNav(idElement)
@@ -971,3 +998,45 @@ async function updateWordsFreqIfPressEnter() {
         }
     }
 }
+
+function toggleWebserverCheckbox() {
+    document.getElementById('id-input-webserver-wordfreq').disabled=!this.checked;document.getElementById('id-wordfreq-show-analyzer').innerText=this.checked?'webserver':'embedded';
+    if (isMobile()) {
+        toggleElementWithClassById('id-container-desktop-menu')
+    }
+}
+
+function handleMobileWindow() {
+    if (isMobile()) {
+        closeWordsFreqTopNav("id-container-desktop-menu")
+        closeWordsFreqTopNav("id-container-filter-sort-order")
+        addClassById('id-words-frequency-table-title', "collapse");
+        removeClassById('id-words-frequency-table-title-mobile', "collapse");
+        removeClassById('id-container-mobile-menu', "collapse");
+        removeClassById('id-container-filter-sort-order', "display-flex");
+        removeClassById('id-container-filter-word-list', "width-50perc");
+        removeClassById('id-container-sort-order-word-list', "width-50perc");
+
+        removeClassById('id-current-table-of-words-container', "margin10px");
+        addClassById('id-current-table-of-words-container', "margin2px");
+    } else {
+        closeWordsFreqTopNav("id-container-mobile-menu")
+        // Always show desktop container on desktop
+        removeClassById('id-container-desktop-menu', "collapse");
+        removeClassById('id-container-filter-sort-order', "collapse");
+        addClassById('id-container-filter-sort-order', "display-flex");
+        addClassById('id-words-frequency-table-title-mobile', "collapse");
+        addClassById('id-container-filter-word-list', "width-50perc");
+        removeClassById('id-words-frequency-table-title', "collapse");
+        addClassById('id-current-table-of-words-container', "margin10px");
+        removeClassById('id-current-table-of-words-container', "margin2px");
+    }
+}
+
+function isMobile() {
+    return window.innerWidth <= mobileInnerSize || window.innerHeight <= mobileInnerSize;
+}
+
+window.addEventListener('resize', handleMobileWindow);
+window.addEventListener('DOMContentLoaded', handleMobileWindow);
+console.log('DOMContentLoaded');
