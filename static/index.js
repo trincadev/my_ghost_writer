@@ -743,6 +743,18 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset) {
     currentCell.appendChild(currentUrl)
 }
 
+/** Given a rowArray (array of objects) and an nthOffset (object), it returns an object containing three substrings:
+ * - substring0: the substring before the sliced word
+ * - substringWord: the word sliced from the text with the given offset from the nthOffset arg
+ * - substring2: the substring after the sliced word
+ *
+ * @param {Array} rowArray - The array of objects containing text and their corresponding indices.
+ * @param {number} nthRowIdx - The index of the row to process.
+ * @param {Object} nthOffset - The object containing the offsets and other properties of the word.
+ * @param {number} [nCharsMore=30] - The number of characters to include before and after the selected word.
+ *
+ * @returns {Object} - An object containing the substring before, the selected word, and the substring after.
+ * */
 function getSubstringForTextWithGivenOffset(rowArray, nthRowIdx, nthOffset, nCharsMore = 30) {
     try {
         const currentRowArr = rowArray.filter(item => {
@@ -788,11 +800,27 @@ function getSubstringForTextWithGivenOffset(rowArray, nthRowIdx, nthOffset, nCha
     }
 }
 
+/** Get the value of a CSS property for an element by its ID.
+ *
+ * @param {string} id - The ID of the element.
+ * @param {string} property - The CSS property to retrieve.
+ * @param {string} [parsing=""] - Optional parsing type ("int", "float").
+ *
+ * returns {string|number} - The value of the CSS property, parsed if specified.
+ * */
 function getStylePropertyById(id, property, parsing="") {
     const element = document.getElementById(id)
     return getStylePropertyWithElement(element, property, parsing)
 }
 
+/** Get the value of a CSS property for a given element.
+ *
+ * @param {HTMLElement} element - The element to retrieve the property from.
+ * @param {string} property - The CSS property to retrieve.
+ * @param {string} [parsing=""] - Optional parsing type ("int", "float").
+ *
+ * returns {string|number} - The value of the CSS property, parsed if specified.
+ * */
 function getStylePropertyWithElement(element, property, parsing="") {
     const howToParse = {
         "int": parseInt,
