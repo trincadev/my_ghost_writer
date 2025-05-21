@@ -16,9 +16,12 @@
     text-align: left;
     font-weight: bold;
 }
-#words-frequency > table > thead > tr > td, #words-frequency > table > tbody > tr > td {
+#words-frequency > div > table > thead > tr > td, #words-frequency > div > table > tbody > tr > td {
     padding-left: 10px;
     padding-right: 10px;
+}
+.font-weight-bold {
+    font-weight: bolder;
 }
 .display-none {
     display: none;

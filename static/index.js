@@ -1,7 +1,8 @@
 const wordsFrequencyTableTitleText = "Words Frequency Stats"
 let wfo = {
     "words_frequency": {},
-    "nTotalRows": null
+    "nTotalRows": null,
+    "rowArray": []
 }
 const editorFieldLabel = "editor"
 const remoteWebServer = "http://localhost:7860"
@@ -42,7 +43,7 @@ const wordsFrequencyAnalyzers = {
             let freq = bodyResponseJson["words_frequency"]
             let nTotalRows = bodyResponseJson["n_total_rows"]
             console.log(`wordsFrequencyAnalyzers::nTotalRows: '${nTotalRows}'`)
-            populateWordsFrequencyTables(freq, nTotalRows)
+            populateWordsFrequencyTables(freq, nTotalRows, arrayOfValidTextChildWithNrow)
         } catch (err) {
             console.error("wordsFrequencyAnalyzers::err on webserver request/response:", err, "#")
             console.log(`wordsFrequencyAnalyzers::wordsFrequencyURL: ${typeof wordsFrequencyURL}:`, wordsFrequencyURL, "#")
@@ -64,7 +65,7 @@ const wordsFrequencyAnalyzers = {
             let freq = bodyResponseJson["wordsStemsDict"]
             let nTotalRows = bodyResponseJson["nTotalRows"]
             console.log(`getWordsFreq::nTotalRows: '${nTotalRows}', populateWordsFrequencyTables...`)
-            populateWordsFrequencyTables(freq, nTotalRows)
+            populateWordsFrequencyTables(freq, nTotalRows, inputText)
             // temp until we have the new UI
             let hiddenOutputSpan = document.getElementById("id-hidden-editor")
             hiddenOutputSpan.textContent = JSON.stringify(freq, null, 2)
@@ -362,7 +363,6 @@ function getFormDataByKey(formId, key) {
  *
  * @function previewFile
  * @description Displays the contents of a selected text file within an element with id 'editor'.
- * @param {none}
  */
 function previewFile() {
     const editor = document.getElementById(editorFieldLabel);
@@ -437,8 +437,8 @@ function setCaret(line, offsetColumn, nRowChild, nRowParent) {
     editorElement.focus();
 
     const offsetsEditor = getOffsetsWithElement(editorElement)
-    const yBase = parseInt(offsetsEditor.top, 10)
-    const y = parseInt(getBoundingClientRect(rng).y, 10)
+    const yBase = offsetsEditor.top
+    const {y} = getBoundingClientRect(rng)
     const yClientOffset = y - yBase
 
     scrollToGivenPoint(editorElement, yClientOffset)
@@ -596,7 +596,7 @@ function arrayFilterNestedValue(array, nestedValue) {
 /**
  * Updates the words frequency tables with new data.
  *
- * Called whenever a change in form input fields or the uploaded text file affects the words frequency table's content.
+ * Called whenever a change in form input fields or the uploaded text file affects the word frequency table's content.
  * Sorts and filters the word groups based on user preferences, and updates the HTML elements containing these tables.
  *
  * @function updateWordsFrequencyTables
@@ -634,17 +634,19 @@ function updateWordsFrequencyTables() {
 }
 
 /**
- * Populate the words frequency tables in the UI with data from the provided object or JSON string.
+ * Populate the word frequency tables in the UI with data from the provided object or JSON string.
  *
  * @param {Object|string} wordsFrequencyObj - The object or JSON string containing word frequencies.
  * @param {number} nTotalRows - The total number of lines/rows to display for each word group.
+ * @param rowArray - An array of objects representing the rows of text, each containing the text and its corresponding index.
  */
-function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows) {
+function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows, rowArray) {
     wfo["words_frequency"] = wordsFrequencyObj
     if (typeof wordsFrequencyObj === "string") {
         wfo["words_frequency"] = JSON.parse(wordsFrequencyObj)
     }
     wfo["nTotalRows"] = nTotalRows
+    wfo["rowArray"] = Object.values(rowArray)
     updateWordsFrequencyTables()
 }
 
@@ -665,18 +667,11 @@ function insertCurrentTable(i, iReduced, currentTableOfWords) {
     currentCaption.setAttribute("aria-label", `id-table-${i}-caption`)
     currentCaption.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
 
-    let currentTHead = document.createElement("thead")
-    let currentTHeadRow = currentTHead.insertRow()
-    currentTHeadRow.insertCell().textContent = 'word'
-    currentTHeadRow.insertCell().textContent = 'row nth'
-    currentTHeadRow.insertCell().textContent = 'offsets'
-
     let currentTBody = document.createElement("tbody")
     let offsetsArray = iReduced.offsets_array
     for (let ii = 0; ii < offsetsArray.length; ii++) {
         insertCellIntoTRow(currentTBody, i, ii, offsetsArray[ii])
     }
-    currentTableWordsFreq.appendChild(currentTHead)
     currentTableWordsFreq.appendChild(currentTBody)
     currentTableOfWords.appendChild(currentTableWordsFreq)
 }
@@ -713,13 +708,15 @@ function insertListOfWords(i, iReduced, wordListElement, currentTableOfWords) {
  * @param {Object} nthOffset - An object containing information about a single offset word, including its row number and word text.
  */
 function insertCellIntoTRow(currentTBody, i, ii, nthOffset) {
+    let rowArray = wfo["rowArray"]
     let nthRowBody = currentTBody.insertRow()
     nthRowBody.setAttribute("id", `id-table-${i}-row-${ii}-nth`)
     nthRowBody.setAttribute("aria-label", `id-table-${i}-row-${ii}-nth`)
+    const nthRowIdx = nthOffset["n_row"]
     let currentCell = nthRowBody.insertCell()
     let currentUrl = document.createElement("a")
     currentUrl.addEventListener("click", function() {
-        let nRow = nthOffset["n_row"]
+        let nRow = nthRowIdx
         let nRowChild = nthOffset["n_row_child"]
         let nRowParent = nthOffset["n_row_parent"]
         let offsetWord = nthOffset["offsets"]
@@ -728,16 +725,91 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset) {
         currentUrl.className = underlinedClickedTable
     })
     currentUrl.className = underlinedPrimary
-    currentUrl.innerText = nthOffset["word"]
+    const wfoContainerWidth = getStylePropertyById("id-col2-words-frequency", "width", "int")
+    const listOfWordsWidth = getStylePropertyById("id-list-of-words", "width", "int")
+    const sentencesContainerWidth = wfoContainerWidth - listOfWordsWidth
+    const nCharsMore = Math.floor(sentencesContainerWidth / 20)
+    console.log(`insertCellIntoTRow::sentencesContainerWidth: ${sentencesContainerWidth}px, nCharsMore: ${nCharsMore}.`)
+    const {substring0, substringWord, substring2} = getSubstringForTextWithGivenOffset(rowArray, nthRowIdx, nthOffset, nCharsMore)
+
+    const span0 = document.createElement("span").innerText = substring0
+    const spanWord = document.createElement("span")
+    spanWord.setAttribute("class", "font-weight-bold")
+    spanWord.innerText = substringWord
+    const span2 = document.createElement("span").innerText = substring2
+    currentUrl.append(span0)
+    currentUrl.append(spanWord)
+    currentUrl.append(span2)
     currentCell.appendChild(currentUrl)
-    nthRowBody.insertCell().textContent = nthOffset["n_row"]
-    nthRowBody.insertCell().textContent = nthOffset["offsets"]
+}
+
+function getSubstringForTextWithGivenOffset(rowArray, nthRowIdx, nthOffset, nCharsMore = 30) {
+    try {
+        const currentRowArr = rowArray.filter(item => {
+            if (item.idxRowChild !== null) {
+                return item.idxRow === nthRowIdx && item.idxRowChild === nthOffset["n_row_child"] && item.idxRowParent === nthOffset["n_row_parent"]
+            }
+            return item.idxRow === nthRowIdx
+        })
+        const currentRow = currentRowArr[0]
+        const text = currentRow.text
+        let offset = nthOffset["offsets"]
+        let start = offset[0]
+        let end = offset[1]
+        let currentWord = nthOffset["word"]
+        let startOffset = Math.max(0, start - nCharsMore)
+        let endOffset = Math.min(text.length, end + nCharsMore)
+        let substringWord = text.substring(start, end)
+
+        // Prune incomplete word at the start
+        let substring0 = text.substring(startOffset, start)
+        substring0 = substring0.replace(/^\S*\s?/, '') // remove partial word at the start
+
+        // Prune incomplete word at the end
+        let substring2 = text.substring(end, endOffset)
+        substring2 = substring2.replace(/\s?\S*$/, '') // remove partial word at the end
+
+        // Rebuild substring for validation
+        let substring = substring0 + substringWord + substring2
+
+        if (substringWord !== currentWord || substring !== substring0 + substringWord + substring2) {
+            console.assert(substringWord === currentWord,
+                `text.substring(${start}, ${end}) !== currentWord: '${substringWord}', '${currentWord}'.`
+            )
+            console.assert(substring === substring0 + substringWord + substring2,
+                `## text.substring(${startOffset}, ${endOffset}) !== text.substring(${startOffset}, ${start}) + currentWord + text.substring(${end}, ${endOffset}).`
+            )
+            throw Error(`text.substring(${start}, ${end}): (${substringWord}) !== currentWord (${currentWord}).`)
+        }
+        return {substring0, substringWord, substring2};
+    } catch (e) {
+        console.error(`getSubstringForTextWithGivenOffset::error:`, e, ` #`)
+        throw e
+    }
+}
+
+function getStylePropertyById(id, property, parsing="") {
+    const element = document.getElementById(id)
+    return getStylePropertyWithElement(element, property, parsing)
+}
+
+function getStylePropertyWithElement(element, property, parsing="") {
+    const howToParse = {
+        "int": parseInt,
+        "float": parseFloat
+    }
+    const elementStyle = window.getComputedStyle(element)
+    let value = elementStyle.getPropertyValue(property)
+    if (howToParse[parsing] !== undefined) {
+        value = howToParse[parsing](value, 10)
+    }
+    return value
 }
 
 /**
- * Updates the words frequency tables with new data if enter key is pressed.
+ * Updates the word frequency tables with new data if enter key is pressed.
  * If the event target has a value (i.e., it's an input field) and the event key is "Enter",
- * call the updateWordsFrequencyTables function to update the words frequency tables.
+ * call the updateWordsFrequencyTables function to update the word frequency tables.
  *
  * @returns {void}
  */
