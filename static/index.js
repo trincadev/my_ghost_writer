@@ -1000,10 +1000,9 @@ async function updateWordsFreqIfPressEnter() {
 }
 
 function toggleWebserverCheckbox() {
-    document.getElementById('id-input-webserver-wordfreq').disabled=!this.checked;document.getElementById('id-wordfreq-show-analyzer').innerText=this.checked?'webserver':'embedded';
-    if (isMobile()) {
-        toggleElementWithClassById('id-container-desktop-menu')
-    }
+    const checked = document.getElementById("id-input-webserver-wordfreq-checkbox").checked
+    document.getElementById('id-input-webserver-wordfreq').disabled=!checked;
+    document.getElementById('id-wordfreq-show-analyzer').innerText=checked?'webserver':'embedded';
 }
 
 function handleMobileWindow() {
