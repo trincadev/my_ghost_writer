@@ -16,6 +16,7 @@ const objectChildNodeNamesToParse = {
     "SPAN": "textContent"
 }
 const mobileInnerSize = 767
+const minNCharsMore = 10
 
 /**
  * Object containing functions for word frequency analysis.
@@ -663,6 +664,10 @@ function populateWordsFrequencyTables(wordsFrequencyObj, nTotalRows, rowArray) {
     updateWordsFrequencyTables()
 }
 
+function getRepetitionsText(iReduced) {
+    return isMobile() || isMobilePortrait() ? `${iReduced["word_prefix"]}: ${iReduced["count"]} reps.` : `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
+}
+
 /**
  * Inserts a table into the DOM displaying the frequency of word prefixes and their corresponding row nths and offsets.
  *
@@ -679,7 +684,7 @@ function insertCurrentTable(i, iReduced, currentTableOfWords) {
     // let currentCaption = currentTableWordsFreq.createCaption()
     // currentCaption.setAttribute("aria-label", `id-table-${i}-caption`
     const titleCurrentTable = document.getElementById("id-current-table-of-words-title")
-    titleCurrentTable.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
+    titleCurrentTable.innerText = getRepetitionsText(iReduced)
     let currentTBody = document.createElement("tbody")
     let offsetsArray = iReduced.offsets_array
     for (let ii = 0; ii < offsetsArray.length; ii++) {
@@ -704,13 +709,17 @@ function insertCurrentTable(i, iReduced, currentTableOfWords) {
 function insertListOfWords(i, iReduced, wordListElement, currentTableOfWords) {
     const li = document.createElement("li");
     const a = document.createElement("a")
-    a.innerText = `${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`
+    a.innerText = getRepetitionsText(iReduced)
     a.addEventListener("click",  function() {
         currentTableOfWords.innerHTML = ""
         console.log(`insertListOfWords::'a', ${iReduced["word_prefix"]}: ${iReduced["count"]} repetitions`)
         insertCurrentTable(i, iReduced, currentTableOfWords)
         setElementCssClassByOldClass(underlinedClicked, underlinedPrimary)
         a.className = underlinedClicked
+        console.log("insertListOfWords::click event:", isMobilePortrait(), "#")
+        if(isMobilePortrait()) {
+            gotoCurrentTableOfWords()
+        }
     });
     a.className = underlinedPrimary
     li.appendChild(a);
@@ -746,7 +755,10 @@ function insertCellIntoTRow(currentTBody, i, ii, nthOffset) {
     const wfoContainerWidth = getStylePropertyById("id-col2-words-frequency", "width", "int")
     const listOfWordsWidth = getStylePropertyById("id-list-of-words", "width", "int")
     const sentencesContainerWidth = wfoContainerWidth - listOfWordsWidth
-    const nCharsMore = Math.floor(sentencesContainerWidth / 20)
+    let nCharsMore = Math.floor(sentencesContainerWidth / 20)
+    if (nCharsMore < minNCharsMore) {
+        nCharsMore = minNCharsMore
+    }
     console.log(`insertCellIntoTRow::sentencesContainerWidth: ${sentencesContainerWidth}px, nCharsMore: ${nCharsMore}.`)
     const {substring0, substringWord, substring2} = getSubstringForTextWithGivenOffset(rowArray, nthRowIdx, nthOffset, nCharsMore)
 
@@ -999,10 +1011,37 @@ async function updateWordsFreqIfPressEnter() {
     }
 }
 
+function gotoCurrentTableOfWords() {
+    if (isMobilePortrait()) {
+        console.log("gotoCurrentTableOfWords::isMobilePortrait()...")
+        addClassById("id-current-table-of-words-btn-back", "display-block")
+        removeClassById("id-current-table-of-words-btn-back", "collapse")
+        addClassById("id-current-table-of-words-container", "display-block")
+        removeClassById("id-current-table-of-words-container", "collapse")
+        addClassById("id-list-of-words", "collapse")
+        removeClassById("id-list-of-words", "display-block")
+    }
+}
+
 function toggleWebserverCheckbox() {
     const checked = document.getElementById("id-input-webserver-wordfreq-checkbox").checked
     document.getElementById('id-input-webserver-wordfreq').disabled=!checked;
     document.getElementById('id-wordfreq-show-analyzer').innerText=checked?'webserver':'embedded';
+}
+
+function backToListFromCurrentTable() {
+    if (isMobilePortrait()) {
+        removeClassById("id-current-table-of-words-container", "display-block")
+        addClassById("id-current-table-of-words-container", "collapse")
+        removeClassById("id-list-of-words", "collapse")
+        addClassById("id-list-of-words", "display-block")
+    }
+}
+
+function isMobilePortrait() {
+    console.log("isMobilePortrait::window.innerWidth:", window.innerWidth, window.screen.orientation, "#")
+    const orientation = window.screen.orientation
+    return window.innerWidth <= mobileInnerSize && (orientation.type === "portrait-primary" || orientation.type === "portrait-secondary")
 }
 
 function handleMobileWindow() {

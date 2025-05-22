@@ -19,7 +19,7 @@ def text_stemming(text: str | RequestTextRowsParentList) -> ResponseTextRowsDict
         text (str): Input string containing the text to be stemmed.
 
     Returns:
-        tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the words frequency dict
+        tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the word frequency dict
     """
     import json
     from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
@@ -68,7 +68,6 @@ def get_words_tokens_and_indexes(
     Args:
         words_tokens_list (list): List of words tokens.
         offsets_tokens_list (list): List of offsets for each token.
-        ps (PorterStemmer): The stemmer to use.
         idx_rows_list (list[int]): List of row indices corresponding to the tokens.
         idx_rows_child (list[int]): List of child row indices corresponding to the tokens.
         idx_rows_parent (list[int]): List of parent row indices corresponding to the tokens.

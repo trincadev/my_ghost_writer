@@ -75,10 +75,10 @@
     margin: 2px;
 }
 .margin10px-left {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .margin5px-right {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .margin5px-top {
     margin-top: 5px;
@@ -125,6 +125,10 @@
     max-height: calc(100vh - 200px);
     overflow: auto;
 }
+#id-input-webserver-wordfreq-checkbox-container {
+    display: flex;
+    justify-content: right;
+}
 
 /* Classic UI Main Text, lite.koboldai.net */
 #gamescreen {
@@ -153,6 +157,17 @@
 }
 .calc100vh_less_200px {
     height: calc(100vh - 200px);
+}
+
+.grid-container-elements-menu-top {
+    margin: 0 auto;
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.grid-element-menu-top {
+    padding: 2px;
+    height: auto;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -194,5 +209,16 @@
     .id-orientation-message:before {
         color: red;
         content: "(Mobile users: use this in landscape mode!)"
+    }
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    #id-input-webserver-wordfreq-checkbox-container {
+        display: flex;
+        justify-content: left !important;
     }
 }

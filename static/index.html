@@ -11,28 +11,33 @@
     <div id="id-orientation-message" class="id-orientation-message" aria-hidden="true"><!-- ::before (Mobile users: use this project in landscape mode!) --></div>
         <div id="id-container-menu">
             <div id="id-container-mobile-menu" class="collapse">
-                <button id="id-menu-mobile-top" onclick="toggleElementWithClassById('id-container-desktop-menu')">Global menu' word freq. stats</button>
-                <button id="id-menu-mobile-filter-sort-order" onclick="toggleElementWithClassById('id-container-filter-sort-order')">Menu' filter word freq.</button>
+                <button id="id-menu-mobile-top" onclick="toggleElementWithClassById('id-container-desktop-menu')">Global menù word freq. stats</button>
+                <button id="id-menu-mobile-filter-sort-order" onclick="toggleElementWithClassById('id-container-filter-sort-order')">Menù filter word freq.</button>
             </div>
             <div id="id-container-desktop-menu">
                 <h1 id="id-title" class="h1">Word Frequency Statistics in text</h1>
-                <div class="margin4px">
-                    <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit">get words frequency</button>
-                    <label for="id-input-webserver-wordfreq-checkbox" class="margin10px-left">Use a custom webserver endpoint</label>
-
-                    <input
-                            type="checkbox"
-                            id="id-input-webserver-wordfreq-checkbox"
-                            aria-label="id-input-webserver-wordfreq-checkbox"
-                            name="id-input-webserver-wordfreq-checkbox"
-                            onchange="toggleWebserverCheckbox()"
-                            checked
-                    />
-                    <input type="URL" id="id-input-webserver-wordfreq" aria-label="id-input-webserver-wordfreq" value="http://localhost:7860" />
-                    <span>Currently using: <span id="id-wordfreq-show-analyzer" aria-label="id-wordfreq-show-analyzer">webserver</span></span>
-
-                    <label for="id-input-file-selector" class="margin10px-left">Text file selector</label>
-                    <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" />
+                <div class="margin4px grid-container-elements-menu-top">
+                    <button id="btn4-get-words-frequency" aria-label="btn4-get-words-frequency" onclick="getWordsFrequency()" type="submit" class="grid-element-menu-top">get words frequency</button>
+                    <span class="grid-element-menu-top">
+                        <label for="id-input-file-selector" class="">Text file selector</label>
+                        <input type="file" onchange="previewFile()" id="id-input-file-selector" aria-label="id-input-file-selector" placeholder="text file selector"/>
+                    </span>
+                    <span id="id-input-webserver-wordfreq-checkbox-container" class="grid-element-menu-top">
+                        <label for="id-input-webserver-wordfreq-checkbox" class="margin5px-left grid-element-menu-top">Use a custom webserver endpoint</label>
+                        <input
+                                type="checkbox"
+                                id="id-input-webserver-wordfreq-checkbox"
+                                aria-label="id-input-webserver-wordfreq-checkbox"
+                                name="id-input-webserver-wordfreq-checkbox"
+                                class="grid-element-menu-top"
+                                onchange="toggleWebserverCheckbox()"
+                                checked
+                        />
+                    </span>
+                    <span class="grid-element-menu-top">
+                        <input type="URL" id="id-input-webserver-wordfreq" aria-label="id-input-webserver-wordfreq" value="http://localhost:7860"/>
+                        <span>Now using: <span id="id-wordfreq-show-analyzer" aria-label="id-wordfreq-show-analyzer">webserver</span></span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -109,8 +114,11 @@ Another row.<br>More one.<br>A last row, I hope.
                 <span id="waiting-for-be-error" class="display-none">Error!</span>
                 <div id="words-frequency" class="calc100vh_less_200px overflow-hidden background-color-whitesmoke display-flex" aria-label="words-frequency">
                     <div id="id-list-of-words" class="margin4px overflow-auto" aria-label="id-list-of-words"></div>
-                    <div id="id-current-table-of-words-container" class="">
-                        <span id="id-current-table-of-words-title"></span>
+                    <div id="id-current-table-of-words-container" class="display-block">
+                        <div class="display-flex">
+                            <span id="id-current-table-of-words-btn-back" onclick="backToListFromCurrentTable()" class="collapse">↩️</span>
+                            <span id="id-current-table-of-words-title"></span>
+                        </div>
                         <div id="id-current-table-of-words" class="overflow-auto" aria-label="id-current-table-of-words"></div>
                     </div>
                 </div>
