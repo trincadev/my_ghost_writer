@@ -1,0 +1,7369 @@
+{
+  "words_stems_dict": {
+    "onc": {
+      "count": 1,
+      "word_prefix": "Once",
+      "offsets_array": [
+        {
+          "word": "Once",
+          "offsets": [
+            0,
+            4
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "upon": {
+      "count": 1,
+      "word_prefix": "upon",
+      "offsets_array": [
+        {
+          "word": "upon",
+          "offsets": [
+            5,
+            9
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "a": {
+      "count": 5,
+      "word_prefix": "a",
+      "offsets_array": [
+        {
+          "word": "a",
+          "offsets": [
+            10,
+            11
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "a",
+          "offsets": [
+            58,
+            59
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "a",
+          "offsets": [
+            114,
+            115
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "a",
+          "offsets": [
+            44,
+            45
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "a",
+          "offsets": [
+            126,
+            127
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "time": {
+      "count": 1,
+      "word_prefix": "time",
+      "offsets_array": [
+        {
+          "word": "time",
+          "offsets": [
+            12,
+            16
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    ",": {
+      "count": 4,
+      "word_prefix": ",",
+      "offsets_array": [
+        {
+          "word": ",",
+          "offsets": [
+            16,
+            17
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ",",
+          "offsets": [
+            44,
+            45
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ",",
+          "offsets": [
+            119,
+            120
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ",",
+          "offsets": [
+            41,
+            42
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "in": {
+      "count": 2,
+      "word_prefix": "in",
+      "offsets_array": [
+        {
+          "word": "in",
+          "offsets": [
+            18,
+            20
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "in",
+          "offsets": [
+            41,
+            43
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "the": {
+      "count": 6,
+      "word_prefix": "the",
+      "offsets_array": [
+        {
+          "word": "the",
+          "offsets": [
+            21,
+            24
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "the",
+          "offsets": [
+            142,
+            145
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "the",
+          "offsets": [
+            7,
+            10
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "The",
+          "offsets": [
+            58,
+            61
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "The",
+          "offsets": [
+            0,
+            3
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "the",
+          "offsets": [
+            105,
+            108
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "kingdom": {
+      "count": 1,
+      "word_prefix": "kingdom",
+      "offsets_array": [
+        {
+          "word": "kingdom",
+          "offsets": [
+            25,
+            32
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "of": {
+      "count": 4,
+      "word_prefix": "of",
+      "offsets_array": [
+        {
+          "word": "of",
+          "offsets": [
+            33,
+            35
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of",
+          "offsets": [
+            139,
+            141
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of",
+          "offsets": [
+            4,
+            6
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of",
+          "offsets": [
+            102,
+            104
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "elwoodia": {
+      "count": 1,
+      "word_prefix": "Elwoodia",
+      "offsets_array": [
+        {
+          "word": "Elwoodia",
+          "offsets": [
+            36,
+            44
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "there": {
+      "count": 1,
+      "word_prefix": "there",
+      "offsets_array": [
+        {
+          "word": "there",
+          "offsets": [
+            46,
+            51
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "live": {
+      "count": 1,
+      "word_prefix": "lived",
+      "offsets_array": [
+        {
+          "word": "lived",
+          "offsets": [
+            52,
+            57
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "young": {
+      "count": 2,
+      "word_prefix": "young",
+      "offsets_array": [
+        {
+          "word": "young",
+          "offsets": [
+            60,
+            65
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "young",
+          "offsets": [
+            75,
+            80
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "and": {
+      "count": 4,
+      "word_prefix": "and",
+      "offsets_array": [
+        {
+          "word": "and",
+          "offsets": [
+            66,
+            69
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "and",
+          "offsets": [
+            31,
+            34
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "and",
+          "offsets": [
+            103,
+            106
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "and",
+          "offsets": [
+            74,
+            77
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "wise": {
+      "count": 1,
+      "word_prefix": "wise",
+      "offsets_array": [
+        {
+          "word": "wise",
+          "offsets": [
+            70,
+            74
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "princess": {
+      "count": 1,
+      "word_prefix": "Princess",
+      "offsets_array": [
+        {
+          "word": "Princess",
+          "offsets": [
+            81,
+            89
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "name": {
+      "count": 1,
+      "word_prefix": "named",
+      "offsets_array": [
+        {
+          "word": "named",
+          "offsets": [
+            90,
+            95
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "isabella": {
+      "count": 1,
+      "word_prefix": "Isabella",
+      "offsets_array": [
+        {
+          "word": "Isabella",
+          "offsets": [
+            96,
+            104
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    ".": {
+      "count": 7,
+      "word_prefix": ".",
+      "offsets_array": [
+        {
+          "word": ".",
+          "offsets": [
+            104,
+            105
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            173,
+            174
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            56,
+            57
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            161,
+            162
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            28,
+            29
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            95,
+            96
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": ".",
+          "offsets": [
+            137,
+            138
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "she": {
+      "count": 1,
+      "word_prefix": "She",
+      "offsets_array": [
+        {
+          "word": "She",
+          "offsets": [
+            106,
+            109
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "saw": {
+      "count": 1,
+      "word_prefix": "saw",
+      "offsets_array": [
+        {
+          "word": "saw",
+          "offsets": [
+            110,
+            113
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "tini": {
+      "count": 1,
+      "word_prefix": "tiny",
+      "offsets_array": [
+        {
+          "word": "tiny",
+          "offsets": [
+            116,
+            120
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "creatur": {
+      "count": 1,
+      "word_prefix": "creature",
+      "offsets_array": [
+        {
+          "word": "creature",
+          "offsets": [
+            121,
+            129
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "like": {
+      "count": 1,
+      "word_prefix": "like",
+      "offsets_array": [
+        {
+          "word": "like",
+          "offsets": [
+            130,
+            134
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "one": {
+      "count": 3,
+      "word_prefix": "One",
+      "offsets_array": [
+        {
+          "word": "one",
+          "offsets": [
+            135,
+            138
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "One",
+          "offsets": [
+            0,
+            3
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "One",
+          "offsets": [
+            30,
+            33
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "fairi": {
+      "count": 5,
+      "word_prefix": "fairies",
+      "offsets_array": [
+        {
+          "word": "fairies",
+          "offsets": [
+            146,
+            153
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "fairies",
+          "offsets": [
+            11,
+            18
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "fairy",
+          "offsets": [
+            62,
+            67
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "fairy",
+          "offsets": [
+            4,
+            9
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "fairies",
+          "offsets": [
+            109,
+            116
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "her": {
+      "count": 3,
+      "word_prefix": "her",
+      "offsets_array": [
+        {
+          "word": "her",
+          "offsets": [
+            154,
+            157
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "her",
+          "offsets": [
+            170,
+            173
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "her",
+          "offsets": [
+            27,
+            30
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "mother": {
+      "count": 1,
+      "word_prefix": "mother",
+      "offsets_array": [
+        {
+          "word": "mother",
+          "offsets": [
+            158,
+            164
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "told": {
+      "count": 1,
+      "word_prefix": "told",
+      "offsets_array": [
+        {
+          "word": "told",
+          "offsets": [
+            165,
+            169
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "onc upon": {
+      "count": 1,
+      "word_prefix": "Once upon",
+      "offsets_array": [
+        {
+          "word": "Once upon",
+          "offsets": [
+            0,
+            9
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "upon a": {
+      "count": 1,
+      "word_prefix": "upon a",
+      "offsets_array": [
+        {
+          "word": "upon a",
+          "offsets": [
+            5,
+            11
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "a time": {
+      "count": 1,
+      "word_prefix": "a time",
+      "offsets_array": [
+        {
+          "word": "a time",
+          "offsets": [
+            10,
+            16
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "time ,": {
+      "count": 1,
+      "word_prefix": "time,",
+      "offsets_array": [
+        {
+          "word": "time,",
+          "offsets": [
+            12,
+            17
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ", in": {
+      "count": 1,
+      "word_prefix": ", in",
+      "offsets_array": [
+        {
+          "word": ", in",
+          "offsets": [
+            16,
+            20
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "in the": {
+      "count": 1,
+      "word_prefix": "in the",
+      "offsets_array": [
+        {
+          "word": "in the",
+          "offsets": [
+            18,
+            24
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "the kingdom": {
+      "count": 1,
+      "word_prefix": "the kingdom",
+      "offsets_array": [
+        {
+          "word": "the kingdom",
+          "offsets": [
+            21,
+            32
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "kingdom of": {
+      "count": 1,
+      "word_prefix": "kingdom of",
+      "offsets_array": [
+        {
+          "word": "kingdom of",
+          "offsets": [
+            25,
+            35
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "of elwoodia": {
+      "count": 1,
+      "word_prefix": "of Elwoodia",
+      "offsets_array": [
+        {
+          "word": "of Elwoodia",
+          "offsets": [
+            33,
+            44
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "elwoodia ,": {
+      "count": 1,
+      "word_prefix": "Elwoodia,",
+      "offsets_array": [
+        {
+          "word": "Elwoodia,",
+          "offsets": [
+            36,
+            45
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ", there": {
+      "count": 1,
+      "word_prefix": ", there",
+      "offsets_array": [
+        {
+          "word": ", there",
+          "offsets": [
+            44,
+            51
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "there live": {
+      "count": 1,
+      "word_prefix": "there lived",
+      "offsets_array": [
+        {
+          "word": "there lived",
+          "offsets": [
+            46,
+            57
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "live a": {
+      "count": 1,
+      "word_prefix": "lived a",
+      "offsets_array": [
+        {
+          "word": "lived a",
+          "offsets": [
+            52,
+            59
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "a young": {
+      "count": 1,
+      "word_prefix": "a young",
+      "offsets_array": [
+        {
+          "word": "a young",
+          "offsets": [
+            58,
+            65
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "young and": {
+      "count": 1,
+      "word_prefix": "young and",
+      "offsets_array": [
+        {
+          "word": "young and",
+          "offsets": [
+            60,
+            69
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "and wise": {
+      "count": 1,
+      "word_prefix": "and wise",
+      "offsets_array": [
+        {
+          "word": "and wise",
+          "offsets": [
+            66,
+            74
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "wise young": {
+      "count": 1,
+      "word_prefix": "wise young",
+      "offsets_array": [
+        {
+          "word": "wise young",
+          "offsets": [
+            70,
+            80
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "young princess": {
+      "count": 1,
+      "word_prefix": "young Princess",
+      "offsets_array": [
+        {
+          "word": "young Princess",
+          "offsets": [
+            75,
+            89
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "princess name": {
+      "count": 1,
+      "word_prefix": "Princess named",
+      "offsets_array": [
+        {
+          "word": "Princess named",
+          "offsets": [
+            81,
+            95
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "name isabella": {
+      "count": 1,
+      "word_prefix": "named Isabella",
+      "offsets_array": [
+        {
+          "word": "named Isabella",
+          "offsets": [
+            90,
+            104
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "isabella .": {
+      "count": 1,
+      "word_prefix": "Isabella.",
+      "offsets_array": [
+        {
+          "word": "Isabella.",
+          "offsets": [
+            96,
+            105
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ". she": {
+      "count": 1,
+      "word_prefix": ". She",
+      "offsets_array": [
+        {
+          "word": ". She",
+          "offsets": [
+            104,
+            109
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "she saw": {
+      "count": 1,
+      "word_prefix": "She saw",
+      "offsets_array": [
+        {
+          "word": "She saw",
+          "offsets": [
+            106,
+            113
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "saw a": {
+      "count": 1,
+      "word_prefix": "saw a",
+      "offsets_array": [
+        {
+          "word": "saw a",
+          "offsets": [
+            110,
+            115
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "a tini": {
+      "count": 1,
+      "word_prefix": "a tiny",
+      "offsets_array": [
+        {
+          "word": "a tiny",
+          "offsets": [
+            114,
+            120
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "tini creatur": {
+      "count": 1,
+      "word_prefix": "tiny creature",
+      "offsets_array": [
+        {
+          "word": "tiny creature",
+          "offsets": [
+            116,
+            129
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "creatur like": {
+      "count": 1,
+      "word_prefix": "creature like",
+      "offsets_array": [
+        {
+          "word": "creature like",
+          "offsets": [
+            121,
+            134
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "like one": {
+      "count": 1,
+      "word_prefix": "like one",
+      "offsets_array": [
+        {
+          "word": "like one",
+          "offsets": [
+            130,
+            138
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "one of": {
+      "count": 2,
+      "word_prefix": "one of",
+      "offsets_array": [
+        {
+          "word": "one of",
+          "offsets": [
+            135,
+            141
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "One of",
+          "offsets": [
+            0,
+            6
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "of the": {
+      "count": 3,
+      "word_prefix": "of the",
+      "offsets_array": [
+        {
+          "word": "of the",
+          "offsets": [
+            139,
+            145
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of the",
+          "offsets": [
+            4,
+            10
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of the",
+          "offsets": [
+            102,
+            108
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "the fairi": {
+      "count": 5,
+      "word_prefix": "the fairies",
+      "offsets_array": [
+        {
+          "word": "the fairies",
+          "offsets": [
+            142,
+            153
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "the fairies",
+          "offsets": [
+            7,
+            18
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "The fairy",
+          "offsets": [
+            58,
+            67
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "The fairy",
+          "offsets": [
+            0,
+            9
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "the fairies",
+          "offsets": [
+            105,
+            116
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "fairi her": {
+      "count": 1,
+      "word_prefix": "fairies her",
+      "offsets_array": [
+        {
+          "word": "fairies her",
+          "offsets": [
+            146,
+            157
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "her mother": {
+      "count": 1,
+      "word_prefix": "her mother",
+      "offsets_array": [
+        {
+          "word": "her mother",
+          "offsets": [
+            154,
+            164
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "mother told": {
+      "count": 1,
+      "word_prefix": "mother told",
+      "offsets_array": [
+        {
+          "word": "mother told",
+          "offsets": [
+            158,
+            169
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "told her": {
+      "count": 1,
+      "word_prefix": "told her",
+      "offsets_array": [
+        {
+          "word": "told her",
+          "offsets": [
+            165,
+            173
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "her .": {
+      "count": 1,
+      "word_prefix": "her.",
+      "offsets_array": [
+        {
+          "word": "her.",
+          "offsets": [
+            170,
+            174
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "onc upon a": {
+      "count": 1,
+      "word_prefix": "Once upon a",
+      "offsets_array": [
+        {
+          "word": "Once upon a",
+          "offsets": [
+            0,
+            11
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "upon a time": {
+      "count": 1,
+      "word_prefix": "upon a time",
+      "offsets_array": [
+        {
+          "word": "upon a time",
+          "offsets": [
+            5,
+            16
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "a time ,": {
+      "count": 1,
+      "word_prefix": "a time,",
+      "offsets_array": [
+        {
+          "word": "a time,",
+          "offsets": [
+            10,
+            17
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "time , in": {
+      "count": 1,
+      "word_prefix": "time, in",
+      "offsets_array": [
+        {
+          "word": "time, in",
+          "offsets": [
+            12,
+            20
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ", in the": {
+      "count": 1,
+      "word_prefix": ", in the",
+      "offsets_array": [
+        {
+          "word": ", in the",
+          "offsets": [
+            16,
+            24
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "in the kingdom": {
+      "count": 1,
+      "word_prefix": "in the kingdom",
+      "offsets_array": [
+        {
+          "word": "in the kingdom",
+          "offsets": [
+            18,
+            32
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "the kingdom of": {
+      "count": 1,
+      "word_prefix": "the kingdom of",
+      "offsets_array": [
+        {
+          "word": "the kingdom of",
+          "offsets": [
+            21,
+            35
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "kingdom of elwoodia": {
+      "count": 1,
+      "word_prefix": "kingdom of Elwoodia",
+      "offsets_array": [
+        {
+          "word": "kingdom of Elwoodia",
+          "offsets": [
+            25,
+            44
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "of elwoodia ,": {
+      "count": 1,
+      "word_prefix": "of Elwoodia,",
+      "offsets_array": [
+        {
+          "word": "of Elwoodia,",
+          "offsets": [
+            33,
+            45
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "elwoodia , there": {
+      "count": 1,
+      "word_prefix": "Elwoodia, there",
+      "offsets_array": [
+        {
+          "word": "Elwoodia, there",
+          "offsets": [
+            36,
+            51
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ", there live": {
+      "count": 1,
+      "word_prefix": ", there lived",
+      "offsets_array": [
+        {
+          "word": ", there lived",
+          "offsets": [
+            44,
+            57
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "there live a": {
+      "count": 1,
+      "word_prefix": "there lived a",
+      "offsets_array": [
+        {
+          "word": "there lived a",
+          "offsets": [
+            46,
+            59
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "live a young": {
+      "count": 1,
+      "word_prefix": "lived a young",
+      "offsets_array": [
+        {
+          "word": "lived a young",
+          "offsets": [
+            52,
+            65
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "a young and": {
+      "count": 1,
+      "word_prefix": "a young and",
+      "offsets_array": [
+        {
+          "word": "a young and",
+          "offsets": [
+            58,
+            69
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "young and wise": {
+      "count": 1,
+      "word_prefix": "young and wise",
+      "offsets_array": [
+        {
+          "word": "young and wise",
+          "offsets": [
+            60,
+            74
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "and wise young": {
+      "count": 1,
+      "word_prefix": "and wise young",
+      "offsets_array": [
+        {
+          "word": "and wise young",
+          "offsets": [
+            66,
+            80
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "wise young princess": {
+      "count": 1,
+      "word_prefix": "wise young Princess",
+      "offsets_array": [
+        {
+          "word": "wise young Princess",
+          "offsets": [
+            70,
+            89
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "young princess name": {
+      "count": 1,
+      "word_prefix": "young Princess named",
+      "offsets_array": [
+        {
+          "word": "young Princess named",
+          "offsets": [
+            75,
+            95
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "princess name isabella": {
+      "count": 1,
+      "word_prefix": "Princess named Isabella",
+      "offsets_array": [
+        {
+          "word": "Princess named Isabella",
+          "offsets": [
+            81,
+            104
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "name isabella .": {
+      "count": 1,
+      "word_prefix": "named Isabella.",
+      "offsets_array": [
+        {
+          "word": "named Isabella.",
+          "offsets": [
+            90,
+            105
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "isabella . she": {
+      "count": 1,
+      "word_prefix": "Isabella. She",
+      "offsets_array": [
+        {
+          "word": "Isabella. She",
+          "offsets": [
+            96,
+            109
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ". she saw": {
+      "count": 1,
+      "word_prefix": ". She saw",
+      "offsets_array": [
+        {
+          "word": ". She saw",
+          "offsets": [
+            104,
+            113
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "she saw a": {
+      "count": 1,
+      "word_prefix": "She saw a",
+      "offsets_array": [
+        {
+          "word": "She saw a",
+          "offsets": [
+            106,
+            115
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "saw a tini": {
+      "count": 1,
+      "word_prefix": "saw a tiny",
+      "offsets_array": [
+        {
+          "word": "saw a tiny",
+          "offsets": [
+            110,
+            120
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "a tini creatur": {
+      "count": 1,
+      "word_prefix": "a tiny creature",
+      "offsets_array": [
+        {
+          "word": "a tiny creature",
+          "offsets": [
+            114,
+            129
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "tini creatur like": {
+      "count": 1,
+      "word_prefix": "tiny creature like",
+      "offsets_array": [
+        {
+          "word": "tiny creature like",
+          "offsets": [
+            116,
+            134
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "creatur like one": {
+      "count": 1,
+      "word_prefix": "creature like one",
+      "offsets_array": [
+        {
+          "word": "creature like one",
+          "offsets": [
+            121,
+            138
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "like one of": {
+      "count": 1,
+      "word_prefix": "like one of",
+      "offsets_array": [
+        {
+          "word": "like one of",
+          "offsets": [
+            130,
+            141
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "one of the": {
+      "count": 2,
+      "word_prefix": "one of the",
+      "offsets_array": [
+        {
+          "word": "one of the",
+          "offsets": [
+            135,
+            145
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "One of the",
+          "offsets": [
+            0,
+            10
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "of the fairi": {
+      "count": 3,
+      "word_prefix": "of the fairies",
+      "offsets_array": [
+        {
+          "word": "of the fairies",
+          "offsets": [
+            139,
+            153
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of the fairies",
+          "offsets": [
+            4,
+            18
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "of the fairies",
+          "offsets": [
+            102,
+            116
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "the fairi her": {
+      "count": 1,
+      "word_prefix": "the fairies her",
+      "offsets_array": [
+        {
+          "word": "the fairies her",
+          "offsets": [
+            142,
+            157
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "fairi her mother": {
+      "count": 1,
+      "word_prefix": "fairies her mother",
+      "offsets_array": [
+        {
+          "word": "fairies her mother",
+          "offsets": [
+            146,
+            164
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "her mother told": {
+      "count": 1,
+      "word_prefix": "her mother told",
+      "offsets_array": [
+        {
+          "word": "her mother told",
+          "offsets": [
+            154,
+            169
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "mother told her": {
+      "count": 1,
+      "word_prefix": "mother told her",
+      "offsets_array": [
+        {
+          "word": "mother told her",
+          "offsets": [
+            158,
+            173
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "told her .": {
+      "count": 1,
+      "word_prefix": "told her.",
+      "offsets_array": [
+        {
+          "word": "told her.",
+          "offsets": [
+            165,
+            174
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "onc upon a time": {
+      "count": 1,
+      "word_prefix": "Once upon a time",
+      "offsets_array": [
+        {
+          "word": "Once upon a time",
+          "offsets": [
+            0,
+            16
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "upon a time ,": {
+      "count": 1,
+      "word_prefix": "upon a time,",
+      "offsets_array": [
+        {
+          "word": "upon a time,",
+          "offsets": [
+            5,
+            17
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "a time , in": {
+      "count": 1,
+      "word_prefix": "a time, in",
+      "offsets_array": [
+        {
+          "word": "a time, in",
+          "offsets": [
+            10,
+            20
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "time , in the": {
+      "count": 1,
+      "word_prefix": "time, in the",
+      "offsets_array": [
+        {
+          "word": "time, in the",
+          "offsets": [
+            12,
+            24
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ", in the kingdom": {
+      "count": 1,
+      "word_prefix": ", in the kingdom",
+      "offsets_array": [
+        {
+          "word": ", in the kingdom",
+          "offsets": [
+            16,
+            32
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "in the kingdom of": {
+      "count": 1,
+      "word_prefix": "in the kingdom of",
+      "offsets_array": [
+        {
+          "word": "in the kingdom of",
+          "offsets": [
+            18,
+            35
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the kingdom of elwoodia": {
+      "count": 1,
+      "word_prefix": "the kingdom of Elwoodia",
+      "offsets_array": [
+        {
+          "word": "the kingdom of Elwoodia",
+          "offsets": [
+            21,
+            44
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "kingdom of elwoodia ,": {
+      "count": 1,
+      "word_prefix": "kingdom of Elwoodia,",
+      "offsets_array": [
+        {
+          "word": "kingdom of Elwoodia,",
+          "offsets": [
+            25,
+            45
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "of elwoodia , there": {
+      "count": 1,
+      "word_prefix": "of Elwoodia, there",
+      "offsets_array": [
+        {
+          "word": "of Elwoodia, there",
+          "offsets": [
+            33,
+            51
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "elwoodia , there live": {
+      "count": 1,
+      "word_prefix": "Elwoodia, there lived",
+      "offsets_array": [
+        {
+          "word": "Elwoodia, there lived",
+          "offsets": [
+            36,
+            57
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ", there live a": {
+      "count": 1,
+      "word_prefix": ", there lived a",
+      "offsets_array": [
+        {
+          "word": ", there lived a",
+          "offsets": [
+            44,
+            59
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "there live a young": {
+      "count": 1,
+      "word_prefix": "there lived a young",
+      "offsets_array": [
+        {
+          "word": "there lived a young",
+          "offsets": [
+            46,
+            65
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "live a young and": {
+      "count": 1,
+      "word_prefix": "lived a young and",
+      "offsets_array": [
+        {
+          "word": "lived a young and",
+          "offsets": [
+            52,
+            69
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "a young and wise": {
+      "count": 1,
+      "word_prefix": "a young and wise",
+      "offsets_array": [
+        {
+          "word": "a young and wise",
+          "offsets": [
+            58,
+            74
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "young and wise young": {
+      "count": 1,
+      "word_prefix": "young and wise young",
+      "offsets_array": [
+        {
+          "word": "young and wise young",
+          "offsets": [
+            60,
+            80
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "and wise young princess": {
+      "count": 1,
+      "word_prefix": "and wise young Princess",
+      "offsets_array": [
+        {
+          "word": "and wise young Princess",
+          "offsets": [
+            66,
+            89
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "wise young princess name": {
+      "count": 1,
+      "word_prefix": "wise young Princess named",
+      "offsets_array": [
+        {
+          "word": "wise young Princess named",
+          "offsets": [
+            70,
+            95
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "young princess name isabella": {
+      "count": 1,
+      "word_prefix": "young Princess named Isabella",
+      "offsets_array": [
+        {
+          "word": "young Princess named Isabella",
+          "offsets": [
+            75,
+            104
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "princess name isabella .": {
+      "count": 1,
+      "word_prefix": "Princess named Isabella.",
+      "offsets_array": [
+        {
+          "word": "Princess named Isabella.",
+          "offsets": [
+            81,
+            105
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "name isabella . she": {
+      "count": 1,
+      "word_prefix": "named Isabella. She",
+      "offsets_array": [
+        {
+          "word": "named Isabella. She",
+          "offsets": [
+            90,
+            109
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "isabella . she saw": {
+      "count": 1,
+      "word_prefix": "Isabella. She saw",
+      "offsets_array": [
+        {
+          "word": "Isabella. She saw",
+          "offsets": [
+            96,
+            113
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ". she saw a": {
+      "count": 1,
+      "word_prefix": ". She saw a",
+      "offsets_array": [
+        {
+          "word": ". She saw a",
+          "offsets": [
+            104,
+            115
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "she saw a tini": {
+      "count": 1,
+      "word_prefix": "She saw a tiny",
+      "offsets_array": [
+        {
+          "word": "She saw a tiny",
+          "offsets": [
+            106,
+            120
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "saw a tini creatur": {
+      "count": 1,
+      "word_prefix": "saw a tiny creature",
+      "offsets_array": [
+        {
+          "word": "saw a tiny creature",
+          "offsets": [
+            110,
+            129
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "a tini creatur like": {
+      "count": 1,
+      "word_prefix": "a tiny creature like",
+      "offsets_array": [
+        {
+          "word": "a tiny creature like",
+          "offsets": [
+            114,
+            134
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "tini creatur like one": {
+      "count": 1,
+      "word_prefix": "tiny creature like one",
+      "offsets_array": [
+        {
+          "word": "tiny creature like one",
+          "offsets": [
+            116,
+            138
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "creatur like one of": {
+      "count": 1,
+      "word_prefix": "creature like one of",
+      "offsets_array": [
+        {
+          "word": "creature like one of",
+          "offsets": [
+            121,
+            141
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "like one of the": {
+      "count": 1,
+      "word_prefix": "like one of the",
+      "offsets_array": [
+        {
+          "word": "like one of the",
+          "offsets": [
+            130,
+            145
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "one of the fairi": {
+      "count": 2,
+      "word_prefix": "one of the fairies",
+      "offsets_array": [
+        {
+          "word": "one of the fairies",
+          "offsets": [
+            135,
+            153
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "One of the fairies",
+          "offsets": [
+            0,
+            18
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "of the fairi her": {
+      "count": 1,
+      "word_prefix": "of the fairies her",
+      "offsets_array": [
+        {
+          "word": "of the fairies her",
+          "offsets": [
+            139,
+            157
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the fairi her mother": {
+      "count": 1,
+      "word_prefix": "the fairies her mother",
+      "offsets_array": [
+        {
+          "word": "the fairies her mother",
+          "offsets": [
+            142,
+            164
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "fairi her mother told": {
+      "count": 1,
+      "word_prefix": "fairies her mother told",
+      "offsets_array": [
+        {
+          "word": "fairies her mother told",
+          "offsets": [
+            146,
+            169
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "her mother told her": {
+      "count": 1,
+      "word_prefix": "her mother told her",
+      "offsets_array": [
+        {
+          "word": "her mother told her",
+          "offsets": [
+            154,
+            173
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "mother told her .": {
+      "count": 1,
+      "word_prefix": "mother told her.",
+      "offsets_array": [
+        {
+          "word": "mother told her.",
+          "offsets": [
+            158,
+            174
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "onc upon a time ,": {
+      "count": 1,
+      "word_prefix": "Once upon a time,",
+      "offsets_array": [
+        {
+          "word": "Once upon a time,",
+          "offsets": [
+            0,
+            17
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "upon a time , in": {
+      "count": 1,
+      "word_prefix": "upon a time, in",
+      "offsets_array": [
+        {
+          "word": "upon a time, in",
+          "offsets": [
+            5,
+            20
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "a time , in the": {
+      "count": 1,
+      "word_prefix": "a time, in the",
+      "offsets_array": [
+        {
+          "word": "a time, in the",
+          "offsets": [
+            10,
+            24
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "time , in the kingdom": {
+      "count": 1,
+      "word_prefix": "time, in the kingdom",
+      "offsets_array": [
+        {
+          "word": "time, in the kingdom",
+          "offsets": [
+            12,
+            32
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ", in the kingdom of": {
+      "count": 1,
+      "word_prefix": ", in the kingdom of",
+      "offsets_array": [
+        {
+          "word": ", in the kingdom of",
+          "offsets": [
+            16,
+            35
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "in the kingdom of elwoodia": {
+      "count": 1,
+      "word_prefix": "in the kingdom of Elwoodia",
+      "offsets_array": [
+        {
+          "word": "in the kingdom of Elwoodia",
+          "offsets": [
+            18,
+            44
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "the kingdom of elwoodia ,": {
+      "count": 1,
+      "word_prefix": "the kingdom of Elwoodia,",
+      "offsets_array": [
+        {
+          "word": "the kingdom of Elwoodia,",
+          "offsets": [
+            21,
+            45
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "kingdom of elwoodia , there": {
+      "count": 1,
+      "word_prefix": "kingdom of Elwoodia, there",
+      "offsets_array": [
+        {
+          "word": "kingdom of Elwoodia, there",
+          "offsets": [
+            25,
+            51
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "of elwoodia , there live": {
+      "count": 1,
+      "word_prefix": "of Elwoodia, there lived",
+      "offsets_array": [
+        {
+          "word": "of Elwoodia, there lived",
+          "offsets": [
+            33,
+            57
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "elwoodia , there live a": {
+      "count": 1,
+      "word_prefix": "Elwoodia, there lived a",
+      "offsets_array": [
+        {
+          "word": "Elwoodia, there lived a",
+          "offsets": [
+            36,
+            59
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ", there live a young": {
+      "count": 1,
+      "word_prefix": ", there lived a young",
+      "offsets_array": [
+        {
+          "word": ", there lived a young",
+          "offsets": [
+            44,
+            65
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "there live a young and": {
+      "count": 1,
+      "word_prefix": "there lived a young and",
+      "offsets_array": [
+        {
+          "word": "there lived a young and",
+          "offsets": [
+            46,
+            69
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "live a young and wise": {
+      "count": 1,
+      "word_prefix": "lived a young and wise",
+      "offsets_array": [
+        {
+          "word": "lived a young and wise",
+          "offsets": [
+            52,
+            74
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "a young and wise young": {
+      "count": 1,
+      "word_prefix": "a young and wise young",
+      "offsets_array": [
+        {
+          "word": "a young and wise young",
+          "offsets": [
+            58,
+            80
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "young and wise young princess": {
+      "count": 1,
+      "word_prefix": "young and wise young Princess",
+      "offsets_array": [
+        {
+          "word": "young and wise young Princess",
+          "offsets": [
+            60,
+            89
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "and wise young princess name": {
+      "count": 1,
+      "word_prefix": "and wise young Princess named",
+      "offsets_array": [
+        {
+          "word": "and wise young Princess named",
+          "offsets": [
+            66,
+            95
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "wise young princess name isabella": {
+      "count": 1,
+      "word_prefix": "wise young Princess named Isabella",
+      "offsets_array": [
+        {
+          "word": "wise young Princess named Isabella",
+          "offsets": [
+            70,
+            104
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "young princess name isabella .": {
+      "count": 1,
+      "word_prefix": "young Princess named Isabella.",
+      "offsets_array": [
+        {
+          "word": "young Princess named Isabella.",
+          "offsets": [
+            75,
+            105
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "princess name isabella . she": {
+      "count": 1,
+      "word_prefix": "Princess named Isabella. She",
+      "offsets_array": [
+        {
+          "word": "Princess named Isabella. She",
+          "offsets": [
+            81,
+            109
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "name isabella . she saw": {
+      "count": 1,
+      "word_prefix": "named Isabella. She saw",
+      "offsets_array": [
+        {
+          "word": "named Isabella. She saw",
+          "offsets": [
+            90,
+            113
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "isabella . she saw a": {
+      "count": 1,
+      "word_prefix": "Isabella. She saw a",
+      "offsets_array": [
+        {
+          "word": "Isabella. She saw a",
+          "offsets": [
+            96,
+            115
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ". she saw a tini": {
+      "count": 1,
+      "word_prefix": ". She saw a tiny",
+      "offsets_array": [
+        {
+          "word": ". She saw a tiny",
+          "offsets": [
+            104,
+            120
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "she saw a tini creatur": {
+      "count": 1,
+      "word_prefix": "She saw a tiny creature",
+      "offsets_array": [
+        {
+          "word": "She saw a tiny creature",
+          "offsets": [
+            106,
+            129
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "saw a tini creatur like": {
+      "count": 1,
+      "word_prefix": "saw a tiny creature like",
+      "offsets_array": [
+        {
+          "word": "saw a tiny creature like",
+          "offsets": [
+            110,
+            134
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "a tini creatur like one": {
+      "count": 1,
+      "word_prefix": "a tiny creature like one",
+      "offsets_array": [
+        {
+          "word": "a tiny creature like one",
+          "offsets": [
+            114,
+            138
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "tini creatur like one of": {
+      "count": 1,
+      "word_prefix": "tiny creature like one of",
+      "offsets_array": [
+        {
+          "word": "tiny creature like one of",
+          "offsets": [
+            116,
+            141
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "creatur like one of the": {
+      "count": 1,
+      "word_prefix": "creature like one of the",
+      "offsets_array": [
+        {
+          "word": "creature like one of the",
+          "offsets": [
+            121,
+            145
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "like one of the fairi": {
+      "count": 1,
+      "word_prefix": "like one of the fairies",
+      "offsets_array": [
+        {
+          "word": "like one of the fairies",
+          "offsets": [
+            130,
+            153
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "one of the fairi her": {
+      "count": 1,
+      "word_prefix": "one of the fairies her",
+      "offsets_array": [
+        {
+          "word": "one of the fairies her",
+          "offsets": [
+            135,
+            157
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "of the fairi her mother": {
+      "count": 1,
+      "word_prefix": "of the fairies her mother",
+      "offsets_array": [
+        {
+          "word": "of the fairies her mother",
+          "offsets": [
+            139,
+            164
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "the fairi her mother told": {
+      "count": 1,
+      "word_prefix": "the fairies her mother told",
+      "offsets_array": [
+        {
+          "word": "the fairies her mother told",
+          "offsets": [
+            142,
+            169
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "fairi her mother told her": {
+      "count": 1,
+      "word_prefix": "fairies her mother told her",
+      "offsets_array": [
+        {
+          "word": "fairies her mother told her",
+          "offsets": [
+            146,
+            173
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "her mother told her .": {
+      "count": 1,
+      "word_prefix": "her mother told her.",
+      "offsets_array": [
+        {
+          "word": "her mother told her.",
+          "offsets": [
+            154,
+            174
+          ],
+          "n_row": 0,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "flew": {
+      "count": 1,
+      "word_prefix": "flew",
+      "offsets_array": [
+        {
+          "word": "flew",
+          "offsets": [
+            19,
+            23
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "to": {
+      "count": 1,
+      "word_prefix": "to",
+      "offsets_array": [
+        {
+          "word": "to",
+          "offsets": [
+            24,
+            26
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "spoke": {
+      "count": 1,
+      "word_prefix": "spoke",
+      "offsets_array": [
+        {
+          "word": "spoke",
+          "offsets": [
+            35,
+            40
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "soft": {
+      "count": 1,
+      "word_prefix": "soft",
+      "offsets_array": [
+        {
+          "word": "soft",
+          "offsets": [
+            46,
+            50
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "voic": {
+      "count": 1,
+      "word_prefix": "voice",
+      "offsets_array": [
+        {
+          "word": "voice",
+          "offsets": [
+            51,
+            56
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "wa": {
+      "count": 2,
+      "word_prefix": "was",
+      "offsets_array": [
+        {
+          "word": "was",
+          "offsets": [
+            68,
+            71
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "was",
+          "offsets": [
+            34,
+            37
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "dress": {
+      "count": 1,
+      "word_prefix": "dressed",
+      "offsets_array": [
+        {
+          "word": "dressed",
+          "offsets": [
+            72,
+            79
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "with": {
+      "count": 4,
+      "word_prefix": "with",
+      "offsets_array": [
+        {
+          "word": "with",
+          "offsets": [
+            80,
+            84
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with",
+          "offsets": [
+            121,
+            125
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with",
+          "offsets": [
+            145,
+            149
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with",
+          "offsets": [
+            51,
+            55
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "colour": {
+      "count": 3,
+      "word_prefix": "colourful",
+      "offsets_array": [
+        {
+          "word": "colourful",
+          "offsets": [
+            85,
+            94
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "colourful",
+          "offsets": [
+            128,
+            137
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "colourful",
+          "offsets": [
+            56,
+            65
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "flower": {
+      "count": 3,
+      "word_prefix": "flowers",
+      "offsets_array": [
+        {
+          "word": "flowers",
+          "offsets": [
+            95,
+            102
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "flower",
+          "offsets": [
+            138,
+            144
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "flowers",
+          "offsets": [
+            66,
+            73
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "green": {
+      "count": 2,
+      "word_prefix": "green",
+      "offsets_array": [
+        {
+          "word": "green",
+          "offsets": [
+            107,
+            112
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "green",
+          "offsets": [
+            83,
+            88
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "leav": {
+      "count": 2,
+      "word_prefix": "leaves",
+      "offsets_array": [
+        {
+          "word": "leaves",
+          "offsets": [
+            113,
+            119
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "leaves",
+          "offsets": [
+            89,
+            95
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "mani": {
+      "count": 2,
+      "word_prefix": "many",
+      "offsets_array": [
+        {
+          "word": "many",
+          "offsets": [
+            150,
+            154
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "Many",
+          "offsets": [
+            97,
+            101
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "petal": {
+      "count": 1,
+      "word_prefix": "petals",
+      "offsets_array": [
+        {
+          "word": "petals",
+          "offsets": [
+            155,
+            161
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "fairi flew": {
+      "count": 1,
+      "word_prefix": "fairies flew",
+      "offsets_array": [
+        {
+          "word": "fairies flew",
+          "offsets": [
+            11,
+            23
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "flew to": {
+      "count": 1,
+      "word_prefix": "flew to",
+      "offsets_array": [
+        {
+          "word": "flew to",
+          "offsets": [
+            19,
+            26
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "to her": {
+      "count": 1,
+      "word_prefix": "to her",
+      "offsets_array": [
+        {
+          "word": "to her",
+          "offsets": [
+            24,
+            30
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "her and": {
+      "count": 1,
+      "word_prefix": "her and",
+      "offsets_array": [
+        {
+          "word": "her and",
+          "offsets": [
+            27,
+            34
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "and spoke": {
+      "count": 1,
+      "word_prefix": "and spoke",
+      "offsets_array": [
+        {
+          "word": "and spoke",
+          "offsets": [
+            31,
+            40
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "spoke in": {
+      "count": 1,
+      "word_prefix": "spoke in",
+      "offsets_array": [
+        {
+          "word": "spoke in",
+          "offsets": [
+            35,
+            43
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "in a": {
+      "count": 1,
+      "word_prefix": "in a",
+      "offsets_array": [
+        {
+          "word": "in a",
+          "offsets": [
+            41,
+            45
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "a soft": {
+      "count": 1,
+      "word_prefix": "a soft",
+      "offsets_array": [
+        {
+          "word": "a soft",
+          "offsets": [
+            44,
+            50
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "soft voic": {
+      "count": 1,
+      "word_prefix": "soft voice",
+      "offsets_array": [
+        {
+          "word": "soft voice",
+          "offsets": [
+            46,
+            56
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "voic .": {
+      "count": 1,
+      "word_prefix": "voice.",
+      "offsets_array": [
+        {
+          "word": "voice.",
+          "offsets": [
+            51,
+            57
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ". the": {
+      "count": 1,
+      "word_prefix": ". The",
+      "offsets_array": [
+        {
+          "word": ". The",
+          "offsets": [
+            56,
+            61
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "fairi wa": {
+      "count": 1,
+      "word_prefix": "fairy was",
+      "offsets_array": [
+        {
+          "word": "fairy was",
+          "offsets": [
+            62,
+            71
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "wa dress": {
+      "count": 1,
+      "word_prefix": "was dressed",
+      "offsets_array": [
+        {
+          "word": "was dressed",
+          "offsets": [
+            68,
+            79
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "dress with": {
+      "count": 1,
+      "word_prefix": "dressed with",
+      "offsets_array": [
+        {
+          "word": "dressed with",
+          "offsets": [
+            72,
+            84
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "with colour": {
+      "count": 2,
+      "word_prefix": "with colourful",
+      "offsets_array": [
+        {
+          "word": "with colourful",
+          "offsets": [
+            80,
+            94
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with colourful",
+          "offsets": [
+            51,
+            65
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "colour flower": {
+      "count": 3,
+      "word_prefix": "colourful flowers",
+      "offsets_array": [
+        {
+          "word": "colourful flowers",
+          "offsets": [
+            85,
+            102
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "colourful flower",
+          "offsets": [
+            128,
+            144
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "colourful flowers",
+          "offsets": [
+            56,
+            73
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "flower and": {
+      "count": 2,
+      "word_prefix": "flowers and",
+      "offsets_array": [
+        {
+          "word": "flowers and",
+          "offsets": [
+            95,
+            106
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "flowers and",
+          "offsets": [
+            66,
+            77
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "and green": {
+      "count": 1,
+      "word_prefix": "and green",
+      "offsets_array": [
+        {
+          "word": "and green",
+          "offsets": [
+            103,
+            112
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "green leav": {
+      "count": 2,
+      "word_prefix": "green leaves",
+      "offsets_array": [
+        {
+          "word": "green leaves",
+          "offsets": [
+            107,
+            119
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "green leaves",
+          "offsets": [
+            83,
+            95
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "leav ,": {
+      "count": 1,
+      "word_prefix": "leaves,",
+      "offsets_array": [
+        {
+          "word": "leaves,",
+          "offsets": [
+            113,
+            120
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ", with": {
+      "count": 1,
+      "word_prefix": ", with",
+      "offsets_array": [
+        {
+          "word": ", with",
+          "offsets": [
+            119,
+            125
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "with a": {
+      "count": 1,
+      "word_prefix": "with a",
+      "offsets_array": [
+        {
+          "word": "with a",
+          "offsets": [
+            121,
+            127
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "a colour": {
+      "count": 1,
+      "word_prefix": "a colourful",
+      "offsets_array": [
+        {
+          "word": "a colourful",
+          "offsets": [
+            126,
+            137
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "flower with": {
+      "count": 1,
+      "word_prefix": "flower with",
+      "offsets_array": [
+        {
+          "word": "flower with",
+          "offsets": [
+            138,
+            149
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "with mani": {
+      "count": 1,
+      "word_prefix": "with many",
+      "offsets_array": [
+        {
+          "word": "with many",
+          "offsets": [
+            145,
+            154
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "mani petal": {
+      "count": 1,
+      "word_prefix": "many petals",
+      "offsets_array": [
+        {
+          "word": "many petals",
+          "offsets": [
+            150,
+            161
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "petal .": {
+      "count": 1,
+      "word_prefix": "petals.",
+      "offsets_array": [
+        {
+          "word": "petals.",
+          "offsets": [
+            155,
+            162
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "the fairi flew": {
+      "count": 1,
+      "word_prefix": "the fairies flew",
+      "offsets_array": [
+        {
+          "word": "the fairies flew",
+          "offsets": [
+            7,
+            23
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "fairi flew to": {
+      "count": 1,
+      "word_prefix": "fairies flew to",
+      "offsets_array": [
+        {
+          "word": "fairies flew to",
+          "offsets": [
+            11,
+            26
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "flew to her": {
+      "count": 1,
+      "word_prefix": "flew to her",
+      "offsets_array": [
+        {
+          "word": "flew to her",
+          "offsets": [
+            19,
+            30
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "to her and": {
+      "count": 1,
+      "word_prefix": "to her and",
+      "offsets_array": [
+        {
+          "word": "to her and",
+          "offsets": [
+            24,
+            34
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "her and spoke": {
+      "count": 1,
+      "word_prefix": "her and spoke",
+      "offsets_array": [
+        {
+          "word": "her and spoke",
+          "offsets": [
+            27,
+            40
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "and spoke in": {
+      "count": 1,
+      "word_prefix": "and spoke in",
+      "offsets_array": [
+        {
+          "word": "and spoke in",
+          "offsets": [
+            31,
+            43
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "spoke in a": {
+      "count": 1,
+      "word_prefix": "spoke in a",
+      "offsets_array": [
+        {
+          "word": "spoke in a",
+          "offsets": [
+            35,
+            45
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "in a soft": {
+      "count": 1,
+      "word_prefix": "in a soft",
+      "offsets_array": [
+        {
+          "word": "in a soft",
+          "offsets": [
+            41,
+            50
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "a soft voic": {
+      "count": 1,
+      "word_prefix": "a soft voice",
+      "offsets_array": [
+        {
+          "word": "a soft voice",
+          "offsets": [
+            44,
+            56
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "soft voic .": {
+      "count": 1,
+      "word_prefix": "soft voice.",
+      "offsets_array": [
+        {
+          "word": "soft voice.",
+          "offsets": [
+            46,
+            57
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "voic . the": {
+      "count": 1,
+      "word_prefix": "voice. The",
+      "offsets_array": [
+        {
+          "word": "voice. The",
+          "offsets": [
+            51,
+            61
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ". the fairi": {
+      "count": 1,
+      "word_prefix": ". The fairy",
+      "offsets_array": [
+        {
+          "word": ". The fairy",
+          "offsets": [
+            56,
+            67
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "the fairi wa": {
+      "count": 1,
+      "word_prefix": "The fairy was",
+      "offsets_array": [
+        {
+          "word": "The fairy was",
+          "offsets": [
+            58,
+            71
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "fairi wa dress": {
+      "count": 1,
+      "word_prefix": "fairy was dressed",
+      "offsets_array": [
+        {
+          "word": "fairy was dressed",
+          "offsets": [
+            62,
+            79
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "wa dress with": {
+      "count": 1,
+      "word_prefix": "was dressed with",
+      "offsets_array": [
+        {
+          "word": "was dressed with",
+          "offsets": [
+            68,
+            84
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "dress with colour": {
+      "count": 1,
+      "word_prefix": "dressed with colourful",
+      "offsets_array": [
+        {
+          "word": "dressed with colourful",
+          "offsets": [
+            72,
+            94
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "with colour flower": {
+      "count": 2,
+      "word_prefix": "with colourful flowers",
+      "offsets_array": [
+        {
+          "word": "with colourful flowers",
+          "offsets": [
+            80,
+            102
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with colourful flowers",
+          "offsets": [
+            51,
+            73
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "colour flower and": {
+      "count": 2,
+      "word_prefix": "colourful flowers and",
+      "offsets_array": [
+        {
+          "word": "colourful flowers and",
+          "offsets": [
+            85,
+            106
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "colourful flowers and",
+          "offsets": [
+            56,
+            77
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "flower and green": {
+      "count": 1,
+      "word_prefix": "flowers and green",
+      "offsets_array": [
+        {
+          "word": "flowers and green",
+          "offsets": [
+            95,
+            112
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "and green leav": {
+      "count": 1,
+      "word_prefix": "and green leaves",
+      "offsets_array": [
+        {
+          "word": "and green leaves",
+          "offsets": [
+            103,
+            119
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "green leav ,": {
+      "count": 1,
+      "word_prefix": "green leaves,",
+      "offsets_array": [
+        {
+          "word": "green leaves,",
+          "offsets": [
+            107,
+            120
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "leav , with": {
+      "count": 1,
+      "word_prefix": "leaves, with",
+      "offsets_array": [
+        {
+          "word": "leaves, with",
+          "offsets": [
+            113,
+            125
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ", with a": {
+      "count": 1,
+      "word_prefix": ", with a",
+      "offsets_array": [
+        {
+          "word": ", with a",
+          "offsets": [
+            119,
+            127
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "with a colour": {
+      "count": 1,
+      "word_prefix": "with a colourful",
+      "offsets_array": [
+        {
+          "word": "with a colourful",
+          "offsets": [
+            121,
+            137
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "a colour flower": {
+      "count": 1,
+      "word_prefix": "a colourful flower",
+      "offsets_array": [
+        {
+          "word": "a colourful flower",
+          "offsets": [
+            126,
+            144
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "colour flower with": {
+      "count": 1,
+      "word_prefix": "colourful flower with",
+      "offsets_array": [
+        {
+          "word": "colourful flower with",
+          "offsets": [
+            128,
+            149
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "flower with mani": {
+      "count": 1,
+      "word_prefix": "flower with many",
+      "offsets_array": [
+        {
+          "word": "flower with many",
+          "offsets": [
+            138,
+            154
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "with mani petal": {
+      "count": 1,
+      "word_prefix": "with many petals",
+      "offsets_array": [
+        {
+          "word": "with many petals",
+          "offsets": [
+            145,
+            161
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "mani petal .": {
+      "count": 1,
+      "word_prefix": "many petals.",
+      "offsets_array": [
+        {
+          "word": "many petals.",
+          "offsets": [
+            150,
+            162
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "of the fairi flew": {
+      "count": 1,
+      "word_prefix": "of the fairies flew",
+      "offsets_array": [
+        {
+          "word": "of the fairies flew",
+          "offsets": [
+            4,
+            23
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the fairi flew to": {
+      "count": 1,
+      "word_prefix": "the fairies flew to",
+      "offsets_array": [
+        {
+          "word": "the fairies flew to",
+          "offsets": [
+            7,
+            26
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "fairi flew to her": {
+      "count": 1,
+      "word_prefix": "fairies flew to her",
+      "offsets_array": [
+        {
+          "word": "fairies flew to her",
+          "offsets": [
+            11,
+            30
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "flew to her and": {
+      "count": 1,
+      "word_prefix": "flew to her and",
+      "offsets_array": [
+        {
+          "word": "flew to her and",
+          "offsets": [
+            19,
+            34
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "to her and spoke": {
+      "count": 1,
+      "word_prefix": "to her and spoke",
+      "offsets_array": [
+        {
+          "word": "to her and spoke",
+          "offsets": [
+            24,
+            40
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "her and spoke in": {
+      "count": 1,
+      "word_prefix": "her and spoke in",
+      "offsets_array": [
+        {
+          "word": "her and spoke in",
+          "offsets": [
+            27,
+            43
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "and spoke in a": {
+      "count": 1,
+      "word_prefix": "and spoke in a",
+      "offsets_array": [
+        {
+          "word": "and spoke in a",
+          "offsets": [
+            31,
+            45
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "spoke in a soft": {
+      "count": 1,
+      "word_prefix": "spoke in a soft",
+      "offsets_array": [
+        {
+          "word": "spoke in a soft",
+          "offsets": [
+            35,
+            50
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "in a soft voic": {
+      "count": 1,
+      "word_prefix": "in a soft voice",
+      "offsets_array": [
+        {
+          "word": "in a soft voice",
+          "offsets": [
+            41,
+            56
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "a soft voic .": {
+      "count": 1,
+      "word_prefix": "a soft voice.",
+      "offsets_array": [
+        {
+          "word": "a soft voice.",
+          "offsets": [
+            44,
+            57
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "soft voic . the": {
+      "count": 1,
+      "word_prefix": "soft voice. The",
+      "offsets_array": [
+        {
+          "word": "soft voice. The",
+          "offsets": [
+            46,
+            61
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "voic . the fairi": {
+      "count": 1,
+      "word_prefix": "voice. The fairy",
+      "offsets_array": [
+        {
+          "word": "voice. The fairy",
+          "offsets": [
+            51,
+            67
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ". the fairi wa": {
+      "count": 1,
+      "word_prefix": ". The fairy was",
+      "offsets_array": [
+        {
+          "word": ". The fairy was",
+          "offsets": [
+            56,
+            71
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the fairi wa dress": {
+      "count": 1,
+      "word_prefix": "The fairy was dressed",
+      "offsets_array": [
+        {
+          "word": "The fairy was dressed",
+          "offsets": [
+            58,
+            79
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "fairi wa dress with": {
+      "count": 1,
+      "word_prefix": "fairy was dressed with",
+      "offsets_array": [
+        {
+          "word": "fairy was dressed with",
+          "offsets": [
+            62,
+            84
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "wa dress with colour": {
+      "count": 1,
+      "word_prefix": "was dressed with colourful",
+      "offsets_array": [
+        {
+          "word": "was dressed with colourful",
+          "offsets": [
+            68,
+            94
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "dress with colour flower": {
+      "count": 1,
+      "word_prefix": "dressed with colourful flowers",
+      "offsets_array": [
+        {
+          "word": "dressed with colourful flowers",
+          "offsets": [
+            72,
+            102
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "with colour flower and": {
+      "count": 2,
+      "word_prefix": "with colourful flowers and",
+      "offsets_array": [
+        {
+          "word": "with colourful flowers and",
+          "offsets": [
+            80,
+            106
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "with colourful flowers and",
+          "offsets": [
+            51,
+            77
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "colour flower and green": {
+      "count": 1,
+      "word_prefix": "colourful flowers and green",
+      "offsets_array": [
+        {
+          "word": "colourful flowers and green",
+          "offsets": [
+            85,
+            112
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "flower and green leav": {
+      "count": 1,
+      "word_prefix": "flowers and green leaves",
+      "offsets_array": [
+        {
+          "word": "flowers and green leaves",
+          "offsets": [
+            95,
+            119
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "and green leav ,": {
+      "count": 1,
+      "word_prefix": "and green leaves,",
+      "offsets_array": [
+        {
+          "word": "and green leaves,",
+          "offsets": [
+            103,
+            120
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "green leav , with": {
+      "count": 1,
+      "word_prefix": "green leaves, with",
+      "offsets_array": [
+        {
+          "word": "green leaves, with",
+          "offsets": [
+            107,
+            125
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "leav , with a": {
+      "count": 1,
+      "word_prefix": "leaves, with a",
+      "offsets_array": [
+        {
+          "word": "leaves, with a",
+          "offsets": [
+            113,
+            127
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ", with a colour": {
+      "count": 1,
+      "word_prefix": ", with a colourful",
+      "offsets_array": [
+        {
+          "word": ", with a colourful",
+          "offsets": [
+            119,
+            137
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "with a colour flower": {
+      "count": 1,
+      "word_prefix": "with a colourful flower",
+      "offsets_array": [
+        {
+          "word": "with a colourful flower",
+          "offsets": [
+            121,
+            144
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "a colour flower with": {
+      "count": 1,
+      "word_prefix": "a colourful flower with",
+      "offsets_array": [
+        {
+          "word": "a colourful flower with",
+          "offsets": [
+            126,
+            149
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "colour flower with mani": {
+      "count": 1,
+      "word_prefix": "colourful flower with many",
+      "offsets_array": [
+        {
+          "word": "colourful flower with many",
+          "offsets": [
+            128,
+            154
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "flower with mani petal": {
+      "count": 1,
+      "word_prefix": "flower with many petals",
+      "offsets_array": [
+        {
+          "word": "flower with many petals",
+          "offsets": [
+            138,
+            161
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "with mani petal .": {
+      "count": 1,
+      "word_prefix": "with many petals.",
+      "offsets_array": [
+        {
+          "word": "with many petals.",
+          "offsets": [
+            145,
+            162
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "one of the fairi flew": {
+      "count": 1,
+      "word_prefix": "One of the fairies flew",
+      "offsets_array": [
+        {
+          "word": "One of the fairies flew",
+          "offsets": [
+            0,
+            23
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "of the fairi flew to": {
+      "count": 1,
+      "word_prefix": "of the fairies flew to",
+      "offsets_array": [
+        {
+          "word": "of the fairies flew to",
+          "offsets": [
+            4,
+            26
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "the fairi flew to her": {
+      "count": 1,
+      "word_prefix": "the fairies flew to her",
+      "offsets_array": [
+        {
+          "word": "the fairies flew to her",
+          "offsets": [
+            7,
+            30
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "fairi flew to her and": {
+      "count": 1,
+      "word_prefix": "fairies flew to her and",
+      "offsets_array": [
+        {
+          "word": "fairies flew to her and",
+          "offsets": [
+            11,
+            34
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "flew to her and spoke": {
+      "count": 1,
+      "word_prefix": "flew to her and spoke",
+      "offsets_array": [
+        {
+          "word": "flew to her and spoke",
+          "offsets": [
+            19,
+            40
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "to her and spoke in": {
+      "count": 1,
+      "word_prefix": "to her and spoke in",
+      "offsets_array": [
+        {
+          "word": "to her and spoke in",
+          "offsets": [
+            24,
+            43
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "her and spoke in a": {
+      "count": 1,
+      "word_prefix": "her and spoke in a",
+      "offsets_array": [
+        {
+          "word": "her and spoke in a",
+          "offsets": [
+            27,
+            45
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "and spoke in a soft": {
+      "count": 1,
+      "word_prefix": "and spoke in a soft",
+      "offsets_array": [
+        {
+          "word": "and spoke in a soft",
+          "offsets": [
+            31,
+            50
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "spoke in a soft voic": {
+      "count": 1,
+      "word_prefix": "spoke in a soft voice",
+      "offsets_array": [
+        {
+          "word": "spoke in a soft voice",
+          "offsets": [
+            35,
+            56
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "in a soft voic .": {
+      "count": 1,
+      "word_prefix": "in a soft voice.",
+      "offsets_array": [
+        {
+          "word": "in a soft voice.",
+          "offsets": [
+            41,
+            57
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "a soft voic . the": {
+      "count": 1,
+      "word_prefix": "a soft voice. The",
+      "offsets_array": [
+        {
+          "word": "a soft voice. The",
+          "offsets": [
+            44,
+            61
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "soft voic . the fairi": {
+      "count": 1,
+      "word_prefix": "soft voice. The fairy",
+      "offsets_array": [
+        {
+          "word": "soft voice. The fairy",
+          "offsets": [
+            46,
+            67
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "voic . the fairi wa": {
+      "count": 1,
+      "word_prefix": "voice. The fairy was",
+      "offsets_array": [
+        {
+          "word": "voice. The fairy was",
+          "offsets": [
+            51,
+            71
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ". the fairi wa dress": {
+      "count": 1,
+      "word_prefix": ". The fairy was dressed",
+      "offsets_array": [
+        {
+          "word": ". The fairy was dressed",
+          "offsets": [
+            56,
+            79
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "the fairi wa dress with": {
+      "count": 1,
+      "word_prefix": "The fairy was dressed with",
+      "offsets_array": [
+        {
+          "word": "The fairy was dressed with",
+          "offsets": [
+            58,
+            84
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "fairi wa dress with colour": {
+      "count": 1,
+      "word_prefix": "fairy was dressed with colourful",
+      "offsets_array": [
+        {
+          "word": "fairy was dressed with colourful",
+          "offsets": [
+            62,
+            94
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "wa dress with colour flower": {
+      "count": 1,
+      "word_prefix": "was dressed with colourful flowers",
+      "offsets_array": [
+        {
+          "word": "was dressed with colourful flowers",
+          "offsets": [
+            68,
+            102
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "dress with colour flower and": {
+      "count": 1,
+      "word_prefix": "dressed with colourful flowers and",
+      "offsets_array": [
+        {
+          "word": "dressed with colourful flowers and",
+          "offsets": [
+            72,
+            106
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "with colour flower and green": {
+      "count": 1,
+      "word_prefix": "with colourful flowers and green",
+      "offsets_array": [
+        {
+          "word": "with colourful flowers and green",
+          "offsets": [
+            80,
+            112
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "colour flower and green leav": {
+      "count": 1,
+      "word_prefix": "colourful flowers and green leaves",
+      "offsets_array": [
+        {
+          "word": "colourful flowers and green leaves",
+          "offsets": [
+            85,
+            119
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "flower and green leav ,": {
+      "count": 1,
+      "word_prefix": "flowers and green leaves,",
+      "offsets_array": [
+        {
+          "word": "flowers and green leaves,",
+          "offsets": [
+            95,
+            120
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "and green leav , with": {
+      "count": 1,
+      "word_prefix": "and green leaves, with",
+      "offsets_array": [
+        {
+          "word": "and green leaves, with",
+          "offsets": [
+            103,
+            125
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "green leav , with a": {
+      "count": 1,
+      "word_prefix": "green leaves, with a",
+      "offsets_array": [
+        {
+          "word": "green leaves, with a",
+          "offsets": [
+            107,
+            127
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "leav , with a colour": {
+      "count": 1,
+      "word_prefix": "leaves, with a colourful",
+      "offsets_array": [
+        {
+          "word": "leaves, with a colourful",
+          "offsets": [
+            113,
+            137
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ", with a colour flower": {
+      "count": 1,
+      "word_prefix": ", with a colourful flower",
+      "offsets_array": [
+        {
+          "word": ", with a colourful flower",
+          "offsets": [
+            119,
+            144
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "with a colour flower with": {
+      "count": 1,
+      "word_prefix": "with a colourful flower with",
+      "offsets_array": [
+        {
+          "word": "with a colourful flower with",
+          "offsets": [
+            121,
+            149
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "a colour flower with mani": {
+      "count": 1,
+      "word_prefix": "a colourful flower with many",
+      "offsets_array": [
+        {
+          "word": "a colourful flower with many",
+          "offsets": [
+            126,
+            154
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "colour flower with mani petal": {
+      "count": 1,
+      "word_prefix": "colourful flower with many petals",
+      "offsets_array": [
+        {
+          "word": "colourful flower with many petals",
+          "offsets": [
+            128,
+            161
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "flower with mani petal .": {
+      "count": 1,
+      "word_prefix": "flower with many petals.",
+      "offsets_array": [
+        {
+          "word": "flower with many petals.",
+          "offsets": [
+            138,
+            162
+          ],
+          "n_row": 1,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "grab": {
+      "count": 1,
+      "word_prefix": "grabbed",
+      "offsets_array": [
+        {
+          "word": "grabbed",
+          "offsets": [
+            10,
+            17
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "some": {
+      "count": 2,
+      "word_prefix": "some",
+      "offsets_array": [
+        {
+          "word": "some",
+          "offsets": [
+            18,
+            22
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        },
+        {
+          "word": "some",
+          "offsets": [
+            78,
+            82
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "rock": {
+      "count": 1,
+      "word_prefix": "rocks",
+      "offsets_array": [
+        {
+          "word": "rocks",
+          "offsets": [
+            23,
+            28
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "red": {
+      "count": 1,
+      "word_prefix": "red",
+      "offsets_array": [
+        {
+          "word": "red",
+          "offsets": [
+            38,
+            41
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "crown": {
+      "count": 1,
+      "word_prefix": "crowned",
+      "offsets_array": [
+        {
+          "word": "crowned",
+          "offsets": [
+            43,
+            50
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "were": {
+      "count": 1,
+      "word_prefix": "were",
+      "offsets_array": [
+        {
+          "word": "were",
+          "offsets": [
+            117,
+            121
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "small": {
+      "count": 1,
+      "word_prefix": "small",
+      "offsets_array": [
+        {
+          "word": "small",
+          "offsets": [
+            122,
+            127
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "but": {
+      "count": 1,
+      "word_prefix": "but",
+      "offsets_array": [
+        {
+          "word": "but",
+          "offsets": [
+            128,
+            131
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "quick": {
+      "count": 1,
+      "word_prefix": "quick",
+      "offsets_array": [
+        {
+          "word": "quick",
+          "offsets": [
+            132,
+            137
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 1
+    },
+    "fairi grab": {
+      "count": 1,
+      "word_prefix": "fairy grabbed",
+      "offsets_array": [
+        {
+          "word": "fairy grabbed",
+          "offsets": [
+            4,
+            17
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "grab some": {
+      "count": 1,
+      "word_prefix": "grabbed some",
+      "offsets_array": [
+        {
+          "word": "grabbed some",
+          "offsets": [
+            10,
+            22
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "some rock": {
+      "count": 1,
+      "word_prefix": "some rocks",
+      "offsets_array": [
+        {
+          "word": "some rocks",
+          "offsets": [
+            18,
+            28
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "rock .": {
+      "count": 1,
+      "word_prefix": "rocks.",
+      "offsets_array": [
+        {
+          "word": "rocks.",
+          "offsets": [
+            23,
+            29
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ". one": {
+      "count": 1,
+      "word_prefix": ". One",
+      "offsets_array": [
+        {
+          "word": ". One",
+          "offsets": [
+            28,
+            33
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "one wa": {
+      "count": 1,
+      "word_prefix": "One was",
+      "offsets_array": [
+        {
+          "word": "One was",
+          "offsets": [
+            30,
+            37
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "wa red": {
+      "count": 1,
+      "word_prefix": "was red",
+      "offsets_array": [
+        {
+          "word": "was red",
+          "offsets": [
+            34,
+            41
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "red ,": {
+      "count": 1,
+      "word_prefix": "red,",
+      "offsets_array": [
+        {
+          "word": "red,",
+          "offsets": [
+            38,
+            42
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ", crown": {
+      "count": 1,
+      "word_prefix": ", crowned",
+      "offsets_array": [
+        {
+          "word": ", crowned",
+          "offsets": [
+            41,
+            50
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "crown with": {
+      "count": 1,
+      "word_prefix": "crowned with",
+      "offsets_array": [
+        {
+          "word": "crowned with",
+          "offsets": [
+            43,
+            55
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "and some": {
+      "count": 1,
+      "word_prefix": "and some",
+      "offsets_array": [
+        {
+          "word": "and some",
+          "offsets": [
+            74,
+            82
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "some green": {
+      "count": 1,
+      "word_prefix": "some green",
+      "offsets_array": [
+        {
+          "word": "some green",
+          "offsets": [
+            78,
+            88
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "leav .": {
+      "count": 1,
+      "word_prefix": "leaves.",
+      "offsets_array": [
+        {
+          "word": "leaves.",
+          "offsets": [
+            89,
+            96
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    ". mani": {
+      "count": 1,
+      "word_prefix": ". Many",
+      "offsets_array": [
+        {
+          "word": ". Many",
+          "offsets": [
+            95,
+            101
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "mani of": {
+      "count": 1,
+      "word_prefix": "Many of",
+      "offsets_array": [
+        {
+          "word": "Many of",
+          "offsets": [
+            97,
+            104
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "fairi were": {
+      "count": 1,
+      "word_prefix": "fairies were",
+      "offsets_array": [
+        {
+          "word": "fairies were",
+          "offsets": [
+            109,
+            121
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "were small": {
+      "count": 1,
+      "word_prefix": "were small",
+      "offsets_array": [
+        {
+          "word": "were small",
+          "offsets": [
+            117,
+            127
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "small but": {
+      "count": 1,
+      "word_prefix": "small but",
+      "offsets_array": [
+        {
+          "word": "small but",
+          "offsets": [
+            122,
+            131
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "but quick": {
+      "count": 1,
+      "word_prefix": "but quick",
+      "offsets_array": [
+        {
+          "word": "but quick",
+          "offsets": [
+            128,
+            137
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "quick .": {
+      "count": 1,
+      "word_prefix": "quick.",
+      "offsets_array": [
+        {
+          "word": "quick.",
+          "offsets": [
+            132,
+            138
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 2
+    },
+    "the fairi grab": {
+      "count": 1,
+      "word_prefix": "The fairy grabbed",
+      "offsets_array": [
+        {
+          "word": "The fairy grabbed",
+          "offsets": [
+            0,
+            17
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "fairi grab some": {
+      "count": 1,
+      "word_prefix": "fairy grabbed some",
+      "offsets_array": [
+        {
+          "word": "fairy grabbed some",
+          "offsets": [
+            4,
+            22
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "grab some rock": {
+      "count": 1,
+      "word_prefix": "grabbed some rocks",
+      "offsets_array": [
+        {
+          "word": "grabbed some rocks",
+          "offsets": [
+            10,
+            28
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "some rock .": {
+      "count": 1,
+      "word_prefix": "some rocks.",
+      "offsets_array": [
+        {
+          "word": "some rocks.",
+          "offsets": [
+            18,
+            29
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "rock . one": {
+      "count": 1,
+      "word_prefix": "rocks. One",
+      "offsets_array": [
+        {
+          "word": "rocks. One",
+          "offsets": [
+            23,
+            33
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ". one wa": {
+      "count": 1,
+      "word_prefix": ". One was",
+      "offsets_array": [
+        {
+          "word": ". One was",
+          "offsets": [
+            28,
+            37
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "one wa red": {
+      "count": 1,
+      "word_prefix": "One was red",
+      "offsets_array": [
+        {
+          "word": "One was red",
+          "offsets": [
+            30,
+            41
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "wa red ,": {
+      "count": 1,
+      "word_prefix": "was red,",
+      "offsets_array": [
+        {
+          "word": "was red,",
+          "offsets": [
+            34,
+            42
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "red , crown": {
+      "count": 1,
+      "word_prefix": "red, crowned",
+      "offsets_array": [
+        {
+          "word": "red, crowned",
+          "offsets": [
+            38,
+            50
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ", crown with": {
+      "count": 1,
+      "word_prefix": ", crowned with",
+      "offsets_array": [
+        {
+          "word": ", crowned with",
+          "offsets": [
+            41,
+            55
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "crown with colour": {
+      "count": 1,
+      "word_prefix": "crowned with colourful",
+      "offsets_array": [
+        {
+          "word": "crowned with colourful",
+          "offsets": [
+            43,
+            65
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "flower and some": {
+      "count": 1,
+      "word_prefix": "flowers and some",
+      "offsets_array": [
+        {
+          "word": "flowers and some",
+          "offsets": [
+            66,
+            82
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "and some green": {
+      "count": 1,
+      "word_prefix": "and some green",
+      "offsets_array": [
+        {
+          "word": "and some green",
+          "offsets": [
+            74,
+            88
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "some green leav": {
+      "count": 1,
+      "word_prefix": "some green leaves",
+      "offsets_array": [
+        {
+          "word": "some green leaves",
+          "offsets": [
+            78,
+            95
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "green leav .": {
+      "count": 1,
+      "word_prefix": "green leaves.",
+      "offsets_array": [
+        {
+          "word": "green leaves.",
+          "offsets": [
+            83,
+            96
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "leav . mani": {
+      "count": 1,
+      "word_prefix": "leaves. Many",
+      "offsets_array": [
+        {
+          "word": "leaves. Many",
+          "offsets": [
+            89,
+            101
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    ". mani of": {
+      "count": 1,
+      "word_prefix": ". Many of",
+      "offsets_array": [
+        {
+          "word": ". Many of",
+          "offsets": [
+            95,
+            104
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "mani of the": {
+      "count": 1,
+      "word_prefix": "Many of the",
+      "offsets_array": [
+        {
+          "word": "Many of the",
+          "offsets": [
+            97,
+            108
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "the fairi were": {
+      "count": 1,
+      "word_prefix": "the fairies were",
+      "offsets_array": [
+        {
+          "word": "the fairies were",
+          "offsets": [
+            105,
+            121
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "fairi were small": {
+      "count": 1,
+      "word_prefix": "fairies were small",
+      "offsets_array": [
+        {
+          "word": "fairies were small",
+          "offsets": [
+            109,
+            127
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "were small but": {
+      "count": 1,
+      "word_prefix": "were small but",
+      "offsets_array": [
+        {
+          "word": "were small but",
+          "offsets": [
+            117,
+            131
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "small but quick": {
+      "count": 1,
+      "word_prefix": "small but quick",
+      "offsets_array": [
+        {
+          "word": "small but quick",
+          "offsets": [
+            122,
+            137
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "but quick .": {
+      "count": 1,
+      "word_prefix": "but quick.",
+      "offsets_array": [
+        {
+          "word": "but quick.",
+          "offsets": [
+            128,
+            138
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 3
+    },
+    "the fairi grab some": {
+      "count": 1,
+      "word_prefix": "The fairy grabbed some",
+      "offsets_array": [
+        {
+          "word": "The fairy grabbed some",
+          "offsets": [
+            0,
+            22
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "fairi grab some rock": {
+      "count": 1,
+      "word_prefix": "fairy grabbed some rocks",
+      "offsets_array": [
+        {
+          "word": "fairy grabbed some rocks",
+          "offsets": [
+            4,
+            28
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "grab some rock .": {
+      "count": 1,
+      "word_prefix": "grabbed some rocks.",
+      "offsets_array": [
+        {
+          "word": "grabbed some rocks.",
+          "offsets": [
+            10,
+            29
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "some rock . one": {
+      "count": 1,
+      "word_prefix": "some rocks. One",
+      "offsets_array": [
+        {
+          "word": "some rocks. One",
+          "offsets": [
+            18,
+            33
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "rock . one wa": {
+      "count": 1,
+      "word_prefix": "rocks. One was",
+      "offsets_array": [
+        {
+          "word": "rocks. One was",
+          "offsets": [
+            23,
+            37
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ". one wa red": {
+      "count": 1,
+      "word_prefix": ". One was red",
+      "offsets_array": [
+        {
+          "word": ". One was red",
+          "offsets": [
+            28,
+            41
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "one wa red ,": {
+      "count": 1,
+      "word_prefix": "One was red,",
+      "offsets_array": [
+        {
+          "word": "One was red,",
+          "offsets": [
+            30,
+            42
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "wa red , crown": {
+      "count": 1,
+      "word_prefix": "was red, crowned",
+      "offsets_array": [
+        {
+          "word": "was red, crowned",
+          "offsets": [
+            34,
+            50
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "red , crown with": {
+      "count": 1,
+      "word_prefix": "red, crowned with",
+      "offsets_array": [
+        {
+          "word": "red, crowned with",
+          "offsets": [
+            38,
+            55
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ", crown with colour": {
+      "count": 1,
+      "word_prefix": ", crowned with colourful",
+      "offsets_array": [
+        {
+          "word": ", crowned with colourful",
+          "offsets": [
+            41,
+            65
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "crown with colour flower": {
+      "count": 1,
+      "word_prefix": "crowned with colourful flowers",
+      "offsets_array": [
+        {
+          "word": "crowned with colourful flowers",
+          "offsets": [
+            43,
+            73
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "colour flower and some": {
+      "count": 1,
+      "word_prefix": "colourful flowers and some",
+      "offsets_array": [
+        {
+          "word": "colourful flowers and some",
+          "offsets": [
+            56,
+            82
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "flower and some green": {
+      "count": 1,
+      "word_prefix": "flowers and some green",
+      "offsets_array": [
+        {
+          "word": "flowers and some green",
+          "offsets": [
+            66,
+            88
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "and some green leav": {
+      "count": 1,
+      "word_prefix": "and some green leaves",
+      "offsets_array": [
+        {
+          "word": "and some green leaves",
+          "offsets": [
+            74,
+            95
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "some green leav .": {
+      "count": 1,
+      "word_prefix": "some green leaves.",
+      "offsets_array": [
+        {
+          "word": "some green leaves.",
+          "offsets": [
+            78,
+            96
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "green leav . mani": {
+      "count": 1,
+      "word_prefix": "green leaves. Many",
+      "offsets_array": [
+        {
+          "word": "green leaves. Many",
+          "offsets": [
+            83,
+            101
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "leav . mani of": {
+      "count": 1,
+      "word_prefix": "leaves. Many of",
+      "offsets_array": [
+        {
+          "word": "leaves. Many of",
+          "offsets": [
+            89,
+            104
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    ". mani of the": {
+      "count": 1,
+      "word_prefix": ". Many of the",
+      "offsets_array": [
+        {
+          "word": ". Many of the",
+          "offsets": [
+            95,
+            108
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "mani of the fairi": {
+      "count": 1,
+      "word_prefix": "Many of the fairies",
+      "offsets_array": [
+        {
+          "word": "Many of the fairies",
+          "offsets": [
+            97,
+            116
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "of the fairi were": {
+      "count": 1,
+      "word_prefix": "of the fairies were",
+      "offsets_array": [
+        {
+          "word": "of the fairies were",
+          "offsets": [
+            102,
+            121
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the fairi were small": {
+      "count": 1,
+      "word_prefix": "the fairies were small",
+      "offsets_array": [
+        {
+          "word": "the fairies were small",
+          "offsets": [
+            105,
+            127
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "fairi were small but": {
+      "count": 1,
+      "word_prefix": "fairies were small but",
+      "offsets_array": [
+        {
+          "word": "fairies were small but",
+          "offsets": [
+            109,
+            131
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "were small but quick": {
+      "count": 1,
+      "word_prefix": "were small but quick",
+      "offsets_array": [
+        {
+          "word": "were small but quick",
+          "offsets": [
+            117,
+            137
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "small but quick .": {
+      "count": 1,
+      "word_prefix": "small but quick.",
+      "offsets_array": [
+        {
+          "word": "small but quick.",
+          "offsets": [
+            122,
+            138
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 4
+    },
+    "the fairi grab some rock": {
+      "count": 1,
+      "word_prefix": "The fairy grabbed some rocks",
+      "offsets_array": [
+        {
+          "word": "The fairy grabbed some rocks",
+          "offsets": [
+            0,
+            28
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "fairi grab some rock .": {
+      "count": 1,
+      "word_prefix": "fairy grabbed some rocks.",
+      "offsets_array": [
+        {
+          "word": "fairy grabbed some rocks.",
+          "offsets": [
+            4,
+            29
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "grab some rock . one": {
+      "count": 1,
+      "word_prefix": "grabbed some rocks. One",
+      "offsets_array": [
+        {
+          "word": "grabbed some rocks. One",
+          "offsets": [
+            10,
+            33
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "some rock . one wa": {
+      "count": 1,
+      "word_prefix": "some rocks. One was",
+      "offsets_array": [
+        {
+          "word": "some rocks. One was",
+          "offsets": [
+            18,
+            37
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "rock . one wa red": {
+      "count": 1,
+      "word_prefix": "rocks. One was red",
+      "offsets_array": [
+        {
+          "word": "rocks. One was red",
+          "offsets": [
+            23,
+            41
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ". one wa red ,": {
+      "count": 1,
+      "word_prefix": ". One was red,",
+      "offsets_array": [
+        {
+          "word": ". One was red,",
+          "offsets": [
+            28,
+            42
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "one wa red , crown": {
+      "count": 1,
+      "word_prefix": "One was red, crowned",
+      "offsets_array": [
+        {
+          "word": "One was red, crowned",
+          "offsets": [
+            30,
+            50
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "wa red , crown with": {
+      "count": 1,
+      "word_prefix": "was red, crowned with",
+      "offsets_array": [
+        {
+          "word": "was red, crowned with",
+          "offsets": [
+            34,
+            55
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "red , crown with colour": {
+      "count": 1,
+      "word_prefix": "red, crowned with colourful",
+      "offsets_array": [
+        {
+          "word": "red, crowned with colourful",
+          "offsets": [
+            38,
+            65
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ", crown with colour flower": {
+      "count": 1,
+      "word_prefix": ", crowned with colourful flowers",
+      "offsets_array": [
+        {
+          "word": ", crowned with colourful flowers",
+          "offsets": [
+            41,
+            73
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "crown with colour flower and": {
+      "count": 1,
+      "word_prefix": "crowned with colourful flowers and",
+      "offsets_array": [
+        {
+          "word": "crowned with colourful flowers and",
+          "offsets": [
+            43,
+            77
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "with colour flower and some": {
+      "count": 1,
+      "word_prefix": "with colourful flowers and some",
+      "offsets_array": [
+        {
+          "word": "with colourful flowers and some",
+          "offsets": [
+            51,
+            82
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "colour flower and some green": {
+      "count": 1,
+      "word_prefix": "colourful flowers and some green",
+      "offsets_array": [
+        {
+          "word": "colourful flowers and some green",
+          "offsets": [
+            56,
+            88
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "flower and some green leav": {
+      "count": 1,
+      "word_prefix": "flowers and some green leaves",
+      "offsets_array": [
+        {
+          "word": "flowers and some green leaves",
+          "offsets": [
+            66,
+            95
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "and some green leav .": {
+      "count": 1,
+      "word_prefix": "and some green leaves.",
+      "offsets_array": [
+        {
+          "word": "and some green leaves.",
+          "offsets": [
+            74,
+            96
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "some green leav . mani": {
+      "count": 1,
+      "word_prefix": "some green leaves. Many",
+      "offsets_array": [
+        {
+          "word": "some green leaves. Many",
+          "offsets": [
+            78,
+            101
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "green leav . mani of": {
+      "count": 1,
+      "word_prefix": "green leaves. Many of",
+      "offsets_array": [
+        {
+          "word": "green leaves. Many of",
+          "offsets": [
+            83,
+            104
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "leav . mani of the": {
+      "count": 1,
+      "word_prefix": "leaves. Many of the",
+      "offsets_array": [
+        {
+          "word": "leaves. Many of the",
+          "offsets": [
+            89,
+            108
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    ". mani of the fairi": {
+      "count": 1,
+      "word_prefix": ". Many of the fairies",
+      "offsets_array": [
+        {
+          "word": ". Many of the fairies",
+          "offsets": [
+            95,
+            116
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "mani of the fairi were": {
+      "count": 1,
+      "word_prefix": "Many of the fairies were",
+      "offsets_array": [
+        {
+          "word": "Many of the fairies were",
+          "offsets": [
+            97,
+            121
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "of the fairi were small": {
+      "count": 1,
+      "word_prefix": "of the fairies were small",
+      "offsets_array": [
+        {
+          "word": "of the fairies were small",
+          "offsets": [
+            102,
+            127
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "the fairi were small but": {
+      "count": 1,
+      "word_prefix": "the fairies were small but",
+      "offsets_array": [
+        {
+          "word": "the fairies were small but",
+          "offsets": [
+            105,
+            131
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "fairi were small but quick": {
+      "count": 1,
+      "word_prefix": "fairies were small but quick",
+      "offsets_array": [
+        {
+          "word": "fairies were small but quick",
+          "offsets": [
+            109,
+            137
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    },
+    "were small but quick .": {
+      "count": 1,
+      "word_prefix": "were small but quick.",
+      "offsets_array": [
+        {
+          "word": "were small but quick.",
+          "offsets": [
+            117,
+            138
+          ],
+          "n_row": 2,
+          "n_row_child": null,
+          "n_row_parent": null
+        }
+      ],
+      "n_words_ngram": 5
+    }
+  }
+}
