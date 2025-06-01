@@ -722,6 +722,9 @@ function insertListOfWords(i, iReduced, wordListElement, currentTableOfWords) {
         }
     });
     a.className = underlinedPrimary
+    a.setAttribute("id", `id-list-of-words-${i}-nth`)
+    a.setAttribute("aria-label", `id-list-of-words-${i}-nth`)
+    console.log(`insertListOfWords::a:`, a.id, a.ariaLabel, "=>", a, "#")
     li.appendChild(a);
     wordListElement.appendChild(li);
 }
