@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
  
 interface CellObject {
   table: number
@@ -110,4 +110,14 @@ export async function testWithLoop(page: Page, testLLMTextFilePath: string, cell
     await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100)
   }
   console.log("end!")
+}
+
+export async function assertCellAndLink(page: Page, gameEditor: Locator, idCell: string, expectedCellString: string, assertScreenshot: boolean = true) {
+  let tableOfWordsElNth0 = page.getByLabel(idCell).getByRole('cell');
+  await expect(tableOfWordsElNth0).toMatchAriaSnapshot(`- cell "${idCell}-link": "${expectedCellString}"`);
+  await page.getByLabel(`${idCell}-link`).click();
+  await page.waitForTimeout(100);
+  if (assertScreenshot) {
+    await expect(gameEditor).toHaveScreenshot();
+  }
 }
