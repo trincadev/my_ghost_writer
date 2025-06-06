@@ -1,4 +1,4 @@
-- text: /'th', \d+ occurrences/
+- text: "/th : \\d+ occurrences/"
 - listitem: "! The: 1 repetitions"
 - listitem: "\" Then: 2 repetitions"
 - listitem: "\"Nothing: 1 repetitions"

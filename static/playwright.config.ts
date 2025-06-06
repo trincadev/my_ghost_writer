@@ -46,13 +46,14 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // { name: 'setup_classic_lite.koboldai.net', testMatch: 'setup-classic-lite.koboldai.net.ts' },
     {
       name: 'chromium',
       // grepInvert: /mobile/,
       use: { 
         ...devices['Desktop Chrome'],
         viewport: { width: 1600, height: 1200 },
-      },
+      } //, dependencies: ["setup_classic_lite.koboldai.net"]
     },
 
     {

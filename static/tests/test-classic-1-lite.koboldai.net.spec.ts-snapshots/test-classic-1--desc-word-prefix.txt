@@ -1,4 +1,4 @@
-- text: /'th', \d+ occurrences/
+- text: "/th : \\d+ occurrences/"
 - listitem: "— with: 1 repetitions"
 - listitem: "— three: 1 repetitions"
 - listitem: "— this: 2 repetitions"

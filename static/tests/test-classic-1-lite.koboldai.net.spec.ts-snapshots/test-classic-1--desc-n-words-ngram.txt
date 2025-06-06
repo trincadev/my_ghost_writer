@@ -1,4 +1,4 @@
-- text: /'th', \d+ occurrences/
+- text: "/th : \\d+ occurrences/"
 - listitem: "the boy: 7 repetitions"
 - listitem: "say that: 2 repetitions"
 - listitem: "that they: 3 repetitions"

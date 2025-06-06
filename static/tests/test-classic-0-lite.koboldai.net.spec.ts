@@ -33,7 +33,7 @@ test('test My Ghost Writer: navigate between the value list/tables', async ({ pa
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
   await page.waitForTimeout(100)
 
-  await expect(page.getByLabel('id-filtered-value')).toContainText('\'th\', 1701');
+  await expect(page.getByLabel('id-filtered-value')).toContainText('th: 1701');
   let currentTitleTableOfWords = page.getByLabel('id-current-table-of-words-title')
   await expect(currentTitleTableOfWords).not.toContainText('the: 734');
   
@@ -46,21 +46,21 @@ test('test My Ghost Writer: navigate between the value list/tables', async ({ pa
   await page.getByText('the: 734').click();
   await page.waitForTimeout(100)
   
-  await expect(currentTitleTableOfWords).toContainText('the: 734');
+  await expect(currentTitleTableOfWords).toContainText('the : 734 ');
   await expect(currentTitleTableOfWords).toHaveAttribute("title", "stem: 'the'")
 
   await assertCellAndLink(page, gameEditor, 'id-table-0-row-0-nth', "THE BOY WHO");
   await assertCellAndLink(page, gameEditor, 'id-table-0-row-733-nth', "early the next");
-  await assertCellAndLink(page, gameEditor, 'id-table-0-row-1-nth', "were the last");
+  await assertCellAndLink(page, gameEditor, 'id-table-0-row-1-nth', "They were the last");
 
   await page.getByText('the Dursleys:').click();
   await page.waitForTimeout(100)
-  await expect(page.getByLabel('id-current-table-of-words-title')).toContainText('the Dursleys: 32');
+  await expect(page.getByLabel('id-current-table-of-words-title')).toContainText('the Dursleys : 32 ');
   
   await page.getByLabel('id-list-of-words-11-nth').click();
   await page.waitForTimeout(100)
   
-  await assertCellAndLink(page, gameEditor, 'id-table-11-row-2-nth', "to be. The Dursleys", false);
+  await assertCellAndLink(page, gameEditor, 'id-table-11-row-2-nth', "to be. The Dursleys shuddered", false);
 
   let col2wordsFreq = page.getByLabel('id-col2-words-frequency', { exact: true })
   await expect(col2wordsFreq).toHaveScreenshot()
