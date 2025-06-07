@@ -49,37 +49,75 @@ export default defineConfig({
     // { name: 'setup_classic_lite.koboldai.net', testMatch: 'setup-classic-lite.koboldai.net.ts' },
     {
       name: 'chromium',
-      // grepInvert: /mobile/,
+      grep: /test-classic-desktop/,
       use: { 
         ...devices['Desktop Chrome'],
         viewport: { width: 1600, height: 1200 },
       } //, dependencies: ["setup_classic_lite.koboldai.net"]
-    },
-
+    },/*
     {
       name: 'firefox',
-      // grepInvert: /mobile/,
+      grep: /test-classic-desktop/,
       use: { ...devices['Desktop Firefox'] },
     },
-
     {
       name: 'webkit',
-      // grepInvert: /mobile/,
+      grep: /test-classic-desktop/,
       use: { ...devices['Desktop Safari'] },
-    },
+    },*/
 
     // Test against mobile viewports. 
     {
       name: 'MobileChrome',
-      // grep: /mobile/,
-      use: { ...devices['Pixel 5'] },
+      grep: /test-classic-mobile/,
+      use: { ...devices['Pixel 7'] },
     },
     {
       name: 'MobileSafari',
-      // grep: /mobile/,
-      use: { ...devices['iPhone 12'] },
+      grep: /test-classic-mobile-iphone/,
+      use: { ...devices['iPhone 13'] },
     },
 
+    {
+      name: 'iPad (gen 7)',
+      grep: /test-classic-ipad-seven/,
+      use: { ...devices['iPad (gen 7)'] }
+    },
+    {
+      name: 'iPad (gen 7) landscape',
+      grep: /test-classic-landscape-ipad-seven/,
+      use: { ...devices['iPad (gen 7) landscape'] }
+    },
+    {
+      name: 'iPad (gen 11)',
+      grep: /test-classic-ipad-eleven/,
+      use: { ...devices['iPad (gen 11)'] }
+    },
+    {
+      name: 'iPad (gen 11) landscape',
+      grep: /test-classic-landscape-ipad-eleven/,
+      use: { ...devices['iPad (gen 11) landscape'] }
+    },
+    {
+      name: 'iPad Mini',
+      grep: /test-classic-ipad-mini/,
+      use: { ...devices['iPad Mini'] }
+    },
+    {
+      name: 'iPad Mini landscape',
+      grep: /test-classic-landascape-ipad-mini/,
+      use: { ...devices['iPad Mini landscape'] }
+    },
+    {
+      name: 'iPad Pro 11',
+      grep: /test-classic-ipad-pro/,
+      use: { ...devices['iPad Pro 11'] }
+    },
+    {
+      name: 'iPad Pro 11 landscape',
+      grep: /test-classic-landascape-ipad-pro/,
+      use: { ...devices['iPad Pro 11 landscape'] }
+    }
     /*
     // Test against branded browsers.
     {
@@ -98,4 +136,11 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+    webServer: [
+    {
+      command: "cd ../lite.koboldai.net && python3 -m http.server",
+      url: process.env.DOMAIN_PORT_BACKEND ?? "http://localhost:8000",
+      reuseExistingServer: !process.env.CI
+    }
+  ]
 });

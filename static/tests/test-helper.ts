@@ -121,3 +121,62 @@ export async function assertCellAndLink(page: Page, gameEditor: Locator, idCell:
     await expect(gameEditor).toHaveScreenshot();
   }
 }
+
+/**
+ * Assert that only the expected string is visible in the viewport of a scrollable element.
+ * @param page Playwright Page object
+ * @param idElement The id of the element to check
+ * @param expectedVisible The exact string expected to be visible in the viewport
+ */
+export async function expectOnlyVisibleTextInElement(page: Page, idElement: string, expectedVisible: string) {
+  // Use bounding rects to get visible text for complex HTML
+  const visibleText = await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (!el) return '';
+    const parentRect = el.getBoundingClientRect();
+    let visible = '';
+    function getVisibleText(node: Node): string {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const range = document.createRange();
+        range.selectNode(node);
+        const rects = range.getClientRects();
+        for (const rect of rects) {
+          if (
+            rect.bottom > parentRect.top &&
+            rect.top < parentRect.bottom &&
+            rect.right > parentRect.left &&
+            rect.left < parentRect.right
+          ) {
+            return node.textContent || '';
+          }
+        }
+        return '';
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        let text = '';
+        for (const child of (node as Element).childNodes) {
+          text += getVisibleText(child);
+        }
+        return text;
+      }
+      return '';
+    }
+    visible = getVisibleText(el);
+    return visible.trim();
+  }, idElement);
+  expect(visibleText).not.toBe(expectedVisible + " - error!");
+  expect(visibleText).toBe(expectedVisible);
+}
+
+/**
+ * Scrolls the element with the given id to the bottom.
+ * @param page Playwright Page object
+ * @param idElement The id of the scrollable element
+ */
+export async function scrollToBottomById(page: Page, idElement: string) {
+  await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, idElement);
+}
