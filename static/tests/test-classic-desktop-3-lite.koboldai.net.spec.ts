@@ -20,7 +20,7 @@ test('test My Ghost Writer, desktop: try using My Ghost Writer with Aesthetic UI
   // 1. Connect to the local web server page
   await page.goto('http://localhost:8000/');
 
-  // start from Aesthetic UI
+  // 2. Start from Aesthetic UI: select the UI and activate it
   await page.locator('#welcomecontainer div').filter({ hasText: 'Aesthetic UI' }).nth(3).click();
   await page.getByRole('button', { name: 'Set UI' }).click();
 
@@ -35,25 +35,28 @@ test('test My Ghost Writer, desktop: try using My Ghost Writer with Aesthetic UI
   await page.waitForTimeout(300)
   console.log(`file '${testStoryJsonTxt}' uploaded!`)
 
+  // 4. Open settings and enable the "My Ghost Writer" text stats feature
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Tokens' }).click();
   await page.getByRole('button', { name: 'id-expand-wordsfreqstats' }).click();
   await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).check();
   await page.getByRole('button', { name: 'OK' }).click();
 
+  // 5. Assert that the description for the text stats feature is visible and correct
   await expect(page.getByLabel('id-words-frequency-description')).toBeVisible();
   await expect(page.getByLabel('id-words-frequency-description')).toContainText('My Ghost Writer will analyze your text and report in this section some statistics and a list of words grouped into stems.');
 
-  // mobile mode
-  // await page.getByRole('button', { name: 'id-navtoggler-words-freq' }).click();
+  // 6. Filter the word frequency list using the search box and assert results
+  // (simulate user typing "th" and pressing Enter)
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).click();
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).fill('th');
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
 
+  // Assert filtered value and that "the: 734" is present in the list
   await expect(page.getByLabel('id-filtered-value')).toContainText('th: 1701');
   await expect(page.locator('list')).toContainText('the: 734');
 
-  // corpo UI, from settings
+  // 7. Switch to Corpo UI via settings and open the Raw Editor
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Format' }).click();
   await page.locator('#gui_type').selectOption('3');
@@ -61,12 +64,14 @@ test('test My Ghost Writer, desktop: try using My Ghost Writer with Aesthetic UI
 
   await page.getByText('Raw Editor', { exact: true }).click();
 
+  // Assert that the Raw Editor is open and the filtered value is visible
   await expect(page.getByRole('button', { name: 'X', exact: true })).toBeVisible();
 
   await expect(page.getByLabel('id-filtered-value')).toBeVisible();
   await expect(page.locator('list')).toContainText('the: 734');
   await expect(page.getByLabel('id-list-of-words-0-nth')).toContainText('the: 734');
 
+  // 8. Re-open settings and re-apply Corpo UI to ensure persistence
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Tokens' }).click();
   await page.getByRole('link', { name: 'Format' }).click();
@@ -74,28 +79,34 @@ test('test My Ghost Writer, desktop: try using My Ghost Writer with Aesthetic UI
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByText('Raw Editor', { exact: true }).click();
 
-  // mobile mode
-  // await page.getByRole('button', { name: 'id-navtoggler-words-freq' }).click();
+  // 9. Filter again, this time with "ha", and check the results
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).click();
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).fill('ha');
   await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
   await page.getByLabel('id-filtered-value').click();
   await expect(page.getByLabel('id-filtered-value')).toContainText('ha: 987');
   await expect(page.getByLabel('id-list-of-words-0-nth')).toContainText('Harry: 216');
+
+  // 10. Simulate right-click and open the table for "Harry"
   await page.locator('#normalinterface').click({
     button: 'right'
   });
   await page.getByLabel('id-list-of-words-0-nth').click();
+
+  // Assert that the table for "Harry" is visible and correct
   await expect(page.getByLabel('id-current-table-of-words-title')).toBeVisible();
   await expect(page.getByLabel('id-current-table-of-words-title')).toContainText('Harry : 216');
   await expect(page.getByLabel('id-table-0-row-0-nth', { exact: true }).getByRole('cell')).toContainText('their son, Harry —');
+
+  // 11. Click the first row link and assert the visible text in the editor matches the expected content
   await page.getByLabel('id-table-0-row-0-nth-link').click();
-  // text visible within #gametext
   await expectOnlyVisibleTextInElement(page, "gametext", expectedContentGametext)
 
+  // 12. Close the Raw Editor and assert it is hidden, then re-open and assert it is visible again
   await expect(page.getByText('Raw Editor', { exact: true })).not.toBeVisible();
   await page.getByRole('button', { name: 'X', exact: true }).click();
   await expect(page.getByText('Raw Editor', { exact: true })).toBeVisible();
+
+  // 13. Close the page to end the test
   page.close()
 });
-

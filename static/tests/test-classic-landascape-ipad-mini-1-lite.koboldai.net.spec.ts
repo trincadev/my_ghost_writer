@@ -63,7 +63,7 @@ test('test My Ghost Writer, ipad mini landscape: order/sort', async ({ page }) =
       await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
       await page.waitForTimeout(300)
       // Assert that the list of words container matches the expected ARIA snapshot for this combination
-      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-ipad-mini-landscape-1--${currentOrderSelectionValue}-${currentSortSelectionValue}.txt` });
+      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-landscape-ipad-mini-1--${currentOrderSelectionValue}-${currentSortSelectionValue}.txt` });
     }
   }
   // End of test
