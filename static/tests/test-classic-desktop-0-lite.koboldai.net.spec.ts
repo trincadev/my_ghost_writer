@@ -14,7 +14,7 @@ import { assertCellAndLink } from './test-helper'
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 
-test('test My Ghost Writer, desktop: navigate between the value list/tables', async ({ page }: { page: Page }) => {
+test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming and the duplicated words', async ({ page }: { page: Page }) => {
   // 1. Connect to the local web server page
   await page.goto('http://localhost:8000/');
   // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)

@@ -49,7 +49,7 @@ Harry woke early the next morning. Although he could`,
   `"Oh, well — I was at Hogwarts meself but I — er — got expelled, ter tell yeh the truth. In me third year. They snapped me wand in half an' everything. But Dumbledore let me stay on as gamekeeper. Great man, Dumbledore.""Why were you expelled?""It's gettin' late and we've got lots ter do tomorrow," said Hagrid loudly. "Gotta get up ter town, get all yer books an' that."He took off his thick black coat and threw it to Harry."You can kip under that," he said. "Don' mind if it wriggles a bit, I think I still got a couple o' dormice in one o' the pockets."Harry woke early the next morning. Although he could`,
 ]
 
-test("test", async ({ page }: { page: Page }) => {
+test("test My Ghost Writer, iphone 13: navigate between the list/tables containing the stemming and the duplicated words", async ({ page }: { page: Page }) => {
   // 1. Connect to the local web server page
   const text = await fileReader(testStoryTxt);
   await page.goto("http://localhost:8000/");
