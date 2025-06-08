@@ -122,17 +122,27 @@ export async function assertCellAndLink(page: Page, gameEditor: Locator, idCell:
   }
 }
 
+export async function assertCellAndLinkAriaSnapshot(page: Page, idCell: string, expectedCellString: string, idElementSnapshot: string, expectedSnapshotString: string) {
+  await assertCellAndLink(page, page.locator("not_used"), idCell, expectedCellString, false)
+  await expectOnlyVisibleTextInElement(page, idElementSnapshot, expectedSnapshotString)
+}
+
 /**
- * Assert that only the expected string is visible in the viewport of a scrollable element.
  * @param page Playwright Page object
  * @param idElement The id of the element to check
  * @param expectedVisible The exact string expected to be visible in the viewport
  */
-export async function expectOnlyVisibleTextInElement(page: Page, idElement: string, expectedVisible: string) {
+export async function expectOnlyVisibleTextInElement(
+  page: Page,
+  idElement: string,
+  expectedVisible: string
+) {
   // Use bounding rects to get visible text for complex HTML
   const visibleText = await page.evaluate((id) => {
     const el = document.getElementById(id);
-    if (!el) return '';
+    if (!el) {
+      throw Error(`HTML element with id '${id}' not found!`)
+    }
     const parentRect = el.getBoundingClientRect();
     let visible = '';
     function getVisibleText(node: Node): string {

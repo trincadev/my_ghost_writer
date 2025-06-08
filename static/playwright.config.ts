@@ -54,6 +54,13 @@ export default defineConfig({
         ...devices['Desktop Chrome'],
         viewport: { width: 1600, height: 1200 },
       } //, dependencies: ["setup_classic_lite.koboldai.net"]
+    },
+    {
+      name: 'responsive',
+      grep: /test-classic-responsive/,
+      use: { 
+        ...devices['Desktop Chrome']
+      }
     },/*
     {
       name: 'firefox',
@@ -69,12 +76,17 @@ export default defineConfig({
     // Test against mobile viewports. 
     {
       name: 'MobileChrome',
-      grep: /test-classic-mobile/,
+      grep: /test-classic-mobile-pixel/,
       use: { ...devices['Pixel 7'] },
     },
     {
       name: 'MobileSafari',
       grep: /test-classic-mobile-iphone/,
+      use: { ...devices['iPhone 13'] },
+    },
+    {
+      name: 'MobileSafari',
+      grep: /test-classic-landscape-mobile-iphone/,
       use: { ...devices['iPhone 13'] },
     },
 
@@ -105,7 +117,7 @@ export default defineConfig({
     },
     {
       name: 'iPad Mini landscape',
-      grep: /test-classic-landascape-ipad-mini/,
+      grep: /test-classic-landscape-ipad-mini/,
       use: { ...devices['iPad Mini landscape'] }
     },
     {
@@ -115,7 +127,7 @@ export default defineConfig({
     },
     {
       name: 'iPad Pro 11 landscape',
-      grep: /test-classic-landascape-ipad-pro/,
+      grep: /test-classic-landscape-ipad-pro/,
       use: { ...devices['iPad Pro 11 landscape'] }
     }
     /*

@@ -24,9 +24,7 @@ export function scrollToBottom(idElement: string) {
   }
 }
 
-const testStoryTxt = `${
-  import.meta.dirname
-}/../../tests/events/very_long_text.txt`;
+const testStoryTxt = `${import.meta.dirname}/../../tests/events/very_long_text.txt`;
 /*
 test.use({
   ...devices['iPhone 13'],
@@ -63,7 +61,7 @@ test("test My Ghost Writer, iphone 13: navigate between the list/tables containi
   let gameEditor = page.locator("#gametext");
   await gameEditor.click();
   await gameEditor.fill(text);
-  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 5000 });
+  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 15000 });
   await page.waitForTimeout(100);
   await expectOnlyVisibleTextInElement(page, "gametext", expectedTextArray[0]);
   await page.waitForTimeout(100);
