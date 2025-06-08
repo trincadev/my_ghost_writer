@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { uploadFileWithPageAndFilepath } from './test-helper';
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 const orderSelectionValues = ["asc", "desc"]
@@ -12,15 +13,7 @@ test('test My Ghost Writer, ipad mini landscape: order/sort', async ({ page }) =
   await page.getByRole('button', { name: 'Set UI' }).click();
 
   // 3. Upload a saved JSON story file to provide long text content for analysis
-  console.log(`preparing uploading of file '${testStoryJsonTxt}'!`)
-  await page.getByRole('link', { name: 'Save / Load' }).click();
-  await page.waitForTimeout(100)
-  const fileChooserPromise = page.waitForEvent('filechooser');
-  await page.getByRole('button', { name: '📁 Open File' }).click();
-  const fileChooser = await fileChooserPromise;
-  await fileChooser.setFiles(testStoryJsonTxt);
-  await page.waitForTimeout(300)
-  console.log(`file '${testStoryJsonTxt}' uploaded!`)
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
 
   // 4. Activate "My Ghost Writer" / text stats functionality via settings
   await page.getByRole('link', { name: 'Settings' }).click();
@@ -63,7 +56,7 @@ test('test My Ghost Writer, ipad mini landscape: order/sort', async ({ page }) =
       await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
       await page.waitForTimeout(300)
       // Assert that the list of words container matches the expected ARIA snapshot for this combination
-      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-landscape-ipad-mini-1--${currentOrderSelectionValue}-${currentSortSelectionValue}.txt` });
+      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-landscape-ipad-mini-1--${currentOrderSelectionValue}-${currentSortSelectionValue}--id-list-of-words-container.txt` });
     }
   }
   // End of test

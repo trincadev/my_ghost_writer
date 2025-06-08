@@ -1,12 +1,9 @@
 import { test, expect, devices } from '@playwright/test';
-import { expectOnlyVisibleTextInElement, fileReader } from './test-helper';
+import { expectOnlyVisibleTextInElement, fileReader, uploadFileWithPageAndFilepath } from './test-helper';
 
-const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.txt`;
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`;
 const expectedTextArray = [
-  `"It's gettin' late and we've got lots ter do tomorrow," said Hagrid loudly. "Gotta get up ter town, get all yer books an' that."
-He took off his thick black coat and threw it to Harry.
-"You can kip under that," he said. "Don' mind if it wriggles a bit, I think I still got a couple o' dormice in one o' the pockets."
-Harry woke early the next morning. Although he could`
+  `He took off his thick black coat and threw it to Harry."You can kip under that," he said. "Don' mind if it wriggles a bit, I think I still got a couple o' dormice in one o' the pockets."Harry woke early the next morning. Although he could`
 ];
 
 const iphone13Landscape = devices['iPhone 13 landscape'];
@@ -19,22 +16,24 @@ test('My Ghost Writer, iPhone 13 landscape: Aesthetic UI to Corpo UI and Raw Edi
   await page.getByRole('button', { name: 'Set UI' }).click();
   await page.getByRole('button', { name: 'Toggle Action Menu' }).click();
   await page.getByRole('button', { name: 'Edit' }).click();
-  let gameEditor = page.locator('#gametext');
-  await gameEditor.click();
-  await gameEditor.fill(text);
-  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 15000 });
-  await page.waitForTimeout(100);
+  
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
+  
   await expectOnlyVisibleTextInElement(page, 'gametext', expectedTextArray[0]);
   await page.waitForTimeout(100);
-  await page.getByRole('button', { name: 'Main Menu Options' }).click();
+
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Tokens' }).click();
   await page.getByRole('button', { name: 'id-expand-wordsfreqstats' }).click();
   await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).check();
+  await expect(page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' })).toBeChecked();
   await page.getByRole('button', { name: 'OK' }).click();
-  await expect(page.getByRole('button', { name: 'Edit' })).toBeVisible();
-  await expect(page.locator('#btn_editmode')).toContainText('Edit');
-  await page.getByRole('button', { name: 'Edit' }).click();
+
+  await expect(page.getByRole('checkbox', { name: 'Allow Editing' })).toBeVisible();
+  await page.getByRole('checkbox', { name: 'Allow Editing' }).check();
+  
   await expect(page.getByLabel('id-words-frequency-description')).toBeVisible();
   await expect(page.getByLabel('id-words-frequency-description')).toContainText('My Ghost Writer will analyze your text and report in this section some statistics and a list of words grouped into stems.');
   await page.waitForTimeout(100);

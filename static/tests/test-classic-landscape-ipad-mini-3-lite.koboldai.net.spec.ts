@@ -13,7 +13,7 @@
  * 8. Verifying ARIA/accessibility and content.
  */
 import { test, expect, Page } from '@playwright/test';
-import { assertCellAndLink, expectOnlyVisibleTextInElement } from './test-helper'
+import { expectOnlyVisibleTextInElement, uploadFileWithPageAndFilepath } from './test-helper'
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 
@@ -30,15 +30,7 @@ test('test My Ghost Writer, ipad mini landscape: try using My Ghost Writer with 
   await page.getByRole('button', { name: 'Set UI' }).click();
 
   // 3. Upload a saved JSON story file to provide long text content for analysis
-  console.log(`preparing uploading of file '${testStoryJsonTxt}'!`)
-  await page.getByRole('link', { name: 'Save / Load' }).click();
-  await page.waitForTimeout(100)
-  const fileChooserPromise = page.waitForEvent('filechooser');
-  await page.getByRole('button', { name: '📁 Open File' }).click();
-  const fileChooser = await fileChooserPromise;
-  await fileChooser.setFiles(testStoryJsonTxt);
-  await page.waitForTimeout(300)
-  console.log(`file '${testStoryJsonTxt}' uploaded!`)
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
 
   // 4. Open settings and enable the "My Ghost Writer" text stats feature
   await page.getByRole('link', { name: 'Settings' }).click();

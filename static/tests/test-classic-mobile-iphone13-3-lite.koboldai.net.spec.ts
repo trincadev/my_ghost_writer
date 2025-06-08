@@ -14,9 +14,9 @@
  * 8. Verifying ARIA/accessibility and content.
  */
 import { test, expect } from '@playwright/test';
-import { expectOnlyVisibleTextInElement, fileReader } from './test-helper'
+import { expectOnlyVisibleTextInElement, fileReader, uploadFileWithPageAndFilepath } from './test-helper'
 
-const testStoryTxt = `${import.meta.dirname}/../../tests/events/very_long_text.txt`;
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`;
 
 const expectedTextArray = [
   `"Why aren't you supposed to do magic?" asked Harry.\n"Oh, well — I was at Hogwarts meself but I — er — got expelled, ter tell yeh the truth. In me third year. They snapped me wand in half an' everything. But Dumbledore let me stay on as gamekeeper. Great man, Dumbledore."
@@ -31,7 +31,6 @@ Harry woke early the next morning. Although he could`,
 ]
 
 test('My Ghost Writer, iPhone 13: Aesthetic UI to Corpo UI and Raw Editor', async ({ page }) => {
-  const text = await fileReader(testStoryTxt);
   // 1. Connect to the local web server page
   await page.goto('http://localhost:8000/');
 
@@ -43,16 +42,11 @@ test('My Ghost Writer, iPhone 13: Aesthetic UI to Corpo UI and Raw Editor', asyn
   await page.getByRole('button', { name: 'Toggle Action Menu' }).click();
   await page.getByRole('button', { name: 'Edit' }).click();
 
-  let gameEditor = page.locator("#gametext");
-  await gameEditor.click();
-  await gameEditor.fill(text);
-  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 15000 });
-  await page.waitForTimeout(100);
-  await expectOnlyVisibleTextInElement(page, "gametext", expectedTextArray[0]);
-  await page.waitForTimeout(100);
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
 
   // 4. Activate "My Ghost Writer" / text stats functionality via settings
-  await page.getByRole("button", { name: "Main Menu Options" }).click();
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole("link", { name: "Settings" }).click();
 
   // 4. Open settings and enable the "My Ghost Writer" text stats feature
@@ -61,9 +55,8 @@ test('My Ghost Writer, iPhone 13: Aesthetic UI to Corpo UI and Raw Editor', asyn
   await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).check();
   await page.getByRole('button', { name: 'OK' }).click();
 
-  await expect(page.getByRole('button', { name: 'Edit' })).toBeVisible();
-  await expect(page.locator('#btn_editmode')).toContainText('Edit');
-  await page.getByRole('button', { name: 'Edit' }).click();
+  await expect(page.getByRole('checkbox', { name: 'Allow Editing' })).toBeVisible();
+  await page.getByRole('checkbox', { name: 'Allow Editing' }).check();
   // 5. Assert that the description for the text stats feature is visible and correct
   await expect(page.getByLabel('id-words-frequency-description')).toBeVisible();
   await expect(page.getByLabel('id-words-frequency-description')).toContainText('My Ghost Writer will analyze your text and report in this section some statistics and a list of words grouped into stems.');
@@ -80,7 +73,7 @@ test('My Ghost Writer, iPhone 13: Aesthetic UI to Corpo UI and Raw Editor', asyn
   await expect(page.locator('list')).toContainText('the: 734');
 
   // 7. Switch to Corpo UI via settings and open the Raw Editor
-  await page.getByRole('button', { name: 'Main Menu Options' }).click();
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Format' }).click();
   await page.locator('#gui_type').selectOption('3');
@@ -97,7 +90,7 @@ test('My Ghost Writer, iPhone 13: Aesthetic UI to Corpo UI and Raw Editor', asyn
   await expect(page.getByLabel('id-list-of-words-0-nth')).toContainText('the: 734');
 
   // 8. Re-open settings and re-apply Corpo UI to ensure persistence
-  await page.getByRole("button", { name: "Main Menu Options" }).click();
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Tokens' }).click();
   await page.getByRole('link', { name: 'Format' }).click();

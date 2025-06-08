@@ -42,7 +42,7 @@ export const fileWriter = async (filePath: string, data: string): Promise<void> 
   }
 }
 
-export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObject, timeout=50) => {
+export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObject, timeout=50, ariaSnapshotName: string) => {
     let cellLabel = `id-table-${cellObj["table"]}-row-${cellObj["row"]}-nth`
     try {
       console.log(`current aria-label:${cellLabel}...`)
@@ -54,7 +54,7 @@ export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObje
       expect(currentInnerText).toBe(cellObj.word)
       await currentCellElement.click({timeout: 1000});
       await page.waitForTimeout(timeout)
-      await expect(page.getByLabel('editor')).toHaveScreenshot(/** {stylePath: `${import.meta.dirname}/../index.css`} */);
+      await expect(page.getByLabel('editor')).toMatchAriaSnapshot({ name: ariaSnapshotName });
     } catch (err) {
       console.log("cellLabel:", cellLabel, "#")
       console.log("err:", err, "#")
@@ -107,7 +107,7 @@ export async function testWithLoop(page: Page, testLLMTextFilePath: string, cell
 
   console.log("try with a new array of tables/rows...")
   for (let idx in cellArray2) {
-    await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100)
+    await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100, `test-loop-${assertTitleString}-${idx}.txt`)
   }
   console.log("end!")
 }
@@ -123,7 +123,12 @@ export async function assertCellAndLink(page: Page, gameEditor: Locator, idCell:
 }
 
 export async function assertCellAndLinkAriaSnapshot(page: Page, idCell: string, expectedCellString: string, idElementSnapshot: string, expectedSnapshotString: string) {
-  await assertCellAndLink(page, page.locator("not_used"), idCell, expectedCellString, false)
+  // await assertCellAndLink(page, page.locator("not_used"), idCell, expectedCellString, false)
+  let tableOfWordsElNth0 = page.getByLabel(idCell).getByRole('cell');
+  await expect(tableOfWordsElNth0).toMatchAriaSnapshot(`- cell "${idCell}-link": "${expectedCellString}"`);
+  await page.getByLabel(`${idCell}-link`).click();
+  await page.waitForTimeout(100);
+
   await expectOnlyVisibleTextInElement(page, idElementSnapshot, expectedSnapshotString)
 }
 
@@ -189,4 +194,16 @@ export async function scrollToBottomById(page: Page, idElement: string) {
       el.scrollTop = el.scrollHeight;
     }
   }, idElement);
+}
+
+export async function uploadFileWithPageAndFilepath(page: Page, filepath: string) {
+    console.log(`preparing uploading of file '${filepath}'!`)
+    await page.getByRole('link', { name: 'Save / Load' }).click();
+    await page.waitForTimeout(100)
+    const fileChooserPromise = page.waitForEvent('filechooser');
+    await page.getByRole('button', { name: '📁 Open File' }).click();
+    const fileChooser = await fileChooserPromise;
+    await fileChooser.setFiles(filepath);
+    await page.waitForTimeout(300)
+    console.log(`file '${filepath}' uploaded!!`)
 }

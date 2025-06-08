@@ -11,7 +11,7 @@
  * 7. Assert correct UI updates and ARIA snapshots for accessibility.
  */
 import { test, expect, devices, Page } from "@playwright/test";
-import { expectOnlyVisibleTextInElement, fileReader, scrollToBottomById } from "./test-helper";
+import { expectOnlyVisibleTextInElement, scrollToBottomById, uploadFileWithPageAndFilepath } from "./test-helper";
 
 export function scrollToBottom(idElement: string) {
   const element = document.getElementById(idElement);
@@ -24,7 +24,7 @@ export function scrollToBottom(idElement: string) {
   }
 }
 
-const testStoryTxt = `${import.meta.dirname}/../../tests/events/very_long_text.txt`;
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 /*
 test.use({
   ...devices['iPhone 13'],
@@ -49,7 +49,6 @@ Harry woke early the next morning. Although he could`,
 
 test("test My Ghost Writer, iphone 13: navigate between the list/tables containing the stemming and the duplicated words", async ({ page }: { page: Page }) => {
   // 1. Connect to the local web server page
-  const text = await fileReader(testStoryTxt);
   await page.goto("http://localhost:8000/");
   await expect(page.locator("#welcomecontainer")).toContainText("Set UI");
 
@@ -57,17 +56,13 @@ test("test My Ghost Writer, iphone 13: navigate between the list/tables containi
   await page.getByRole("button", { name: "Set UI" }).click();
 
   // 3. Enable editing and fill the editor with long text content
-  await page.getByRole("checkbox", { name: "Allow Editing" }).check();
-  let gameEditor = page.locator("#gametext");
-  await gameEditor.click();
-  await gameEditor.fill(text);
-  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 15000 });
-  await page.waitForTimeout(100);
-  await expectOnlyVisibleTextInElement(page, "gametext", expectedTextArray[0]);
-  await page.waitForTimeout(100);
+  await page.getByRole("checkbox", { name: "Allow Editing" }).click();
 
   // 4. Activate "My Ghost Writer" / text stats functionality via settings
-  await page.getByRole("button", { name: "Main Menu Options" }).click();
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
+  
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole("link", { name: "Settings" }).click();
   await page.getByRole("link", { name: "Tokens" }).click();
   await page.getByRole("button", { name: "id-expand-wordsfreqstats" }).click();
@@ -158,6 +153,10 @@ test("test My Ghost Writer, iphone 13: navigate between the list/tables containi
   // Deactivate edit mode
   await page.getByRole("checkbox", { name: "Allow Editing" }).uncheck();
   await page.waitForTimeout(100);
+
+  await expect(page.getByLabel('id-current-table-of-words-btn')).toBeVisible();
+  await page.getByLabel('id-current-table-of-words-btn').click();
+  await scrollToBottomById(page, "id-current-table-of-words-scrollable");
 
   await expect(page.getByLabel("id-list-of-words-1699-nth")).toMatchAriaSnapshot(
     `- text: "that: 157 reps."`

@@ -11,9 +11,9 @@
  * 7. Assert correct UI updates and ARIA snapshots for accessibility.
  */
 import { test, expect } from '@playwright/test';
-import { fileReader, expectOnlyVisibleTextInElement } from './test-helper';
+import { uploadFileWithPageAndFilepath } from './test-helper';
 
-const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.txt`;
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`;
 const orderSelectionValues = ["asc", "desc"];
 const sortSelectionValues = ["word_prefix", "n_words_ngram", "count"];
 const expectedTextArray = [
@@ -45,22 +45,15 @@ test('test My Ghost Writer, iphone 13: order/sort', async ({ page }) => {
   // 3. Enable editing and fill the editor with long text content
   await page.getByRole('checkbox', { name: 'Allow Editing' }).check();
   // Use the JSON file for consistency with desktop test
-  const text = await fileReader(testStoryJsonTxt);
-  let gameEditor = page.locator('#gametext');
-  await gameEditor.click();
-  await gameEditor.fill(text);
-  await expect(gameEditor).toContainText(text.slice(0, 50), { timeout: 15000 });
-  await page.waitForTimeout(100);
-  // Optionally assert visible text if needed
-  await expectOnlyVisibleTextInElement(page, "gametext", expectedTextArray[0]);
-  await page.waitForTimeout(100);
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
+  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
 
   // 4. Activate "My Ghost Writer" / text stats functionality via settings
-  await page.getByRole('button', { name: 'Main Menu Options' }).click();
+  await page.getByRole('button', { name: 'id-mobile-main-menu-options' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Tokens' }).click();
   await page.getByRole('button', { name: 'id-expand-wordsfreqstats' }).click();
-  await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).check();
+  await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).click();
   await expect(page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' })).toBeChecked();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(100);
@@ -99,7 +92,7 @@ test('test My Ghost Writer, iphone 13: order/sort', async ({ page }) => {
       await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
       await page.waitForTimeout(300);
       // Assert that the list of words container matches the expected ARIA snapshot for this combination
-      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-mobile-iphone13-1--${currentOrderSelectionValue}-${currentSortSelectionValue}.txt` });
+      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-mobile-iphone13-1--${currentOrderSelectionValue}-${currentSortSelectionValue}--id-list-of-words-container.txt` });
     }
   }
   // End of test

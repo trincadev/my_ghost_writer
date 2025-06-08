@@ -87,7 +87,7 @@ export default defineConfig({
     {
       name: 'MobileSafari',
       grep: /test-classic-landscape-mobile-iphone/,
-      use: { ...devices['iPhone 13'] },
+      use: { ...devices['iPhone 13 landscape'] },
     },
 
     {
