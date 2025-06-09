@@ -56,22 +56,28 @@ export default defineConfig({
       } //, dependencies: ["setup_classic_lite.koboldai.net"]
     },
     {
-      name: 'responsive',
-      grep: /test-classic-responsive/,
-      use: { 
-        ...devices['Desktop Chrome']
-      }
-    },/*
-    {
       name: 'firefox',
       grep: /test-classic-desktop/,
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport: { width: 1600, height: 1200 },
+      },
     },
     {
       name: 'webkit',
       grep: /test-classic-desktop/,
-      use: { ...devices['Desktop Safari'] },
-    },*/
+      use: {
+        ...devices['Desktop Safari'],
+        viewport: { width: 1600, height: 1200 },
+      },
+    },
+    {
+      name: 'responsive',
+      grep: /test-classic-responsive/,
+      use: { 
+        ...devices['Desktop Chrome'],
+      }
+    },
 
     // Test against mobile viewports. 
     {
