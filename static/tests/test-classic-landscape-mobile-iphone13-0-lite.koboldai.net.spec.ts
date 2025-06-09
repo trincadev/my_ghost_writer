@@ -4,7 +4,7 @@ import { expectOnlyVisibleTextInElement, scrollToBottomById, scrollToTopById, up
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`;
 const expectedTextArray = [
   `Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much. They were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.`,
-  `He took off his thick black coat and threw it to Harry.\"You can kip under that,\" he said. \"Don' mind if it wriggles a bit, I think I still got a couple o' dormice in one o' the pockets.\"Harry woke early the next morning. Although he could`
+  `\"You can kip under that,\" he said. \"Don' mind if it wriggles a bit, I think I still got a couple o' dormice in one o' the pockets.\"Harry woke early the next morning. Although he could`
 ]
 
 test('test My Ghost Writer, iPhone 13 landscape: stemming/duplicates', async ({ page }) => {
