@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { assertCellAndLinkAriaSnapshot, uploadFileWithPageAndFilepath } from './test-helper'
+import {
+  assertCellAndLinkAriaSnapshot,
+  scrollToBottomById,
+  scrollToTopById,
+  uploadFileWithPageAndFilepath
+} from './test-helper'
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 const expectedStringArray = [
@@ -37,14 +42,24 @@ test('test My Ghost Writer, ipad mini: navigate between the value list/tables', 
   let listOfWordsListElNth0 = listOfWordsList.getByLabel(`id-list-of-words-${0}-nth`)
   await expect(listOfWordsListElNth0).toMatchAriaSnapshot("- text: \"the: 734 reps.\"");
   await expect(listOfWordsListElNth0).toHaveAttribute("title", "stem: 'the'")
-  
-  let gameEditor = page.locator('#gametext')
+
   await page.getByText('the: 734').click();
   await page.waitForTimeout(100)
   
   await expect(currentTitleTableOfWords).toContainText('the : 734 ');
   await expect(currentTitleTableOfWords).toHaveAttribute("title", "stem: 'the'")
-  
+
+  // scroll #gametext to top to test that setCaret() still work correctly
+  await scrollToTopById(page, "gametext")
+
+  await scrollToBottomById(page, "id-current-table-of-words-scrollable");
+  const gameEditor = page.locator("#gametext")
+
+  const lastTableElement = page.getByLabel("id-table-0-row-733-nth-link")
+  await lastTableElement.click()
+  // only here assert screenshot to check for correct selection
+  await expect(gameEditor).toHaveScreenshot()
+
   await assertCellAndLinkAriaSnapshot(page, 'id-table-0-row-0-nth', "THE BOY WHO", "gametext", expectedStringArray[0]);
   await assertCellAndLinkAriaSnapshot(page, 'id-table-0-row-733-nth', "early the next", "gametext", expectedStringArray[1]);
   await assertCellAndLinkAriaSnapshot(page, 'id-table-0-row-1-nth', " were the last", "gametext", expectedStringArray[2]);

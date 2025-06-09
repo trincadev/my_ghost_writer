@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { expectOnlyVisibleTextInElement, scrollToBottomById, uploadFileWithPageAndFilepath } from './test-helper';
+import { expectOnlyVisibleTextInElement, scrollToBottomById, scrollToTopById, uploadFileWithPageAndFilepath } from './test-helper';
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`;
 const expectedTextArray = [
@@ -101,7 +101,14 @@ test('test My Ghost Writer, iPhone 13 landscape: stemming/duplicates', async ({ 
   
   await scrollToBottomById(page, "id-current-table-of-words-scrollable");
   const lastTableElement = page.getByLabel("id-table-1700-row-733-nth-link")
+
+  console.log("#")
+  await scrollToTopById(page, "gametext")
+  const gameEditor = page.locator("#gametext")
   await lastTableElement.click()
+  // only here assert screenshot to check for correct selection
+  await expect(gameEditor).toHaveScreenshot()
+
   await expect(lastTableElement).toBeVisible();
   await expect(lastTableElement).toContainText(
     "early the next"

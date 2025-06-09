@@ -11,7 +11,12 @@
  * 7. Assert correct UI updates and ARIA snapshots for accessibility.
  */
 import { test, expect, devices, Page } from "@playwright/test";
-import { expectOnlyVisibleTextInElement, scrollToBottomById, uploadFileWithPageAndFilepath } from "./test-helper";
+import {
+  expectOnlyVisibleTextInElement,
+  scrollToBottomById,
+  scrollToTopById,
+  uploadFileWithPageAndFilepath
+} from "./test-helper";
 
 export function scrollToBottom(idElement: string) {
   const element = document.getElementById(idElement);
@@ -91,7 +96,6 @@ test("test My Ghost Writer, iphone 13: navigate between the list/tables containi
     "to say that they"
   );
   await page.getByLabel("id-table-1-row-0-nth-link").click();
-  // visual snapshot
   await expectOnlyVisibleTextInElement(page, "gametext", expectedTextArray[1]);
 
   await expect(page.getByLabel("id-current-table-of-words-btn")).toBeVisible();
@@ -106,6 +110,17 @@ test("test My Ghost Writer, iphone 13: navigate between the list/tables containi
   await expect(page.getByLabel("id-table-0-row-0-nth-link")).toContainText(
     "THE BOY WHO"
   );
+
+  // scroll #gametext to top to test that setCaret() still work correctly
+  await scrollToTopById(page, "gametext")
+
+  await scrollToBottomById(page, "id-current-table-of-words-scrollable");
+  const gameEditor = page.locator("#gametext")
+
+  const lastTableElement0 = page.getByLabel("id-table-0-row-733-nth-link")
+  await lastTableElement0.click()
+  // only here assert screenshot to check for correct selection
+  await expect(gameEditor).toHaveScreenshot()
 
   await scrollToBottomById(page, "id-current-table-of-words-scrollable");
 

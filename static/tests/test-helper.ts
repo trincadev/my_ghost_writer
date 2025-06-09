@@ -196,6 +196,15 @@ export async function scrollToBottomById(page: Page, idElement: string) {
   }, idElement);
 }
 
+export async function scrollToTopById(page: Page, idElement: string) {
+  await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollTop = 0;
+    }
+  }, idElement);
+}
+
 export async function uploadFileWithPageAndFilepath(page: Page, filepath: string) {
     console.log(`preparing uploading of file '${filepath}'!`)
     await page.getByRole('link', { name: 'Save / Load' }).click();
