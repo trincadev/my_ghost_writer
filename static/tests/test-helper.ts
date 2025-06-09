@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
  
 interface CellObject {
   table: number
@@ -42,7 +42,7 @@ export const fileWriter = async (filePath: string, data: string): Promise<void> 
   }
 }
 
-export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObject, timeout=50) => {
+export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObject, timeout=50, ariaSnapshotName: string) => {
     let cellLabel = `id-table-${cellObj["table"]}-row-${cellObj["row"]}-nth`
     try {
       console.log(`current aria-label:${cellLabel}...`)
@@ -54,7 +54,7 @@ export const loopOverTablesAndClickOnUrls = async (page: Page, cellObj: CellObje
       expect(currentInnerText).toBe(cellObj.word)
       await currentCellElement.click({timeout: 1000});
       await page.waitForTimeout(timeout)
-      await expect(page.getByLabel('editor')).toHaveScreenshot(/** {stylePath: `${import.meta.dirname}/../index.css`} */);
+      await expect(page.getByLabel('editor')).toMatchAriaSnapshot({ name: ariaSnapshotName });
     } catch (err) {
       console.log("cellLabel:", cellLabel, "#")
       console.log("err:", err, "#")
@@ -107,7 +107,112 @@ export async function testWithLoop(page: Page, testLLMTextFilePath: string, cell
 
   console.log("try with a new array of tables/rows...")
   for (let idx in cellArray2) {
-    await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100)
+    await loopOverTablesAndClickOnUrls(page, cellArray2[idx], 100, `test-loop-${assertTitleString}-${idx}.txt`)
   }
   console.log("end!")
+}
+
+export async function assertCellAndLink(page: Page, gameEditor: Locator, idCell: string, expectedCellString: string, assertScreenshot: boolean = true) {
+  let tableOfWordsElNth0 = page.getByLabel(idCell).getByRole('cell');
+  await expect(tableOfWordsElNth0).toMatchAriaSnapshot(`- cell "${idCell}-link": "${expectedCellString}"`);
+  await page.getByLabel(`${idCell}-link`).click();
+  await page.waitForTimeout(100);
+  if (assertScreenshot) {
+    await expect(gameEditor).toHaveScreenshot();
+  }
+}
+
+export async function assertCellAndLinkAriaSnapshot(page: Page, idCell: string, expectedCellString: string, idElementSnapshot: string, expectedSnapshotString: string) {
+  // await assertCellAndLink(page, page.locator("not_used"), idCell, expectedCellString, false)
+  let tableOfWordsElNth0 = page.getByLabel(idCell).getByRole('cell');
+  await expect(tableOfWordsElNth0).toMatchAriaSnapshot(`- cell "${idCell}-link": "${expectedCellString}"`);
+  await page.getByLabel(`${idCell}-link`).click();
+  await page.waitForTimeout(100);
+
+  await expectOnlyVisibleTextInElement(page, idElementSnapshot, expectedSnapshotString)
+}
+
+/**
+ * @param page Playwright Page object
+ * @param idElement The id of the element to check
+ * @param expectedVisible The exact string expected to be visible in the viewport
+ */
+export async function expectOnlyVisibleTextInElement(
+  page: Page,
+  idElement: string,
+  expectedVisible: string
+) {
+  // Use bounding rects to get visible text for complex HTML
+  const visibleText = await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (!el) {
+      throw Error(`HTML element with id '${id}' not found!`)
+    }
+    const parentRect = el.getBoundingClientRect();
+    let visible = '';
+    function getVisibleText(node: Node): string {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const range = document.createRange();
+        range.selectNode(node);
+        const rects = range.getClientRects();
+        for (const rect of rects) {
+          if (
+            rect.bottom > parentRect.top &&
+            rect.top < parentRect.bottom &&
+            rect.right > parentRect.left &&
+            rect.left < parentRect.right
+          ) {
+            return node.textContent || '';
+          }
+        }
+        return '';
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        let text = '';
+        for (const child of (node as Element).childNodes) {
+          text += getVisibleText(child);
+        }
+        return text;
+      }
+      return '';
+    }
+    visible = getVisibleText(el);
+    return visible.trim();
+  }, idElement);
+  expect(visibleText).not.toBe(expectedVisible + " - error!");
+  expect(visibleText).toBe(expectedVisible);
+}
+
+/**
+ * Scrolls the element with the given id to the bottom.
+ * @param page Playwright Page object
+ * @param idElement The id of the scrollable element
+ */
+export async function scrollToBottomById(page: Page, idElement: string) {
+  await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, idElement);
+}
+
+export async function scrollToTopById(page: Page, idElement: string) {
+  await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollTop = 0;
+    }
+  }, idElement);
+}
+
+export async function uploadFileWithPageAndFilepath(page: Page, filepath: string) {
+    console.log(`preparing uploading of file '${filepath}'!`)
+    await page.getByRole('link', { name: 'Save / Load' }).click();
+    await page.waitForTimeout(100)
+    const fileChooserPromise = page.waitForEvent('filechooser');
+    await page.getByRole('button', { name: '📁 Open File' }).click();
+    const fileChooser = await fileChooserPromise;
+    await fileChooser.setFiles(filepath);
+    await page.waitForTimeout(300)
+    console.log(`file '${filepath}' uploaded!!`)
 }
