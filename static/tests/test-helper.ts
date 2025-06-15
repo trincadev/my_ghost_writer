@@ -21,6 +21,8 @@ interface CellArray {
   row: number;
   word: string;
 }
+export type ScrollToPosition = "top" | "bottom";
+export type ClickOrEnter = "click" | "Enter"
 
 export const fileReader = async (filePath: string): Promise<string> => {
   try {
@@ -141,13 +143,20 @@ export async function expectVisibleTextWithWalker(
   timeout = 10000
 ): Promise<void> {
   // First, check that the text is present in the DOM
-  console.log(`expectVisibleTextWithWalker::start!`)
+  console.log(`expectVisibleTextWithWalker::start:${idElement} => ${expectedString} #`)
   const loc = page.locator(`#${idElement}`)
-  await expect(loc).toContainText(expectedString)
+  try {
+    await expect(loc).toContainText(expectedString)
+  } catch {
+    console.error(`expectVisibleTextWithWalker, idElement ${idElement} allTextContents:`, await loc.allTextContents(), "#")
+  }
   console.log(`expectVisibleTextWithWalker::found expectedString, go ahead!`)
   await page.waitForFunction(
     ({ idElement, expected }: { idElement: string; expected: string }) => {
       const container = document.getElementById(idElement);
+      if (!!container && !container.textContent?.includes(expected)) {
+        console.error("expectVisibleTextWithWalker::DEBUG:expected:", expected, "#")
+      }
       return !!container && container.textContent?.includes(expected);
     },
     { idElement, expected: expectedString },
@@ -296,4 +305,32 @@ export async function uploadFileWithPageAndFilepath(page: Page, filepath: string
   await fileChooser.setFiles(filepath);
   await page.waitForTimeout(300)
   console.log(`file '${filepath}' uploaded!!`)
+}
+
+
+export async function assertVisibleTextAfterNavigation(page: Page, idElement: string, expectedString: string, scrollTo: ScrollToPosition, idElementContentEditable: string = "gametext") {
+  // scroll to top gametext
+  if (scrollTo === "top") {
+    await scrollToTopById(page, idElementContentEditable);
+  } else if (scrollTo === "bottom") {
+    await scrollToBottomById(page, idElementContentEditable);
+  }
+  console.log("#")
+  await page.getByLabel(idElement).click();
+  await page.waitForTimeout(200)
+  // assert visible gametext
+  await expectVisibleTextWithWalker(page, idElementContentEditable, expectedString)
+  await page.waitForTimeout(200)
+}
+
+
+export async function fillInputFieldWithString(page: Page, inputString: string, clickOrEnter: ClickOrEnter = "Enter"): Promise<void> {
+  await page.getByRole('searchbox', {name: 'Word Search Input'}).click();
+  await page.getByRole('searchbox', {name: 'Word Search Input'}).fill(inputString);
+  if (clickOrEnter === "click") {
+    await page.getByRole('button', { name: '🔎' }).click();
+  } else {
+    await page.getByRole('searchbox', {name: 'Word Search Input'}).press('Enter');
+
+  }
 }

@@ -25,7 +25,7 @@ const expectedStringArray = [
   `"Shouldn'ta lost me temper," he said ruefully, "but it didn't work anyway. Meant ter turn him into a pig, but I suppose he was so much like a pig anyway there wasn't much left ter do."`
 ]
 
-test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming and the duplicated words', async ({ page }: { page: Page }) => {
+test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming and the duplicated words, sorting results at the end', async ({ page }: { page: Page }) => {
   // 1. Connect to the local web server page
   await page.goto('http://localhost:8000/');
   // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)
@@ -97,5 +97,5 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-4.txt` });  
 
   console.log("end!")
-  page.close()
+  await page.close()
 });

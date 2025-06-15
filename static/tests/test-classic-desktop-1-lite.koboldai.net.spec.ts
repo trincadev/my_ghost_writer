@@ -10,13 +10,35 @@
  * 6. Assert correct UI updates and ARIA snapshots for accessibility.
  */
 import { test, expect } from '@playwright/test';
-import { uploadFileWithPageAndFilepath } from './test-helper';
+import {
+  assertVisibleTextAfterNavigation,
+  fillInputFieldWithString,
+  uploadFileWithPageAndFilepath
+} from './test-helper';
 
-const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
-const orderSelectionValues = ["asc", "desc"]
-const sortSelectionValues = ["word_prefix", "n_words_ngram", "count"]
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/short_text_markdown.json`
+const expectedStringArray = [
+  'Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (title)',
+  "Like my mother-in-law's B2B.",
+  "Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors. The Dursley s had a small son called Dudley and in their opinion there was no finer boy anywhere.",
 
-test('test My Ghost Writer, desktop: order/sort', async ({ page }) => {
+  "Øyvind’s café-restaurant served 12 exquisite dishes, blending flavors from à la carte menus",
+  "Like my mother-in-law's B2B.", // 4
+  "Like my mother-in-law's B2B.", // 5
+  
+  "Combined emphasis’s text with **asterisks and _underscores_**.", // 6
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (no title)", // 7
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow! (bold)", // 8
+  
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table code)!", // 9
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table, no code)!", // 10
+  "Pack my box with five dozen liquor bottles for the first time (second list, nested)!", // 11
+  "dieci", // 11
+  "uncici", // 12
+  "dodici" // 13
+]
+
+test(`test My Ghost Writer, desktop: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }) => {
   // 1. Connect to the local web server page
   await page.goto('http://localhost:8000/');
 
@@ -28,49 +50,129 @@ test('test My Ghost Writer, desktop: order/sort', async ({ page }) => {
 
   // 4. Activate "My Ghost Writer" / text stats functionality via settings
   await page.getByRole('link', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Tokens' }).click();
-  await page.waitForTimeout(100)
-  await page.getByRole('button', { name: 'id-expand-wordsfreqstats' }).click();
-  await page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' }).check();
-  // Assert that the checkbox is checked (feature is enabled)
-  await expect(page.getByRole('checkbox', { name: 'id-col2-words-frequency-enable' })).toBeChecked();
+
+  await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
+  console.log("####")
 
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.waitForTimeout(100)
-  
-  // 5. Interact with the text stats UI: filter, sort, and verify word frequency tables
-  await page.getByRole('searchbox', { name: 'filter-words-frequency' }).fill('th');
-  await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
-  await page.waitForTimeout(100)
-  // Assert that the filtered value label contains the expected text and count
-  await expect(page.getByLabel('id-filtered-value')).toContainText('th: 1701');
-  
-  // Get the list of filtered word frequency results and assert the count
-  let listOfWordsList = page.getByLabel('id-list-of-words-container').locator('list')
-  let listOfWordsListChildren = listOfWordsList.getByRole('listitem')
-  await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
-  await page.waitForTimeout(100)
-  expect(listOfWordsListChildren).toHaveCount(1701)
+  await page.getByRole('button', { name: '🔎' }).click();
+  await page.waitForTimeout(200)
 
-  // 6. Loop through all combinations of order and sort, update the UI, and assert ARIA snapshots for accessibility and regression
-  for (let currentOrderSelectionValueIdx in orderSelectionValues) {
-    let currentOrderSelectionValue = orderSelectionValues[currentOrderSelectionValueIdx]
-    for (let currentSortSelectionValueIdx in sortSelectionValues) {
-      let currentSortSelectionValue = sortSelectionValues[currentSortSelectionValueIdx]
-      // Log the current combination for debugging
-      console.log(`currentOrderSelectionValue:${currentOrderSelectionValue}, currentSelectionValue:${currentSortSelectionValue}.`)
-      // Select the order and sort options in the UI
-      await page.getByLabel('id-select-order-by').selectOption(currentOrderSelectionValue);
-      await page.getByLabel('id-select-sort-by').selectOption(currentSortSelectionValue);
-      // Re-apply the filter and wait for the UI to update
-      await page.getByRole('searchbox', { name: 'filter-words-frequency' }).fill('th');
-      await page.getByRole('searchbox', { name: 'filter-words-frequency' }).press('Enter');
-      await page.waitForTimeout(300)
-      // Assert that the list of words container matches the expected ARIA snapshot for this combination
-      await expect(page.getByLabel('id-list-of-words-container')).toMatchAriaSnapshot({ name: `test-classic-desktop-1--${currentOrderSelectionValue}-${currentSortSelectionValue}--id-list-of-words-container.txt` });
-    }
-  }
-  // End of test
-  console.log("end!")
-  page.close()
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
+    - link "id-a-candidate-1-nth":
+      - /url: "#"
+    `);
+  const wordsearch_results = page.getByLabel("wordsearch_results")
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-1-wordsearch_results-0.txt` });
+  await page.waitForTimeout(200)
+
+  await page.getByLabel('id-div-candidate-1-nth').click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-1-nth', expectedStringArray[0], "bottom", "gametext");
+  await page.waitForTimeout(200)
+
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-23-nth', expectedStringArray[1], "top", "gametext");
+
+  console.log("#### pre filling 'the du'")
+  await fillInputFieldWithString(page, `the du`);
+  await page.waitForTimeout(200)
+
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
+    - link "id-a-candidate-1-nth":
+      - /url: "#"
+      - text: neighbors. the dursley (1)
+    `);
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-1-wordsearch_results-1.txt` });
+
+  await page.getByLabel('id-div-candidate-1-nth').click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[2], "bottom", "gametext");
+
+  // needed to assert correct text selection, we have faith only one screenshot is enough =)
+  await expect(page.locator("#gametext")).toHaveScreenshot()
+  await page.waitForTimeout(200)
+
+  await fillInputFieldWithString(page, `Øyvind`);
+  await page.waitForTimeout(200)
+
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
+    - link "id-a-candidate-1-nth":
+      - /url: "#"
+      - text: øyvind’s café-restaurant (1)
+    `);
+  console.log("#####312313")
+
+  await page.getByRole('link', { name: 'id-a-candidate-1-nth' }).click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[3], "top", "gametext");
+  console.log("####2")
+  await page.waitForTimeout(200)
+
+  await fillInputFieldWithString(page, `my mother-in-law's`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+  await page.waitForTimeout(200)
+  await page.getByLabel('id-div-candidate-1-nth').click();
+  await page.waitForTimeout(200)
+  await expect(page.getByLabel('id-div-1-range-0-nth')).toMatchAriaSnapshot(`
+    - link "id-1-range-0-nth":
+      - /url: "#"
+      - text: my mother-in-law's B2B.
+    `);
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[4], "top", "gametext");
+
+  await fillInputFieldWithString(page, 'B2B');
+  await page.waitForTimeout(200)
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+
+  await page.waitForTimeout(200)
+  await expect(page.getByLabel('id-div-candidate-2-nth')).toMatchAriaSnapshot(`
+    - link "id-a-candidate-2-nth":
+      - /url: "#"
+      - text: my mother-in-law's b2b. (1)
+    `);
+  await page.waitForTimeout(200)
+  await page.getByLabel('id-div-candidate-2-nth').click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-2-range-0-nth', expectedStringArray[5], "top", "gametext");
+
+  console.log("#####_pre_sei")
+  // TODO: find a way to avoid matching html element text like buttons (find in markdown-generated CODE snippet)
+  await fillInputFieldWithString(page, 'emphasis’s text');
+
+  // scroll to top gametext
+  // id-div-candidate-0-nth
+  await page.getByLabel('id-div-candidate-0-nth').click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-0-nth', expectedStringArray[6], "top", "gametext");
+
+  await fillInputFieldWithString(page, '', "click");
+  await page.waitForTimeout(200)
+  // 1000+ results
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
+
+  console.log("#####_pre_sette")
+  await fillInputFieldWithString(page, 'pack my box');
+  await page.getByLabel('id-div-candidate-0-nth').click();
+  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (no title)", // 7
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-1-nth', expectedStringArray[7], "bottom", "gametext");
+
+  console.log("#####_pre_otto")
+  await page.waitForTimeout(200)
+  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow! (bold)", // 8
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-2-nth', expectedStringArray[8], "bottom", "gametext");
+  
+  console.log("#####_pre_nove")
+  /** Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table code)! */ // 9
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-8-nth', expectedStringArray[9], "top", "gametext");
+
+  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table, no code)!", // 10
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-9-nth', expectedStringArray[10], "top", "gametext");
+
+  // Pack my box with five dozen liquor bottles for the first time (second list, nested)!
+  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-6-nth', expectedStringArray[11], "top", "gametext");
+
+  // assert for queries spanning over new lines: will found nothing, assert 0 results found!
+  await page.getByRole('searchbox', { name: 'Word Search Input' }).click();
+  await page.getByRole('searchbox', { name: 'Word Search Input' }).fill('details. Þórir');
+  await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
+  await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`- text: 0 result(s) found`);
+  await page.close()
 });
