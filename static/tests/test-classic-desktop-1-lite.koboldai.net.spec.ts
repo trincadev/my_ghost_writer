@@ -23,19 +23,16 @@ const expectedStringArray = [
   "Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors. The Dursley s had a small son called Dudley and in their opinion there was no finer boy anywhere.",
 
   "Øyvind’s café-restaurant served 12 exquisite dishes, blending flavors from à la carte menus",
-  "Like my mother-in-law's B2B.", // 4
-  "Like my mother-in-law's B2B.", // 5
+  "Like my mother-in-law's B2B.",
+  "Like my mother-in-law's B2B.",
   
-  "Combined emphasis’s text with **asterisks and _underscores_**.", // 6
-  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (no title)", // 7
-  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow! (bold)", // 8
+  "Combined emphasis’s text with **asterisks and _underscores_**.",
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (no title)",
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow! (bold)",
   
-  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table code)!", // 9
-  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table, no code)!", // 10
-  "Pack my box with five dozen liquor bottles for the first time (second list, nested)!", // 11
-  "dieci", // 11
-  "uncici", // 12
-  "dodici" // 13
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table code)!",
+  "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table, no code)!",
+  "Pack my box with five dozen liquor bottles for the first time (second list, nested)!"
 ]
 
 test(`test My Ghost Writer, desktop: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }) => {
@@ -52,8 +49,6 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
   await page.getByRole('link', { name: 'Settings' }).click();
 
   await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
-  console.log("####")
-
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: '🔎' }).click();
   await page.waitForTimeout(200)
@@ -73,7 +68,7 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
 
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-23-nth', expectedStringArray[1], "top", "gametext");
 
-  console.log("#### pre filling 'the du'")
+  console.log("# pre filling 'the du'")
   await fillInputFieldWithString(page, `the du`);
   await page.waitForTimeout(200)
 
@@ -101,11 +96,10 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
       - /url: "#"
       - text: øyvind’s café-restaurant (1)
     `);
-  console.log("#####312313")
 
   await page.getByRole('link', { name: 'id-a-candidate-1-nth' }).click();
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[3], "top", "gametext");
-  console.log("####2")
+  console.log(`# pre-filling "my mother-in-law's"`)
   await page.waitForTimeout(200)
 
   await fillInputFieldWithString(page, `my mother-in-law's`);
@@ -134,12 +128,9 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
   await page.getByLabel('id-div-candidate-2-nth').click();
   await assertVisibleTextAfterNavigation(page, 'id-div-2-range-0-nth', expectedStringArray[5], "top", "gametext");
 
-  console.log("#####_pre_sei")
   // TODO: find a way to avoid matching html element text like buttons (find in markdown-generated CODE snippet)
   await fillInputFieldWithString(page, 'emphasis’s text');
 
-  // scroll to top gametext
-  // id-div-candidate-0-nth
   await page.getByLabel('id-div-candidate-0-nth').click();
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-0-nth', expectedStringArray[6], "top", "gametext");
 
@@ -148,25 +139,12 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
   // 1000+ results
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
 
-  console.log("#####_pre_sette")
   await fillInputFieldWithString(page, 'pack my box');
   await page.getByLabel('id-div-candidate-0-nth').click();
-  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (no title)", // 7
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-1-nth', expectedStringArray[7], "bottom", "gametext");
-
-  console.log("#####_pre_otto")
-  await page.waitForTimeout(200)
-  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow! (bold)", // 8
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-2-nth', expectedStringArray[8], "bottom", "gametext");
-  
-  console.log("#####_pre_nove")
-  /** Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table code)! */ // 9
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-8-nth', expectedStringArray[9], "top", "gametext");
-
-  // "Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (table, no code)!", // 10
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-9-nth', expectedStringArray[10], "top", "gametext");
-
-  // Pack my box with five dozen liquor bottles for the first time (second list, nested)!
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-6-nth', expectedStringArray[11], "top", "gametext");
 
   // assert for queries spanning over new lines: will found nothing, assert 0 results found!

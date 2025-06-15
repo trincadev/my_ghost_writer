@@ -506,6 +506,9 @@
   - text: anything he wanted.
 - link /id-1-range-\d+-nth/:
   - /url: "#"
+  - text: sobs. " He always sp-
+- link /id-1-range-\d+-nth/:
+  - /url: "#"
   - text: everything!" He shot Harry
 - link /id-1-range-\d+-nth/:
   - /url: "#"

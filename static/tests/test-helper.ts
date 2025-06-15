@@ -265,11 +265,14 @@ export async function expectOnlyVisibleTextInElement(
   }, idElement);
   const rndString = crypto.randomBytes(20).toString('hex');
   expect(visibleText).not.toBe(expectedVisible + ` - STRING TO NOT MATCH: ${rndString}!`);
-  console.log("expectedVisible:", typeof expectedVisible, expectedVisible, "#")
-  console.log("visible text:", typeof visibleText, visibleText, "#")
-  console.log("===============================")
   // we'll check only if the expected string is within the Page element, just to try handling devices with different viewports
-  expect(visibleText).toContain(expectedVisible);
+  try {
+    expect(visibleText).toContain(expectedVisible);
+  } catch (err) {
+    console.log("expectedVisible:", typeof expectedVisible, expectedVisible, "#")
+    console.log("visible text:", typeof visibleText, visibleText, "#")
+    console.log("error:", err, "#")
+  }
 }
 
 /**

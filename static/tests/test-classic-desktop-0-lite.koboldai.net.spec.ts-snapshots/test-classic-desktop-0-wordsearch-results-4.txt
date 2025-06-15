@@ -333,6 +333,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
   - text: /professor mcgonagall \(\d+\)/
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -1294,6 +1298,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: professor mcgonagall. (5)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1686,7 +1691,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall. (4)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1727,6 +1731,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: professor mcgonagall, (4)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1979,7 +1984,34 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said uncle vernon, (4)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2495,11 +2527,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall, (3)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2633,8 +2660,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor dumbledore, (3)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3324,11 +3349,21 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
   - text: pretended she didn't (2)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -4221,11 +4256,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"my dear professor, (2)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said professor mcgonagall. (2)
@@ -4295,15 +4325,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: said dumbledore. "we (2)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: said dumbledore. we (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -4711,10 +4733,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: spotted handkerchief (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -5021,6 +5039,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: don't ask questions (2)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -5144,6 +5169,12 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: remote control airplane, (2)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -5701,7 +5732,31 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
   - text: he couldn't remember (2)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -6659,17 +6714,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said hagrid. "harry (2)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -6863,9 +6907,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: somethin' about you (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: somethin' about you (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -8259,13 +8303,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: walls. "little tyke," (1)
+  - text: walls. little tyke, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"little tyke,\" chortled (1)"
+  - text: little tyke, chortled (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: tyke," chortled mr. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: chortled mr. dursley (1)
@@ -8525,8 +8568,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dursley blinked and (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -9003,8 +9044,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: emerald-green cloak (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -10124,9 +10163,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"the potters, that's (1)"
+  - text: the potters, that's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: potters, that's right, (1)
@@ -10181,26 +10218,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: mr. dursley stopped (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dursley stopped dead. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -10947,11 +10968,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"sorry,\" he grunted, (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -11068,7 +11084,7 @@
   - text: made passersby stare, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: passersby stare, "don't (1)
+  - text: passersby stare, don't (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -11131,14 +11147,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: celebrating, this happy, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -11530,8 +11538,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: mr. dursley loudly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -11800,10 +11806,14 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
   - text: next door's problems (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: door's problems with (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12067,7 +12077,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"and finally, bird-watchers (1)"
+  - text: and finally, bird-watchers (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: finally, bird-watchers everywhere (1)
@@ -12195,13 +12205,13 @@
   - text: changed their sleeping (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: their sleeping pattern." (1)
+  - text: their sleeping pattern. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sleeping pattern." the (1)
+  - text: sleeping pattern. the (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: pattern." the newscaster (1)
+  - text: pattern. the newscaster (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: the newscaster allowed (1)
@@ -12216,10 +12226,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: grin. "most mysterious. (1)
+  - text: grin. most mysterious. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"most mysterious. and (1)"
+  - text: most mysterious. and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: mysterious. and now, (1)
@@ -12255,9 +12265,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: owls tonight, jim?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12409,7 +12416,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: weatherman, "i don't (1)
+  - text: weatherman, i don't (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12562,7 +12569,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: wet night tonight." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12793,7 +12799,7 @@
   - text: his throat nervously. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: throat nervously. "er (1)
+  - text: throat nervously. er (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12897,13 +12903,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said sharply. "why?" (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -12956,7 +12955,7 @@
   - text: mr. dursley mumbled. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dursley mumbled. "owls (1)
+  - text: dursley mumbled. owls (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -13131,8 +13130,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: mrs. dursley sipped (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -13178,7 +13175,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"potter.\" he decided (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -13188,8 +13184,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: didn't dare. instead (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -13283,11 +13277,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"harry. nasty, common (1)"
+  - text: harry. nasty, common (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: nasty, common name, (1)
@@ -13333,14 +13323,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: heart sinking horribly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sinking horribly. "yes, (1)
+  - text: sinking horribly. yes, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -14876,12 +14862,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: muttered, "i should (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: should have known." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -15380,17 +15364,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: you here, professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: here, professor mcgonagall." (1)
+  - text: here, professor mcgonagall. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -15642,8 +15621,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: dear professor, i've (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -15704,17 +15681,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: day," said professor (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: day, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -15840,10 +15807,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: everyone's celebrating, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -15853,9 +15816,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: impatiently. "you'd (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -15934,8 +15894,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: something. shooting (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -15963,7 +15921,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"oh yes, everyone's (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: yes, everyone's celebrating, (1)
@@ -15972,7 +15929,7 @@
   - text: everyone's celebrating, all (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: celebrating, all right," (1)
+  - text: celebrating, all right, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -15982,13 +15939,12 @@
   - text: she said impatiently. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said impatiently. "you'd (1)
+  - text: said impatiently. you'd (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: impatiently. "you'd think (1)
+  - text: impatiently. you'd think (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"you'd think they'd (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16053,7 +16009,7 @@
   - text: dark living-room window. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: living-room window. "i (1)
+  - text: living-room window. i (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16174,24 +16130,17 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: them," said dumbledore (1)
+  - text: them, said dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore gently. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore gently. "we've (1)
+  - text: dumbledore gently. we've (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"we've had precious (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: had precious little (1)
@@ -16222,7 +16171,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: that," said professor (1)
+  - text: that, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor mcgonagall irritably. (1)
@@ -16329,9 +16278,7 @@
   - text: muggle clothes, swapping (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: clothes, swapping rumors." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: clothes, swapping rumors. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16521,11 +16468,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: has gone, dumbledore?" (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: has gone, dumbledore? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16558,18 +16501,17 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"it certainly seems (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: certainly seems so," (1)
+  - text: certainly seems so, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: so," said dumbledore. (1)
+  - text: so, said dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore. "we have (1)
+  - text: dumbledore. we have (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16583,8 +16525,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: thankful for. would (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16684,11 +16624,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: you," said professor (1)
+  - text: you, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor mcgonagall coldly, (1)
@@ -16812,16 +16748,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: voldemort." professor (1)
+  - text: voldemort. professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: mcgonagall flinched, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -16946,13 +16876,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "proper name: voldemort.\" (1)"
+  - text: "proper name: voldemort. (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "name: voldemort.\" professor (1)"
+  - text: "name: voldemort. professor (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: voldemort." professor mcgonagall (1)
+  - text: voldemort. professor mcgonagall (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor mcgonagall flinched, (1)
@@ -17037,7 +16967,7 @@
   - text: of saying voldemort's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: saying voldemort's name." (1)
+  - text: saying voldemort's name. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17106,9 +17036,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: haven't," said professor (1)
+  - text: haven't, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said professor mcgonagall, (1)
@@ -17129,13 +17057,12 @@
   - text: exasperated, half admiring. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: half admiring. "but (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: admiring. "but you're (1)
+  - text: admiring. but you're (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"but you're different. (1)"
+  - text: but you're different. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: you're different. everyone (1)
@@ -17170,7 +17097,6 @@
   - text: voldemort, was frightened (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: was frightened of." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17203,25 +17129,19 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: me," said dumbledore (1)
+  - text: me, said dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore calmly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore calmly. "voldemort (1)
+  - text: dumbledore calmly. voldemort (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: calmly. "voldemort had (1)
+  - text: calmly. voldemort had (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"voldemort had powers (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: voldemort had powers (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17252,7 +17172,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"only because you're (1)"
+  - text: only because you're (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17390,8 +17310,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: professor mcgonagall shot (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -17464,12 +17382,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: what finally stopped (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: finally stopped him?" (1)
+  - text: finally stopped him? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17558,15 +17474,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: whatever "everyone" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17687,8 +17594,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: she fixed dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -17723,13 +17628,13 @@
   - text: plain that whatever (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: that whatever "everyone" (1)
+  - text: that whatever everyone (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: whatever "everyone" was (1)
+  - text: whatever everyone was (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"everyone\" was saying, (1)"
+  - text: everyone was saying, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17837,23 +17742,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: what they're saying, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: they're saying, she (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"what they're saying,\" (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: they're saying," she (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: saying," she pressed (1)
+  - text: saying, she pressed (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -17881,8 +17776,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: godric's hollow. he (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18005,18 +17898,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: dumbledore reached out (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -18058,17 +17939,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: professor mcgonagall's (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18340,21 +18211,19 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: it's true? faltered (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: it's true?" faltered (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: true?" faltered professor (1)
+  - text: true? faltered professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: faltered professor mcgonagall. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall. "after (1)
+  - text: professor mcgonagall. after (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mcgonagall. "after all (1)
+  - text: mcgonagall. after all (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18427,7 +18296,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: did harry survive?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18450,14 +18318,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: guess, said dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: guess," said dumbledore. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: dumbledore. "we may (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18739,12 +18602,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: and said, "hagrid's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said, "hagrid's late. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: said, hagrid's late. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18795,10 +18655,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"yes,\" said professor (1)"
+  - text: yes, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall. "and (1)
+  - text: professor mcgonagall. and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18811,8 +18671,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: suppose you're going (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -18932,7 +18790,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: here?" cried professor (1)
+  - text: here? cried professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: cried professor mcgonagall, (1)
@@ -19030,16 +18888,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: number four. dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: number four. "dumbledore (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: four. "dumbledore — (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19184,21 +19035,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: him," said dumbledore (1)
+  - text: him, said dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore firmly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore firmly. "his (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: dumbledore firmly. his (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19250,10 +19093,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: mcgonagall faintly, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -19261,7 +19100,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"really, dumbledore, (1)"
+  - text: really, dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19328,14 +19167,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"a letter?\" repeated (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: letter?" repeated professor (1)
+  - text: letter? repeated professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: repeated professor mcgonagall (1)
@@ -19354,10 +19186,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: wall. "really, dumbledore, (1)
+  - text: wall. really, dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"really, dumbledore, you (1)"
+  - text: really, dumbledore, you (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dumbledore, you think (1)
@@ -19559,9 +19391,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"exactly,\" said dumbledore, (1)"
+  - text: exactly, said dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore, looking (1)
@@ -19583,9 +19413,7 @@
   - text: his half-moon glasses. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: half-moon glasses. "it (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: half-moon glasses. it (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19634,8 +19462,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: even remember can't (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19795,13 +19621,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: getting here, dumbledore?" (1)
+  - text: getting here, dumbledore? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: here, dumbledore?" she (1)
+  - text: here, dumbledore? she (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore?" she eyed (1)
+  - text: dumbledore? she eyed (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19836,9 +19662,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"hagrid's bringing him.\" (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: hagrid's bringing him. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19885,7 +19709,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: important as this?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19908,11 +19731,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: life," said dumbledore. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: life, said dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -19978,18 +19797,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: place," said professor (1)
+  - text: place, said professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor mcgonagall grudgingly, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mcgonagall grudgingly, "but (1)
+  - text: mcgonagall grudgingly, but (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: grudgingly, "but you (1)
+  - text: grudgingly, but you (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20511,8 +20328,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: dumbledore, sounding (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -20530,9 +20345,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"hagrid,\" said dumbledore, (1)"
+  - text: hagrid, said dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore, sounding (1)
@@ -20541,10 +20354,7 @@
   - text: dumbledore, sounding relieved. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sounding relieved. "at (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: relieved. "at last. (1)
+  - text: sounding relieved. at (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20559,9 +20369,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: get that motorcycle?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: get that motorcycle? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20612,20 +20422,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"borrowed it, professor (1)"
+  - text: borrowed it, professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: it, professor dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor dumbledore, sir," (1)
+  - text: professor dumbledore, sir, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore, sir," said (1)
+  - text: dumbledore, sir, said (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20651,10 +20457,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: spoke. "young sirius (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"young sirius black (1)"
+  - text: spoke. young sirius (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20683,7 +20486,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: problems, were there?" (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: problems, were there? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20764,6 +20569,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: the muggles started (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: muggles started swarmin' (1)
@@ -20772,6 +20578,7 @@
   - text: started swarmin' around. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: swarmin' around. he (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20786,7 +20593,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: flyin' over bristol." (1)
+  - text: flyin' over bristol. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20896,6 +20703,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: jet-black hair over (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20904,6 +20712,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: forehead they could (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20929,6 +20738,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: whispered professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20939,7 +20749,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "?\" whispered professor (1)"
+  - text: "? whispered professor (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: whispered professor mcgonagall. (1)
@@ -20959,17 +20769,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"yes,\" said dumbledore. (1)"
+  - text: yes, said dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said dumbledore. "hell (1)
+  - text: said dumbledore. hell (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore. "hell have (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: dumbledore. hell have (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -20994,11 +20800,11 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: about it, dumbledore?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: about it, dumbledore? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -21312,10 +21118,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: very scratchy, whiskery (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -21360,27 +21162,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: shhh hissed professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: hissed professor mcgonagall, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall, "you'll (1)
+  - text: professor mcgonagall, you'll (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mcgonagall, "you'll wake (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: mcgonagall, you'll wake (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -21447,7 +21238,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"s-s-sorry,\" sobbed hagrid, (1)"
+  - text: s-s-sorry, sobbed hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: sobbed hagrid, taking (1)
@@ -21465,8 +21256,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: handkerchief and burying (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -21642,10 +21431,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: be found," professor (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: found," professor mcgonagall (1)
+  - text: found, professor mcgonagall (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: professor mcgonagall whispered, (1)
@@ -21956,20 +21744,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"well,\" said dumbledore (1)"
+  - text: well, said dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore finally, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore finally, "that's (1)
+  - text: dumbledore finally, that's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: finally, "that's that. (1)
+  - text: finally, that's that. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -21999,7 +21783,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: join the celebrations." (1)
+  - text: join the celebrations. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -22080,7 +21864,7 @@
   - text: — professor dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor dumbledore, sir." (1)
+  - text: professor dumbledore, sir. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -22224,7 +22008,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: professor mcgonagall," (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -22253,17 +22036,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: expect, professor mcgonagall, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: professor mcgonagall, said (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: expect, professor mcgonagall," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: professor mcgonagall," said (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: mcgonagall," said dumbledore, (1)
+  - text: mcgonagall, said dumbledore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said dumbledore, nodding (1)
@@ -22541,7 +22320,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: harry," he murmured. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -23009,10 +22787,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: moment, people meeting (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -23245,14 +23019,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: wearing different-colored (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: different-colored bonnets (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -23855,14 +23625,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: she screeched. harry (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -24006,17 +23768,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"nearly,\" said harry. (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -24103,7 +23854,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: on duddy's birthday." (1)
+  - text: on duddy's birthday. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -24143,7 +23894,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"nothing, nothing ...\" (1)"
+  - text: nothing, nothing ... (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -25114,21 +24865,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: don't ask questions." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: don't ask questions. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -25186,8 +24923,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: uncle vernon entered (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -25725,11 +25460,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"thirty-six,\" he said, (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: thirty-six, he said, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -25800,7 +25531,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"darling, you haven't (1)"
+  - text: darling, you haven't (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -25895,17 +25626,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: all right, thirty-seven (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: right, thirty-seven then, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"all right, thirty-seven (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: right, thirty-seven then," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: thirty-seven then," said (1)
+  - text: thirty-seven then, said (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -26172,19 +25899,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: thirty-nine, sweetums, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"thirty-nine, sweetums,\" (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"thirty-nine, sweetums,\" said (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: sweetums," said aunt (1)
+  - text: thirty-nine, sweetums, said (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -26225,9 +25945,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: nearest parcel. "all (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -26237,8 +25954,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: uncle vernon chuckled. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -26509,18 +26224,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: telephone looking both (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27078,18 +26781,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: marge," uncle vernon (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: uncle vernon suggested. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27225,7 +26917,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"what about what's-her-name, (1)"
+  - text: what about what's-her-name, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: about what's-her-name, your (1)
@@ -27250,19 +26942,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: vacation in majorca," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: in majorca," snapped (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: majorca," snapped aunt (1)
+  - text: vacation in majorca, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: majorca, snapped aunt (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27435,11 +27120,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: ruins?" she snarled. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27519,12 +27199,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: aunt petunia slowly, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: petunia slowly, "... (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27746,22 +27423,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"dinky duddydums, don't (1)"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: dinky duddydums, don't (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: duddydums, don't cry, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -27908,8 +27575,7 @@
   - text: sp- spoils everything (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: spoils everything he (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -28397,13 +28063,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: harry's, "i'm warning (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: harry's, i'm warning (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -28446,7 +28106,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: now until christmas." (1)
+  - text: now until christmas. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -28465,14 +28125,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: anything, said harry, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: anything," said harry, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: said harry, "honestly (1)
+  - text: said harry, honestly (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -28800,10 +28456,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: kitchen scissors and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -28845,10 +28497,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: that horrible scar." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: horrible scar." dudley (1)
+  - text: horrible scar. dudley (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -29637,8 +29288,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: figg's cabbage-smelling (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -29893,7 +29542,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: the young hoodlums," (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -29941,12 +29589,11 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: about a motorcycle," (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: motorcycle," said harry, (1)
+  - text: motorcycle, said harry, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said harry, remembering (1)
@@ -29955,7 +29602,7 @@
   - text: harry, remembering suddenly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: remembering suddenly. "it (1)
+  - text: remembering suddenly. it (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -30004,9 +29651,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "mustache: \"motorcycles (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: "mustache: motorcycles (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -30064,15 +29709,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "a mustache: \"motorcycles (1)"
+  - text: "a mustache: motorcycles (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "mustache: \"motorcycles dont (1)"
+  - text: "mustache: motorcycles dont (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"motorcycles dont fly (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: motorcycles dont fly (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -30358,8 +30001,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dursleys bought dudley (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -31164,8 +30805,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: snakes were crawling (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -31390,8 +31029,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: father. uncle vernon (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -31451,9 +31088,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: again," dudley ordered. (1)
+  - text: again, dudley ordered. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dudley ordered. uncle (1)
@@ -31506,11 +31141,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: boring," dudley moaned. (1)
+  - text: boring, dudley moaned. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32051,13 +31682,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: know," harry murmured (1)
+  - text: know, harry murmured (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: harry murmured through (1)
@@ -32092,7 +31717,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: be really annoying." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32132,10 +31756,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: from, anyway?" harry (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: anyway?" harry asked. (1)
+  - text: anyway? harry asked. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32188,8 +31809,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: boa constrictor, brazil. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32364,11 +31983,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: deafening shout behind (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32536,10 +32151,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: said, punching harry (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -32569,8 +32180,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: concrete floor. what (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32857,7 +32466,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: voice said, "brazil, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -32870,23 +32478,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: ... thanksss, amigo." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: ... thanksss, amigo. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -33294,9 +32886,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: weren't you, harry?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -33733,8 +33322,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: years, ten miserable (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -33780,8 +33367,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: couldn't remember being (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -33901,10 +33486,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: remember his parents (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -34630,11 +34211,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: disagree with dudley's (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -34858,8 +34435,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: crossed privet drive (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -35395,13 +34970,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"they stuff people's (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: stuff people's heads (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -35435,7 +35003,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: upstairs and practice?" (1)
+  - text: upstairs and practice? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -35494,7 +35062,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: thanks," said harry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -35512,8 +35079,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: anything as horrible (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -36467,10 +36032,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: new school uniform," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: school uniform," she (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -36563,20 +36124,11 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: stupid, snapped aunt (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: stupid," snapped aunt (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: petunia. "i'm dyeing (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -36613,7 +36165,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: when i've finished." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -36972,16 +36523,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: your smelting stick, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: smelting stick, dudley." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: smelting stick, dudley. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -37667,14 +37212,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: shouted uncle vernon (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -37887,21 +37424,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: informed aunt petunia. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -37933,17 +37456,15 @@
   - text: said dudley suddenly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dudley suddenly. "dad, (1)
+  - text: dudley suddenly. dad, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: suddenly. "dad, harry's (1)
+  - text: suddenly. dad, harry's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: harry's got something (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -38255,18 +37776,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: p-p-petunia he gasped. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -38572,16 +38082,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: said harry furiously, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: harry furiously, "as (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -38640,18 +38143,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: inside its envelope. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -38947,15 +38438,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"vernon,\" aunt petunia (1)"
+  - text: vernon, aunt petunia (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -38968,9 +38451,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: quivering voice, "look (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: quivering voice, look (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39007,7 +38488,6 @@
   - text: they're watching the (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: watching the house?" (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39046,9 +38526,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: following us," muttered (1)
+  - text: following us, muttered (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39261,15 +38739,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dangerous nonsense?" (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39293,7 +38762,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: that dangerous nonsense?" (1)
+  - text: that dangerous nonsense? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39382,12 +38851,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"where's my letter?\" (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: letter?" said harry, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39408,7 +38875,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: door. "who's writing (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39453,11 +38919,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: mistake," said uncle (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: uncle vernon shortly. (1)
@@ -39497,7 +38958,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mistake," said harry (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39548,12 +39008,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: silence yelled uncle (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: yelled uncle vernon, (1)
@@ -39604,10 +39059,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: looked quite painful. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39713,7 +39164,7 @@
   - text: into dudley's second (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dudley's second bedroom." (1)
+  - text: dudley's second bedroom. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39738,19 +39189,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: ask questions snapped (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"don't ask questions (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: questions snapped his (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39764,11 +39206,7 @@
   - text: this stuff upstairs, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: stuff upstairs, now." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: stuff upstairs, now. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -39956,8 +39394,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: first-ever television (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -40706,8 +40142,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: morning at breakfast, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -40915,12 +40349,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: arrived, uncle vernon, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -40984,13 +40412,11 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: he shouted, "there's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: shouted, "there's another (1)
+  - text: shouted, there's another (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"there's another one (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -41003,8 +40429,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: the smallest bedroom, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -41333,20 +40757,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: mean, your bedroom," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: bedroom," he wheezed (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -41773,11 +41183,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: trodden on something (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -42258,12 +41664,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: deliver them they'll (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -42289,9 +41689,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: that'll work, vernon." (1)
+  - text: that'll work, vernon. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -42709,9 +42107,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hummed "tiptoe through (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: hummed tiptoe through (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -43035,9 +42431,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: badly?" dudley asked (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -43157,7 +42550,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sundays," he reminded (1)
+  - text: sundays, he reminded (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -43179,9 +42572,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: newspapers, "no damn (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -43452,8 +42842,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: uncle vernon slammed (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -43477,8 +42865,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: still streaming into (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -43634,11 +43020,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: clothes. no arguments (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -44003,12 +43385,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: opposite direction for (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -44721,15 +44097,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: uncle vernon knocked (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -44786,8 +44154,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: quickly and following (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -45246,28 +44612,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"the great humberto's (1)"
+  - text: the great humberto's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: humberto's on tonight. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -45748,14 +45098,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: most miserable little (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -45837,15 +45179,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: forecast for tonight (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -45863,20 +45197,17 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hands together. "and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"and this gentleman's (1)"
+  - text: and this gentleman's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: this gentleman's kindly (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: gentleman's kindly agreed (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -46027,11 +45358,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: rations," said uncle (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -46600,8 +45926,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: thought didn't cheer (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -47552,8 +46876,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: that funny crunching (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -47806,7 +47128,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"where's the cannon?\" (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -48028,13 +47349,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: deafening crash landed (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -48465,8 +47780,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: crouching, terrified, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -48556,19 +47869,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: fierce, wild, shadowy (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -48734,11 +48035,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: breaking and entering (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -49124,10 +48421,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: slightly squashed box. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -49299,10 +48592,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: i haven't introduced (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -49326,7 +48615,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: grounds at hogwarts." (1)
+  - text: grounds at hogwarts. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -49425,9 +48714,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hands together. "i'd (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50072,13 +49358,12 @@
   - text: vernon said sharply, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said sharply, "don't (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sharply, "don't touch (1)
+  - text: sharply, don't touch (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"don't touch anything (1)"
+  - text: don't touch anything (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50140,8 +49425,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: need fattenin' anymore, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -50151,9 +49434,7 @@
   - text: anymore, dursley, don' (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dursley, don' worry." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: dursley, don' worry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50404,19 +49685,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: said, "everyone does. (1)
+  - text: said, everyone does. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50453,11 +49722,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hogwarts, o' course." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: hogwarts, o' course. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50513,9 +49778,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"sorry?\" barked hagrid, (1)"
+  - text: sorry? barked hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: barked hagrid, turning (1)
@@ -50532,8 +49795,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dursleys, who shrank (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50707,15 +49968,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: what? hagrid thundered. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: what?" hagrid thundered. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hagrid thundered. "now (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: thundered. "now wait (1)
+  - text: hagrid thundered. now (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -50849,7 +50105,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dursleys, "that this (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51050,7 +50305,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: yer parents' world." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51081,7 +50335,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: to explode. "dursley (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51096,24 +50349,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: like "mimblewimble." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"mimblewimble.\" hagrid (1)"
+  - text: mimblewimble. hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51142,22 +50378,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sounded like "mimblewimble." (1)
+  - text: sounded like mimblewimble. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: like "mimblewimble." hagrid (1)
+  - text: like mimblewimble. hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"mimblewimble.\" hagrid stared (1)"
+  - text: mimblewimble. hagrid stared (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: hagrid stared wildly (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51214,9 +50444,7 @@
   - text: they're famous. you're (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: famous. you're famous." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: famous. you're famous. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51338,14 +50566,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: uncle vernon suddenly (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -51380,13 +50600,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: commanded. "stop right (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: commanded. stop right (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51782,12 +50996,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: whistling wind could (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -51809,7 +51017,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: what?" gasped harry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -51910,15 +51117,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: course," said hagrid, (1)
+  - text: course, said hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said hagrid, sitting (1)
@@ -52494,7 +51693,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: stammered, "what does (1)
+  - text: stammered, what does (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -52634,7 +51833,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"gallopin' gorgons, that (1)"
+  - text: gallopin' gorgons, that (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: gorgons, that reminds (1)
@@ -53107,8 +52306,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: said harry, interested. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -53168,15 +52365,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: muggle," said hagrid, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: muggle, said hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -53269,28 +52458,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: rubbish," said uncle (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: uncle vernon, "swore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -53475,7 +52642,7 @@
   - text: aunt petunia suddenly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: petunia suddenly. "knew\ (1)
+  - text: petunia suddenly. knew\ (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -54092,28 +53259,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: crash roared hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: roared hagrid, jumping (1)
@@ -54214,13 +53360,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: why? what happened?" (1)
+  - text: what happened? harry (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: what happened?" harry (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: happened?" harry asked (1)
+  - text: happened? harry asked (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: harry asked urgently. (1)
@@ -54343,21 +53486,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: never expected this," (1)
+  - text: never expected this, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -54465,9 +53594,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hogwarts not knowin'." (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: hogwarts not knowin'. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -54798,17 +53925,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"gulpin' gargoyles, harry, (1)"
+  - text: gulpin' gargoyles, harry, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: gargoyles, harry, people (1)
@@ -54917,9 +54034,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: down? harry suggested. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: down?" harry suggested. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -55154,24 +54271,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: voldemort. hagrid shuddered. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: hagrid shuddered. don' (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: — voldemort." hagrid (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: voldemort." hagrid shuddered. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hagrid shuddered. "don' (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: shuddered. "don' make (1)
+  - text: shuddered. don' make (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -55713,13 +54819,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: living, on halloween (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -55907,7 +55007,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"you-know-who killed (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -56080,13 +55179,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "\"you-know-who killed 'em. (1)"
+  - text: you-know-who killed 'em. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -56321,11 +55414,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: mckinnons, the bones, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -56491,8 +55580,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: remembered something else, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -56715,10 +55802,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: fists were clenched. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -57057,12 +56140,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: moment, hagrid leapt (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -57114,11 +56191,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: warning you, dursley (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -57276,10 +56349,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"that's better,\" said (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: better," said hagrid, (1)
+  - text: better, said hagrid, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: said hagrid, breathing (1)
@@ -57377,9 +56449,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mean, you- know-who?" (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: mean, you- know-who? (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -57441,7 +56511,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "\"good question, harry. (1)"
+  - text: good question, harry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: question, harry. disappeared. (1)
@@ -57486,12 +56556,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: biggest myst'ry, see (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -57717,8 +56781,6 @@
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: reckon they could've (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -58228,12 +57290,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: defeated the greatest (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -58327,22 +57383,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: his surprise, hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: surprise, hagrid chuckled. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -58688,8 +57732,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: his revenge, without (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
@@ -58793,9 +57835,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: hagrid. harry potter, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hagrid. "harry potter, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -58820,7 +57862,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: famous at hogwarts." (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -59123,20 +58164,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: him, growled hagrid. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: him," growled hagrid. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: growled hagrid. "stop (1)
+  - text: growled hagrid. stop (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -59333,17 +58364,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: yelled uncle vernon. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -59429,11 +58450,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: thundered, "— insult (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -60028,23 +59044,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: anyone at hogwarts," (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -60139,17 +59138,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: magic?" asked harry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -60314,7 +59302,7 @@
   - text: gamekeeper. great man, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: great man, dumbledore." (1)
+  - text: great man, dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -60387,22 +59375,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: tomorrow, said hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: tomorrow," said hagrid (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hagrid loudly. "gotta (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: hagrid loudly. gotta (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:

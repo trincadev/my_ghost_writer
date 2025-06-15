@@ -11,8 +11,6 @@
  */
 import { test, expect, Page } from '@playwright/test';
 import {
-  assertCellAndLinkAriaSnapshot,
-  expectOnlyVisibleTextInElement,
   expectVisibleTextWithWalker,
   scrollToBottomById,
   scrollToTopById,
@@ -42,14 +40,15 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
   await page.waitForTimeout(200)
 
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d+ result\\(s\\) found/`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /2\\d\\d\\d\\d result\\(s\\) found/`);
+  // await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d+ result\\(s\\) found/`);
   const wordsearch_results = page.getByLabel("wordsearch_results")
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-0.txt` });
 
-  await expect(page.getByLabel('wordsearch_results')).not.toContainText('404 results');
+  await expect(page.getByLabel('wordsearch_results')).not.toMatchAriaSnapshot(`- text: /40\\d results/`);
   await page.getByLabel('id-div-candidate-1-nth').click();
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('wordsearch_results')).toContainText('404 results');
+  await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`- text: /40\\d results/`);
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-1.txt` });
 
   await scrollToBottomById(page, "gametext")
@@ -77,7 +76,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   await expect(clickedElement).toMatchAriaSnapshot(`
     - link "id-1-range-398-nth":
       - /url: "#"
-      - text: suppose he was so much
+      - text: temper," he said ruefully,
     `);
   await clickedElement.click();
   await page.waitForTimeout(200)
@@ -93,7 +92,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-3.txt` });
 
   await page.getByRole('button', { name: '🔎' }).click();
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d+ result\\(s\\) found/`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /2\\d\\d\\d\\d result\\(s\\) found/`);
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-4.txt` });  
 
   console.log("end!")
