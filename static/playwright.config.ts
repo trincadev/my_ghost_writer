@@ -49,7 +49,6 @@ export default defineConfig({
     // { name: 'setup_classic_lite.koboldai.net', testMatch: 'setup-classic-lite.koboldai.net.ts' },
     {
       name: 'chromium',
-      grep: /test-classic-desktop/,
       use: { 
         ...devices['Desktop Chrome'],
         viewport: { width: 1600, height: 1200 },
@@ -57,7 +56,6 @@ export default defineConfig({
     },
     {
       name: 'firefox',
-      grep: /test-classic-desktop/,
       use: {
         ...devices['Desktop Firefox'],
         viewport: { width: 1600, height: 1200 },
@@ -65,75 +63,74 @@ export default defineConfig({
     },
     {
       name: 'webkit',
-      grep: /test-classic-desktop/,
       use: {
         ...devices['Desktop Safari'],
         viewport: { width: 1600, height: 1200 },
       },
     },
     {
-      name: 'responsive',
-      grep: /test-classic-responsive/,
+      name: 'responsivePortrait',
       use: { 
         ...devices['Desktop Chrome'],
+        viewport: { width: 600, height: 1260 },
+      }
+    },
+    {
+      name: 'responsiveLandscape',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 2000, height: 600 },
       }
     },
 
-    // Test against mobile viewports. 
+    // Test against mobile viewports.
     {
       name: 'MobileChrome',
-      grep: /test-classic-mobile-pixel/,
       use: { ...devices['Pixel 7'] },
     },
     {
-      name: 'MobileSafari',
-      grep: /test-classic-mobile-iphone/,
-      use: { ...devices['iPhone 13'] },
+      name: 'MobileChromeLandscape',
+      use: { ...devices['Pixel 7 landscape'] },
     },
     {
       name: 'MobileSafari',
-      grep: /test-classic-landscape-mobile-iphone/,
+      use: { ...devices['iPhone 13'] },
+    },
+    {
+      name: 'MobileSafariLandscape',
       use: { ...devices['iPhone 13 landscape'] },
     },
 
     {
       name: 'iPad (gen 7)',
-      grep: /test-classic-ipad-seven/,
       use: { ...devices['iPad (gen 7)'] }
     },
     {
       name: 'iPad (gen 7) landscape',
-      grep: /test-classic-landscape-ipad-seven/,
       use: { ...devices['iPad (gen 7) landscape'] }
     },
     {
       name: 'iPad (gen 11)',
-      grep: /test-classic-ipad-eleven/,
       use: { ...devices['iPad (gen 11)'] }
     },
     {
       name: 'iPad (gen 11) landscape',
-      grep: /test-classic-landscape-ipad-eleven/,
       use: { ...devices['iPad (gen 11) landscape'] }
     },
     {
       name: 'iPad Mini',
-      grep: /test-classic-ipad-mini/,
       use: { ...devices['iPad Mini'] }
     },
     {
       name: 'iPad Mini landscape',
-      grep: /test-classic-landscape-ipad-mini/,
       use: { ...devices['iPad Mini landscape'] }
     },
     {
       name: 'iPad Pro 11',
-      grep: /test-classic-ipad-pro/,
       use: { ...devices['iPad Pro 11'] }
     },
     {
       name: 'iPad Pro 11 landscape',
-      grep: /test-classic-landscape-ipad-pro/,
       use: { ...devices['iPad Pro 11 landscape'] }
     }
     /*

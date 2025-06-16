@@ -346,9 +346,22 @@ export async function initTest(page: Page, workerInfo: TestInfo, filepath: strin
   // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)
   await page.getByRole('button', { name: 'Set UI' }).click();
 
+  const mobileButtonGlobalMenu = page.getByRole('button', { name: 'id-mobile-main-menu-options' })
+  if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
+    await mobileButtonGlobalMenu.click();
+    await page.waitForTimeout(200)
+    console.log("#found mobile button for global menu, open it to prepare json story upload!")
+  }
+
   // 3. Upload a saved JSON story file to provide long text content for analysis
   await uploadFileWithPageAndFilepath(page, filepath)
   // activate wordsearch
+  
+  if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
+    await mobileButtonGlobalMenu.click();
+    await page.waitForTimeout(200)
+    console.log("#found mobile button for global menu, open it to toggle word search!")
+  }
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
   await page.getByRole('button', { name: 'OK' }).click();
