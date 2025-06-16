@@ -1,8 +1,0 @@
-- text: 3 result(s) found
-- link "id-a-candidate-0-nth":
-  - /url: "#"
-- link "id-a-candidate-1-nth":
-  - /url: "#"
-  - text: neighbors. the dursley (1)
-- link "id-a-candidate-2-nth":
-  - /url: "#"

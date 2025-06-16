@@ -9,13 +9,13 @@
  * 5. Interact with the text stats UI: filter, sort, and verify word frequency tables.
  * 6. Assert correct UI updates and ARIA snapshots for accessibility.
  */
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import {
   assertVisibleTextAfterNavigation,
-  fillInputFieldWithString,
-  uploadFileWithPageAndFilepath
+  fillInputFieldWithString, initTest
 } from './test-helper';
 
+const expectedAriaSnapshotOnly10moreOrLess = `- text: /\\d result\\(s\\) found/`
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/short_text_markdown.json`
 const expectedStringArray = [
   'Pack my box with five dozen liquor jugs - sphinx of black quartz, judge my vow (title)',
@@ -35,31 +35,17 @@ const expectedStringArray = [
   "Pack my box with five dozen liquor bottles for the first time (second list, nested)!"
 ]
 
-test(`test My Ghost Writer, desktop: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }) => {
-  // 1. Connect to the local web server page
-  await page.goto('http://localhost:8000/');
+// test(`test My Ghost Writer, desktop: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+test(`test My Ghost Writer, desktop: first assertions`, async ({ page }: { page: Page }, workerInfo) => {
+  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
 
-  // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)
-  await page.getByRole('button', { name: 'Set UI' }).click();
-
-  // 3. Upload a saved JSON story file to provide long text content for analysis
-  await uploadFileWithPageAndFilepath(page, testStoryJsonTxt)
-
-  // 4. Activate "My Ghost Writer" / text stats functionality via settings
-  await page.getByRole('link', { name: 'Settings' }).click();
-
-  await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: '🔎' }).click();
+  await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
   await page.waitForTimeout(200)
 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
-    - link "id-a-candidate-1-nth":
-      - /url: "#"
-    `);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-0-${projectName}.txt`});
   const wordsearch_results = page.getByLabel("wordsearch_results")
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-1-wordsearch_results-0.txt` });
+  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-1-${projectName}.txt`});
   await page.waitForTimeout(200)
 
   await page.getByLabel('id-div-candidate-1-nth').click();
@@ -68,62 +54,66 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
 
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-23-nth', expectedStringArray[1], "top", "gametext");
 
+  console.log("end!")
+  await page.close()
+})
+
+test(`test My Ghost Writer, desktop: search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+
+  await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
+  const wordsearch_results = page.getByLabel("wordsearch_results")
+
   console.log("# pre filling 'the du'")
   await fillInputFieldWithString(page, `the du`);
   await page.waitForTimeout(200)
 
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
-    - link "id-a-candidate-1-nth":
-      - /url: "#"
-      - text: neighbors. the dursley (1)
-    `);
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-1-wordsearch_results-1.txt` });
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-2-${projectName}.txt`});
+  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-3-${projectName}.txt`});
 
   await page.getByLabel('id-div-candidate-1-nth').click();
+  await page.waitForTimeout(200)
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[2], "bottom", "gametext");
 
   // needed to assert correct text selection, we have faith only one screenshot is enough =)
   await expect(page.locator("#gametext")).toHaveScreenshot()
   await page.waitForTimeout(200)
+  console.log("end!")
+  await page.close()
+})
 
+test(`test My Ghost Writer, desktop: search for words with apostrophes, hyphens, digits, diacritics`, async ({ page }: { page: Page }, workerInfo) => {
+  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, `Øyvind`);
   await page.waitForTimeout(200)
 
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot(`
-    - link "id-a-candidate-1-nth":
-      - /url: "#"
-      - text: øyvind’s café-restaurant (1)
-    `);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-4-${projectName}.txt`});
 
-  await page.getByRole('link', { name: 'id-a-candidate-1-nth' }).click();
+  await page.getByRole('link', {name: 'id-a-candidate-1-nth'}).click();
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[3], "top", "gametext");
   console.log(`# pre-filling "my mother-in-law's"`)
   await page.waitForTimeout(200)
 
   await fillInputFieldWithString(page, `my mother-in-law's`);
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
   await page.waitForTimeout(200)
   await page.getByLabel('id-div-candidate-1-nth').click();
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('id-div-1-range-0-nth')).toMatchAriaSnapshot(`
-    - link "id-1-range-0-nth":
-      - /url: "#"
-      - text: my mother-in-law's B2B.
-    `);
+  await expect(page.getByLabel('id-div-1-range-0-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-5-${projectName}.txt`});
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[4], "top", "gametext");
+})
+
+test(`test My Ghost Writer, desktop: search for words with apostrophes, digits, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
 
   await fillInputFieldWithString(page, 'B2B');
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
 
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('id-div-candidate-2-nth')).toMatchAriaSnapshot(`
-    - link "id-a-candidate-2-nth":
-      - /url: "#"
-      - text: my mother-in-law's b2b. (1)
-    `);
+  await expect(page.getByLabel('id-div-candidate-2-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-6-${projectName}.txt`});
   await page.waitForTimeout(200)
   await page.getByLabel('id-div-candidate-2-nth').click();
   await assertVisibleTextAfterNavigation(page, 'id-div-2-range-0-nth', expectedStringArray[5], "top", "gametext");
@@ -148,9 +138,7 @@ test(`test My Ghost Writer, desktop: assert that's still working the switch edit
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-6-nth', expectedStringArray[11], "top", "gametext");
 
   // assert for queries spanning over new lines: will found nothing, assert 0 results found!
-  await page.getByRole('searchbox', { name: 'Word Search Input' }).click();
-  await page.getByRole('searchbox', { name: 'Word Search Input' }).fill('details. Þórir');
-  await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
+  await fillInputFieldWithString(page, 'details. Þórir');
   await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`- text: 0 result(s) found`);
   await page.close()
 });

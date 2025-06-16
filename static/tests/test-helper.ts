@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import * as crypto from "node:crypto";
-import { Locator, Page, expect } from '@playwright/test';
+import { Locator, Page, TestInfo, expect } from '@playwright/test';
 
 interface CellObject {
   table: number
@@ -331,9 +331,26 @@ export async function fillInputFieldWithString(page: Page, inputString: string, 
   await page.getByRole('searchbox', {name: 'Word Search Input'}).click();
   await page.getByRole('searchbox', {name: 'Word Search Input'}).fill(inputString);
   if (clickOrEnter === "click") {
-    await page.getByRole('button', { name: '🔎' }).click();
+    await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
   } else {
     await page.getByRole('searchbox', {name: 'Word Search Input'}).press('Enter');
 
   }
+}
+
+export async function initTest(page: Page, workerInfo: TestInfo, filepath: string, targetUrl: string = 'http://localhost:8000/'): Promise<string> {
+  const projectName = workerInfo.project.name
+  console.log("workerInfo:", workerInfo.project.name, "#")
+  // 1. Connect to the local web server page
+  await page.goto(targetUrl);
+  // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)
+  await page.getByRole('button', { name: 'Set UI' }).click();
+
+  // 3. Upload a saved JSON story file to provide long text content for analysis
+  await uploadFileWithPageAndFilepath(page, filepath)
+  // activate wordsearch
+  await page.getByRole('link', { name: 'Settings' }).click();
+  await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  return projectName
 }
