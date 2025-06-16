@@ -1,0 +1,3 @@
+- link "id-a-candidate-1-nth":
+  - /url: "#"
+  - text: øyvind’s café-restaurant (1)

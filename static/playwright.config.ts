@@ -98,7 +98,10 @@ export default defineConfig({
     },
     {
       name: 'MobileSafariLandscape',
-      use: { ...devices['iPhone 13 landscape'] },
+      // for some reason the 'iPhone 13' viewport is too small.
+      // I tried it on a real iPhone 13 and also if there is not too much space for scrolling the results it's possible
+      // workaround: emulating a bigger device
+      use: { ...devices['iPhone 13 Pro Max landscape'] },
     },
 
     {

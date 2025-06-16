@@ -16,26 +16,26 @@ const editState = [
   { state: "editable", expectedFirstAriaSnapshot: `- text: /40\\d results/` }
 ]
 
-test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/0', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/0', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /2\\d\\d\\d\\d result\\(s\\) found/`);
   const wordsearch_results = page.getByLabel("wordsearch_results")
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-0-${projectName}.txt` });
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-0-${projectName}.txt` });
 
   await expect(page.getByLabel('wordsearch_results')).not.toMatchAriaSnapshot(`- text: /40\\d results/`);
   await page.getByLabel('id-div-candidate-1-nth').click();
   await page.waitForTimeout(200)
   await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`- text: /40\\d results/`);
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-1-${projectName}.txt` });
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-1-${projectName}.txt` });
 
   console.log("end!")
   await page.close()
 })
 
-test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/1', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/1', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
@@ -57,7 +57,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
     await scrollToTopById(page, "wordsearch_results")
     const id0 = 'id-div-1-range-0-nth'
     let clickedElement = page.getByLabel(id0)
-    await expect(clickedElement).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-2-${projectName}-${state}.txt` });
+    await expect(clickedElement).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-2-${projectName}-${state}.txt` });
     await expect(clickedElement).not.toHaveClass("background-border-clicked")
     await clickedElement.click();
     await page.waitForTimeout(200)
@@ -71,7 +71,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
 })
 
 
-test('test My Ghost Writer, desktop: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/2', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/2', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
@@ -85,7 +85,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   const id1 = 'id-div-1-range-398-nth'
   const clickedElement = page.getByLabel(id1)
   await expect(clickedElement).not.toHaveClass("background-border-clicked")
-  await expect(clickedElement).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-3-${projectName}.txt` });
+  await expect(clickedElement).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-3-${projectName}.txt` });
   await clickedElement.click();
   await page.waitForTimeout(200)
   await expect(clickedElement).toHaveClass("background-border-clicked")
@@ -94,7 +94,7 @@ test('test My Ghost Writer, desktop: navigate between the list/tables containing
   await expect(page.locator("#gametext")).toHaveScreenshot()
 })
 
-test('test My Ghost Writer, desktop: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+test('test My Ghost Writer: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
@@ -103,12 +103,12 @@ test('test My Ghost Writer, desktop: sort by frequency and alphabetically', asyn
 
   await page.locator('#wordsearch_sort').selectOption('1');
   await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-4-${projectName}.txt` });
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-4-${projectName}.txt` });
 
   await page.locator('#wordsearch_sort').selectOption('0');
   await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /2\\d\\d\\d\\d result\\(s\\) found/`);
-  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-desktop-0-wordsearch_results-5-${projectName}.txt` });
+  await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-0-wordsearch_results-5-${projectName}.txt` });
 
   console.log("end!")
   await page.close()

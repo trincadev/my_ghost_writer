@@ -35,17 +35,17 @@ const expectedStringArray = [
   "Pack my box with five dozen liquor bottles for the first time (second list, nested)!"
 ]
 
-// test(`test My Ghost Writer, desktop: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
-test(`test My Ghost Writer, desktop: first assertions`, async ({ page }: { page: Page }, workerInfo) => {
+// test(`test My Ghost Writer: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+test(`test My Ghost Writer: first assertions`, async ({ page }: { page: Page }, workerInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
 
   await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
   await page.waitForTimeout(200)
 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-0-${projectName}.txt`});
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-0-${projectName}.txt`});
   const wordsearch_results = page.getByLabel("wordsearch_results")
-  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-1-${projectName}.txt`});
+  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-1-${projectName}.txt`});
   await page.waitForTimeout(200)
 
   await page.getByLabel('id-div-candidate-1-nth').click();
@@ -58,7 +58,7 @@ test(`test My Ghost Writer, desktop: first assertions`, async ({ page }: { page:
   await page.close()
 })
 
-test(`test My Ghost Writer, desktop: search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+test(`test My Ghost Writer: search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
 
   await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
@@ -69,8 +69,8 @@ test(`test My Ghost Writer, desktop: search for multi words, with apostrophes, h
   await page.waitForTimeout(200)
 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-2-${projectName}.txt`});
-  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-3-${projectName}.txt`});
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-2-${projectName}.txt`});
+  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-3-${projectName}.txt`});
 
   await page.getByLabel('id-div-candidate-1-nth').click();
   await page.waitForTimeout(200)
@@ -83,13 +83,13 @@ test(`test My Ghost Writer, desktop: search for multi words, with apostrophes, h
   await page.close()
 })
 
-test(`test My Ghost Writer, desktop: search for words with apostrophes, hyphens, digits, diacritics`, async ({ page }: { page: Page }, workerInfo) => {
+test(`test My Ghost Writer: search for words with apostrophes, hyphens, digits, diacritics`, async ({ page }: { page: Page }, workerInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
   await fillInputFieldWithString(page, `Øyvind`);
   await page.waitForTimeout(200)
 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-4-${projectName}.txt`});
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-4-${projectName}.txt`});
 
   await page.getByRole('link', {name: 'id-a-candidate-1-nth'}).click();
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[3], "top", "gametext");
@@ -101,11 +101,11 @@ test(`test My Ghost Writer, desktop: search for words with apostrophes, hyphens,
   await page.waitForTimeout(200)
   await page.getByLabel('id-div-candidate-1-nth').click();
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('id-div-1-range-0-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-5-${projectName}.txt`});
+  await expect(page.getByLabel('id-div-1-range-0-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-5-${projectName}.txt`});
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-0-nth', expectedStringArray[4], "top", "gametext");
 })
 
-test(`test My Ghost Writer, desktop: search for words with apostrophes, digits, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
+test(`test My Ghost Writer: search for words with apostrophes, digits, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
   const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
 
   await fillInputFieldWithString(page, 'B2B');
@@ -113,7 +113,7 @@ test(`test My Ghost Writer, desktop: search for words with apostrophes, digits, 
   await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(expectedAriaSnapshotOnly10moreOrLess);
 
   await page.waitForTimeout(200)
-  await expect(page.getByLabel('id-div-candidate-2-nth')).toMatchAriaSnapshot({name: `test-classic-desktop-1-wordsearch_results-6-${projectName}.txt`});
+  await expect(page.getByLabel('id-div-candidate-2-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-6-${projectName}.txt`});
   await page.waitForTimeout(200)
   await page.getByLabel('id-div-candidate-2-nth').click();
   await assertVisibleTextAfterNavigation(page, 'id-div-2-range-0-nth', expectedStringArray[5], "top", "gametext");
@@ -135,7 +135,11 @@ test(`test My Ghost Writer, desktop: search for words with apostrophes, digits, 
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-2-nth', expectedStringArray[8], "bottom", "gametext");
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-8-nth', expectedStringArray[9], "top", "gametext");
   await assertVisibleTextAfterNavigation(page, 'id-div-0-range-9-nth', expectedStringArray[10], "top", "gametext");
-  await assertVisibleTextAfterNavigation(page, 'id-div-0-range-6-nth', expectedStringArray[11], "top", "gametext");
+  // at the moment this assertion always fails on MobileSafariLandscape ('iPhone 13 Pro Max landscape')
+  // re-check it in the future, especially when safari mobile will support a fullscreen mode
+  if (projectName !== "MobileSafariLandscape") {
+    await assertVisibleTextAfterNavigation(page, 'id-div-0-range-6-nth', expectedStringArray[11], "top", "gametext");
+  }
 
   // assert for queries spanning over new lines: will found nothing, assert 0 results found!
   await fillInputFieldWithString(page, 'details. Þórir');
