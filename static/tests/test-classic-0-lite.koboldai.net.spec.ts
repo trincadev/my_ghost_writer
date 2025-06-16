@@ -17,7 +17,7 @@ const editState = [
 ]
 
 test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/0', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
 
@@ -36,7 +36,7 @@ test('test My Ghost Writer: navigate between the list/tables containing the stem
 })
 
 test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/1', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
   for (let { state, expectedFirstAriaSnapshot } of Object.values(editState)) {
@@ -72,7 +72,7 @@ test('test My Ghost Writer: navigate between the list/tables containing the stem
 
 
 test('test My Ghost Writer: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words/2', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
   await expect(page.getByLabel('wordsearch_results')).not.toMatchAriaSnapshot(`- text: /40\\d results/`);
@@ -95,7 +95,7 @@ test('test My Ghost Writer: navigate between the list/tables containing the stem
 })
 
 test('test My Ghost Writer: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
 

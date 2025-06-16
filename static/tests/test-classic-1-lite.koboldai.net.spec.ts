@@ -12,7 +12,8 @@
 import { test, expect, Page } from '@playwright/test';
 import {
   assertVisibleTextAfterNavigation,
-  fillInputFieldWithString, initTest
+  fillInputFieldWithString, initTest,
+  standardCheck
 } from './test-helper';
 
 const expectedAriaSnapshotOnly10moreOrLess = `- text: /\\d result\\(s\\) found/`
@@ -37,20 +38,8 @@ const expectedStringArray = [
 
 // test(`test My Ghost Writer: assert that's still working the switch edit mode and search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
 test(`test My Ghost Writer: first assertions`, async ({ page }: { page: Page }, workerInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
-
-  await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
-  await page.waitForTimeout(200)
-
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
-  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-0-${projectName}.txt`});
-  const wordsearch_results = page.getByLabel("wordsearch_results")
-  await expect(wordsearch_results).toMatchAriaSnapshot({name: `test-classic-1-wordsearch_results-1-${projectName}.txt`});
-  await page.waitForTimeout(200)
-
-  await page.getByLabel('id-div-candidate-1-nth').click();
-  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-1-nth', expectedStringArray[0], "bottom", "gametext");
-  await page.waitForTimeout(200)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+  await standardCheck(page, projectName, expectedStringArray[0], `test-classic-1-wordsearch_results`)
 
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-23-nth', expectedStringArray[1], "top", "gametext");
 
@@ -59,7 +48,7 @@ test(`test My Ghost Writer: first assertions`, async ({ page }: { page: Page }, 
 })
 
 test(`test My Ghost Writer: search for multi words, with apostrophes, hyphens, digits, diacritics, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
 
   await page.getByRole('button', {name: 'id-perform-wordsearch'}).click();
   const wordsearch_results = page.getByLabel("wordsearch_results")
@@ -84,7 +73,7 @@ test(`test My Ghost Writer: search for multi words, with apostrophes, hyphens, d
 })
 
 test(`test My Ghost Writer: search for words with apostrophes, hyphens, digits, diacritics`, async ({ page }: { page: Page }, workerInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
   await fillInputFieldWithString(page, `Øyvind`);
   await page.waitForTimeout(200)
 
@@ -106,7 +95,7 @@ test(`test My Ghost Writer: search for words with apostrophes, hyphens, digits, 
 })
 
 test(`test My Ghost Writer: search for words with apostrophes, digits, within complex/nested html elements. NO match for queries with new lines`, async ({ page }: { page: Page }, workerInfo) => {
-  const projectName = await initTest(page, workerInfo, testStoryJsonTxt)
+  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
 
   await fillInputFieldWithString(page, 'B2B');
   await page.waitForTimeout(200)

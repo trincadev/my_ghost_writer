@@ -338,32 +338,56 @@ export async function fillInputFieldWithString(page: Page, inputString: string, 
   }
 }
 
-export async function initTest(page: Page, workerInfo: TestInfo, filepath: string, targetUrl: string = 'http://localhost:8000/'): Promise<string> {
+export async function initTest({page, workerInfo, filepath, targetUrl = 'http://localhost:8000/', setUi = true}: {
+  page: Page,
+  workerInfo: TestInfo,
+  filepath: string,
+  targetUrl?: string,
+  setUi?: boolean
+}): Promise<string> {
   const projectName = workerInfo.project.name
   console.log("workerInfo:", workerInfo.project.name, "#")
   // 1. Connect to the local web server page
-  await page.goto(targetUrl);
+  if (targetUrl) await page.goto(targetUrl);
   // 2. Activate the required UI mode (e.g., switch to classic or advanced UI)
-  await page.getByRole('button', { name: 'Set UI' }).click();
+  console.log("setui:", setUi, "#")
+  if (setUi) await page.getByRole('button', { name: 'Set UI' }).click();
 
-  const mobileButtonGlobalMenu = page.getByRole('button', { name: 'id-mobile-main-menu-options' })
-  if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
-    await mobileButtonGlobalMenu.click();
-    await page.waitForTimeout(200)
-    console.log("#found mobile button for global menu, open it to prepare json story upload!")
-  }
-
+  await openMobileMenu(page, "#found mobile button for global menu, open it to prepare json story upload!")
   // 3. Upload a saved JSON story file to provide long text content for analysis
   await uploadFileWithPageAndFilepath(page, filepath)
   // activate wordsearch
   
-  if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
-    await mobileButtonGlobalMenu.click();
-    await page.waitForTimeout(200)
-    console.log("#found mobile button for global menu, open it to toggle word search!")
-  }
+  openMobileMenu(page, "#found mobile button for global menu, open it to toggle word search!")
+
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
   await page.getByRole('button', { name: 'OK' }).click();
   return projectName
+}
+
+export async function openMobileMenu(page: Page, msg: string) {
+  const mobileButtonGlobalMenu = page.getByRole('button', { name: 'id-mobile-main-menu-options' })
+  if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
+    await mobileButtonGlobalMenu.click();
+    await page.waitForTimeout(200)
+    console.log(msg)
+  }
+}
+
+
+export async function standardCheck(page: Page, projectName: string, expectedString: string, testName: string, click: boolean = true) {
+  // start as a normal test
+  if (click) await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
+  await page.waitForTimeout(200)
+
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('id-div-candidate-1-nth')).toMatchAriaSnapshot({name: `${testName}-0-${projectName}.txt`});
+  const wordsearch_results = page.getByLabel("wordsearch_results")
+  await expect(wordsearch_results).toMatchAriaSnapshot({name: `${testName}-1-${projectName}.txt`});
+  await page.waitForTimeout(200)
+
+  await page.getByLabel('id-div-candidate-1-nth').click();
+  await assertVisibleTextAfterNavigation(page, 'id-div-1-range-1-nth', expectedString, "bottom", "gametext");
+  await page.waitForTimeout(200)
 }
