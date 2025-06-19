@@ -1,4 +1,4 @@
-import { test, expect, Page, TestInfo } from '@playwright/test';
+import { test, expect, Page, TestInfo, chromium, devices } from '@playwright/test';
 import { initTest } from './test-helper';
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
@@ -44,19 +44,27 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
   by trigger_wordsearch_candidates() after click on div elements created by trigger_wordsearch_results(),
   both in read-only and editable mode. Using query 'good-for-'`,
   async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+    if (workerInfo.project.name === "MobileChromeLandscape") {
+      const browser = await chromium.launch();
+      const context = await browser.newContext({
+        ...devices['Samsung Galaxy Tab S4'],
+        isMobile: true,
+      });
+      page = await context.newPage();
+    }
     const projectName = await initTest({ page, workerInfo, filepath: testStoryJsonTxt })
 
-  for (let idx = 0; idx < 2; idx++) {
-    for (let step = 0; step < 2; step++) {
-      const query = 'good-for-'
-      console.log(`projectName:${projectName}, second loop:${idx},${step}, with the query '${query}'`);
-      await page.waitForTimeout(100)
-      await page.getByRole('searchbox', { name: 'Word Search Input' }).click();
-      await page.getByRole('searchbox', { name: 'Word Search Input' }).fill(query);
-      await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
-      await page.waitForTimeout(100)
-      await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: 6 result(s) found`);
-      await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`
+    for (let idx = 0; idx < 2; idx++) {
+      for (let step = 0; step < 2; step++) {
+        const query = 'good-for-'
+        console.log(`projectName:${projectName}, second loop:${idx},${step}, with the query '${query}'`);
+        await page.waitForTimeout(100)
+        await page.getByRole('searchbox', { name: 'Word Search Input' }).click();
+        await page.getByRole('searchbox', { name: 'Word Search Input' }).fill(query);
+        await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
+        await page.waitForTimeout(100)
+        await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: 6 result(s) found`);
+        await expect(page.getByLabel('wordsearch_results')).toMatchAriaSnapshot(`
         - text: 6 result(s) found
         - link "id-a-candidate-0-nth":
           - /url: "#"
@@ -77,11 +85,15 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
           - /url: "#"
           - text: good-for-nothing husband were (1)
         `);
-      await page.waitForTimeout(100)
-      await page.locator('#wordsearch_results div').first().click();
-      await page.waitForTimeout(100)
-      await page.getByLabel('id-div-0-range-0-nth').click();
-      await page.waitForTimeout(100)
+        await page.waitForTimeout(100)
+        await page.locator('#wordsearch_results div').first().click();
+        await page.waitForTimeout(100)
+        if (projectName === "MobileChromeLandscape") {
+          await page.getByRole("link", {name: "id-0-range-0-nth"}).click()
+        } else {
+          await page.getByLabel('id-div-0-range-0-nth').click(); 
+        }
+        await page.waitForTimeout(100)
+      }
     }
-  }
-})
+  })
