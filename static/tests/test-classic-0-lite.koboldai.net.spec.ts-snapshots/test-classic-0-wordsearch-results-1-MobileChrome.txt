@@ -207,6 +207,8 @@
   - /url: "#"
 - link /id-1-range-\d+-nth/:
   - /url: "#"
+- link /id-1-range-\d+-nth/:
+  - /url: "#"
   - text: — well, he didn't think
 - link /id-1-range-\d+-nth/:
   - /url: "#"
@@ -506,7 +508,7 @@
   - text: anything he wanted.
 - link /id-1-range-\d+-nth/:
   - /url: "#"
-  - text: sobs. " He always sp-
+  - text: sobs. "He always sp-
 - link /id-1-range-\d+-nth/:
   - /url: "#"
   - text: everything!" He shot Harry
@@ -846,6 +848,9 @@
   - text: them knew. He drove them
 - link /id-1-range-\d+-nth/:
   - /url: "#"
+  - text: hasn't he?" Dudley
+- link /id-1-range-\d+-nth/:
+  - /url: "#"
   - text: Monday," he told his
 - link /id-1-range-\d+-nth/:
   - /url: "#"
@@ -1118,6 +1123,9 @@
 - link /id-1-range-\d+-nth/:
   - /url: "#"
   - text: fire. Now he came to
+- link /id-1-range-\d+-nth/:
+  - /url: "#"
+  - text: happened when he, Harry,
 - link /id-1-range-\d+-nth/:
   - /url: "#"
   - text: Dudley's gang, he had somehow

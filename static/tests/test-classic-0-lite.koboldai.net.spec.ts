@@ -5,6 +5,7 @@ import {
   scrollToBottomById,
   scrollToTopById,
 } from './test-helper'
+import { waitForDebugger } from 'node:inspector';
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 const expectedStringArray = [
@@ -94,6 +95,7 @@ test('test My Ghost Writer: navigate between the list/tables containing the stem
   console.log(`clicked on id ${id1}, check for the expected string with idx:${idx}: '${expectedStringArray[idx]}'...`)
   await expectVisibleTextWithWalker(page, "gametext", expectedStringArray[idx])
   await page.waitForTimeout(100)
+  console.log("gametext size:", await page.locator("#gametext").boundingBox(), "@#")
   await expect(page.locator("#gametext")).toHaveScreenshot()
   
   console.log("end!")
