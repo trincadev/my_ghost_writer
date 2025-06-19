@@ -65,7 +65,27 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
   - text: five dozen liquor (8)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -183,7 +203,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dozen liquor jugs (6)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: liquor jugs sphinx (6)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -192,11 +214,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: black quartz judge (6)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: black quartz, judge (6)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -212,6 +236,7 @@
   - text: boxing wizards jump (6)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: wizards jump quickly (6)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -234,15 +259,14 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: jump quickly someone (5)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: wizards jump quickly; (5)
+  - text: quickly someone stole (5)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: jump quickly; someone (5)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: quickly; someone stole (5)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -393,33 +417,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: i found nothing... (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: dozen liquor bottles (2)
@@ -431,7 +428,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: brown fox jumps... (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -474,6 +470,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: asterisks or underscores (2)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -646,7 +643,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mysterious, because (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -669,18 +665,54 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dursley, of number (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: number four, privet (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: four, privet drive, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: privet drive, were (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: mysterious because (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: number four Privet (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -698,10 +730,10 @@
   - text: they were perfectly (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: were perfectly normal, (1)
+  - text: were perfectly normal (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: perfectly normal, thank (1)
+  - text: perfectly normal thank (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -742,13 +774,13 @@
   - text: anything strange or (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: strange or mysterious, (1)
+  - text: strange or mysterious (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: or mysterious, because (1)
+  - text: or mysterious because (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mysterious, because they (1)
+  - text: mysterious because they (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -761,7 +793,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: with such nonsense. (1)
+  - text: with such nonsense (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1000,26 +1032,25 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: firm called Grunnings (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: called Grunnings which (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Grunnings which made (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: firm called grunnings, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: called grunnings, which (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: grunnings, which made (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: which made drills. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1042,30 +1073,17 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: any neck, although (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: very large mustache (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: large mustache Mrs (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: very large mustache. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: large mustache. mrs. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: mustache. mrs. dursley (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: mustache Mrs Dursley (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1125,22 +1143,21 @@
   - text: craning over garden (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: over garden fences, (1)
+  - text: over garden fences (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: garden fences, spying (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: garden fences spying (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: the neighbors. the (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: neighbors. the dursley (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: neighbors The Dursley (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1176,7 +1193,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: finer boy anywhere. (1)
+  - text: finer boy anywhere (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1215,236 +1232,25 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: (bold)**~~the five (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: found nothing...~~ (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: women like it.***pack (1)
+  - text: found nothing list (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: like it.***pack my (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: my vow (bold)**~~the (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: vow (bold)**~~the five (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: (bold)**~~the five boxing (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: i found nothing...~~ (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: found nothing... (list) (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: nothing... (list) 2. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1460,20 +1266,29 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: first time (second (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: time (second list, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: (second list, nested) (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: second list nested (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: five dozen sphinx, (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1509,9 +1324,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: liquor bottles again. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: liquor bottles again (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1530,10 +1345,8 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: 2. second sentence (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: second sentence 3. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1576,7 +1389,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: found nothing... 2. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1603,7 +1415,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: women like that... (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1634,22 +1445,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the (1)":
-        - cell "wizard"
-        - cell "the (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: quicklycheesesomeone (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Sentence The quick (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1658,7 +1460,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: html ||----------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|| (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1669,6 +1470,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Liquor Sentence Pack (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1719,32 +1521,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the (1)":
-        - cell "wizard"
-        - cell "the (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the five (1)":
-        - cell "wizard"
-        - cell "the five (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: jump quicklycheesesomeone (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: quicklycheesesomeone stole (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1757,15 +1539,15 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "| html ||----------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|| (1)"
+  - text: Wizard Sentence The (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: html ||----------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|| fox (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "||----------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|| fox sentence (1)"
+  - text: found nothing table (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: nothing table thead (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1788,13 +1570,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "|| liquor sentence| (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "liquor sentence| `pack (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "sentence| `pack my (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1821,83 +1600,51 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "|| wizard sentence| (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "wizard sentence| `the (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "sentence| `the five (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "i found nothing...` (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "found nothing...` | (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the (1)":
-        - cell "wizard"
-        - cell "the (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the five (1)":
-        - cell "wizard"
-        - cell "the five (1)"
+  - text: Emphasis aka italics (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - table:
-    - rowgroup:
-      - row "phrase meaning":
-        - cell "phrase"
-        - cell "meaning"
-    - rowgroup:
-      - row "wizard the five boxing (1)":
-        - cell "wizard"
-        - cell "the five boxing (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: wizards jump quicklycheesesomeone (1)
+  - text: italics with asterisks (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: jump quicklycheesesomeone stole (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: quicklycheesesomeone stole my (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: i found nothing... (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: found nothing... | (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Strong emphasis aka (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: bold with asterisks (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Combined emphasis’s (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -1906,100 +1653,21 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "```emphasis, aka italics, (1)"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: italics, with *asterisks* (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: with *asterisks* or (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "*asterisks* or _underscores_. (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: with **asterisks** (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: or __underscores__. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: strong emphasis, aka (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: emphasis, aka bold, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: bold, with **asterisks** (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: with **asterisks** or (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "**asterisks** or __underscores__. (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: combined emphasis’s (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: and _underscores_**. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: combined emphasis’s text (1)
+  - text: Combined emphasis’s text (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: emphasis’s text with (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: text with **asterisks (1)
+  - text: text with asterisks (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: with **asterisks and (1)
+  - text: with asterisks and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: "**asterisks and _underscores_**. (1)"
+  - text: asterisks and underscores (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2008,32 +1676,32 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Strikethrough uses (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: strikethrough uses (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Strikethrough uses two (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: two tildes Scratch (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: strikethrough uses two (1)
+  - text: tildes Scratch this (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: two tildes. ~~scratch (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: tildes. ~~scratch this.~~ (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2050,10 +1718,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: lowercase diacritics (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: diacritics hyphens (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: hyphens Apostrophe (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2064,82 +1735,22 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: digits Upper lowercase (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Upper lowercase diacritics (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: lowercase diacritics hyphens (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: diacritics hyphens Apostrophe (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: hyphens Apostrophe and (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: "~~strikethrough~~``` (1)"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: digits, upper/lowercase (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: upper/lowercase diacritics, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: diacritics, hyphens, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hyphens, apostrophe (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: words with digits, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: with digits, upper/lowercase (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: digits, upper/lowercase diacritics, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: upper/lowercase diacritics, hyphens, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: diacritics, hyphens, apostrophe (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: hyphens, apostrophe and (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: apostrophe and hyphen. (1)
+  - text: Apostrophe and hyphen (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2151,17 +1762,13 @@
   - text: my mother-in-law's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: mother-in-law's b2b. (1)
+  - text: mother-in-law's B2B (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: like my mother-in-law's (1)
+  - text: Like my mother-in-law's (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: my mother-in-law's b2b. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: my mother-in-law's B2B (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2184,7 +1791,9 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: øyvind’s café-restaurant (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: Øyvind’s café-restaurant (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: café-restaurant served (1)
@@ -2210,7 +1819,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: øyvind’s café-restaurant served (1)
+  - text: Øyvind’s café-restaurant served (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: /café-restaurant served \d+ \(1\)/
@@ -2219,13 +1828,13 @@
   - text: /served \d+ exquisite \(1\)/
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: /\d+ exquisite dishes, \(1\)/
+  - text: /\d+ exquisite dishes \(1\)/
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: exquisite dishes, blending (1)
+  - text: exquisite dishes blending (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dishes, blending flavors (1)
+  - text: dishes blending flavors (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: blending flavors from (1)
@@ -2271,27 +1880,26 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: multinational companies (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: multinational companies, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: companies, showcasing (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: companies showcasing (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: coöperative spirit (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: jürgen’s résumé listed (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: Jürgen’s résumé listed (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: résumé listed experience (1)
@@ -2302,15 +1910,16 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: at 3 multinational (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: 3 multinational companies, (1)
+  - text: 3 multinational companies (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: multinational companies, showcasing (1)
+  - text: multinational companies showcasing (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: companies, showcasing his (1)
+  - text: companies showcasing his (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: showcasing his coöperative (1)
@@ -2325,7 +1934,7 @@
   - text: spirit and creative (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: and creative flair. (1)
+  - text: and creative flair (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2348,9 +1957,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: æthelred’s répertoire (1)
+  - text: Æthelred’s répertoire (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: répertoire featured (1)
@@ -2376,10 +1983,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: thrilled audiences. (1)
+  - text: thrilled audiences (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: æthelred’s répertoire featured (1)
+  - text: Æthelred’s répertoire featured (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: répertoire featured naïve (1)
@@ -2407,7 +2014,7 @@
   - text: tracks that thrilled (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: that thrilled audiences. (1)
+  - text: that thrilled audiences (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2470,13 +2077,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: élise’s façade, built (1)
+  - text: Élise’s façade built (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2586,6 +2187,48 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Øresund bridge spanning (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: /\d+ meters connects \(1\)/
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: meters connects Sweden (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: connects Sweden and (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: while its structure (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: its structure displays (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: structure displays ß (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: in decorative details (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2612,7 +2255,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: decorative details.þórir (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2657,57 +2305,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: the øresund bridge, (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: øresund bridge, spanning (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: /bridge, spanning \d+,\d+ \(1\)/
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: /spanning \d+,\d+ meters, \(1\)/
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: /\d+,\d+ meters, connects \(1\)/
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: meters, connects sweden (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: connects sweden and (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: while its structure (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: its structure displays (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: structure displays ß (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: in decorative details.þórir (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: decorative details.þórir and (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: details.þórir and ýmir (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2720,7 +2317,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: /\d+-hour voyage across \(1\)/
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -2729,10 +2325,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: north sea, overcoming (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: sea, overcoming challenges (1)
+  - text: North Sea overcoming (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: Sea overcoming challenges (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
   - text: overcoming challenges with (1)
@@ -2752,415 +2350,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: modern 0-9 innovations. (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
+  - text: modern 0-9 innovations (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3206,10 +2396,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: his beard. shouldn'ta (1)
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
-  - text: beard. shouldn'ta lost (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3230,7 +2416,80 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: didn't work anyway. (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3302,12 +2561,136 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: his bushy eyebrows. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: eyebrows. be grateful (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3327,7 +2710,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: anyone at hogwarts, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3350,12 +2732,20 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: magic strictly speakin' (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: magic, strictly speakin'. (1)
+  - text: strictly speakin' I (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: strictly speakin'. i (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3437,7 +2827,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: magic? asked harry. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3456,7 +2845,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hogwarts meself but (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3501,13 +2889,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: half an' everything. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: an' everything. but (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: everything. but dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3522,19 +2907,14 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: as gamekeeper. great (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: gamekeeper. great man, (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: great man, dumbledore. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: man, dumbledore. why (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: dumbledore. why were (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3561,6 +2941,7 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Hogwarts meself but (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3603,10 +2984,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: half an' everything (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: everything But Dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3621,10 +3004,13 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: as gamekeeper Great (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: gamekeeper Great man (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Great man Dumbledore (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3723,10 +3109,12 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: tomorrow said Hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
+  - text: Hagrid loudly Gotta (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3763,13 +3151,10 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: tomorrow, said hagrid (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: said hagrid loudly. (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: hagrid loudly. gotta (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3872,7 +3257,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: pockets. harry woke (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
@@ -3883,9 +3267,79 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: next morning. although (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-  - text: morning. although he (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: next morning Although (1)
+- link /id-a-candidate-\d+-nth/:
+  - /url: "#"
+  - text: morning Although he (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"

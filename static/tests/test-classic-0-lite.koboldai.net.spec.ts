@@ -9,7 +9,8 @@ import {
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 const expectedStringArray = [
   "Mr. Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly any neck, although he did have a very large mustache.",
-  `"Shouldn'ta lost me temper," he said ruefully, "but it didn't work anyway. Meant ter turn him into a pig, but I suppose he was so much like a pig anyway there wasn't much left ter do."`
+  `"Shouldn'ta lost me temper," he said ruefully, "but it didn't work anyway. Meant ter turn him into a pig, but I suppose he was so much like a pig anyway there wasn't much left ter do."`,
+  `He brought the umbrella swishing down through the air to point at Dudley — there was a flash of violet light, a sound like a firecracker,`
 ]
 const editState = [
   { state: "read-only", expectedFirstAriaSnapshot: `- text: /40\\d results/` },
@@ -89,9 +90,14 @@ test('test My Ghost Writer: navigate between the list/tables containing the stem
   await clickedElement.click();
   await page.waitForTimeout(200)
   await expect(clickedElement).toHaveClass("background-border-clicked")
-  console.log(`clicked on id ${id1}, check for the expected string...`)
-  await expectVisibleTextWithWalker(page, "gametext", expectedStringArray[1])
+  const idx = projectName.toLocaleLowerCase().includes("landscape") || projectName.toLocaleLowerCase().includes("mobile") ? 2 : 1
+  console.log(`clicked on id ${id1}, check for the expected string with idx:${idx}: '${expectedStringArray[idx]}'...`)
+  await expectVisibleTextWithWalker(page, "gametext", expectedStringArray[idx])
+  await page.waitForTimeout(100)
   await expect(page.locator("#gametext")).toHaveScreenshot()
+  
+  console.log("end!")
+  await page.close()
 })
 
 test('test My Ghost Writer: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {

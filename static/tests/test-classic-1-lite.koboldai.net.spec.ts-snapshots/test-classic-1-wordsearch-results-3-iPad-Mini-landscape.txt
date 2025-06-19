@@ -3,6 +3,6 @@
   - /url: "#"
 - link "id-a-candidate-1-nth":
   - /url: "#"
-  - text: neighbors. the dursley (1)
+  - text: neighbors The Dursley (1)
 - link "id-a-candidate-2-nth":
   - /url: "#"

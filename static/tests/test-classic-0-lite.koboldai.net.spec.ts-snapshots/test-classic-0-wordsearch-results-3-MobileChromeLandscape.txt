@@ -1,3 +1,2 @@
 - link /id-1-range-\d+-nth/:
   - /url: "#"
-  - text: temper," he said ruefully,
