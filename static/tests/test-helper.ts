@@ -372,16 +372,16 @@ export async function initTest({page, workerInfo, filepath, targetUrl = 'http://
   await uploadFileWithPageAndFilepath(page, filepath)
   // activate wordsearch
   
-  openMobileMenu(page, "#found mobile button for global menu, open it to toggle word search!")
+  await openMobileMenu(page, "#found mobile button for global menu, open it to toggle word search!")
 
   await page.getByRole('link', { name: 'Settings' }).click();
-  await page.getByRole('checkbox', { name: 'wordsearch_toggle' }).check();
+  await page.getByRole('checkbox', { name: 'WordSearch Tool' }).check();
   await page.getByRole('button', { name: 'OK' }).click();
   return projectName
 }
 
 export async function openMobileMenu(page: Page, msg: string) {
-  const mobileButtonGlobalMenu = page.getByRole('button', { name: 'id-mobile-main-menu-options' })
+  const mobileButtonGlobalMenu = page.getByRole('button', { name: 'Main Menu Options' })
   if (await mobileButtonGlobalMenu.isVisible({timeout: 500})) {
     await mobileButtonGlobalMenu.click();
     await page.waitForTimeout(200)
