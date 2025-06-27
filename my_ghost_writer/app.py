@@ -1,19 +1,21 @@
 import json
-
 from datetime import datetime
 from http.client import HTTPException
 
+import requests
+import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-import uvicorn
-import requests
 
-from my_ghost_writer.constants import ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT, STATIC_FOLDER, \
-    WORDSAPI_KEY, WORDSAPI_URL, app_logger, RAPIDAPI_HOST
+from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT, STATIC_FOLDER,
+    WORDSAPI_KEY, WORDSAPI_URL, app_logger, RAPIDAPI_HOST)
+from my_ghost_writer.thesaurus import get_document_by_word, insert_document
 from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
+
 
 fastapi_title = "My Ghost Writer"
 app = FastAPI(title=fastapi_title, version="1.0")
@@ -71,29 +73,56 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
     app_logger.info(f"body type: {type(body)} => {body}.")
     body_validated = RequestQueryThesaurusWordsapiBody.model_validate_json(body)
     query = body_validated.query
-    url = f"{WORDSAPI_URL}/{query}"
-    app_logger.info(f"url: {type(url)} => {url}.")
-    headers = {
-        "x-rapidapi-key": WORDSAPI_KEY,
-        "x-rapidapi-host": RAPIDAPI_HOST
-    }
-    app_logger.info(f"headers: {headers}.")
-    response = requests.get(url, headers=headers)
-    t1 = datetime.now()
-    duration = (t1 - t0).total_seconds()
-    app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
-    msg = f"API response is not 200: '{response.status_code}', query={query}, url={url}, duration: {duration:.3f}s."
     try:
-        assert response.status_code == 200, msg
-        response_json = response.json()
-        return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response_json})
-    except AssertionError as ae:
-        app_logger.error(f"URL: query => {type(query)} {query}; url => {type(url)} {url}.")
-        app_logger.error(f"headers: {type(headers)} {headers}...")
-        app_logger.error("response:")
-        app_logger.error(response)
-        app_logger.error(ae)
-        raise HTTPException(ae)
+        response = get_document_by_word(query=query)
+        t1 = datetime.now()
+        duration = (t1 - t0).total_seconds()
+        app_logger.info(f"found local data, duration: {duration:.3f}s.")
+        return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "local"})
+    except Exception as e:
+        app_logger.info(f"e:{e}, document not found?")
+        url = f"{WORDSAPI_URL}/{query}"
+        app_logger.info(f"url: {type(url)} => {url}.")
+        headers = {
+            "x-rapidapi-key": WORDSAPI_KEY,
+            "x-rapidapi-host": RAPIDAPI_HOST
+        }
+        response = requests.get(url, headers=headers)
+        t1 = datetime.now()
+        duration = (t1 - t0).total_seconds()
+        app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
+        msg = f"API response is not 200: '{response.status_code}', query={query}, url={url}, duration: {duration:.3f}s."
+        try:
+            assert response.status_code == 200, msg
+            response_json = response.json()
+            insert_document(response_json)
+            del response_json["_id"]  # since we inserted the wordsapi response on mongodb now it have a bson _id object not serializable by default
+            t2 = datetime.now()
+            duration = (t2 - t1).total_seconds()
+            app_logger.info(f"response_json: inserted json on local db, duration: {duration:.3f}s. ...")
+            return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response_json, "source": "wordsapi"})
+        except AssertionError as ae:
+            app_logger.error(f"URL: query => {type(query)} {query}; url => {type(url)} {url}.")
+            app_logger.error(f"headers type: {type(headers)}...")
+            # app_logger.error(f"headers: {headers}...")
+            app_logger.error("response:")
+            app_logger.error(str(response))
+            app_logger.error(str(ae))
+            raise HTTPException(ae)
+
+
+@app.exception_handler(RequestValidationError)
+def request_validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
+    from my_ghost_writer import exception_handlers
+
+    return exception_handlers.request_validation_exception_handler(request, exc)
+
+
+@app.exception_handler(HTTPException)
+def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
+    from my_ghost_writer import exception_handlers
+
+    return exception_handlers.http_exception_handler(request, exc)
 
 
 try:
