@@ -9,6 +9,10 @@ class RequestTextFrequencyBody(BaseModel):
     text: str
 
 
+class RequestQueryThesaurusWordsapiBody(BaseModel):
+    query: str
+
+
 from typing import TypedDict
 
 

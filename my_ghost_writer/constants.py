@@ -18,5 +18,8 @@ IS_TESTING = bool(os.getenv('IS_TESTING', ""))
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 API_MODE = bool(os.getenv("API_MODE", ""))
 N_WORDS_GRAM = int(os.getenv("N_WORDS_GRAM", 2))
+WORDSAPI_KEY = os.getenv("WORDSAPI_KEY")
+WORDSAPI_URL = "https://wordsapiv1.p.rapidapi.com/words"
+RAPIDAPI_HOST = os.getenv("RAPIDAPI_HOST", "wordsapiv1.p.rapidapi.com")
 session_logger.setup_logging(json_logs=LOG_JSON_FORMAT, log_level=LOG_LEVEL)
 app_logger = structlog.stdlib.get_logger(__name__)
