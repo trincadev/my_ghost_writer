@@ -18,6 +18,7 @@ from my_ghost_writer import pymongo_operations_rw
 from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT,
     STATIC_FOLDER, WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, MONGO_USE_OK, MONGO_HEALTHCHECK_SLEEP)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
+from my_ghost_writer.text_parsers import text_stemming
 from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
 
 
@@ -86,13 +87,11 @@ def health_mongo() -> str:
 
 @app.post("/words-frequency")
 def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
-    from my_ghost_writer.text_parsers import text_stemming
-
     t0 = datetime.now()
     app_logger.info(f"body type: {type(body)}.")
-    app_logger.debug(f"body: {body}.")
-    body = json.loads(body)
-    text = body["text"]
+    app_logger.info(f"body: {body}.")
+    body_validated = RequestTextFrequencyBody.model_validate_json(body)
+    text = body_validated.text
     app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}, type of 'text':'{type(text)}'.")
     if len(text) < 100:
         app_logger.debug(f"text from request: {text} ...")
