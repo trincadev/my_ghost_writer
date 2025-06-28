@@ -1,3 +1,4 @@
+import asyncio
 import json
 from datetime import datetime
 from http.client import HTTPException
@@ -10,15 +11,38 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pymongo import __version__ as pymongo_version
+from pymongo.errors import PyMongoError
 
-from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT, STATIC_FOLDER,
-    WORDSAPI_KEY, WORDSAPI_URL, app_logger, RAPIDAPI_HOST)
-from my_ghost_writer.thesaurus import get_document_by_word, insert_document
+from my_ghost_writer import pymongo_operations_rw
+from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT,
+    STATIC_FOLDER, WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, MONGO_USE_OK, MONGO_HEALTHCHECK_SLEEP)
+from my_ghost_writer.pymongo_utils import mongodb_health_check
 from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
 
 
+async def mongo_health_check_background_task():
+    app_logger.info(f"starting task, MONGO_USE_OK:{MONGO_USE_OK}...")
+    while MONGO_USE_OK:
+        try:
+            db_ok["mongo_ok"] = health_mongo() == "Mongodb: still alive..."
+        except PyMongoError:
+            db_ok["mongo_ok"] = False
+        await asyncio.sleep(MONGO_HEALTHCHECK_SLEEP)
+
+
+async def lifespan(app: FastAPI):
+    task = asyncio.create_task(mongo_health_check_background_task())
+    yield
+    task.cancel()
+    try:
+        await task
+    except asyncio.CancelledError:
+        pass
+
+
 fastapi_title = "My Ghost Writer"
-app = FastAPI(title=fastapi_title, version="1.0")
+app = FastAPI(title=fastapi_title, version="1.0", lifespan=lifespan)
 app_logger.info(f"allowed_origins:{ALLOWED_ORIGIN_LIST}, IS_TESTING:{IS_TESTING}, LOG_LEVEL:{LOG_LEVEL}!")
 app.add_middleware(
     CORSMiddleware,
@@ -26,6 +50,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["GET", "POST"]
 )
+db_ok = {"mongo_ok": MONGO_USE_OK}
 
 
 @app.middleware("http")
@@ -40,8 +65,23 @@ def health():
     from nltk import __version__ as nltk_version
     from fastapi import __version__ as fastapi_version
     from my_ghost_writer.__version__ import __version__ as ghost_writer_version
-    app_logger.info(f"still alive... FastAPI version:{fastapi_version}, nltk version:{nltk_version}, my-ghost-writer version:{ghost_writer_version}!")
+    app_logger.info(
+        f"still alive... FastAPI version:{fastapi_version}, nltk version:{nltk_version}, my-ghost-writer version:{ghost_writer_version}!")
     return "Still alive..."
+
+
+@app.get("/health-mongo")
+def health_mongo() -> str:
+    app_logger.info(f"pymongo driver version:{pymongo_version}!")
+    if MONGO_USE_OK:
+        try:
+            db_ok["mongo_ok"] = mongodb_health_check()
+            return "Mongodb: still alive..."
+        except PyMongoError as pme:
+            app_logger.error(str(pme))
+            db_ok["mongo_ok"] = False
+            raise HTTPException("mongo not ok!")
+    return f"MONGO_USE_OK:{MONGO_USE_OK}..."
 
 
 @app.post("/words-frequency")
@@ -73,42 +113,49 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
     app_logger.info(f"body type: {type(body)} => {body}.")
     body_validated = RequestQueryThesaurusWordsapiBody.model_validate_json(body)
     query = body_validated.query
-    try:
-        response = get_document_by_word(query=query)
-        t1 = datetime.now()
-        duration = (t1 - t0).total_seconds()
-        app_logger.info(f"found local data, duration: {duration:.3f}s.")
-        return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "local"})
-    except Exception as e:
-        app_logger.info(f"e:{e}, document not found?")
-        url = f"{WORDSAPI_URL}/{query}"
-        app_logger.info(f"url: {type(url)} => {url}.")
-        headers = {
-            "x-rapidapi-key": WORDSAPI_KEY,
-            "x-rapidapi-host": RAPIDAPI_HOST
-        }
-        response = requests.get(url, headers=headers)
-        t1 = datetime.now()
-        duration = (t1 - t0).total_seconds()
-        app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
-        msg = f"API response is not 200: '{response.status_code}', query={query}, url={url}, duration: {duration:.3f}s."
+    use_mongo: bool = db_ok["mongo_ok"]
+    app_logger.info(f"query: {type(query)} => {query}, use mongo? {use_mongo}.")
+    if use_mongo:
         try:
-            assert response.status_code == 200, msg
-            response_json = response.json()
-            insert_document(response_json)
+            response = pymongo_operations_rw.get_document_by_word(query=query)
+            t1 = datetime.now()
+            duration = (t1 - t0).total_seconds()
+            app_logger.info(f"found local data, duration: {duration:.3f}s.")
+            return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "local"})
+        except (PyMongoError, AssertionError) as pme:
+            app_logger.info(f"{pme}! Let's try the remote service...")
+
+    url = f"{WORDSAPI_URL}/{query}"
+    app_logger.info(f"url: {type(url)} => {url}.")
+    headers = {
+        "x-rapidapi-key": WORDSAPI_KEY,
+        "x-rapidapi-host": RAPIDAPI_HOST
+    }
+    response = requests.get(url, headers=headers)
+    t1 = datetime.now()
+    duration = (t1 - t0).total_seconds()
+    app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
+    msg = f"API response is not 200: '{response.status_code}', query={query}, url={url}, duration: {duration:.3f}s."
+    try:
+        assert response.status_code == 200, msg
+        response_json = response.json()
+        if use_mongo:
+            app_logger.debug(f"use_mongo:{use_mongo}, inserting response '{response_json}' by query '{query}' on db...")
+            pymongo_operations_rw.insert_document(response_json)
             del response_json["_id"]  # since we inserted the wordsapi response on mongodb now it have a bson _id object not serializable by default
-            t2 = datetime.now()
-            duration = (t2 - t1).total_seconds()
-            app_logger.info(f"response_json: inserted json on local db, duration: {duration:.3f}s. ...")
-            return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response_json, "source": "wordsapi"})
-        except AssertionError as ae:
-            app_logger.error(f"URL: query => {type(query)} {query}; url => {type(url)} {url}.")
-            app_logger.error(f"headers type: {type(headers)}...")
-            # app_logger.error(f"headers: {headers}...")
-            app_logger.error("response:")
-            app_logger.error(str(response))
-            app_logger.error(str(ae))
-            raise HTTPException(ae)
+        t2 = datetime.now()
+        duration = (t2 - t1).total_seconds()
+        app_logger.info(f"response_json: inserted json on local db, duration: {duration:.3f}s. ...")
+        return JSONResponse(status_code=200,
+                            content={"duration": duration, "thesaurus": response_json, "source": "wordsapi"})
+    except AssertionError as ae:
+        app_logger.error(f"URL: query => {type(query)} {query}; url => {type(url)} {url}.")
+        app_logger.error(f"headers type: {type(headers)}...")
+        # app_logger.error(f"headers: {headers}...")
+        app_logger.error("response:")
+        app_logger.error(str(response))
+        app_logger.error(str(ae))
+        raise HTTPException(ae)
 
 
 @app.exception_handler(RequestValidationError)
@@ -128,14 +175,14 @@ def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse
 try:
     app.mount("/static", StaticFiles(directory=STATIC_FOLDER, html=True), name="static")
 except Exception as ex_mount_static:
-    app_logger.error(f"Failed to mount static folder: {STATIC_FOLDER}, exception: {ex_mount_static}, API_MODE: {API_MODE}!")
+    app_logger.error(
+        f"Failed to mount static folder: {STATIC_FOLDER}, exception: {ex_mount_static}, API_MODE: {API_MODE}!")
     if not API_MODE:
         app_logger.exception(f"since API_MODE is {API_MODE} we will raise the exception!")
         raise ex_mount_static
 
 # add the CorrelationIdMiddleware AFTER the @app.middleware("http") decorated function to avoid missing request id
 app.add_middleware(CorrelationIdMiddleware)
-
 
 try:
     @app.get("/")
@@ -151,7 +198,8 @@ except Exception as ex_route_main:
 
 if __name__ == "__main__":
     try:
-        app_logger.info(f"Starting fastapi/gradio application {fastapi_title}, run in api mode: {API_MODE} (no static folder and main route)...")
+        app_logger.info(
+            f"Starting fastapi/gradio application {fastapi_title}, run in api mode: {API_MODE} (no static folder and main route)...")
         uvicorn.run("my_ghost_writer.app:app", host=DOMAIN, port=PORT, reload=bool(IS_TESTING))
     except Exception as ex_run:
         print(f"fastapi/gradio application {fastapi_title}, exception:{ex_run}!")

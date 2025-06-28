@@ -1,3 +1,4 @@
+from typing import TypedDict
 from pydantic import BaseModel
 
 
@@ -11,9 +12,6 @@ class RequestTextFrequencyBody(BaseModel):
 
 class RequestQueryThesaurusWordsapiBody(BaseModel):
     query: str
-
-
-from typing import TypedDict
 
 
 class InputTextRow(TypedDict):
