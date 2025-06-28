@@ -14,7 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from pymongo import __version__ as pymongo_version
 from pymongo.errors import PyMongoError
 
-from my_ghost_writer import pymongo_operations_rw
+from my_ghost_writer import pymongo_operations_rw, exception_handlers
 from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT,
     STATIC_FOLDER, WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, MONGO_USE_OK, MONGO_HEALTHCHECK_SLEEP)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
@@ -159,15 +159,11 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
 
 @app.exception_handler(RequestValidationError)
 def request_validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
-    from my_ghost_writer import exception_handlers
-
     return exception_handlers.request_validation_exception_handler(request, exc)
 
 
 @app.exception_handler(HTTPException)
 def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
-    from my_ghost_writer import exception_handlers
-
     return exception_handlers.http_exception_handler(request, exc)
 
 

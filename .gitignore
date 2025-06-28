@@ -105,6 +105,7 @@ coverage.xml
 .hypothesis/
 */playwright-report/*
 */test-results/*
+coverage.json
 
 # Translations
 *.mo
