@@ -1,13 +1,14 @@
 import asyncio
+import http
 import json
 from datetime import datetime
-from http.client import HTTPException
 
 import requests
+import starlette.status
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi import FastAPI, Request
-from fastapi.exceptions import RequestValidationError
+from fastapi.exceptions import RequestValidationError, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -136,7 +137,13 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
     app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
     msg = f"API response is not 200: '{response.status_code}', query={query}, url={url}, duration: {duration:.3f}s."
     try:
-        assert response.status_code == 200, msg
+        assert response.status_code < 500, msg
+        try:
+            assert response.status_code < 400, msg
+        except AssertionError:
+            msg = response.json()
+            app_logger.info(f"msg_404:{msg}.")
+            return JSONResponse(status_code=response.status_code, content={"msg": msg})
         response_json = response.json()
         if use_mongo:
             app_logger.debug(f"use_mongo:{use_mongo}, inserting response '{response_json}' by query '{query}' on db...")
@@ -147,14 +154,16 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
         app_logger.info(f"response_json: inserted json on local db, duration: {duration:.3f}s. ...")
         return JSONResponse(status_code=200,
                             content={"duration": duration, "thesaurus": response_json, "source": "wordsapi"})
-    except AssertionError as ae:
+    except AssertionError as ae500:
         app_logger.error(f"URL: query => {type(query)} {query}; url => {type(url)} {url}.")
         app_logger.error(f"headers type: {type(headers)}...")
         # app_logger.error(f"headers: {headers}...")
         app_logger.error("response:")
         app_logger.error(str(response))
-        app_logger.error(str(ae))
-        raise HTTPException(ae)
+        app_logger.error(str(ae500))
+        msg = f"request with query '{query}' has response with status '{http.HTTPStatus(response.status_code).phrase}'"
+        app_logger.error(f"type_msg:{type(msg)}, msg:{msg}.")
+        raise HTTPException(status_code=response.status_code, detail=msg)
 
 
 @app.exception_handler(RequestValidationError)
