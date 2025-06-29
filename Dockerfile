@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.1
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.2
 
 LABEL authors="trincadev"
 
@@ -7,8 +7,6 @@ ARG WORKDIR_ROOT="/var/task"
 ENV VIRTUAL_ENV=${WORKDIR_ROOT}/.venv PATH="${WORKDIR_ROOT}/.venv/bin:$PATH"
 ENV WRITE_TMP_ON_DISK=""
 ENV MOUNT_GRADIO_APP=""
-ENV VITE__STATIC_INDEX_URL="/static"
-ENV VITE__INDEX_URL="/"
 ENV HOME_USER=/home/python
 
 # Set working directory to function root directory
@@ -37,6 +35,7 @@ RUN python -c "import pymongo"
 RUN python -c "import requests"
 RUN df -h
 RUN ls -l ${WORKDIR_ROOT}/my_ghost_writer/app.py
+RUN ls -l ${WORKDIR_ROOT}/static/index.html
 RUN ls -l ${WORKDIR_ROOT}/lite.koboldai.net/index.html
 
 USER 999
