@@ -12,6 +12,10 @@ class TestAppEndpoints(unittest.TestCase):
     def setUp(self):
         self.client = TestClient(app)
 
+    def tearDown(self) -> None:
+        self.client.close()
+        return super().tearDown()
+
     def test_health(self):
         response = self.client.get("/health")
         self.assertEqual(response.status_code, 200)
@@ -79,18 +83,30 @@ class TestAppEndpoints(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.json()["source"], "wordsapi")
 
-    @patch("my_ghost_writer.app.pymongo_operations_rw.get_document_by_word", side_effect=AssertionError("fail"))
     @patch("my_ghost_writer.app.requests.get")
-    def test_thesaurus_wordsapi_remote_non_200(self, mock_requests_get, mock_get_doc):
+    def test_thesaurus_wordsapi_remote_404(self, mock_requests_get):
         mock_response = MagicMock()
-        mock_response.status_code = 400
+        mock_response.status_code = 404
         mock_response.json.return_value = {"error": "not found"}
         mock_requests_get.return_value = mock_response
         with patch("my_ghost_writer.app.db_ok", {"mongo_ok": True}):
             body = '{"query": "test"}'
             response = self.client.post("/thesaurus-wordsapi", json=body)
+            self.assertEqual(response.status_code, 404)
+            response_json = response.json()
+            self.assertDictEqual({'msg': {'error': 'not found'}}, response_json)
+
+    @patch("my_ghost_writer.app.requests.get")
+    def test_thesaurus_wordsapi_remote_500(self, mock_requests_get):
+        mock_response = MagicMock()
+        mock_response.status_code = 500
+        mock_requests_get.side_effect = Exception("test exception")
+        with patch("my_ghost_writer.app.db_ok", {"mongo_ok": True}):
+            body = '{"query": "test"}'
+            response = self.client.post("/thesaurus-wordsapi", json=body)
             self.assertEqual(response.status_code, 500)
-            self.assertIn("Error - Internal Server Error", response.text)
+            response_text = response.text
+            self.assertEqual("", response_text)
 
     @patch("my_ghost_writer.app.WORDSAPI_URL", "http://mocked-url.com")
     @patch("my_ghost_writer.app.RAPIDAPI_HOST", "mocked-rapidapi-host.com")
@@ -121,20 +137,6 @@ class TestAppEndpoints(unittest.TestCase):
             response = self.client.post("/thesaurus-wordsapi", json=body)
             self.assertEqual(response.status_code, 500)
             self.assertEqual(response.text, "")
-
-
-    @patch("my_ghost_writer.app.pymongo_operations_rw.get_document_by_word", side_effect=AssertionError("fail"))
-    @patch("my_ghost_writer.app.requests.get")
-    def test_thesaurus_wordsapi_remote_non_200(self, mock_requests_get, mock_get_doc):
-        mock_response = MagicMock()
-        mock_response.status_code = 400
-        mock_response.json.return_value = {"error": "not found"}
-        mock_requests_get.return_value = mock_response
-        with patch("my_ghost_writer.app.db_ok", {"mongo_ok": True}):
-            body = '{"query": "test"}'
-            response = self.client.post("/thesaurus-wordsapi", json=body)
-            self.assertEqual(response.status_code, 500)
-            self.assertIn("Error - Internal Server Error", response.text)
 
     def test_lifespan(self):
         # Test that lifespan yields and cancels the task
