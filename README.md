@@ -1,3 +1,13 @@
+---
+title: My Ghost Writer
+emoji: ✍️
+colorFrom: red
+colorTo: blue
+sdk: docker
+pinned: true
+license: agpl-3.0
+---
+
 # My Ghost Writer
 
 A simple helper for writers.
