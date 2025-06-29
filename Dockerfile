@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.0
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.1
 
 LABEL authors="trincadev"
 
@@ -17,10 +17,6 @@ WORKDIR ${WORKDIR_ROOT}
 RUN ls -ld ${HOME_USER}
 RUN ls -lA ${HOME_USER}
 
-COPY --chown=python:python requirements_poetry.txt pyproject.toml poetry.lock README.md ${WORKDIR_ROOT}/
-COPY --chown=python:python ./lite.koboldai.net ${WORKDIR_ROOT}/lite.koboldai.net
-COPY --chown=python:python ./my_ghost_writer ${WORKDIR_ROOT}/my_ghost_writer
-COPY --chown=python:python ./static ${WORKDIR_ROOT}/static
 # RUN . ${WORKDIR_ROOT}/.venv && which python && echo "# install samgis #" && pip install .
 RUN if [ "${WRITE_TMP_ON_DISK}" != "" ]; then mkdir {WRITE_TMP_ON_DISK}; fi
 RUN if [ "${WRITE_TMP_ON_DISK}" != "" ]; then ls -l {WRITE_TMP_ON_DISK}; fi

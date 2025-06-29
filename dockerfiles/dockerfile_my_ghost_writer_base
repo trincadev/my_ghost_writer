@@ -37,7 +37,6 @@ RUN groupadd -g 999 python && useradd -r -u 999 -g python python
 RUN mkdir ${WORKDIR_ROOT} && chown python:python ${WORKDIR_ROOT}
 WORKDIR ${WORKDIR_ROOT}
 COPY --chown=python:python requirements_poetry.txt pyproject.toml poetry.lock README.md ${WORKDIR_ROOT}/
-COPY --chown=python:python ../lite.koboldai.net ${WORKDIR_ROOT}/lite.koboldai.net
 COPY --chown=python:python ../my_ghost_writer ${WORKDIR_ROOT}/my_ghost_writer
 
 # poetry installation path is NOT within ${WORKDIR_ROOT}: not needed for runtime docker image
@@ -69,6 +68,7 @@ RUN mkdir ${WORKDIR_ROOT} && chown python:python ${WORKDIR_ROOT}
 COPY --from=builder_global ${WORKDIR_ROOT}/.venv ${WORKDIR_ROOT}/.venv
 RUN . ${WORKDIR_ROOT}/.venv && which python && pip list
 
+COPY --chown=python:python ../lite.koboldai.net ${WORKDIR_ROOT}/lite.koboldai.net
 RUN echo "new WORKDIR_ROOT after hidden venv copy => ${WORKDIR_ROOT}"
 RUN ls -ld ${WORKDIR_ROOT}/
 RUN ls -lA ${WORKDIR_ROOT}/
