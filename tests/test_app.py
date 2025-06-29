@@ -148,7 +148,7 @@ class TestAppEndpoints(unittest.TestCase):
 
     def test_mongo_health_check_background_task(self):
         # Patch sleep and health_mongo to exit after one loop
-        with patch("my_ghost_writer.app.MONGO_USE_OK", True), \
+        with patch("my_ghost_writer.app.ME_CONFIG_MONGODB_USE_OK", True), \
                 patch("my_ghost_writer.app.health_mongo", return_value="Mongodb: still alive..."), \
                 patch("my_ghost_writer.app.asyncio.sleep", side_effect=Exception("stop")):
             with self.assertRaises(Exception):

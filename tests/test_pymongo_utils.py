@@ -9,8 +9,8 @@ class TestPymongoUtils(unittest.TestCase):
     def test_get_client(self, mock_mongo_client):
         client = pymongo_utils.get_client()
         mock_mongo_client.assert_called_with(
-            pymongo_utils.MONGO_CONNECTION_STRING,
-            timeoutMS=pymongo_utils.MONGO_CONNECTION_TIMEOUT
+            pymongo_utils.ME_CONFIG_MONGODB_URL,
+            timeoutMS=pymongo_utils.ME_CONFIG_MONGODB_TIMEOUT
         )
         self.assertEqual(client, mock_mongo_client.return_value)
 

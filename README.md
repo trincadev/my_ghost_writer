@@ -12,6 +12,7 @@ A simple helper for writers.
 * Use NLP to stem words for more accurate results
 * Support for uploading or typing in text
 * User-friendly interface with a simple editor and display of word frequencies
+* WIP: thesaurus, powered by [wordsapi](https://www.wordsapi.com/) (you need to get your own wordsapi API key)
 
 ## Technologies Used
 
@@ -44,7 +45,9 @@ If using the webserver with the module (`python -m ghost_writer.app.py`) it's ne
   * `index.css`
 * `API_MODE` to avoid mounting the static folder. This will define only the API endpoints
   * `/health`
+  * `/health-mongo`
   * `/words-frequency`
+  * `/thesaurus-wordsapi`
 
 ### Installation script
 
@@ -79,6 +82,28 @@ docker run --env=MONGO_MAJOR=8.0 \
 --volume=/data/configdb --volume=/data/db --network=bridge --restart=always \
 -d mongo:8-noble
 ```
+
+## Docker
+
+To build the project with docker:
+
+```
+DOCKER_VERSION=$(grep version pyproject.toml |head -1|cut -d'=' -f2|cut -d'"' -f2);
+docker build . --progress=plain --tag registry.gitlab.com/aletrn/my_ghost_writer:${DOCKER_VERSION}
+docker build . -f dockerfiles/dockerfile_my_ghost_writer_base  --progress=plain --tag registry.gitlab.com/aletrn/my_ghost_writer_base:${DOCKER_VERSION}
+```
+
+To run the docker container (you still need to configure the mongodb endpoint to use the single my_ghost_writer container):
+```
+docker run -d --name my_ghost_writer -p 7860:7860 -e WORDSAPI_KEY=${WORDSAPI_KEY} -e ME_CONFIG_MONGODB_USE_OK=TRUE registry.gitlab.com/aletrn/my_ghost_writer:0.4.0; docker logs -f my_ghost_writer
+```
+
+To source more than one env variable, you can use this command:
+```
+set -o allexport && source <(cat ./.env) && set +o allexport;
+```
+
+Instead to simple
 
 ## Contributing
 

@@ -1,0 +1,26 @@
+services:
+  my_ghost_writer:
+    env_file:
+      - ./.env
+      - ./.env_source
+    build:
+      context: .
+      tags:
+        - registry.gitlab.com/aletrn/my_ghost_writer:0.4.0
+    ports:
+      - "7860:7860"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+
+  mongo:
+    environment:
+      - MONGO_MAJOR=8.0
+      - HOME=/data/db
+    image: "mongo:8-noble"
+    volumes:
+      - ./mongo:/data
+      - /data/configdb
+      - /data/db
+    ports:
+      - "27017:27017"
+    restart: always

@@ -1,7 +1,7 @@
 [project]
 name = "my-ghost-writer"
-version = "0.3.0"
-description = "A simple help for writers"
+version = "0.4.0"
+description = "A simple webapp supporting writers"
 authors = [
     {name = "alessandro trinca tornidor",email = "alessandro@trinca.tornidor.com"}
 ]
@@ -12,14 +12,13 @@ dependencies = [
     "nltk (>=3.9.1,<4.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
     "structlog (>=25.2.0,<26.0.0)",
-    "httpx (>=0.28.1,<0.29.0)"
+    "requests (>=2.32.4,<3.0.0)"
 ]
 
 [tool.poetry.group.test]
 optional = true
 
 [tool.poetry.group.test.dependencies]
-pymongo-inmemory = "^0.5.0"
 pytest = "^8.3.5"
 pytest-cov = "^6.1.1"
 httpx = "^0.28.1"

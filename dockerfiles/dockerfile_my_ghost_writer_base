@@ -1,0 +1,74 @@
+# Include global ARGs at the dockerfile top
+ARG ARCH="x86_64"
+ARG WORKDIR_ROOT="/var/task"
+ARG FASTAPI_STATIC="${WORKDIR_ROOT}/static"
+ARG PYTHONPATH="${WORKDIR_ROOT}:${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
+ARG POETRY_NO_INTERACTION=1
+ARG POETRY_VIRTUALENVS_IN_PROJECT=1
+ARG POETRY_VIRTUALENVS_CREATE=1
+ARG POETRY_CACHE_DIR=/tmp/poetry_cache
+ARG HOME_USER=/home/python
+
+FROM python:3.13-bookworm AS builder_global
+LABEL authors="trincadev"
+
+ARG ARCH
+ARG WORKDIR_ROOT
+ARG PYTHONPATH
+ARG POETRY_NO_INTERACTION
+ARG POETRY_VIRTUALENVS_IN_PROJECT
+ARG POETRY_VIRTUALENVS_CREATE
+ARG POETRY_CACHE_DIR
+
+RUN echo "ARCH: $ARCH ..."
+RUN echo "WORKDIR_ROOT: ${WORKDIR_ROOT} ..."
+RUN echo "PYTHONPATH: ${PYTHONPATH} ..."
+RUN echo "HOME_USER: ${HOME_USER} ..."
+RUN echo "==========================="
+
+RUN echo "ARG POETRY_CACHE_DIR: ${POETRY_CACHE_DIR} ..."
+RUN echo "ARG PYTHONPATH: $PYTHONPATH ..."
+RUN echo "arg dep:"
+
+RUN ls -ld ${HOME_USER}
+RUN ls -l ${HOME_USER}
+RUN groupadd -g 999 python && useradd -r -u 999 -g python python
+# Set working directory to function root directory
+RUN mkdir ${WORKDIR_ROOT} && chown python:python ${WORKDIR_ROOT}
+WORKDIR ${WORKDIR_ROOT}
+COPY --chown=python:python requirements_poetry.txt pyproject.toml poetry.lock README.md ${WORKDIR_ROOT}/
+COPY --chown=python:python ../lite.koboldai.net ${WORKDIR_ROOT}/lite.koboldai.net
+COPY --chown=python:python ../my_ghost_writer ${WORKDIR_ROOT}/my_ghost_writer
+
+# poetry installation path is NOT within ${WORKDIR_ROOT}: not needed for runtime docker image
+RUN python -m pip install -r ${WORKDIR_ROOT}/requirements_poetry.txt
+
+RUN which poetry && poetry --version && poetry config --list
+RUN poetry config virtualenvs.path ${WORKDIR_ROOT}
+RUN echo "# poetry config --list #" && poetry config --list
+RUN poetry install --with webserver --no-cache
+
+FROM python:3.13-slim-bookworm AS runtime
+
+ARG ARCH
+ARG WORKDIR_ROOT
+ARG HOME_USER
+
+ENV VIRTUAL_ENV=${WORKDIR_ROOT}/.venv PATH="${WORKDIR_ROOT}/.venv/bin:$PATH"
+
+# workaround for missing /home folder
+RUN mkdir -p /home
+RUN groupadd -g 999 python && useradd -r -u 999 -g python python
+RUN ls -l /home
+RUN ls -ld /home
+RUN mkdir -p ${HOME_USER} ${HOME_USER}/.config && chown python:python -R ${HOME_USER}
+RUN ls -ld ${HOME_USER}
+RUN ls -lA ${HOME_USER}
+RUN mkdir ${WORKDIR_ROOT} && chown python:python ${WORKDIR_ROOT}
+
+COPY --from=builder_global ${WORKDIR_ROOT}/.venv ${WORKDIR_ROOT}/.venv
+RUN . ${WORKDIR_ROOT}/.venv && which python && pip list
+
+RUN echo "new WORKDIR_ROOT after hidden venv copy => ${WORKDIR_ROOT}"
+RUN ls -ld ${WORKDIR_ROOT}/
+RUN ls -lA ${WORKDIR_ROOT}/

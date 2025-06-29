@@ -283,3 +283,7 @@ fabric.properties
 # node_modules
 node_modules
 */node_modules/*/*
+
+# mongodb
+mongo/*
+mongodb/*

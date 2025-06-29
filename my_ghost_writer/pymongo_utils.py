@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 
-from my_ghost_writer.constants import DEFAULT_DBNAME_THESAURUS, MONGO_CONNECTION_STRING, DEFAULT_COLLECTION_THESAURUS, MONGO_CONNECTION_TIMEOUT, app_logger
+from my_ghost_writer.constants import DEFAULT_DBNAME_THESAURUS, ME_CONFIG_MONGODB_URL, DEFAULT_COLLECTION_THESAURUS, ME_CONFIG_MONGODB_TIMEOUT, app_logger
 
 
 def get_client() -> MongoClient:
-    client = MongoClient(MONGO_CONNECTION_STRING, timeoutMS=MONGO_CONNECTION_TIMEOUT)
+    client = MongoClient(ME_CONFIG_MONGODB_URL, timeoutMS=ME_CONFIG_MONGODB_TIMEOUT)
     return client
 
 

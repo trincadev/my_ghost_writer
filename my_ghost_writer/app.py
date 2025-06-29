@@ -4,7 +4,6 @@ import json
 from datetime import datetime
 
 import requests
-import starlette.status
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi import FastAPI, Request
@@ -16,21 +15,22 @@ from pymongo import __version__ as pymongo_version
 from pymongo.errors import PyMongoError
 
 from my_ghost_writer import pymongo_operations_rw, exception_handlers
-from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL, PORT,
-    STATIC_FOLDER, WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, MONGO_USE_OK, MONGO_HEALTHCHECK_SLEEP)
+from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, STATIC_FOLDER,
+   WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, ME_CONFIG_MONGODB_USE_OK, ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP,
+   STATIC_FOLDER_LITEKOBOLDAINET, LOG_LEVEL, PORT)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
 from my_ghost_writer.text_parsers import text_stemming
 from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
 
 
 async def mongo_health_check_background_task():
-    app_logger.info(f"starting task, MONGO_USE_OK:{MONGO_USE_OK}...")
-    while MONGO_USE_OK:
+    app_logger.info(f"starting task, ME_CONFIG_MONGODB_USE_OK:{ME_CONFIG_MONGODB_USE_OK}...")
+    while ME_CONFIG_MONGODB_USE_OK:
         try:
             db_ok["mongo_ok"] = health_mongo() == "Mongodb: still alive..."
         except PyMongoError:
             db_ok["mongo_ok"] = False
-        await asyncio.sleep(MONGO_HEALTHCHECK_SLEEP)
+        await asyncio.sleep(ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP)
 
 
 async def lifespan(app: FastAPI):
@@ -52,7 +52,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["GET", "POST"]
 )
-db_ok = {"mongo_ok": MONGO_USE_OK}
+db_ok = {"mongo_ok": ME_CONFIG_MONGODB_USE_OK}
 
 
 @app.middleware("http")
@@ -75,7 +75,7 @@ def health():
 @app.get("/health-mongo")
 def health_mongo() -> str:
     app_logger.info(f"pymongo driver version:{pymongo_version}!")
-    if MONGO_USE_OK:
+    if ME_CONFIG_MONGODB_USE_OK:
         try:
             db_ok["mongo_ok"] = mongodb_health_check()
             return "Mongodb: still alive..."
@@ -83,7 +83,7 @@ def health_mongo() -> str:
             app_logger.error(str(pme))
             db_ok["mongo_ok"] = False
             raise HTTPException("mongo not ok!")
-    return f"MONGO_USE_OK:{MONGO_USE_OK}..."
+    return f"ME_CONFIG_MONGODB_USE_OK:{ME_CONFIG_MONGODB_USE_OK}..."
 
 
 @app.post("/words-frequency")
@@ -184,6 +184,14 @@ except Exception as ex_mount_static:
     if not API_MODE:
         app_logger.exception(f"since API_MODE is {API_MODE} we will raise the exception!")
         raise ex_mount_static
+try:
+    app.mount("/lite.koboldai.net", StaticFiles(directory=STATIC_FOLDER_LITEKOBOLDAINET, html=True), name="lite.koboldai.net")
+except Exception as ex_mount_static1:
+    app_logger.error(
+        f"Failed to mount static folder: {STATIC_FOLDER_LITEKOBOLDAINET}, exception: {ex_mount_static1}, API_MODE: {API_MODE}!")
+    if not API_MODE:
+        app_logger.exception(f"since API_MODE is {API_MODE} we will raise the exception!")
+        raise ex_mount_static1
 
 # add the CorrelationIdMiddleware AFTER the @app.middleware("http") decorated function to avoid missing request id
 app.add_middleware(CorrelationIdMiddleware)
