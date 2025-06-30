@@ -80,9 +80,9 @@ def health_mongo() -> str:
             db_ok["mongo_ok"] = mongodb_health_check()
             return "Mongodb: still alive..."
         except PyMongoError as pme:
-            app_logger.error(str(pme))
+            app_logger.error(f"{type(pme)}, {pme}!")
             db_ok["mongo_ok"] = False
-            raise HTTPException("mongo not ok!")
+            raise HTTPException(status_code=503, detail=type(pme))
     return f"ME_CONFIG_MONGODB_USE_OK:{ME_CONFIG_MONGODB_USE_OK}..."
 
 
