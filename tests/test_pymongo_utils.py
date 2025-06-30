@@ -1,18 +1,25 @@
 import unittest
 from unittest.mock import patch, MagicMock
-
+from pymongo.server_api import ServerApi
 from my_ghost_writer import pymongo_utils
 
 
 class TestPymongoUtils(unittest.TestCase):
+    @patch('my_ghost_writer.pymongo_utils.app_logger')
     @patch('my_ghost_writer.pymongo_utils.MongoClient')
-    def test_get_client(self, mock_mongo_client):
+    def test_get_client(self, mock_mongo_client, mock_logger):
+        mock_client = MagicMock()
+        mock_mongo_client.return_value = mock_client
+        mock_client.admin.command.return_value = {'ok': 1}
         client = pymongo_utils.get_client()
-        mock_mongo_client.assert_called_with(
-            pymongo_utils.ME_CONFIG_MONGODB_URL,
-            timeoutMS=pymongo_utils.ME_CONFIG_MONGODB_TIMEOUT
-        )
-        self.assertEqual(client, mock_mongo_client.return_value)
+        args, kwargs = mock_mongo_client.call_args
+        self.assertEqual(args[0], pymongo_utils.ME_CONFIG_MONGODB_URL)
+        self.assertEqual(kwargs['timeoutMS'], pymongo_utils.ME_CONFIG_MONGODB_TIMEOUT)
+        self.assertIsInstance(kwargs['server_api'], ServerApi)
+        self.assertEqual(kwargs['server_api'].version, '1')
+        mock_client.admin.command.assert_called_with('ping', check=True)
+        mock_logger.info.assert_called_with("Pinged your deployment. You successfully connected to MongoDB!")
+        self.assertEqual(client, mock_client)
 
     @patch('my_ghost_writer.pymongo_utils.get_client')
     def test_get_database(self, mock_get_client):
@@ -46,7 +53,6 @@ class TestPymongoUtils(unittest.TestCase):
         mock_collection.find_one.return_value = {}
 
         result = pymongo_utils.mongodb_health_check('testdb', 'testcol')
-        mock_client.admin.command.assert_called_with('ping', check=True)
         mock_client.server_info.assert_called_once()
         mock_db.__getitem__.assert_called_with('testcol')
         mock_collection.find_one.assert_called_once()
