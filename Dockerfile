@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.2
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.5
 
 LABEL authors="trincadev"
 
