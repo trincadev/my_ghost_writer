@@ -132,16 +132,27 @@ def get_thesaurus_wordnet(body: RequestQueryThesaurusWordsapiBody | str) -> JSON
         try:
             response = pymongo_operations_rw.get_document_by_word(query=query)
             t1 = datetime.now()
-            duration = (t1 - t0).total_seconds()
-            app_logger.info(f"found local data, duration: {duration:.3f}s.")
-            return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "local"})
+            duration_t2t1 = (t1 - t0).total_seconds()
+            app_logger.info(f"found local data, duration: {duration_t2t1:.3f}s.")
+            return JSONResponse(status_code=200, content={"duration": duration_t2t1, "thesaurus": response, "source": "local"})
         except (PyMongoError, AssertionError) as pme:
             app_logger.info(f"{pme}! Let's try the remote service...")
 
     response = get_synsets_by_word_and_language(query, lang="eng")
     t1 = datetime.now()
-    duration = (t1 - t0).total_seconds()
-    app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
+    duration_t1t0 = (t1 - t0).total_seconds()
+    n_results = len(response["results"])
+    app_logger.error(f"response, n_results: {n_results}; duration: {duration_t1t0:.3f}s.")
+    app_logger.info("=============================================================")
+    duration = duration_t1t0
+    if use_mongo:
+        app_logger.debug(f"use_mongo:{use_mongo}, inserting response '{response}' by query '{query}' on db...")
+        pymongo_operations_rw.insert_document(response)
+        del response["_id"]  # since we inserted the wordsapi response on mongodb now it have a bson _id object not serializable by default
+        t2 = datetime.now()
+        duration_t2t1 = (t2 - t1).total_seconds()
+        app_logger.info(f"mongo insert, duration: {duration_t2t1:.3f}s.")
+        duration = duration_t1t0 + duration_t2t1
     return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "wordnet"})
 
 
