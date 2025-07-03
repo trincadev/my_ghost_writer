@@ -1,0 +1,16 @@
+@domain = http://localhost:7860
+
+### Thesaurus WordsAPI Query (with browser-like headers)
+POST {{domain}}/thesaurus-wordsapi
+Content-Type: text/plain;charset=UTF-8
+
+{"query":"look"}
+
+> {%
+    client.log("Status:", response.status);
+    if (response.status >= 400) {
+        client.log("Error:", response.body);
+    } else {
+        client.log("Response:", response.body);
+    }
+%}

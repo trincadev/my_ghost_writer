@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import TypedDict, Optional
 from pydantic import BaseModel
 
 
@@ -45,6 +45,34 @@ class WordStem(TypedDict):
     offsets_array: list[OffsetArray]
 
 
+class ResultWordsAPI(TypedDict):
+    definition: str
+    synonyms: Optional[list[str]]
+    typeOf: Optional[list[str]]
+    hasTypes: Optional[list[str]]
+    partOf: Optional[list[str]]
+    hasParts: Optional[list[str]]
+    antonyms: Optional[list[str]]
+    derivation: Optional[list[str]]
+    pertainsTo: Optional[list[str]]
+    instanceOf: Optional[list[str]]
+    hasInstances: Optional[list[str]]
+    similarTo: Optional[list[str]]
+    also: Optional[list[str]]
+    entails: Optional[list[str]]
+    hasSubstances: Optional[list[str]]
+    inCategory: Optional[list[str]]
+    usageOf: Optional[list[str]]
+    causes: Optional[list[str]]
+    verbGroups: Optional[list[str]]
+
+
+class ResponseWordsAPI(TypedDict):
+    word: str
+    results: list[ResultWordsAPI]
+
+
 RequestTextRowsList = list[InputTextRow]
 RequestTextRowsParentList = list[InputTextRowWithParent]
 ResponseTextRowsDict = tuple[int, dict[str, WordStem]]
+#ResponseWordsAPI = dict[str, str | list[str]]

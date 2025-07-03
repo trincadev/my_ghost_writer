@@ -21,6 +21,7 @@ from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE
 from my_ghost_writer.pymongo_utils import mongodb_health_check
 from my_ghost_writer.text_parsers import text_stemming
 from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
+from my_ghost_writer.thesaurus import get_current_info_wordnet, get_synsets_by_word_and_language
 
 
 async def mongo_health_check_background_task():
@@ -28,7 +29,7 @@ async def mongo_health_check_background_task():
     while ME_CONFIG_MONGODB_USE_OK:
         try:
             db_ok["mongo_ok"] = health_mongo() == "Mongodb: still alive..."
-        except PyMongoError:
+        except (PyMongoError, HTTPException):
             db_ok["mongo_ok"] = False
         await asyncio.sleep(ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP)
 
@@ -72,6 +73,17 @@ def health():
     return "Still alive..."
 
 
+@app.get("/health-wordnet")
+def get_wordnet_languages():
+    try:
+        info = get_current_info_wordnet()
+        return JSONResponse(status_code=200, content={"msg": info})
+    except Exception as e:
+        app_logger.error("exception:")
+        app_logger.error(e)
+        raise HTTPException(status_code=503, detail=str(type(e)))
+
+
 @app.get("/health-mongo")
 def health_mongo() -> str:
     app_logger.info(f"pymongo driver version:{pymongo_version}!")
@@ -105,6 +117,32 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     app_logger.info(f"content_response: {content_response["duration"]}, {content_response["n_total_rows"]} ...")
     app_logger.debug(f"content_response: {content_response} ...")
     return JSONResponse(status_code=200, content=content_response)
+
+
+@app.post("/thesaurus-wordnet")
+def get_thesaurus_wordnet(body: RequestQueryThesaurusWordsapiBody | str) -> JSONResponse:
+    t0 = datetime.now()
+    app_logger.info(f"body type: {type(body)} => {body}.")
+    body_validated = RequestQueryThesaurusWordsapiBody.model_validate_json(body)
+    query = body_validated.query
+    app_logger.info(f"query: {type(query)} => {query}, starting get_synsets_by_word_and_language...")
+    use_mongo: bool = db_ok["mongo_ok"]
+    app_logger.info(f"query: {type(query)} => {query}, use mongo? {use_mongo}.")
+    if use_mongo:
+        try:
+            response = pymongo_operations_rw.get_document_by_word(query=query)
+            t1 = datetime.now()
+            duration = (t1 - t0).total_seconds()
+            app_logger.info(f"found local data, duration: {duration:.3f}s.")
+            return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "local"})
+        except (PyMongoError, AssertionError) as pme:
+            app_logger.info(f"{pme}! Let's try the remote service...")
+
+    response = get_synsets_by_word_and_language(query, lang="eng")
+    t1 = datetime.now()
+    duration = (t1 - t0).total_seconds()
+    app_logger.info(f"response.status_code: {response.status_code}, duration: {duration:.3f}s.")
+    return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "wordnet"})
 
 
 @app.post("/thesaurus-wordsapi")
