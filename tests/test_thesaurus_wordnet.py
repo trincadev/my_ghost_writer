@@ -34,11 +34,21 @@ class TestThesaurusWordnet(unittest.TestCase):
     def test_get_current_info_wordnet(self):
         from my_ghost_writer.thesaurus import get_current_info_wordnet
 
-        current_info = get_current_info_wordnet()
-        self.assertEqual(list(current_info.keys()), ['languages', 'version'])
+        current_info = get_current_info_wordnet(False)
+        self.assertEqual(list(current_info.keys()), ['languages', 'version', 'preload_wordnet'])
         languages = current_info["languages"]
         self.assertIn("eng", languages)
         self.assertIsInstance(languages, list)
+        self.assertFalse(current_info["preload_wordnet"])
+        self.assertIsInstance(current_info["version"], str)
+        self.assertGreaterEqual(len(languages), 1)
+
+        current_info = get_current_info_wordnet(True)
+        self.assertEqual(list(current_info.keys()), ['languages', 'version', 'preload_wordnet'])
+        languages = current_info["languages"]
+        self.assertIn("eng", languages)
+        self.assertIsInstance(languages, list)
+        self.assertTrue(current_info["preload_wordnet"])
         self.assertIsInstance(current_info["version"], str)
         self.assertGreaterEqual(len(languages), 1)
 

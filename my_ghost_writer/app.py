@@ -76,7 +76,7 @@ def health():
 @app.get("/health-wordnet")
 def get_wordnet_languages():
     try:
-        info = get_current_info_wordnet()
+        info = get_current_info_wordnet(True)
         return JSONResponse(status_code=200, content={"msg": info})
     except Exception as e:
         app_logger.error("exception:")
@@ -142,8 +142,7 @@ def get_thesaurus_wordnet(body: RequestQueryThesaurusWordsapiBody | str) -> JSON
     t1 = datetime.now()
     duration_t1t0 = (t1 - t0).total_seconds()
     n_results = len(response["results"])
-    app_logger.error(f"response, n_results: {n_results}; duration: {duration_t1t0:.3f}s.")
-    app_logger.info("=============================================================")
+    app_logger.info(f"response, n_results: {n_results}; duration: {duration_t1t0:.3f}s.")
     duration = duration_t1t0
     if use_mongo:
         app_logger.debug(f"use_mongo:{use_mongo}, inserting response '{response}' by query '{query}' on db...")

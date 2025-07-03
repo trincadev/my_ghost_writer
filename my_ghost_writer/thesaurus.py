@@ -4,8 +4,10 @@ from my_ghost_writer.constants import app_logger
 from my_ghost_writer.type_hints import ResponseWordsAPI
 
 
-def get_current_info_wordnet():
-    return {"languages": wn.langs(), "version": wn.get_version()}
+def get_current_info_wordnet(preload_wordnet=False):
+    if preload_wordnet:
+        wn.synsets("test")  # prelaod wordnet
+    return {"languages": wn.langs(), "version": wn.get_version(), "preload_wordnet": preload_wordnet}
 
 
 def get_synsets_by_word_and_language(word: str, lang: str = "eng") -> ResponseWordsAPI:
