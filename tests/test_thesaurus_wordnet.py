@@ -25,7 +25,7 @@ def assert_get_synsets_by_word_and_language(cls, q):
             for s in v:
                 cls.assertIsInstance(s, str)
     with open(EVENTS_FOLDER / f"expected_get_synsets_by_word_and_language_{q}.json", "r") as src:
-        # json.dump(response, src)
+        # json.dump(response, src, indent=4)
         expected_response = json.load(src)
         cls.assertEqual(response, expected_response)
 
@@ -47,3 +47,7 @@ class TestThesaurusWordnet(unittest.TestCase):
         assert_get_synsets_by_word_and_language(self, "look")
         assert_get_synsets_by_word_and_language(self, "power")
         assert_get_synsets_by_word_and_language(self, "term")
+
+
+if __name__ == '__main__':
+    unittest.main()

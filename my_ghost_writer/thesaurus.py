@@ -156,9 +156,9 @@ def get_synsets_by_word_and_language(word: str, lang: str = "eng") -> ResponseWo
         if has_types:
             obj["hasTypes"] = has_types
         if part_of:
-            obj["partOf"]: part_of
+            obj["partOf"] = part_of
         if has_parts:
-            obj["hasParts"]: has_parts
+            obj["hasParts"] = has_parts
         if antonyms:
             obj["antonyms"] = antonyms
         if derivation:
@@ -190,11 +190,3 @@ def get_synsets_by_word_and_language(word: str, lang: str = "eng") -> ResponseWo
         "word": word,
         "results": results
     }
-
-
-if __name__ == '__main__':
-    res = {}
-    for w in ["dog", "spider", "look", "tree"]:
-        oo = get_synsets_by_word_and_language(w, lang="eng")
-        res[w] = oo
-    pass
