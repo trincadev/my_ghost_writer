@@ -36,7 +36,7 @@ class TestAppEndpoints(unittest.TestCase):
         self.assertNotEqual(response.status_code, 200)
         self.assertEqual(response.status_code, 500)
 
-    @patch("my_ghost_writer.app.text_stemming")
+    @patch("my_ghost_writer.app.text_parsers.text_stemming")
     def test_words_frequency(self, mock_stemming):
         mock_stemming.return_value = (1, {"word": 2})
         body = '{"text": "test test"}'
@@ -49,7 +49,7 @@ class TestAppEndpoints(unittest.TestCase):
         response = self.client.post("/words-frequency", json=body)
         self.assertEqual(response.status_code, 500)
 
-    @patch("my_ghost_writer.app.text_stemming")
+    @patch("my_ghost_writer.app.text_parsers.text_stemming")
     def test_words_frequency_fail2(self, mock_stemming):
         mock_stemming.side_effect = ValueError("stemming error")
         body = '{"text": "test test"}'
@@ -171,7 +171,7 @@ class TestAppEndpoints(unittest.TestCase):
             response = self.client.get("/static/")
             self.assertEqual(response.status_code, 200)
 
-    @patch("my_ghost_writer.app.exception_handlers.request_validation_exception_handler")
+    @patch("my_ghost_writer.app.request_validation_exception_handler")
     def test_request_validation_exception_handler(self, mock_handler):
         req = MagicMock(spec=Request)
         exc = MagicMock()
@@ -179,7 +179,7 @@ class TestAppEndpoints(unittest.TestCase):
         request_validation_exception_handler(req, exc)
         mock_handler.assert_called_once_with(req, exc)
 
-    @patch("my_ghost_writer.app.exception_handlers.http_exception_handler")
+    @patch("my_ghost_writer.app.http_exception_handler")
     def test_http_exception_handler(self, mock_handler):
         req = MagicMock(spec=Request)
         exc = MagicMock()

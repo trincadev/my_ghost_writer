@@ -185,6 +185,25 @@ class TestTextParsers(unittest.TestCase):
             expected_words_stems_dict = response_text_stemming_with_parents["words_stems_dict"]
         self.assertDictEqual(words_stems_dict, expected_words_stems_dict)
 
+    def test_get_sentence_with_word(self):
+        from my_ghost_writer.text_parsers import get_sentence_by_word
+        text = """Mr. Dursley always sat with his back to the window in his office on the ninth floor (the window was on the back of the factory). If he hadn't, he might have found it harder to concentrate on drills that morning: small drills and a normal drill or in the end the biggest drill he ever seen! He didn't see the owls swooping past in broad daylight, though people down in the street did; they pointed and gazed open-mouthed as owl after owl sped overhead. Most of them had never seen an owl even at nighttime. Mr. Dursley, however, had a perfectly normal, owl-free morning with plenty of thinking on his prefererred drill. He yelled at five different people. He made several important telephone"""
+        expected_sentence1 = 'Mr. Dursley always sat with his back to the window in his office on the ninth floor (the window was on the back of the factory).'
+        expected_sentence2 = "If he hadn't, he might have found it harder to concentrate on drills that morning: small drills and a normal drill or in the end the biggest drill he ever seen!"
+        expected_list_responses = [
+            {"word": "window", "expected_sentence": expected_sentence1, "start": 44, "end": 50, "start_position": 44, "end_position": 50},
+            {"word": "window", "expected_sentence": expected_sentence1, "start": 89, "end": 95, "start_position": 89, "end_position": 95},
+            {"word": "drill", "expected_sentence": expected_sentence2, "start": 109, "end": 114, "start_position": 238, "end_position": 243},
+            {"word": "drill", "expected_sentence": expected_sentence2, "start": 141, "end": 146, "start_position": 270, "end_position": 275}
+        ]
+        for item in expected_list_responses:
+            expected_sentence = item["expected_sentence"]
+            expected_start_in_sentence, expected_end_in_sentence = item["start"], item["end"]
+            sentence, start_in_sentence, end_in_sentence = get_sentence_by_word(text, item["word"], item["start_position"], item["end_position"])
+            self.assertEqual(sentence, expected_sentence)
+            self.assertEqual(start_in_sentence, expected_start_in_sentence)
+            self.assertEqual(end_in_sentence, expected_end_in_sentence)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,4 +1,4 @@
-from typing import TypedDict, Optional
+from typing import Any, TypedDict, Optional
 from pydantic import BaseModel
 
 
@@ -12,6 +12,51 @@ class RequestTextFrequencyBody(BaseModel):
 
 class RequestQueryThesaurusWordsapiBody(BaseModel):
     query: str
+
+
+class RequestSplitText(BaseModel):
+    text: str
+    end: int
+    start: int
+    word: str
+
+class RequestQueryThesaurusInflatedBody(BaseModel):
+    text: str
+    end: int
+    start: int
+    word: str
+
+class SynonymOption(BaseModel):
+    base_form: str
+    inflected_form: str
+    matches_context: bool
+
+class SynonymGroup(BaseModel):
+    definition: str
+    examples: list[str]
+    wordnet_pos: str
+    synonyms: list[SynonymOption]
+
+class ContextInfo(BaseModel):
+    pos: str
+    sentence: str
+    grammatical_form: str
+    context_words: list[str]
+    dependency: str
+
+class SynonymResponse(BaseModel):
+    success: bool
+    original_word: str
+    original_indices: dict[str, int]
+    context_info: ContextInfo
+    synonym_groups: list[SynonymGroup]
+    message: Optional[str] = None
+    debug_info: Optional[dict[str, Any]] = None
+
+class HealthCheckResponse(BaseModel):
+    success: bool
+    status: str
+    spacy_available: bool
 
 
 class InputTextRow(TypedDict):

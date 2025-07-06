@@ -2,26 +2,33 @@ import asyncio
 import http
 import json
 from datetime import datetime
+from http.client import responses
+from typing import Any, Coroutine
 
 import requests
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
-from fastapi import FastAPI, Request
-from fastapi.exceptions import RequestValidationError, HTTPException
+from fastapi import FastAPI, HTTPException, exception_handlers
+from fastapi import Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pymongo import __version__ as pymongo_version
 from pymongo.errors import PyMongoError
+from starlette.responses import JSONResponse, Response
 
-from my_ghost_writer import pymongo_operations_rw, exception_handlers
-from my_ghost_writer.constants import (app_logger, ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, STATIC_FOLDER,
-   WORDSAPI_KEY, WORDSAPI_URL, RAPIDAPI_HOST, ME_CONFIG_MONGODB_USE_OK, ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP,
-   STATIC_FOLDER_LITEKOBOLDAINET, LOG_LEVEL, PORT)
+from my_ghost_writer import pymongo_operations_rw
+from my_ghost_writer import text_parsers
+from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS_TESTING, LOG_LEVEL,
+   ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP, ME_CONFIG_MONGODB_USE_OK, PORT, RAPIDAPI_HOST, STATIC_FOLDER,
+   STATIC_FOLDER_LITEKOBOLDAINET, WORDSAPI_KEY, WORDSAPI_URL, app_logger)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
-from my_ghost_writer.text_parsers import text_stemming
-from my_ghost_writer.type_hints import RequestTextFrequencyBody, RequestQueryThesaurusWordsapiBody
+from my_ghost_writer.test_parsers2 import extract_contextual_info_by_indices, process_synonym_groups
 from my_ghost_writer.thesaurus import get_current_info_wordnet, get_synsets_by_word_and_language
+from my_ghost_writer.type_hints import RequestQueryThesaurusInflatedBody, SynonymResponse
+from my_ghost_writer.type_hints import RequestQueryThesaurusWordsapiBody, RequestSplitText, RequestTextFrequencyBody
 
 
 async def mongo_health_check_background_task():
@@ -108,7 +115,7 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}, type of 'text':'{type(text)}'.")
     if len(text) < 100:
         app_logger.debug(f"text from request: {text} ...")
-    n_total_rows, words_stems_dict = text_stemming(text)
+    n_total_rows, words_stems_dict = text_parsers.text_stemming(text)
     dumped = json.dumps(words_stems_dict)
     app_logger.debug(f"dumped: {dumped} ...")
     t1 = datetime.now()
@@ -117,6 +124,47 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     app_logger.info(f"content_response: {content_response["duration"]}, {content_response["n_total_rows"]} ...")
     app_logger.debug(f"content_response: {content_response} ...")
     return JSONResponse(status_code=200, content=content_response)
+
+
+@app.post("/split-text")
+def get_sentence_sliced_by_word_and_positions(body: RequestSplitText | str) -> JSONResponse:
+    t0 = datetime.now()
+    app_logger.info(f"body type: {type(body)}.")
+    app_logger.info(f"body: {body}.")
+    try:
+        try:
+            body_validated = RequestSplitText.model_validate_json(body)
+            end = body_validated.end
+            start = body_validated.start
+            text = body_validated.text
+            word = body_validated.word
+        except Exception:
+            assert isinstance(body, RequestSplitText), f"body MUST be of type RequestSplitText, not of '{type(RequestSplitText)}'!"
+            end = body.end
+            start = body.start
+            text = body.text
+            word = body.word
+        try:
+            sentence, start_in_sentence, end_in_sentence = text_parsers.get_sentence_by_word(text, word, start, end)
+        except Exception as e0:
+            app_logger.error(f"end:'{end}', start:'{start}', word:'{word}'.")
+            app_logger.info("text:")
+            app_logger.info(text)
+            app_logger.error("## error:")
+            app_logger.error(e0)
+            raise e0
+        t1 = datetime.now()
+        duration = (t1 - t0).total_seconds()
+        content_response = {"duration": f"{duration:.3f}", "end_in_sentence": end_in_sentence, "start_in_sentence": start_in_sentence, "sentence": sentence}
+        sentence_len = len(sentence)
+        app_logger.info(f"content_response: {content_response["duration"]}, sentence_len: {sentence_len} ...")
+        app_logger.debug(f"content_response: {content_response} ...")
+        return JSONResponse(status_code=200, content=content_response)
+    except Exception as e1:
+        app_logger.error(f"URL: query => {type(body)} {body};")
+        app_logger.error("exception:")
+        app_logger.error(e1)
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
 @app.post("/thesaurus-wordnet")
@@ -214,14 +262,149 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
         raise HTTPException(status_code=response.status_code, detail=msg)
 
 
-@app.exception_handler(RequestValidationError)
-def request_validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
-    return exception_handlers.request_validation_exception_handler(request, exc)
+@app.post("/thesaurus-inflated", response_model=SynonymResponse)
+async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
+    """
+    Get contextually appropriate synonyms for a word at specific indices in text.
+
+    Args:
+        request_data: Contains text, word, and start/end indices
+
+    Returns:
+        JSON response with synonym groups and contextual information
+    """
+    try:
+        # Extract contextual information using indices
+        context_info = extract_contextual_info_by_indices(
+            request_data.text,
+            request_data.start,
+            request_data.end,
+            request_data.word
+        )
+
+        # Process synonym groups
+        processed_synonyms = process_synonym_groups(request_data.word, context_info)
+
+        if not processed_synonyms:
+            return JSONResponse(
+                status_code=200,
+                content={
+                    "success": True,
+                    "original_word": request_data.word,
+                    "original_indices": {
+                        "start": request_data.start,
+                        "end": request_data.end
+                    },
+                    "context_info": {
+                        "pos": context_info['pos'],
+                        "sentence": context_info['context_sentence'],
+                        "grammatical_form": context_info['tag'],
+                        "context_words": context_info['context_words'],
+                        "dependency": context_info['dependency']
+                    },
+                    "synonym_groups": [],
+                    "message": "No synonyms found for this word"
+                }
+            )
+
+        return JSONResponse(
+            status_code=200,
+            content={
+                "success": True,
+                "original_word": request_data.word,
+                "original_indices": {
+                    "start": request_data.start,
+                    "end": request_data.end
+                },
+                "context_info": {
+                    "pos": context_info['pos'],
+                    "sentence": context_info['context_sentence'],
+                    "grammatical_form": context_info['tag'],
+                    "context_words": context_info['context_words'],
+                    "dependency": context_info['dependency']
+                },
+                "synonym_groups": processed_synonyms,
+                "debug_info": {
+                    "spacy_token_indices": {
+                        "start": context_info['char_start'],
+                        "end": context_info['char_end']
+                    },
+                    "lemma": context_info['lemma']
+                }
+            }
+        )
+
+    except HTTPException:
+        # Re-raise HTTPExceptions to be handled by the exception handler
+        raise
+    except Exception as e:
+        app_logger.error(f"Unexpected error in get_synonyms: '{e}'")
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 
 @app.exception_handler(HTTPException)
-def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
+def http_exception_handler(request: Request, exc: HTTPException) -> Coroutine[Any, Any, Response]:
+    origin = request.headers.get("origin")
+    allowed_origin = None
+    if origin and origin in ALLOWED_ORIGIN_LIST:
+        allowed_origin = origin
+
+    response = JSONResponse(
+        status_code=422,
+        content={"detail": responses[422]},
+    )
+    if allowed_origin:
+        response.headers["Access-Control-Allow-Origin"] = allowed_origin
+    else:
+        # Optionally omit this header, or set to "" or "null"
+        pass
+    response.headers["Vary"] = "Origin"
+    headers_dict = {
+        **response.headers,
+        **exc.headers
+    }
+    exc.headers = headers_dict
     return exception_handlers.http_exception_handler(request, exc)
+
+
+@app.exception_handler(RequestValidationError)
+def request_validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
+    origin = request.headers.get("origin")
+    allowed_origin = None
+    if origin and origin in ALLOWED_ORIGIN_LIST:
+        allowed_origin = origin
+
+    response = JSONResponse(
+        status_code=422,
+        content={"detail": responses[422]},
+    )
+    if allowed_origin:
+        response.headers["Access-Control-Allow-Origin"] = allowed_origin
+    else:
+        # Optionally omit this header, or set to "" or "null"
+        pass
+    response.headers["Vary"] = "Origin"
+    return response
+
+
+# @app.exception_handler(HTTPException)
+# def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
+#     origin = request.headers.get("origin")
+#     allowed_origin = None
+#     if origin and origin in ALLOWED_ORIGIN_LIST:
+#         allowed_origin = origin
+#
+#     response = JSONResponse(
+#         status_code=exc.status_code,
+#         content={"detail": exc.detail},
+#     )
+#     if allowed_origin:
+#         response.headers["Access-Control-Allow-Origin"] = allowed_origin
+#     else:
+#         # Optionally omit this header, or set to "" or "null"
+#         pass
+#     response.headers["Vary"] = "Origin"
+#     return response
 
 
 try:

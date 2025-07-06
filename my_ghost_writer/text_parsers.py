@@ -5,8 +5,27 @@ from nltk import PorterStemmer
 from my_ghost_writer.constants import app_logger, N_WORDS_GRAM
 from my_ghost_writer.type_hints import RequestTextRowsParentList, ResponseTextRowsDict
 
+import json
+from nltk.tokenize import sent_tokenize, wordpunct_tokenize, WordPunctTokenizer
+
 
 ps = PorterStemmer()
+
+
+def get_sentence_by_word(text: str, word: str, start_position: int, end_position: int) -> tuple[str, int, int]:
+    sentences = sent_tokenize(text)
+    offset = 0
+    for sent in sentences:
+        start = text.find(sent, offset)
+        end = start + len(sent)
+        if start <= start_position < end:
+            check_word = text[start_position:end_position]
+            assert check_word == word, f"word '{word}' doesn't match with start '{start_position}' and end '{end_position}' positions!"
+            start_in_sentence = start_position - start
+            end_in_sentence = start_in_sentence + end_position - start_position
+            return sent, start_in_sentence, end_in_sentence
+        offset = end
+    raise ValueError(f"Can't find the given '{word}' word, with position '{start_position}', within the given text!")
 
 
 def text_stemming(text: str | RequestTextRowsParentList, n = 3) -> ResponseTextRowsDict:
@@ -22,8 +41,6 @@ def text_stemming(text: str | RequestTextRowsParentList, n = 3) -> ResponseTextR
     Returns:
         tuple[int, dict]: a tuple with the number of processed total rows within the initial text and the word frequency dict
     """
-    import json
-    from nltk.tokenize import wordpunct_tokenize, WordPunctTokenizer
 
     try:
         valid_textrows_with_num = json.loads(text)
