@@ -3,7 +3,6 @@ import http
 import json
 from datetime import datetime
 from http.client import responses
-from typing import Any, Coroutine
 
 import requests
 import uvicorn
@@ -15,9 +14,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import ValidationError
 from pymongo import __version__ as pymongo_version
 from pymongo.errors import PyMongoError
-from starlette.responses import JSONResponse, Response
 
 from my_ghost_writer import pymongo_operations_rw
 from my_ghost_writer import text_parsers
@@ -138,8 +137,8 @@ def get_sentence_sliced_by_word_and_positions(body: RequestSplitText | str) -> J
             start = body_validated.start
             text = body_validated.text
             word = body_validated.word
-        except Exception:
-            assert isinstance(body, RequestSplitText), f"body MUST be of type RequestSplitText, not of '{type(RequestSplitText)}'!"
+        except ValidationError:
+            assert isinstance(body, RequestSplitText), f"body MUST be of type RequestSplitText, not of '{type(body)}'!"
             end = body.end
             start = body.start
             text = body.text
@@ -273,13 +272,31 @@ async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
     Returns:
         JSON response with synonym groups and contextual information
     """
+    app_logger.info(f"body tye:{type(request_data)}!")
+    app_logger.info(f"body:{request_data}!")
+    try:
+        body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(request_data)
+        end = body_validated.end
+        start = body_validated.start
+        text = body_validated.text
+        word = body_validated.word
+    except ValidationError:
+        assert isinstance(request_data, RequestQueryThesaurusInflatedBody), f"body MUST be of type RequestSplitText, not of '{type(request_data)}'!"
+        end = request_data.end
+        start = request_data.start
+        text = request_data.text
+        word = request_data.word
+    app_logger.info(f"end:{end}!")
+    app_logger.info(f"start:{start}!")
+    app_logger.info(f"text:{text}!")
+    app_logger.info(f"word:{word}!")
     try:
         # Extract contextual information using indices
         context_info = extract_contextual_info_by_indices(
-            request_data.text,
-            request_data.start,
-            request_data.end,
-            request_data.word
+            text,
+            start,
+            end,
+            word
         )
 
         # Process synonym groups
@@ -343,28 +360,20 @@ async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
 
 
 @app.exception_handler(HTTPException)
-def http_exception_handler(request: Request, exc: HTTPException) -> Coroutine[Any, Any, Response]:
+def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
     origin = request.headers.get("origin")
     allowed_origin = None
     if origin and origin in ALLOWED_ORIGIN_LIST:
         allowed_origin = origin
 
     response = JSONResponse(
-        status_code=422,
-        content={"detail": responses[422]},
+        status_code=exc.status_code,
+        content={"detail": responses[exc.status_code]},
+        headers={"Vary": "Origin"}
     )
     if allowed_origin:
         response.headers["Access-Control-Allow-Origin"] = allowed_origin
-    else:
-        # Optionally omit this header, or set to "" or "null"
-        pass
-    response.headers["Vary"] = "Origin"
-    headers_dict = {
-        **response.headers,
-        **exc.headers
-    }
-    exc.headers = headers_dict
-    return exception_handlers.http_exception_handler(request, exc)
+    return response
 
 
 @app.exception_handler(RequestValidationError)
@@ -377,34 +386,11 @@ def request_validation_exception_handler(request: Request, exc: RequestValidatio
     response = JSONResponse(
         status_code=422,
         content={"detail": responses[422]},
+        headers={"Vary": "Origin"}
     )
     if allowed_origin:
         response.headers["Access-Control-Allow-Origin"] = allowed_origin
-    else:
-        # Optionally omit this header, or set to "" or "null"
-        pass
-    response.headers["Vary"] = "Origin"
     return response
-
-
-# @app.exception_handler(HTTPException)
-# def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
-#     origin = request.headers.get("origin")
-#     allowed_origin = None
-#     if origin and origin in ALLOWED_ORIGIN_LIST:
-#         allowed_origin = origin
-#
-#     response = JSONResponse(
-#         status_code=exc.status_code,
-#         content={"detail": exc.detail},
-#     )
-#     if allowed_origin:
-#         response.headers["Access-Control-Allow-Origin"] = allowed_origin
-#     else:
-#         # Optionally omit this header, or set to "" or "null"
-#         pass
-#     response.headers["Vary"] = "Origin"
-#     return response
 
 
 try:
