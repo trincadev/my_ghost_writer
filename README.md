@@ -87,7 +87,7 @@ python -m my_ghost_writer.app
 To run a local mongodb instance on your local environment, you can use this docker command:
 
 ```
-docker run --env=MONGO_MAJOR=8.0 \
+docker run --env=MONGO_MAJOR=8.0 --name mongo \
 --env=HOME=/data/db --volume=${LOCAL_MONGO_FOLDER}:/data -p 27017:27017 \
 --volume=/data/configdb --volume=/data/db --network=bridge --restart=always \
 -d mongo:8-noble
