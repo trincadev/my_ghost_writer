@@ -3,8 +3,8 @@ from unittest.mock import patch, MagicMock
 
 from fastapi import HTTPException
 
-from my_ghost_writer.text_parsers2 import extract_contextual_info_by_indices, get_wordnet_synonyms, inflect_synonym, \
-    is_nlp_available, process_synonym_groups
+from my_ghost_writer.text_parsers2 import (extract_contextual_info_by_indices, get_wordnet_synonyms, inflect_synonym,
+    is_nlp_available, process_synonym_groups)
 
 
 class TestTextParsers2(unittest.TestCase):
@@ -97,6 +97,16 @@ class TestTextParsers2(unittest.TestCase):
         for sense in synonyms_verbs:
             self.assertEqual(sense['pos'], 'v')  # 'v' is the WordNet tag for VERB
 
+    @patch("my_ghost_writer.text_parsers2.wordnet.synsets")
+    def test_get_wordnet_synonyms_generic_exception(self, mock_synsets):
+        mock_synsets.side_effect = Exception("test exception")
+        with self.assertRaises(HTTPException) as context:
+            get_wordnet_synonyms("test", 'NOUN')
+
+        # 400 Exception intercepted and relaunched as 500
+        self.assertEqual(context.exception.status_code, 500)
+        self.assertIn("Error retrieving synonyms: test exception", context.exception.detail)
+
     def test_inflect_synonym_noun_plural(self):
         # Test noun pluralization
         original_token_info = {'pos': 'NOUN', 'tag': 'NNS', 'is_lower': True, 'is_title': False, 'is_upper': False}
@@ -138,7 +148,6 @@ class TestTextParsers2(unittest.TestCase):
         self.assertEqual(inflect_synonym("write", original_token_info), "writes")
         # Test with a regular verb
         self.assertEqual(inflect_synonym("look", original_token_info), "looks")
-
 
     def test_inflect_synonym_adjective_comparative(self):
         """Tests adjective comparative inflection (e.g., large -> larger) without mocks."""
@@ -194,6 +203,33 @@ class TestTextParsers2(unittest.TestCase):
         # Assert: Check that the synonym was correctly inflected
         self.assertEqual(result, "largest")
 
+    def test_inflect_synonym_is_title(self):
+        """Tests verb past tense inflection (VBD), is_title: True; set is_lower: False for good measure"""
+        original_token_info = {'pos': 'VERB', 'tag': 'VBD', 'is_lower': False, 'is_title': True, 'is_upper': False}
+        self.assertEqual(inflect_synonym("write", original_token_info), "Wrote")
+        self.assertEqual(inflect_synonym("look", original_token_info), "Looked")
+
+    def test_inflect_synonym_is_upper(self):
+        """Tests verb past tense inflection (VBD), is_upper: True; set is_lower: False for good measure"""
+        original_token_info = {'pos': 'VERB', 'tag': 'VBD', 'is_lower': False, 'is_title': False, 'is_upper': True}
+        self.assertEqual(inflect_synonym("write", original_token_info), "WROTE")
+        self.assertEqual(inflect_synonym("look", original_token_info), "LOOKED")
+
+    @patch("my_ghost_writer.text_parsers2.nlp", new=None)
+    def test_inflect_synonym_nlp_none(self):
+        result = inflect_synonym("test", {})
+        self.assertEqual(result, "test")
+
+    @patch("my_ghost_writer.text_parsers2.nlp")
+    def test_inflect_synonym_nlp_exception(self, nlp_mock):
+        nlp_mock.side_effect = Exception("test exception")
+        original_token_info = {'pos': 'VERB', 'tag': 'VBG', 'is_lower': True, 'is_title': False, 'is_upper': False}
+        inflect_synonym("test", original_token_info)
+
+        self.assertEqual(inflect_synonym("write", original_token_info), "write")
+        # Test with a regular verb
+        self.assertEqual(inflect_synonym("look", original_token_info), "look")
+
     def test_process_synonym_groups(self):
         """Tests the full processing pipeline for a verb."""
         word = "look"
@@ -219,6 +255,13 @@ class TestTextParsers2(unittest.TestCase):
         self.assertIn('inflected_form', first_synonym_info)
         # For a past-tense verb, the inflected form should be different from the base
         self.assertNotEqual(first_synonym_info['base_form'], first_synonym_info['inflected_form'])
+
+    @patch("my_ghost_writer.text_parsers2.wordnet.synsets")
+    def test_process_synonym_groups_not_synonyms_by_sense(self, mock_synsets):
+        mock_synsets.return_value = []
+        context_info = {'pos': 'VERB'}
+        result = process_synonym_groups("look", context_info)
+        self.assertListEqual(result, [])
 
 
 if __name__ == '__main__':
