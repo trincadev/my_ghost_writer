@@ -6,15 +6,16 @@ import pyinflect
 from typing import List, Dict, Any, Optional
 from fastapi import HTTPException
 
-from my_ghost_writer.constants import app_logger
+from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger
 
 
 # Load spaCy model
 try:
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load(SPACY_MODEL_NAME)
+    app_logger.info(f"spacy model {SPACY_MODEL_NAME} has type:'{type(nlp)}'")
 except OSError:
     app_logger.error(
-        "spaCy model 'en_core_web_sm' not found. Please install it with: python -m spacy download en_core_web_sm"
+        f"spaCy model '{SPACY_MODEL_NAME}' not found. Please install it with: -python -m spacy download {SPACY_MODEL_NAME}'"
     )
     nlp = None
 
