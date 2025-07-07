@@ -153,7 +153,7 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
 
 
 def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
-    """Adapt synonym to match original word's grammatical form"""
+    """Adapt the input synonym arg to match the original word's grammatical form"""
     if nlp is None:
         return synonym
 
@@ -174,7 +174,7 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
             if tag in ['NNS', 'NNPS']:  # Plural nouns
                 doc = nlp(synonym)
                 if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect('plural')
+                    inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
 
         elif pos == 'VERB':
@@ -186,22 +186,20 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
             elif tag == 'VBZ':  # Third person singular
                 doc = nlp(synonym)
                 if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect('VBZ')
+                    inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
             elif tag == 'VBG':  # Present participle
                 doc = nlp(synonym)
                 if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect('VBG')
+                    inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
 
         elif pos == 'ADJ':
             if tag in ['JJR', 'JJS']:  # Comparative/superlative
                 doc = nlp(synonym)
                 if doc and len(doc) > 0:
-                    if tag == 'JJR':
-                        inflected = doc[0]._.inflect('comparative')
-                    else:
-                        inflected = doc[0]._.inflect('superlative')
+                    # --- FIX: Use the original tag for consistency ---
+                    inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
 
     except Exception as e:
