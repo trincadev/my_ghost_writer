@@ -24,7 +24,7 @@ from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS
    ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP, ME_CONFIG_MONGODB_USE_OK, PORT, RAPIDAPI_HOST, STATIC_FOLDER,
    STATIC_FOLDER_LITEKOBOLDAINET, WORDSAPI_KEY, WORDSAPI_URL, app_logger)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
-from my_ghost_writer.test_parsers2 import extract_contextual_info_by_indices, process_synonym_groups
+from my_ghost_writer.text_parsers2 import extract_contextual_info_by_indices, process_synonym_groups
 from my_ghost_writer.thesaurus import get_current_info_wordnet, get_synsets_by_word_and_language
 from my_ghost_writer.type_hints import RequestQueryThesaurusInflatedBody, SynonymResponse
 from my_ghost_writer.type_hints import RequestQueryThesaurusWordsapiBody, RequestSplitText, RequestTextFrequencyBody
