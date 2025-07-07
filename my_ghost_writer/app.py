@@ -7,7 +7,7 @@ from http.client import responses
 import requests
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
-from fastapi import FastAPI, HTTPException, exception_handlers
+from fastapi import FastAPI, HTTPException
 from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -185,7 +185,7 @@ def get_thesaurus_wordnet(body: RequestQueryThesaurusWordsapiBody | str) -> JSON
         except (PyMongoError, AssertionError) as pme:
             app_logger.info(f"{pme}! Let's try the remote service...")
 
-    response = get_synsets_by_word_and_language(query, lang="eng")
+    response = dict(get_synsets_by_word_and_language(query, lang="eng"))
     t1 = datetime.now()
     duration_t1t0 = (t1 - t0).total_seconds()
     n_results = len(response["results"])
