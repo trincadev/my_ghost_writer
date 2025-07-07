@@ -113,11 +113,11 @@ class TestTextParsers2(unittest.TestCase):
              'pos': 'v', 'synonyms': ['hound', 'trace']}
         ])
 
-    # def test_inflect_synonym_noun_plural(self):
-    #     # Test noun pluralization
-    #     original_token_info = {'word': 'kids', 'lemma': 'kid', 'pos': 'NOUN', 'tag': 'NNS', 'is_title': False, 'is_upper': False, 'is_lower': True, 'dependency': 'pobj', 'context_sentence': "This boy was another good reason for keeping the Potters away; they didn't want Dudley mixing with the kids.", 'context_words': ['want', 'Dudley', 'mixing', 'with', 'the', 'kids', '.'], 'sentence_position': 20, 'char_start': 103, 'char_end': 107, 'original_indices': {'start': 103, 'end': 107}}
-    #     result = inflect_synonym("kid", original_token_info)
-    #     self.assertEqual(result, "children")
+    def test_inflect_synonym_noun_plural(self):
+        # Test noun pluralization
+        original_token_info = {'word': 'kids', 'lemma': 'kid', 'pos': 'NOUN', 'tag': 'NNS', 'is_title': False, 'is_upper': False, 'is_lower': True, 'dependency': 'pobj', 'context_sentence': "This boy was another good reason for keeping the Potters away; they didn't want Dudley mixing with the kids.", 'context_words': ['want', 'Dudley', 'mixing', 'with', 'the', 'kids', '.'], 'sentence_position': 20, 'char_start': 103, 'char_end': 107, 'original_indices': {'start': 103, 'end': 107}}
+        result = inflect_synonym("kid", original_token_info)
+        self.assertEqual(result, "kids")
 
     def test_inflect_synonym_verb_past(self):
         # Test verb past tense
@@ -131,14 +131,59 @@ class TestTextParsers2(unittest.TestCase):
         result = inflect_synonym("write", original_token_info)
         self.assertEqual(result, "wrote")
 
-    # def test_inflect_synonym_adjective_comparative(self):
-    #     # Test adjective comparative
-    #     original_token_info = {
-    #         'pos': 'ADJ',
-    #         'tag': 'JJR'
-    #     }
-    #     result = inflect_synonym("good", original_token_info)
-    #     self.assertEqual(result, "better")
+    def test_inflect_synonym_adjective_comparative(self):
+        """Tests adjective comparative inflection (e.g., large -> larger) without mocks."""
+        # Arrange: Create a complete context object for a comparative adjective
+        original_token_info = {
+            'word': 'bigger',
+            'lemma': 'big',
+            'pos': 'ADJ',
+            'tag': 'JJR',  # JJR = Adjective, comparative
+            'is_title': False,
+            'is_upper': False,
+            'is_lower': True,
+            'dependency': 'acomp',
+            'context_sentence': 'My house is bigger than yours.',
+            'context_words': ['house', 'is', 'bigger', 'than', 'yours', '.'],
+            'sentence_position': 3,
+            'char_start': 12,
+            'char_end': 18,
+            'original_indices': {'start': 12, 'end': 18}
+        }
+        synonym_to_inflect = "large"
+
+        # Act: Call the function with the synonym and context
+        result = inflect_synonym(synonym_to_inflect, original_token_info)
+
+        # Assert: Check that the synonym was correctly inflected
+        self.assertEqual(result, "larger")
+
+    def test_inflect_synonym_adjective_superlative(self):
+        """Tests adjective superlative inflection (e.g., large -> largest) without mocks."""
+        # Arrange: Create a complete context object for a superlative adjective
+        original_token_info = {
+            'word': 'greatest',
+            'lemma': 'great',
+            'pos': 'ADJ',
+            'tag': 'JJS',  # JJS = Adjective, superlative
+            'is_title': False,
+            'is_upper': False,
+            'is_lower': True,
+            'dependency': 'amod',
+            'context_sentence': 'He is the greatest of all time.',
+            'context_words': ['is', 'the', 'greatest', 'of', 'all', 'time', '.'],
+            'sentence_position': 3,
+            'char_start': 10,
+            'char_end': 18,
+            'original_indices': {'start': 10, 'end': 18}
+        }
+        synonym_to_inflect = "large"
+
+        # Act: Call the function with the synonym and context
+        result = inflect_synonym(synonym_to_inflect, original_token_info)
+
+        # Assert: Check that the synonym was correctly inflected
+        self.assertEqual(result, "largest")
 
     def test_process_synonym_groups(self):
         # Test synonym processing
