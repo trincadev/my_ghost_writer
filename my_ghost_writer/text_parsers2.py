@@ -1,20 +1,21 @@
 import spacy
 import nltk
 from nltk.corpus import wordnet
+# pynflect needed to avoid different inflection
 import pyinflect
 from typing import List, Dict, Any, Optional
 from fastapi import HTTPException
-import logging
 
-# Setup logging
-logger = logging.getLogger(__name__)
+from my_ghost_writer.constants import app_logger
+
 
 # Load spaCy model
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
-    logger.error(
-        "spaCy model 'en_core_web_sm' not found. Please install it with: python -m spacy download en_core_web_sm")
+    app_logger.error(
+        "spaCy model 'en_core_web_sm' not found. Please install it with: python -m spacy download en_core_web_sm"
+    )
     nlp = None
 
 # Ensure NLTK data is downloaded
@@ -22,7 +23,7 @@ try:
     nltk.download('wordnet', quiet=True)
     nltk.download('omw-1.4', quiet=True)
 except Exception as e:
-    logger.error(f"Failed to download NLTK data: {e}")
+    app_logger.error(f"Failed to download NLTK data: {e}")
 
 
 def is_nlp_available() -> bool:
@@ -76,7 +77,7 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
                 target_position_in_sentence = i
                 break
 
-        # Get context window
+        # Get the context window
         context_start = max(0, target_position_in_sentence - 5) if target_position_in_sentence else 0
         context_end = min(len(sentence_tokens),
                           target_position_in_sentence + 6) if target_position_in_sentence else len(sentence_tokens)
@@ -100,7 +101,7 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
         }
 
     except Exception as ex:
-        logger.error(f"Error in contextual analysis: {ex}")
+        app_logger.error(f"Error in contextual analysis: {ex}")
         raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(ex)}")
 
 
@@ -143,7 +144,7 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
         return synonyms_by_sense
 
     except Exception as ex:
-        logger.error(f"Error getting WordNet synonyms: {ex}")
+        app_logger.error(f"Error getting WordNet synonyms: {ex}")
         raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
 
 
@@ -152,53 +153,35 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
     if nlp is None:
         return synonym
 
-    pos = original_token_info['pos']
-    tag = original_token_info['tag']
+    pos = original_token_info.get('pos')
+    tag = original_token_info.get('tag')
 
-    # Handle capitalization first
-    if original_token_info['is_title']:
+    # Handle capitalization first using .get() for safety
+    if original_token_info.get('is_title'):
         synonym = synonym.capitalize()
-    elif original_token_info['is_upper']:
+    elif original_token_info.get('is_upper'):
         synonym = synonym.upper()
-    elif original_token_info['is_lower']:
+    elif original_token_info.get('is_lower', True):  # Default to lower
         synonym = synonym.lower()
 
     # Handle grammatical inflection
     try:
-        if pos == 'NOUN':
-            if tag in ['NNS', 'NNPS']:  # Plural nouns
-                doc = nlp(synonym)
-                if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect(tag)
-                    return inflected if inflected else synonym
+        # Define all tags that require inflection in one place
+        inflection_tags = {
+            'NOUN': ['NNS', 'NNPS'],
+            'VERB': ['VBD', 'VBN', 'VBZ', 'VBG'],
+            'ADJ': ['JJR', 'JJS']
+        }
 
-        elif pos == 'VERB':
-            if tag in ['VBD', 'VBN']:  # Past tense/participle
-                doc = nlp(synonym)
-                if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect(tag)
-                    return inflected if inflected else synonym
-            elif tag == 'VBZ':  # Third-person singular
-                doc = nlp(synonym)
-                if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect(tag)
-                    return inflected if inflected else synonym
-            elif tag == 'VBG':  # Present participle
-                doc = nlp(synonym)
-                if doc and len(doc) > 0:
-                    inflected = doc[0]._.inflect(tag)
-                    return inflected if inflected else synonym
-
-        elif pos == 'ADJ':
-            if tag in ['JJR', 'JJS']:  # Comparative/superlative
-                doc = nlp(synonym)
-                if doc and len(doc) > 0:
-                    # --- FIX: Use the original tag for consistency ---
-                    inflected = doc[0]._.inflect(tag)
-                    return inflected if inflected else synonym
+        # Single check for all inflection cases
+        if pos in inflection_tags and tag in inflection_tags.get(pos, []):
+            doc = nlp(synonym)
+            if doc and len(doc) > 0:
+                inflected = doc[0]._.inflect(tag)
+                return inflected if inflected else synonym
 
     except Exception as ex:
-        logger.warning(f"Inflection error for '{synonym}': {ex}")
+        app_logger.warning(f"Inflection error for '{synonym}': '{ex}'")
         # Return the original synonym if inflection fails
         pass
 
