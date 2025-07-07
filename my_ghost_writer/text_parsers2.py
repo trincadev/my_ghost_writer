@@ -1,6 +1,8 @@
+from datetime import datetime
+
 import spacy
 import nltk
-from nltk.corpus import wordnet
+from nltk.corpus import wordnet31 as wn
 # pynflect needed to avoid different inflection
 import pyinflect
 from typing import List, Dict, Any, Optional
@@ -107,20 +109,20 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
 
 
 def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Get synonyms from WordNet with optional POS filtering"""
+    """Get synonyms from wn with optional POS filtering"""
     try:
         synonyms_by_sense = []
 
-        # Map spaCy POS to WordNet POS
+        # Map spaCy POS to wn POS
         pos_map = {
-            'NOUN': wordnet.NOUN,
-            'VERB': wordnet.VERB,
-            'ADJ': wordnet.ADJ,
-            'ADV': wordnet.ADV
+            'NOUN': wn.NOUN,
+            'VERB': wn.VERB,
+            'ADJ': wn.ADJ,
+            'ADV': wn.ADV
         }
 
         # Get all synsets for the word
-        synsets = wordnet.synsets(word)
+        synsets = wn.synsets(word)
 
         # Filter by POS if provided
         if pos_tag and pos_tag in pos_map:
@@ -145,7 +147,7 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
         return synonyms_by_sense
 
     except Exception as ex:
-        app_logger.error(f"Error getting WordNet synonyms: {ex}")
+        app_logger.error(f"Error getting wn synonyms: {ex}")
         raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
 
 
@@ -191,8 +193,12 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
 
 def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Process synonym groups with inflection matching"""
-    # Get synonyms from WordNet
+    # Get synonyms from wn
+    t0 = datetime.now()
     synonyms_by_sense = get_wordnet_synonyms(word, context_info['pos'])
+    t1 = datetime.now()
+    duration = (t1 - t0).total_seconds()
+    app_logger.info(f"# 1/Got get_wordnet_synonyms result with '{word}' word in {duration:.3f}s.")
 
     if not synonyms_by_sense:
         return []
@@ -208,7 +214,7 @@ def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict
         }
 
         for synonym in sense['synonyms']:
-            # Get both base form and inflected form
+            # Get both the base form and inflected form
             base_form = synonym
             inflected_form = inflect_synonym(synonym, context_info)
 

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from nltk.corpus import wordnet31 as wn
 
 from my_ghost_writer.constants import app_logger
@@ -6,7 +8,11 @@ from my_ghost_writer.type_hints import ResponseWordsAPI
 
 def get_current_info_wordnet(preload_wordnet=False):
     if preload_wordnet:
-        wn.synsets("test")  # prelaod wordnet
+        t0_preload = datetime.now()
+        wn.synsets("preload")  # prelaod wordnet
+        t1_preload = datetime.now()
+        duration_preload = (t1_preload - t0_preload).total_seconds()
+        app_logger.info(f"wordnet sysnet preloaded in {duration_preload:3f}s.")
     return {"languages": wn.langs(), "version": wn.get_version(), "preload_wordnet": preload_wordnet}
 
 

@@ -97,7 +97,7 @@ class TestTextParsers2(unittest.TestCase):
         for sense in synonyms_verbs:
             self.assertEqual(sense['pos'], 'v')  # 'v' is the WordNet tag for VERB
 
-    @patch("my_ghost_writer.text_parsers2.wordnet.synsets")
+    @patch("my_ghost_writer.text_parsers2.wn.synsets")
     def test_get_wordnet_synonyms_generic_exception(self, mock_synsets):
         mock_synsets.side_effect = Exception("test exception")
         with self.assertRaises(HTTPException) as context:
@@ -256,7 +256,7 @@ class TestTextParsers2(unittest.TestCase):
         # For a past-tense verb, the inflected form should be different from the base
         self.assertNotEqual(first_synonym_info['base_form'], first_synonym_info['inflected_form'])
 
-    @patch("my_ghost_writer.text_parsers2.wordnet.synsets")
+    @patch("my_ghost_writer.text_parsers2.wn.synsets")
     def test_process_synonym_groups_not_synonyms_by_sense(self, mock_synsets):
         mock_synsets.return_value = []
         context_info = {'pos': 'VERB'}

@@ -262,30 +262,31 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
 
 
 @app.post("/thesaurus-inflated", response_model=SynonymResponse)
-async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
+async def get_synonyms(body: RequestQueryThesaurusInflatedBody):
     """
     Get contextually appropriate synonyms for a word at specific indices in text.
 
     Args:
-        request_data: Contains text, word, and start/end indices
+        body: Contains text, word, and start/end indices
 
     Returns:
         JSON response with synonym groups and contextual information
     """
-    app_logger.info(f"body tye:{type(request_data)}!")
-    app_logger.info(f"body:{request_data}!")
+    app_logger.info(f"body tye:{type(body)}!")
+    app_logger.info(f"body:{body}!")
+    t0 = datetime.now()
     try:
-        body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(request_data)
+        body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(body)
         end = body_validated.end
         start = body_validated.start
         text = body_validated.text
         word = body_validated.word
     except ValidationError:
-        assert isinstance(request_data, RequestQueryThesaurusInflatedBody), f"body MUST be of type RequestSplitText, not of '{type(request_data)}'!"
-        end = request_data.end
-        start = request_data.start
-        text = request_data.text
-        word = request_data.word
+        assert isinstance(body, RequestQueryThesaurusInflatedBody), f"body MUST be of type RequestSplitText, not of '{type(body)}'!"
+        end = body.end
+        start = body.start
+        text = body.text
+        word = body.word
     app_logger.info(f"end:{end}!")
     app_logger.info(f"start:{start}!")
     app_logger.info(f"text:{text}!")
@@ -300,17 +301,17 @@ async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
         )
 
         # Process synonym groups
-        processed_synonyms = process_synonym_groups(request_data.word, context_info)
+        processed_synonyms = process_synonym_groups(body.word, context_info)
 
         if not processed_synonyms:
             return JSONResponse(
                 status_code=200,
                 content={
                     "success": True,
-                    "original_word": request_data.word,
+                    "original_word": body.word,
                     "original_indices": {
-                        "start": request_data.start,
-                        "end": request_data.end
+                        "start": body.start,
+                        "end": body.end
                     },
                     "context_info": {
                         "pos": context_info['pos'],
@@ -328,10 +329,10 @@ async def get_synonyms(request_data: RequestQueryThesaurusInflatedBody):
             status_code=200,
             content={
                 "success": True,
-                "original_word": request_data.word,
+                "original_word": body.word,
                 "original_indices": {
-                    "start": request_data.start,
-                    "end": request_data.end
+                    "start": body.start,
+                    "end": body.end
                 },
                 "context_info": {
                     "pos": context_info['pos'],
