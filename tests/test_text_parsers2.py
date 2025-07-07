@@ -79,7 +79,7 @@ class TestTextParsers2(unittest.TestCase):
         word = "piano"
         synonyms = get_wordnet_synonyms(word)
 
-        self.assertTrue(len(synonyms) > 0)
+        self.assertGreater(len(synonyms), 0)
         first_result = synonyms[0]
         self.assertIsInstance(first_result, dict)
         self.assertIn('definition', first_result)
@@ -93,7 +93,7 @@ class TestTextParsers2(unittest.TestCase):
         word = "hunt"
         synonyms_verbs = get_wordnet_synonyms(word, pos_tag="VERB")
 
-        self.assertTrue(len(synonyms_verbs) > 0)
+        self.assertGreater(len(synonyms_verbs), 0)
         for sense in synonyms_verbs:
             self.assertEqual(sense['pos'], 'v')  # 'v' is the WordNet tag for VERB
 
@@ -208,7 +208,7 @@ class TestTextParsers2(unittest.TestCase):
 
         # Assertions are flexible to avoid brittleness from library updates
         self.assertIsInstance(result, list)
-        self.assertTrue(len(result) > 0)
+        self.assertGreater(len(result), 0)
 
         first_sense = result[0]
         self.assertIn('definition', first_sense)
