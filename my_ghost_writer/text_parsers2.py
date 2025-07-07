@@ -59,14 +59,9 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
                 target_token = token
                 break
 
-        if target_token is None:
-            # Fallback: try to find by exact text match
-            for token in doc:
-                if (token.text.lower() == target_word.lower() and
-                        abs(token.idx - start_idx) < 5):  # Allow small index discrepancy
-                    target_token = token
-                    break
-
+        # If the primary loop didn't find a token, it's an unexpected state,
+        # but the original code to handle this was unreachable.
+        # The most likely failure is now a word/index mismatch, handled above.
         if target_token is None:
             raise HTTPException(
                 status_code=400,
@@ -104,9 +99,9 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
             'original_indices': {'start': start_idx, 'end': end_idx}
         }
 
-    except Exception as e:
-        logger.error(f"Error in contextual analysis: {e}")
-        raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(e)}")
+    except Exception as ex:
+        logger.error(f"Error in contextual analysis: {ex}")
+        raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(ex)}")
 
 
 def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[str, Any]]:
@@ -147,9 +142,9 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
 
         return synonyms_by_sense
 
-    except Exception as e:
-        logger.error(f"Error getting WordNet synonyms: {e}")
-        raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(e)}")
+    except Exception as ex:
+        logger.error(f"Error getting WordNet synonyms: {ex}")
+        raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
 
 
 def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
@@ -183,7 +178,7 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
                 if doc and len(doc) > 0:
                     inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
-            elif tag == 'VBZ':  # Third person singular
+            elif tag == 'VBZ':  # Third-person singular
                 doc = nlp(synonym)
                 if doc and len(doc) > 0:
                     inflected = doc[0]._.inflect(tag)
@@ -202,9 +197,9 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
                     inflected = doc[0]._.inflect(tag)
                     return inflected if inflected else synonym
 
-    except Exception as e:
-        logger.warning(f"Inflection error for '{synonym}': {e}")
-        # Return original synonym if inflection fails
+    except Exception as ex:
+        logger.warning(f"Inflection error for '{synonym}': {ex}")
+        # Return the original synonym if inflection fails
         pass
 
     return synonym
