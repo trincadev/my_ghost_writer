@@ -1,4 +1,5 @@
 import asyncio
+import importlib
 import unittest
 from http.client import responses
 from unittest.mock import patch, MagicMock
@@ -9,6 +10,33 @@ from pymongo.errors import PyMongoError
 
 from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
 
+# Import the module we want to test directly
+from my_ghost_writer import __version__ as version_module
+from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
+
+
+# --- NEW TEST CLASS FOR VERSIONING ---
+class TestVersion(unittest.TestCase):
+    """
+    Tests the version fallback mechanism.
+    """
+    @patch('importlib.metadata.version', side_effect=ImportError("Simulated package not found error"))
+    def test_version_import_error_fallback(self, mock_metadata_version):
+        """
+        Tests that __version__ falls back to '1.0.0' when importlib.metadata.version fails.
+        This is the correct way to test module-level import logic.
+        """
+        # 1. The patch is now active, making `importlib.metadata.version` raise an error.
+
+        # 2. We force a reload of the version module. This re-runs the code inside
+        #    __version__.py, triggering the `try...except` block.
+        importlib.reload(version_module)
+
+        # 3. We assert that the __version__ variable was set to the fallback value.
+        self.assertEqual(version_module.__version__, "1.0.0")
+
+        # 4. We can also assert that our mock was called, confirming the test worked as expected.
+        mock_metadata_version.assert_called_once()
 
 class TestAppEndpoints(unittest.TestCase):
     def setUp(self):
@@ -272,21 +300,21 @@ class TestAppEndpoints(unittest.TestCase):
             response = self.client.get("/static/")
             self.assertEqual(response.status_code, 200)
 
-    @patch("my_ghost_writer.app.request_validation_exception_handler")
-    def test_request_validation_exception_handler(self, mock_handler):
-        req = MagicMock(spec=Request)
-        exc = MagicMock()
-        from my_ghost_writer.app import request_validation_exception_handler
-        request_validation_exception_handler(req, exc)
-        mock_handler.assert_called_once_with(req, exc)
+    def test_validation_error_handler_on_words_frequency(self):
+        body = {}  # Missing the required 'text' field
+        response = self.client.post("/words-frequency", json=body)
+        self.assertEqual(response.status_code, 422)
+        # This assertion checks that our custom handler is being used
+        self.assertEqual(response.json(), {"detail": responses[422]})
 
-    @patch("my_ghost_writer.app.http_exception_handler")
-    def test_http_exception_handler(self, mock_handler):
-        req = MagicMock(spec=Request)
-        exc = MagicMock()
-        from my_ghost_writer.app import http_exception_handler
-        http_exception_handler(req, exc)
-        mock_handler.assert_called_once_with(req, exc)
+    @patch("my_ghost_writer.app.get_current_info_wordnet", side_effect=HTTPException(status_code=503))
+    def test_http_exception_handler_sets_cors_header(self, mock_get_info):
+        allowed_origin = "http://localhost:3000"
+        with patch("my_ghost_writer.app.ALLOWED_ORIGIN_LIST", [allowed_origin]):
+            response = self.client.get("/health-wordnet", headers={"Origin": allowed_origin})
+            self.assertEqual(response.status_code, 503)
+            # Verify the CORS header is set by our custom handler
+            self.assertEqual(response.headers["access-control-allow-origin"], allowed_origin)
 
 
 if __name__ == "__main__":
