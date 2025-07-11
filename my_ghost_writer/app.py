@@ -24,10 +24,11 @@ from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS
    ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP, ME_CONFIG_MONGODB_USE_OK, PORT, RAPIDAPI_HOST, STATIC_FOLDER,
    STATIC_FOLDER_LITEKOBOLDAINET, WORDSAPI_KEY, WORDSAPI_URL, app_logger)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
-from my_ghost_writer.text_parsers2 import extract_contextual_info_by_indices, process_synonym_groups
+from my_ghost_writer.text_parsers2 import extract_contextual_info_by_indices, process_synonym_groups, find_synonyms_for_phrase
 from my_ghost_writer.thesaurus import get_current_info_wordnet, get_synsets_by_word_and_language
-from my_ghost_writer.type_hints import RequestQueryThesaurusInflatedBody, SynonymResponse
-from my_ghost_writer.type_hints import RequestQueryThesaurusWordsapiBody, RequestSplitText, RequestTextFrequencyBody
+from my_ghost_writer.type_hints import (RequestQueryThesaurusInflatedBody, RequestQueryThesaurusWordsapiBody,
+                                        RequestSplitText, RequestTextFrequencyBody, MultiWordSynonymResponse,
+                                        SingleWordSynonymResponse)
 
 
 async def mongo_health_check_background_task():
@@ -261,7 +262,7 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
         raise HTTPException(status_code=response.status_code, detail=msg)
 
 
-@app.post("/thesaurus-inflated", response_model=SynonymResponse)
+@app.post("/thesaurus-inflated", response_model=SingleWordSynonymResponse)
 async def get_synonyms(body: RequestQueryThesaurusInflatedBody):
     """
     Get contextually appropriate synonyms for a word at specific indices in text.
@@ -357,6 +358,67 @@ async def get_synonyms(body: RequestQueryThesaurusInflatedBody):
         raise
     except Exception as e:
         app_logger.error(f"Unexpected error in get_synonyms: '{e}'")
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+
+@app.post("/thesaurus-inflated-phrase", response_model=MultiWordSynonymResponse)
+async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
+    """
+    Get contextual synonyms for a selected phrase (one or more words).
+    It identifies all meaningful words in the selection and returns
+    synonym groups for each.
+    """
+    app_logger.info(f"body tye:{type(body)}!")
+    app_logger.info(f"body:{body}!")
+    t0 = datetime.now()
+    try:
+        body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(body)
+        end = body_validated.end
+        start = body_validated.start
+        text = body_validated.text
+        word = body_validated.word
+    except ValidationError:
+        assert isinstance(body, RequestQueryThesaurusInflatedBody), f"body MUST be of type RequestSplitText, not of '{type(body)}'!"
+        end = body.end
+        start = body.start
+        text = body.text
+        word = body.word
+    app_logger.info(f"end:{end}!")
+    app_logger.info(f"start:{start}!")
+    app_logger.info(f"text:{text}!")
+    app_logger.info(f"word:{word}!")
+
+    try:
+        # The new function in text_parsers2 does all the heavy lifting
+        results = find_synonyms_for_phrase(
+            text=body.text,
+            start_idx=body.start,
+            end_idx=body.end
+        )
+        t1 = datetime.now()
+        duration = (t1 - t0).total_seconds()
+        app_logger.info(f"got find_synonyms_for_phrase() result in: {duration:.3f}s. ...")
+        app_logger.info(results)
+
+        message = f"Got {len(results)} synonym groups." if results else "No words with synonyms found in the selected phrase."
+
+        t2 = datetime.now()
+        duration = (t2 - t1).total_seconds()
+        app_logger.info(f"got MultiWordSynonymResponse() result in: {duration:.3f}s. ...")
+        # Construct the final response using our Pydantic model
+        return MultiWordSynonymResponse(
+            success=True,
+            original_phrase=body.word,
+            original_indices={"start": body.start, "end": body.end},
+            results=results,
+            message=message
+        )
+
+    except HTTPException:
+        # Re-raise known HTTP exceptions to be handled by FastAPI's handler
+        raise
+    except Exception as e:
+        app_logger.error(f"Unexpected error in get_synonyms_for_phrase: '{e}'", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 

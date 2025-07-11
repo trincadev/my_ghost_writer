@@ -12,7 +12,77 @@
             "env": {
                 "IS_TESTING": "TRUE",
                 "LOG_LEVEL": "DEBUG"
-            },
+            }
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch app port 8000",
+            "url": "http://localhost:8000/#",
+            "runtimeExecutable": "/snap/bin/chromium",
+            "file": "${workspaceFolder}/lite.koboldai.net/index.html",
+            "webRoot": "${workspaceFolder}/lite.koboldai.net",
+            "trace": true,
+            "port": 8000,
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ]
+        },
+        {
+            "type": "msedge",
+            "name": "Launch Edge (Visible)",
+            "request": "launch",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "url": "http://localhost:8000", // or your dev server address
+            "presentation": {
+                "hidden": false
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to browser",
+            "port": 9222,
+            "address": "localhost"
+        },
+        {
+            "type": "pwa-msedge",
+            "name": "Launch Microsoft Edge",
+            "request": "launch",
+            "runtimeArgs": [
+                "--remote-debugging-port=8000"
+            ],
+            "url": "http://localhost:8000/#",
+            "file": "${workspaceFolder}/lite.koboldai.net/index.html",
+            "webRoot": "${workspaceFolder}/lite.koboldai.net",
+            "trace": true
+        },
+        {
+            "type": "vscode-edge-devtools.debug",
+            "name": "Open Edge DevTools",
+            "request": "attach",
+            "url": "c:\\Users\\trincuz\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.9\\out\\startpage\\index.html",
+            "presentation": {
+                "hidden": true
+            }
         }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Edge and attach DevTools",
+            "configurations": [
+                "Launch Microsoft Edge",
+                "Open Edge DevTools"
+            ]
+        },
+        {
+            "name": "Launch Edge (Visible) and attach DevTools",
+            "configurations": [
+                "Launch Edge (Visible)",
+                "Open Edge DevTools"
+            ]
+        },
     ]
 }

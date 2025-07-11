@@ -8,7 +8,8 @@ import pyinflect
 from typing import List, Dict, Any, Optional
 from fastapi import HTTPException
 
-from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger
+from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS
+from my_ghost_writer.type_hints import WordSynonymResult, ContextInfo, SynonymGroup
 
 
 # Load spaCy model
@@ -23,8 +24,8 @@ except OSError:
 
 # Ensure NLTK data is downloaded
 try:
-    nltk.download('wordnet', quiet=True)
-    nltk.download('omw-1.4', quiet=True)
+    nltk.download('wordnet', quiet=False)
+    nltk.download('omw-1.4', quiet=False)
 except Exception as e:
     app_logger.error(f"Failed to download NLTK data: {e}")
 
@@ -32,6 +33,79 @@ except Exception as e:
 def is_nlp_available() -> bool:
     """Check if spaCy model is available"""
     return nlp is not None
+
+
+# --- NEW: Main function for handling multi-word selections ---
+def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> List[WordSynonymResult]:
+    """
+    Finds synonyms for all eligible words within a selected text span.
+    It analyzes the span, filters for meaningful words (nouns, verbs, etc.),
+    and returns a list of synonym results for each.
+    """
+    if nlp is None:
+        raise HTTPException(status_code=503, detail="NLP service is unavailable")
+
+    doc = nlp(text)
+    # Use 'expand' to ensure the span covers full tokens even with partial selection
+    span = doc.char_span(start_idx, end_idx, alignment_mode="expand")
+
+    if span is None:
+        app_logger.warning(f"Could not create a valid token span from indices {start_idx}-{end_idx}.")
+        # Return an empty list if no valid span can be formed, the client can handle this
+        return []
+
+    # Define which POS tags are eligible for synonym lookup
+    results: List[WordSynonymResult] = []
+
+    for token in span:
+        # Process only if the token is an eligible part of speech and not a stop word or punctuation
+        if token.pos_ in ELIGIBLE_POS and not token.is_stop and not token.is_punct:
+            try:
+                # 1. Get context for this specific token
+                context_info_dict = extract_contextual_info_by_indices(
+                    text, token.idx, token.idx + len(token.text), token.text
+                )
+
+                # 2. Get synonym groups using the token's lemma for a better search
+                synonym_groups_list = process_synonym_groups(context_info_dict['lemma'], context_info_dict)
+
+                # 3. If we find synonyms, build the result object for this word
+                if synonym_groups_list:
+                    # Restructure dicts into Pydantic models for type safety
+                    context_info_model = ContextInfo(
+                        pos=context_info_dict['pos'],
+                        sentence=context_info_dict['context_sentence'],
+                        grammatical_form=context_info_dict['tag'],
+                        context_words=context_info_dict['context_words'],
+                        dependency=context_info_dict['dependency']
+                    )
+                    local_start_idx = token.idx - start_idx
+                    local_end_idx = local_start_idx + len(token.text)
+                    sliced_sentence = text[start_idx:end_idx]
+                    sliced_word = sliced_sentence[local_start_idx:local_end_idx]
+                    assert sliced_word == token.text, (f"Mismatch! sliced_word ({sliced_word}) != token.text ({token.text}), but these substrings should be equal.\n"
+                                                       f" start_idx:{start_idx}, End_word:{end_idx}. local_start_idx:{local_start_idx}, local_end_idx:{local_end_idx}.")
+                    word_result = WordSynonymResult(
+                        original_word=token.text,
+                        original_indices={"start": local_start_idx, "end": local_end_idx},
+                        context_info=context_info_model,
+                        synonym_groups=[SynonymGroup(**sg) for sg in synonym_groups_list],
+                        debug_info={
+                            "spacy_token_indices": {
+                                "start": context_info_dict['char_start'],
+                                "end": context_info_dict['char_end']
+                            },
+                            "lemma": context_info_dict['lemma']
+                        }
+                    )
+                    results.append(word_result)
+
+            except HTTPException as http_ex:
+                app_logger.warning(f"Could not process token '{token.text}': '{http_ex.detail}'")
+            except Exception as ex:
+                app_logger.error(f"Unexpected error processing token '{token.text}': '{ex}'", exc_info=True)
+
+    return results
 
 
 def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, target_word: str) -> Dict[str, Any]:
@@ -43,15 +117,7 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
     if start_idx < 0 or end_idx > len(text) or start_idx >= end_idx:
         raise HTTPException(status_code=400, detail="Invalid start/end indices")
 
-    extracted_word = text[start_idx:end_idx].strip()
-    if extracted_word.lower() != target_word.lower():
-        raise HTTPException(
-            status_code=400,
-            detail=f"Word mismatch: expected '{target_word}', got '{extracted_word}'"
-        )
-
     try:
-        # Process the entire text with spaCy
         doc = nlp(text)
 
         # Find the token that corresponds to our character indices
@@ -104,7 +170,7 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
         }
 
     except Exception as ex:
-        app_logger.error(f"Error in contextual analysis: {ex}")
+        app_logger.error(f"Error in contextual analysis: {ex}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(ex)}")
 
 
@@ -136,12 +202,15 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
                 'pos': synset.pos()
             }
 
+            # Use a set to avoid duplicate synonyms from different lemmas in the same synset
+            unique_synonyms = set()
             for lemma in synset.lemmas():
                 synonym = lemma.name().replace('_', ' ')
                 if synonym.lower() != word.lower():
-                    sense_data['synonyms'].append(synonym)
+                    unique_synonyms.add(synonym)
 
-            if sense_data['synonyms']:  # Only add if we have synonyms
+            if unique_synonyms:
+                sense_data['synonyms'] = sorted(list(unique_synonyms))
                 synonyms_by_sense.append(sense_data)
 
         return synonyms_by_sense
@@ -161,7 +230,7 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
 
     # Handle capitalization first using .get() for safety
     if original_token_info.get('is_title'):
-        synonym = synonym.capitalize()
+        synonym = synonym.title() # .title() is better for multi-word phrases
     elif original_token_info.get('is_upper'):
         synonym = synonym.upper()
     elif original_token_info.get('is_lower', True):  # Default to lower
@@ -181,7 +250,10 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
             doc = nlp(synonym)
             if doc and len(doc) > 0:
                 inflected = doc[0]._.inflect(tag)
-                return inflected if inflected else synonym
+                if inflected:
+                    # Re-join with the rest of the phrase if it was multi-word
+                    return inflected + synonym[len(doc[0].text):]
+                return synonym # Return original if inflection fails
 
     except Exception as ex:
         app_logger.warning(f"Inflection error for '{synonym}': '{ex}'")
@@ -195,7 +267,8 @@ def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict
     """Process synonym groups with inflection matching"""
     # Get synonyms from wn
     t0 = datetime.now()
-    synonyms_by_sense = get_wordnet_synonyms(word, context_info['pos'])
+    # Get synonyms from wn using the lemma
+    synonyms_by_sense = get_wordnet_synonyms(context_info['lemma'], context_info['pos'])
     t1 = datetime.now()
     duration = (t1 - t0).total_seconds()
     app_logger.info(f"# 1/Got get_wordnet_synonyms result with '{word}' word in {duration:.3f}s.")
@@ -221,7 +294,7 @@ def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict
             processed_sense["synonyms"].append({
                 "base_form": base_form,
                 "inflected_form": inflected_form,
-                "matches_context": inflected_form != base_form
+                "matches_context": inflected_form.lower() != base_form.lower()
             })
 
         processed_synonyms.append(processed_sense)

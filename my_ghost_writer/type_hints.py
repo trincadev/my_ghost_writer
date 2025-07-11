@@ -44,7 +44,7 @@ class ContextInfo(BaseModel):
     context_words: list[str]
     dependency: str
 
-class SynonymResponse(BaseModel):
+class SingleWordSynonymResponse(BaseModel):
     success: bool
     original_word: str
     original_indices: dict[str, int]
@@ -52,6 +52,21 @@ class SynonymResponse(BaseModel):
     synonym_groups: list[SynonymGroup]
     message: Optional[str] = None
     debug_info: Optional[dict[str, Any]] = None
+
+class WordSynonymResult(BaseModel):
+    original_word: str
+    original_indices: dict[str, int]
+    context_info: ContextInfo
+    synonym_groups: list[SynonymGroup]
+    debug_info: Optional[dict[str, Any]] = None
+
+class MultiWordSynonymResponse(BaseModel):
+    success: bool
+    original_phrase: str
+    original_indices: dict[str, int]
+    results: list[WordSynonymResult]
+    message: Optional[str] = None
+
 
 class HealthCheckResponse(BaseModel):
     success: bool
