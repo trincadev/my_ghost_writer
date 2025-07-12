@@ -1,2 +1,0 @@
-- link /id-1-range-\d+-nth/:
-  - /url: "#"

@@ -1,0 +1,121 @@
+- 'heading "Original phrase: rather severe-looking woman" [level=1]'
+- heading "Smart Synonyms for thesaurus-original-word-span-0nth" [level=2]
+- paragraph:
+  - strong: "Part of Speech:"
+  - text: VERB (VBG)
+- paragraph:
+  - strong: "Context:"
+  - text: Instead he was smiling at a rather severe-looking woman who was wearing square glasses exactly the shape of the markings the cat had had around its eyes.
+- paragraph:
+  - strong: "Dependency:"
+  - text: amod
+- separator
+- strong: "Definition:"
+- text: give a certain impression or have a certain outward aspect
+- strong: "Examples:"
+- text: She seems to be sleeping; This appears to be a very difficult problem
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-0" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-0-0": "appearing(from: appear)✓ context-matched"
+- button "synonym-button-0-0-1": "seeming(from: seem)✓ context-matched"
+- separator
+- strong: "Definition:"
+- text: search or seek
+- strong: "Examples:"
+- text: We looked all day and finally found the child in the forest; Look elsewhere for the perfect gift!
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-1" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-1-0": "searching(from: search)✓ context-matched"
+- separator
+- strong: "Definition:"
+- text: be oriented in a certain direction, often with respect to another reference point; be opposite to
+- strong: "Examples:"
+- text: The house looks north; My backyard look onto the pond
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-2" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-2-0": "facing(from: face)✓ context-matched"
+- button "synonym-button-0-2-1": "fronting(from: front)✓ context-matched"
+- separator
+- strong: "Definition:"
+- text: take charge of or deal with
+- strong: "Examples:"
+- text: Could you see about lunch?; I must attend to this matter
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-3" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-3-0": "attending(from: attend)✓ context-matched"
+- button "synonym-button-0-3-1": "seeing(from: see)✓ context-matched"
+- button "synonym-button-0-3-2": "taking care(from: take care)✓ context-matched"
+- separator
+- strong: "Definition:"
+- text: look forward to the probable occurrence of
+- strong: "Examples:"
+- text: We were expecting a visit from our relatives; She is looking to a promotion
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-4" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-4-0": "awaiting(from: await)✓ context-matched"
+- button "synonym-button-0-4-1": "expecting(from: expect)✓ context-matched"
+- button "synonym-button-0-4-2": "waiting(from: wait)✓ context-matched"
+- separator
+- strong: "Definition:"
+- text: have faith or confidence in
+- strong: "Examples:"
+- text: you can count on me to help you any time; Look to your friends for support
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-5" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-5-0": "banking(from: bank)✓ context-matched"
+- button "synonym-button-0-5-1": "betting(from: bet)✓ context-matched"
+- button "synonym-button-0-5-2": "calculating(from: calculate)✓ context-matched"
+- button "synonym-button-0-5-3": "counting(from: count)✓ context-matched"
+- button "synonym-button-0-5-4": "depending(from: depend)✓ context-matched"
+- button "synonym-button-0-5-5": "reckoning(from: reckon)✓ context-matched"
+- button "synonym-button-0-5-6": "relying(from: rely)✓ context-matched"
+- button "synonym-button-0-5-7": "swearing(from: swear)✓ context-matched"
+- group "details-0": Debug Information
+- heading "Smart Synonyms for thesaurus-original-word-span-1nth" [level=2]
+- paragraph:
+  - strong: "Part of Speech:"
+  - text: NOUN (NN)
+- paragraph:
+  - strong: "Context:"
+  - text: Instead he was smiling at a rather severe-looking woman who was wearing square glasses exactly the shape of the markings the cat had had around its eyes.
+- paragraph:
+  - strong: "Dependency:"
+  - text: pobj
+- separator
+- strong: "Definition:"
+- text: an adult female person (as opposed to a man)
+- strong: "Examples:"
+- text: the woman kept house while the man hunted
+- strong: "WordNet POS:"
+- text: "n"
+- heading "synonyms-title-1-0" [level=4]: "Available Synonyms:"
+- button "synonym-button-1-0-0"
+- separator
+- strong: "Definition:"
+- text: a human female employed to do housework
+- strong: "Examples:"
+- text: the char will clean the carpet; I have a woman who comes in four hours a day while I write
+- strong: "WordNet POS:"
+- text: "n"
+- heading "synonyms-title-1-1" [level=4]: "Available Synonyms:"
+- button "synonym-button-1-1-0"
+- button "synonym-button-1-1-1"
+- button "synonym-button-1-1-2"
+- button "synonym-button-1-1-3"
+- separator
+- strong: "Definition:"
+- text: women as a class
+- strong: "Examples:"
+- text: it's an insult to American womanhood; woman is the glory of creation
+- strong: "WordNet POS:"
+- text: "n"
+- heading "synonyms-title-1-2" [level=4]: "Available Synonyms:"
+- button "synonym-button-1-2-0"
+- button "synonym-button-1-2-1"
+- group "details-1": Debug Information

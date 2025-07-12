@@ -1,0 +1,79 @@
+- 'heading "Original phrase: look" [level=1]'
+- heading "Smart Synonyms for thesaurus-original-word-span-0nth" [level=2]
+- paragraph:
+  - strong: "Part of Speech:"
+  - text: VERB (VB)
+- paragraph:
+  - strong: "Context:"
+  - text: For a second, Mr. Dursley didn't realize what he had seen — then he jerked his head around to look again.
+- paragraph:
+  - strong: "Dependency:"
+  - text: advcl
+- separator
+- strong: "Definition:"
+- text: give a certain impression or have a certain outward aspect
+- strong: "Examples:"
+- text: She seems to be sleeping; This appears to be a very difficult problem
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-0" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-0-0"
+- button "synonym-button-0-0-1"
+- separator
+- strong: "Definition:"
+- text: search or seek
+- strong: "Examples:"
+- text: We looked all day and finally found the child in the forest; Look elsewhere for the perfect gift!
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-1" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-1-0"
+- separator
+- strong: "Definition:"
+- text: be oriented in a certain direction, often with respect to another reference point; be opposite to
+- strong: "Examples:"
+- text: The house looks north; My backyard look onto the pond
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-2" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-2-0"
+- button "synonym-button-0-2-1"
+- separator
+- strong: "Definition:"
+- text: take charge of or deal with
+- strong: "Examples:"
+- text: Could you see about lunch?; I must attend to this matter
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-3" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-3-0"
+- button "synonym-button-0-3-1"
+- button "synonym-button-0-3-2"
+- separator
+- strong: "Definition:"
+- text: look forward to the probable occurrence of
+- strong: "Examples:"
+- text: We were expecting a visit from our relatives; She is looking to a promotion
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-4" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-4-0"
+- button "synonym-button-0-4-1"
+- button "synonym-button-0-4-2"
+- separator
+- strong: "Definition:"
+- text: have faith or confidence in
+- strong: "Examples:"
+- text: you can count on me to help you any time; Look to your friends for support
+- strong: "WordNet POS:"
+- text: v
+- heading "synonyms-title-0-5" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-5-0"
+- button "synonym-button-0-5-1"
+- button "synonym-button-0-5-2"
+- button "synonym-button-0-5-3"
+- button "synonym-button-0-5-4"
+- button "synonym-button-0-5-5"
+- button "synonym-button-0-5-6"
+- button "synonym-button-0-5-7"
+- group "details-0": Debug Information

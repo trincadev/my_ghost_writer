@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      pnpm:
+        specifier: ^10.13.1
+        version: 10.13.1
       sanitize-filename:
         specifier: ^1.6.3
         version: 1.6.3
@@ -51,6 +54,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  pnpm@10.13.1:
+    resolution: {integrity: sha512-N+vxpcejDV+r4MXfRO6NpMllygxa89urKMOhaBtwolYhjQXIHJwNz3Z+9rhVHrW5YAQrntQwDFkkIzY3fgHPrQ==}
+    engines: {node: '>=18.12'}
+    hasBin: true
+
   sanitize-filename@1.6.3:
     resolution: {integrity: sha512-y/52Mcy7aw3gRm7IrcGDFx/bCk4AhRh2eI9luHOQM86nZsqwiRkkq2GekHXBBD+SmPidc8i2PqtYZl+pWJ8Oeg==}
 
@@ -85,6 +93,8 @@ snapshots:
       playwright-core: 1.53.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  pnpm@10.13.1: {}
 
   sanitize-filename@1.6.3:
     dependencies:

@@ -24,6 +24,32 @@ interface CellArray {
 export type ScrollToPosition = "top" | "bottom";
 export type ClickOrEnter = "click" | "Enter"
 
+export interface PrepareTestWithOpenRightPanelArg {page: Page; expectedFirstAriaSnapshot: string; projectName: string, state: string, idWordRange: string, idText: number, candidateMatch: string, countCandidates: number, wordRangeText: string}
+
+// Utility to close the right panel if open
+export async function ensureThesaurusPanelClosed(page: Page) {
+  const panel = page.locator('#id-rightpanel-thesaurus');
+  if (await panel.isVisible()) {
+    // Try to close via close button if present
+    const closeBtn = page.locator('#id-rightpanel-thesaurus-close');
+    if (await closeBtn.isVisible()) {
+      await closeBtn.click();
+      await expect(panel).not.toBeVisible();
+    }
+  }
+}
+
+// Utility to open the right panel if needed
+export async function ensureThesaurusPanelOpen(page: Page) {
+  const panel = page.locator('#id-rightpanel-thesaurus');
+  if (!(await panel.isVisible())) {
+    // Open the panel by triggering the UI action (customize as needed)
+    // Example: click a button or perform an action that opens the panel
+    // await page.click('#open-thesaurus-btn');
+    // If the panel opens automatically on word click, do nothing
+  }
+}
+
 export const fileReader = async (filePath: string): Promise<string> => {
   try {
     const data = fs.readFileSync(filePath, { encoding: 'utf8' });

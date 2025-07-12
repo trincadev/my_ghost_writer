@@ -1,3 +1,0 @@
-- link "id-1-range-0-nth":
-  - /url: "#"
-  - text: drills. He was a big,
