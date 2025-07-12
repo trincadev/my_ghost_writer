@@ -1,5 +1,5 @@
 import { test, expect, Page, TestInfo, chromium, devices } from '@playwright/test';
-import { initTest } from './test-helper';
+import { ensureThesaurusPanelClosed, ensureThesaurusPanelOpen, initTest } from './test-helper';
 
 const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
 
@@ -7,6 +7,7 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
   by trigger_wordsearch_candidates() after click on div elements created by trigger_wordsearch_results(),
   both in read-only and editable mode. No query`, async ({ page }: { page: Page }, workerInfo: TestInfo) => {
 
+  test.slow()
   const projectName = await initTest({ page, workerInfo, filepath: testStoryJsonTxt })
 
   for (let idx = 0; idx < 2; idx++) {
@@ -14,7 +15,6 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
       await page.getByRole('checkbox', { name: 'Allow Editing' }).check();
       await page.waitForTimeout(100)
       await expect(page.getByRole('checkbox', { name: 'Allow Editing' })).toBeChecked()
-      await page.waitForTimeout(100)
       await page.getByRole('searchbox', { name: 'Word Search Input' }).click();
       await page.getByRole('searchbox', { name: 'Word Search Input' }).fill('');
       await page.getByRole('searchbox', { name: 'Word Search Input' }).press('Enter');
@@ -31,14 +31,28 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
       await page.waitForTimeout(100)
       await page.locator('#wordsearch_results div').first().click();
       await page.waitForTimeout(100)
+      await ensureThesaurusPanelClosed(page);
       await page.getByLabel('id-div-0-range-0-nth').click();
+      await ensureThesaurusPanelOpen(page);
+
+      await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
       await page.waitForTimeout(100)
-      await page.getByLabel('id-div-0-range-1-nth').click();
+      await ensureThesaurusPanelClosed(page);
+
+      await page.getByLabel('id-div-candidate-10-nth').click();
+      await page.waitForTimeout(100)
+      const idDiv0range1 = page.getByLabel('id-div-10-range-1-nth')
+      await expect(idDiv0range1).toMatchAriaSnapshot({ name: `test-classic-3-0-wordsearch_results-${idx}-${step}-${projectName}.txt` });
+      await idDiv0range1.click();
+      await ensureThesaurusPanelOpen(page);
+
+      await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
+      await ensureThesaurusPanelClosed(page);
+      await page.waitForTimeout(100)
     }
   }
   await page.close()
 })
-
 
 test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the div "wordsearch_results"
   by trigger_wordsearch_candidates() after click on div elements created by trigger_wordsearch_results(),
@@ -88,12 +102,19 @@ test(`test My Ghost Writer: assert no wrong DOM dynamic construction within the 
         await page.waitForTimeout(100)
         await page.locator('#wordsearch_results div').first().click();
         await page.waitForTimeout(100)
+        await ensureThesaurusPanelClosed(page);
         if (projectName === "MobileChromeLandscape") {
           await page.getByRole("link", {name: "id-0-range-0-nth"}).click()
         } else {
           await page.getByLabel('id-div-0-range-0-nth').click(); 
         }
+        await ensureThesaurusPanelOpen(page);
+        await page.waitForTimeout(100)
+
+        await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
+        await ensureThesaurusPanelClosed(page);
         await page.waitForTimeout(100)
       }
     }
+    await page.close()
   })
