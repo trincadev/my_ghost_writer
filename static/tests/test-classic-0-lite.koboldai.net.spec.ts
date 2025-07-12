@@ -246,6 +246,9 @@ test('test My Ghost Writer/4: navigate between the list/tables containing the st
 
 test('test My Ghost Writer/5: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+  await page.getByRole('link', { name: 'Settings' }).click();
+  await page.getByRole('spinbutton', { name: 'wordsearch_n_max_words_duplicated' }).fill('2');
+  await page.getByRole('button', { name: 'OK' }).click();
   await fillInputFieldWithString(page, '');
   await page.waitForTimeout(200)
 
@@ -257,7 +260,7 @@ test('test My Ghost Writer/5: sort by frequency and alphabetically', async ({ pa
 
   await page.locator('#wordsearch_sort').selectOption('0');
   await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
-  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /2\\d\\d\\d\\d result\\(s\\) found/`);
+  await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /12\\d\\d\\d result\\(s\\) found/`);
   await expect(wordsearch_results).toMatchAriaSnapshot({ name: `test-classic-0-5-wordsearch_results-1-${projectName}.txt` });
 
   console.log("end!")

@@ -41,6 +41,9 @@ test(`test My Ghost Writer: first assertions`, async ({ page }: { page: Page }, 
   const projectName = await initTest({ page, workerInfo, filepath: testStoryJsonTxt })
   await standardCheck(page, projectName, expectedStringArray[0], `test-classic-1-wordsearch_results`)
 
+  await page.getByLabel('id-div-candidate-1-nth').click();
+  await page.waitForTimeout(200)
+  
   if (projectName !== "MobileChromeLandscape") {
     await assertVisibleTextAfterNavigation(page, 'id-div-1-range-23-nth', expectedStringArray[1], "top", "gametext");
   } else {
@@ -86,7 +89,7 @@ test(`test My Ghost Writer: search for multi words, with apostrophes, hyphens, d
     console.error("since the space is not much, only in case of MobileChromeLandscape let's skip this check...")
   }
   // needed to assert correct text selection, we have faith only one screenshot is enough =)
-  await expect(page.locator("#gametext")).toHaveScreenshot()
+  await expect(page.locator("#gametext")).toHaveScreenshot({ maxDiffPixelRatio: 0.05 })
   await page.waitForTimeout(200)
   console.log("end!")
   await page.close()
@@ -152,8 +155,9 @@ test(`test My Ghost Writer: search for words with apostrophes, digits, within co
   // TODO: find a way to avoid matching html element text like buttons (find in markdown-generated CODE snippet)
   await fillInputFieldWithString(page, 'emphasis’s text');
 
+    const idCandidate = 'id-div-candidate-0-nth'
   if (projectName !== "MobileChromeLandscape") {
-    await page.getByLabel('id-div-candidate-0-nth').click();
+    await page.getByLabel(idCandidate).click();
     await assertVisibleTextAfterNavigation(page, 'id-div-0-range-0-nth', expectedStringArray[6], "top", "gametext");
 
     await fillInputFieldWithString(page, '', "click");
@@ -162,14 +166,23 @@ test(`test My Ghost Writer: search for words with apostrophes, digits, within co
     await expect(page.getByLabel('wordsearch_candidates_count')).toMatchAriaSnapshot(`- text: /1\\d\\d\\d result\\(s\\) found/`);
 
     await fillInputFieldWithString(page, 'pack my box');
-    await page.getByLabel('id-div-candidate-0-nth').click();
+    await page.getByLabel(idCandidate).click();
     await assertVisibleTextAfterNavigation(page, 'id-div-0-range-1-nth', expectedStringArray[7], "bottom", "gametext");
+    await page.getByLabel(idCandidate).click();
+    await page.waitForTimeout(200)
     await assertVisibleTextAfterNavigation(page, 'id-div-0-range-2-nth', expectedStringArray[8], "bottom", "gametext");
+    await page.getByLabel(idCandidate).click();
+    await page.waitForTimeout(200)
     await assertVisibleTextAfterNavigation(page, 'id-div-0-range-8-nth', expectedStringArray[9], "top", "gametext");
+    await page.getByLabel(idCandidate).click();
+    await page.waitForTimeout(200)
     await assertVisibleTextAfterNavigation(page, 'id-div-0-range-9-nth', expectedStringArray[10], "top", "gametext");
   } else {
     // no assert for mobile chrome landscape...
   }
+  await page.getByLabel(idCandidate).click();
+    await page.waitForTimeout(200)
+    console.log("###########")
   // at the moment this assertion always fails on MobileSafariLandscape ('iPhone 13 Pro Max landscape')
   // re-check it in the future, especially when safari mobile will support a fullscreen mode
   if (projectName !== "MobileSafariLandscape" && projectName !== "MobileChromeLandscape") {

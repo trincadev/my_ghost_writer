@@ -344,13 +344,16 @@ export async function assertVisibleTextAfterNavigation(page: Page, idElement: st
   } else if (scrollTo === "bottom") {
     await scrollToBottomById(page, idElementContentEditable);
   }
-  console.log("#")
+  console.log("# assertVisibleTextAfterNavigation:: args:", idElement, "|", expectedString, "|", projectName, "#")
+  console.log("# assertVisibleTextAfterNavigation:: args:", idElement, "|", expectedString, "|", projectName, "#")
   if (projectName === "MobileChromeLandscape") {
     let newIdEl = idElement.replace('-div', "")
     await page.getByRole('link', { name: newIdEl }).click({timeout: 1000})
   } else {
     await page.getByLabel(idElement).click();
   }
+  await page.waitForTimeout(200)
+  await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
   await page.waitForTimeout(200)
   // assert visible gametext
   
