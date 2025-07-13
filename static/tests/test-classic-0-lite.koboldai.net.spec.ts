@@ -6,7 +6,8 @@ import {
   scrollToBottomById,
   scrollToTopById,
   ensureThesaurusPanelClosed,
-  ensureThesaurusPanelOpen
+  ensureThesaurusPanelOpen,
+  openMobileMenu
 } from './test-helper'
 
 async function prepareTestWithOpenRightPanel(args:PrepareTestWithOpenRightPanelArg) {
@@ -106,22 +107,33 @@ test('test My Ghost Writer/1: READ-ONLY navigation, 1 click, assert thesaurus ri
 
 test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym substitution', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
     const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
-    await fillInputFieldWithString(page, 'look');
+
+    await openMobileMenu(page, "#found mobile button for global menu, open it to prepare json story upload!")
+    await page.getByRole('link', { name: 'Settings' }).click();
+    await page.getByRole('spinbutton', { name: 'wordsearch_n_max_words_duplicated' }).fill('6');
+    await page.getByRole('button', { name: 'OK' }).click();
+
+    const wordRangeText = 'morning. He yelled at five'
+    await fillInputFieldWithString(page, wordRangeText);
     await page.waitForTimeout(200)
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('3 result(s) found');
+
+    await fillInputFieldWithString(page, 'yell');
+    await page.waitForTimeout(200)
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('150 result(s) found');
     const state = "editable"
     const expectedFirstAriaSnapshot = editState[1].expectedFirstAriaSnapshot
     console.log(state, expectedFirstAriaSnapshot)
     // Ensure the right panel is closed before toggling editing
     const idWordRange = 'id-div-0-range-0-nth'
     const idText = 2
-    const candidateMatch = "look"
-    const countCandidates = 79
-    const wordRangeText = 'around to look again. There'
+    const candidateMatch = "yelled"
+    const countCandidates = 6
     await prepareTestWithOpenRightPanel({page, expectedFirstAriaSnapshot, projectName, state, idWordRange, idText, candidateMatch, countCandidates, wordRangeText})
 
     await expect(page.getByRole('searchbox', { name: 'synonym mod Input' })).toBeEnabled();
     await expect(page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' })).toBeEnabled();
-    const synonymButton000 = page.getByRole('button', { name: 'synonym-button-0-0-0' })
+    const synonymButton000 = page.getByRole('button', { name: 'synonym-button-0-0-1' })
     await expect(synonymButton000).toBeEnabled();
     await synonymButton000.click();
     await page.waitForTimeout(200)
@@ -131,9 +143,14 @@ test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym subst
 
     await ensureThesaurusPanelClosed(page);
     console.log("###############")
-    console.log(`clicked on id ${idWordRange}, check for the expected string within #gametext...`)
+    console.log(`clicked on id ${idWordRange}, search for the expected string within #gametext...`)
+    await fillInputFieldWithString(page, wordRangeText);
+    await page.waitForTimeout(200)
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
 
-    await expectVisibleTextWithWalker(page, "gametext", `It was on the corner of the street that he noticed the first sign of something peculiar — a cat reading a map. For a second, Mr. Dursley didn't realize what he had seen — then he jerked his head around to appear again. There was a tabby cat standing on the corner of Privet Drive, but there wasn't a map in sight. What could he have been thinking of? It must have been a trick of the light. Mr. Dursley blinked and stared at`)
+    await fillInputFieldWithString(page, 'morning. He cried at five');
+    await page.waitForTimeout(200)
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('3 result(s) found');
     console.log(`${projectName}, state ${state} done.`)
   
   console.log("end!")
@@ -145,55 +162,86 @@ test('test My Ghost Writer/3: EDITABLE, like READ-ONLY plus multi-word synonym s
     await fillInputFieldWithString(page, 'rather severe-looking woman');
     await page.waitForTimeout(200)
     const state = "editable"
-    const expectedFirstAriaSnapshot = editState[1].expectedFirstAriaSnapshot
-    console.log(state, expectedFirstAriaSnapshot)
-    // Ensure the right panel is closed before toggling editing
-    const idWordRange = 'id-div-0-range-0-nth'
-    const idText = 3
-    const candidateMatch = "rather severe-looking woman"
-    const countCandidates = 1
-    const wordRangeText = " smiling at a rather severe-looking woman who was"
-    await prepareTestWithOpenRightPanel({page, expectedFirstAriaSnapshot, projectName, state, idWordRange, idText, candidateMatch, countCandidates, wordRangeText})
+    await page.getByRole('checkbox', { name: 'Allow Editing' }).check();
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('1 result(s) found');
+    console.log("###############")
 
-    await page.waitForTimeout(200)
-
-    await ensureThesaurusPanelOpen(page)
-    await expect(page.getByRole('searchbox', { name: 'synonym mod Input' })).toBeEnabled();
-    await expect(page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' })).toBeEnabled();
-    await expect(page.getByRole('button', { name: 'synonym-button-0-0-0' })).toBeEnabled();
+    // first substitution for some reason doens't work, only from the second one
+    await page.getByRole('link', { name: 'id-a-candidate-0-nth' }).click();
+    await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
     
-    await page.getByRole('button', { name: 'synonym-button-0-0-0' }).click();
-    await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
-    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
     await page.waitForTimeout(200)
-
+    await ensureThesaurusPanelOpen(page)
+    await expect(page.locator('h1')).toContainText('Original phrase: rather severe-looking woman');
+    let buttonSynonym0 = page.getByRole('button', { name: 'synonym-button-0-0-0' })
+    await expect(buttonSynonym0).toContainText("appearing")
+    await buttonSynonym0.click();
+    await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
     await ensureThesaurusPanelClosed(page);
+    await page.waitForTimeout(200)
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
+    
     await fillInputFieldWithString(page, 'rather severe-appearing woman');
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('1 result(s) found');
 
     await page.getByRole('link', { name: 'id-a-candidate-0-nth' }).click();
     await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
-    await page.waitForTimeout(200)
     
+    await page.waitForTimeout(200)
     await ensureThesaurusPanelOpen(page)
-    await page.getByRole('button', { name: 'synonym-button-0-0-1' }).click();
-    await page.getByRole('button', { name: 'synonym-button-1-1-0' }).click();
+    await expect(page.locator('h1')).toContainText('Original phrase: rather severe-appearing woman');
+    buttonSynonym0 = page.getByRole('button', { name: 'synonym-button-0-0-0' })
+    await expect(buttonSynonym0).toContainText("looking")
+    await buttonSynonym0.click();
     await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
+    await ensureThesaurusPanelClosed(page);
     
     await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
-    await fillInputFieldWithString(page, 'rather severe-seeming char ');
+    await fillInputFieldWithString(page, 'rather severe-looking woman');
     await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('1 result(s) found');
+    await ensureThesaurusPanelClosed(page);
+    
+    await page.getByRole('link', { name: 'id-a-candidate-0-nth' }).click();
+    await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
+    
     await page.waitForTimeout(200)
+    await ensureThesaurusPanelOpen(page)
+    buttonSynonym0 = page.getByRole('button', { name: 'synonym-button-0-0-0' })
+    await expect(buttonSynonym0).toContainText("appearing")
+    await buttonSynonym0.click();
+    await page.getByRole('button', { name: 'synonym-button-1-1-0' }).click();
+    const buttonSynonym1 = page.getByRole('button', { name: 'synonym-button-1-1-0' })
+    await expect(buttonSynonym1).toContainText("char")
+    await buttonSynonym1.click();
+    await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
+    await ensureThesaurusPanelClosed(page);
+    await page.waitForTimeout(200)
+
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
+    await fillInputFieldWithString(page, 'rather severe-appearing char ');
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('1 result(s) found');
 
     await page.getByRole('link', { name: 'id-a-candidate-0-nth' }).click();
     await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
-    await page.getByRole('button', { name: 'synonym-button-0-0-0' }).click();
-    await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
+    
     await page.waitForTimeout(200)
-
-    await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
-    await fillInputFieldWithString(page, 'rather severe-seeming charwoman');
+    await ensureThesaurusPanelOpen(page)
+    await page.getByRole('button', { name: 'synonym-button-1-0-0' }).click();
+    const buttonSynonym001 = page.getByRole('button', { name: 'synonym-button-0-0-1' })
+    await expect(buttonSynonym001).toContainText("seeming")
+    await buttonSynonym001.click();
+    await page.getByRole('button', { name: 'synonym-button-1-1-0' }).click();
+    const buttonSynonym100 = page.getByRole('button', { name: 'synonym-button-1-0-0' })
+    await expect(buttonSynonym100).toContainText("charwoman")
+    await buttonSynonym100.click();
+    await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
+    await ensureThesaurusPanelClosed(page);
+    await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('0 result(s) found');
+    
+    await fillInputFieldWithString(page, 'rather severe-seeming charwoman ');
     await expect(page.getByLabel('wordsearch_candidates_count')).toContainText('1 result(s) found');
-
+    // from the second substitution it works
+    
     await ensureThesaurusPanelClosed(page);
     await page.waitForTimeout(200)
 
