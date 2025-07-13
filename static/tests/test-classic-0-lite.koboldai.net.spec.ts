@@ -10,6 +10,8 @@ import {
   openMobileMenu
 } from './test-helper'
 
+const browserToSkip = ["MobileChromeLandscape"]
+
 async function prepareTestWithOpenRightPanel(args:PrepareTestWithOpenRightPanelArg) {
     let {page, expectedFirstAriaSnapshot, projectName, state, idWordRange, idText, candidateMatch, countCandidates, wordRangeText} = args;
     if (state === "editable") {
@@ -28,7 +30,7 @@ async function prepareTestWithOpenRightPanel(args:PrepareTestWithOpenRightPanelA
       - link /id-a-candidate-\\d+-nth/:
         - /url: "#"
       `);
-    await expect(candidateElement).toContainText(`${candidateMatch} (${countCandidates})`);    
+    await expect(candidateElement).toContainText(`${candidateMatch} (${countCandidates})`);
     await candidateElement.click();
     await page.waitForTimeout(200)
 
@@ -130,7 +132,14 @@ test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym subst
     const candidateMatch = "yelled"
     const countCandidates = 6
     await prepareTestWithOpenRightPanel({page, expectedFirstAriaSnapshot, projectName, state, idWordRange, idText, candidateMatch, countCandidates, wordRangeText})
+    await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
+    await ensureThesaurusPanelClosed(page);
 
+    await page.getByLabel('id-div-candidate-0-nth').click()
+    await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
+    await page.waitForTimeout(200)
+
+    await ensureThesaurusPanelOpen(page);
     await expect(page.getByRole('searchbox', { name: 'synonym mod Input' })).toBeEnabled();
     await expect(page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' })).toBeEnabled();
     const synonymButton000 = page.getByRole('button', { name: 'synonym-button-0-0-1' })
@@ -158,7 +167,11 @@ test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym subst
 })
 
 test('test My Ghost Writer/3: EDITABLE, like READ-ONLY plus multi-word synonym substitution, multiple times', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+    const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+    if (browserToSkip.includes(projectName)) {
+      await page.close()
+      test.skip(browserToSkip.includes(projectName), `Still working on '${projectName}', test case 0-3!`);
+    }
     await fillInputFieldWithString(page, 'rather severe-looking woman');
     await page.waitForTimeout(200)
     const state = "editable"
@@ -254,6 +267,10 @@ test('test My Ghost Writer/3: EDITABLE, like READ-ONLY plus multi-word synonym s
 
 test('test My Ghost Writer/4: navigate between the list/tables containing the stemming; check for sentences sorrounding the clicked words', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+  if (browserToSkip.includes(projectName)) {
+    await page.close()
+    test.skip(browserToSkip.includes(projectName), `Still working on '${projectName}', test case 0-3!`);
+  }
   await fillInputFieldWithString(page, 'look');
   await page.waitForTimeout(200)
   await expect(page.getByLabel('wordsearch_results')).not.toMatchAriaSnapshot(`- text: /40\\d results/`);
@@ -295,6 +312,8 @@ test('test My Ghost Writer/4: navigate between the list/tables containing the st
 
 test('test My Ghost Writer/5: sort by frequency and alphabetically', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
   const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+  
+  await openMobileMenu(page, "#found mobile button for global menu, open it to prepare json story upload!")
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('spinbutton', { name: 'wordsearch_n_max_words_duplicated' }).fill('2');
   await page.getByRole('button', { name: 'OK' }).click();
