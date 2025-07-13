@@ -36,7 +36,6 @@ def is_nlp_available() -> bool:
     return nlp is not None
 
 
-# --- NEW: Main function for handling multi-word selections ---
 def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> list[WordSynonymResult]:
     """
     Finds synonyms for all eligible words within a selected text span.
@@ -177,12 +176,17 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
 
 def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[str, Any]]:
     """Get synonyms from wn with optional POS filtering.
-    Includes custom synonyms with a flag."""
+    Includes custom synonyms with a flag.  Also performs a reverse lookup."""
 
     # 1. Check for custom synonyms in in-memory store
     app_logger.info("custom_synonyms:")
     app_logger.info(custom_synonyms)
     word_lower = word.lower()
+    synonyms_by_sense: list[dict[str, Any]] = []  # Initialize the list here
+
+    # 1. Custom Synonym Lookup and Preparation
+    custom_synset = None  # Initialize to None
+    # 1. Direct Lookup: Check if the word is directly in custom_synonyms
     if word_lower in custom_synonyms:
         app_logger.info(f"found custom_synonyms:{custom_synonyms[word_lower]} by word:{word_lower}!")
         # 2. If custom synonyms exist, create the appropriate structure and return
@@ -196,12 +200,26 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
             }
             if pos_tag:
                 custom_synset["pos"] = pos_tag
-            return [custom_synset]  # Returns a list containing one synset
 
-    # 3. If no custom synonyms, proceed with the WordNet lookup
+    # 2. Reverse Lookup: Check if the word is a *synonym* of any custom word
+    for custom_word, synonym_list in custom_synonyms.items():
+        if word_lower in synonym_list:
+            app_logger.info(f"found reverse match: '{word_lower}' is a synonym of '{custom_word}'")
+            # Found a reverse match!
+            # Include the original custom_word in the synonym list
+            synonyms = [{"synonym": custom_word, "is_custom": True}]  # Start with the original word
+            synonyms.extend([{"synonym": syn, "is_custom": True} for syn in custom_synonyms[custom_word]])  # Add the rest of the synonyms
+
+            custom_synset = {
+                'definition': f'User-defined synonym (reverse match for "{word}").',
+                'examples': [],
+                'synonyms': synonyms
+            }
+            if pos_tag:
+                custom_synset["pos"] = pos_tag
+
+    # 3. WordNet Lookup
     try:
-        synonyms_by_sense = []
-
         # Map spaCy POS to wn POS
         pos_map = {
             'NOUN': wn.NOUN,
@@ -240,11 +258,15 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
                 sense_data['synonyms'] = sorted(list(unique_synonyms))
                 synonyms_by_sense.append(sense_data)
 
-        return synonyms_by_sense
-
     except Exception as ex:
         app_logger.error(f"Error getting wn synonyms: {ex}")
         raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
+
+    # 4. Combine Custom and WordNet Synsets
+    if custom_synset:
+        synonyms_by_sense.insert(0, custom_synset)  # Add custom synset at the beginning
+
+    return synonyms_by_sense
 
 
 def inflect_synonym(synonym: str, original_token_info: dict[str, Any]) -> str:
