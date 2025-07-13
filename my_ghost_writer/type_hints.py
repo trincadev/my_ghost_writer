@@ -1,5 +1,22 @@
 from typing import Any, TypedDict, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+
+
+class CustomSynonymRequest(BaseModel):
+    word: str
+    synonyms: list[str]
+
+    @field_validator("synonyms")
+    def synonyms_must_not_be_empty(cls, v):
+        if not v:
+            raise ValueError("Synonym list cannot be empty.")
+        return v
+
+
+class SynonymInfo(TypedDict):
+    synonym: str
+    is_custom: bool
+
 
 
 class RequestWordQueryBody(BaseModel):
@@ -20,16 +37,19 @@ class RequestSplitText(BaseModel):
     start: int
     word: str
 
+
 class RequestQueryThesaurusInflatedBody(BaseModel):
     text: str
     end: int
     start: int
     word: str
 
+
 class SynonymOption(BaseModel):
     base_form: str
     inflected_form: str
     matches_context: bool
+
 
 class SynonymGroup(BaseModel):
     definition: str
@@ -37,12 +57,14 @@ class SynonymGroup(BaseModel):
     wordnet_pos: str
     synonyms: list[SynonymOption]
 
+
 class ContextInfo(BaseModel):
     pos: str
     sentence: str
     grammatical_form: str
     context_words: list[str]
     dependency: str
+
 
 class SingleWordSynonymResponse(BaseModel):
     success: bool
@@ -53,12 +75,14 @@ class SingleWordSynonymResponse(BaseModel):
     message: Optional[str] = None
     debug_info: Optional[dict[str, Any]] = None
 
+
 class WordSynonymResult(BaseModel):
     original_word: str
     original_indices: dict[str, int]
     context_info: ContextInfo
     synonym_groups: list[SynonymGroup]
     debug_info: Optional[dict[str, Any]] = None
+
 
 class MultiWordSynonymResponse(BaseModel):
     success: bool

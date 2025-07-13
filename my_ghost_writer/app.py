@@ -7,7 +7,7 @@ from http.client import responses
 import requests
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Body
 from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,11 +24,10 @@ from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS
    ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP, ME_CONFIG_MONGODB_USE_OK, PORT, RAPIDAPI_HOST, STATIC_FOLDER,
    STATIC_FOLDER_LITEKOBOLDAINET, WORDSAPI_KEY, WORDSAPI_URL, app_logger)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
-from my_ghost_writer.text_parsers2 import extract_contextual_info_by_indices, process_synonym_groups, find_synonyms_for_phrase
-from my_ghost_writer.thesaurus import get_current_info_wordnet, get_synsets_by_word_and_language
+from my_ghost_writer.text_parsers2 import find_synonyms_for_phrase, custom_synonyms
+from my_ghost_writer.thesaurus import get_current_info_wordnet
 from my_ghost_writer.type_hints import (RequestQueryThesaurusInflatedBody, RequestQueryThesaurusWordsapiBody,
-                                        RequestSplitText, RequestTextFrequencyBody, MultiWordSynonymResponse,
-                                        SingleWordSynonymResponse)
+    RequestSplitText, RequestTextFrequencyBody, MultiWordSynonymResponse, CustomSynonymRequest)
 
 
 async def mongo_health_check_background_task():
@@ -253,6 +252,8 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
     app_logger.info(f"text:{text}!")
     app_logger.info(f"word:{word}!")
 
+    # if use_mongo...
+
     try:
         # The new function in text_parsers2 does all the heavy lifting
         results = find_synonyms_for_phrase(
@@ -264,6 +265,8 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
         duration = (t1 - t0).total_seconds()
         app_logger.info(f"got find_synonyms_for_phrase() result in: {duration:.3f}s. ...")
         app_logger.debug(results)
+
+        # if use_mongo and results: ...
 
         message = f"Got {len(results)} synonym groups." if results else "No words with synonyms found in the selected phrase."
 
@@ -286,6 +289,27 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
     except Exception as e:
         app_logger.error(f"Unexpected error in get_synonyms_for_phrase: '{e}'", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+
+@app.post("/thesaurus-custom")
+async def add_custom_synonyms(body: CustomSynonymRequest):
+    """Adds custom synonyms for a given word to the in-memory store."""
+    try:
+        word = body.word.lower()  # Store words in lowercase
+        synonyms = [syn.lower() for syn in body.synonyms] # all the synonyms too!
+
+        if word in custom_synonyms:
+            # Update the synonyms list (append new synonyms, avoid duplicates)
+            custom_synonyms[word] = list(set(custom_synonyms[word] + synonyms))
+            return {"message": f"Synonyms for '{body.word}' updated successfully (in-memory)."}
+        else:
+            # Insert a new entry
+            custom_synonyms[word] = synonyms
+            return {"message": f"Synonyms for '{body.word}' added successfully (in-memory)."}
+
+    except Exception as e:
+        app_logger.error(f"Error adding custom synonyms: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to add custom synonyms: {str(e)}")
 
 
 @app.exception_handler(HTTPException)

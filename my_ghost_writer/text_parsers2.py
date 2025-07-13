@@ -5,13 +5,14 @@ import nltk
 from nltk.corpus import wordnet31 as wn
 # pynflect needed to avoid different inflection
 import pyinflect
-from typing import List, Dict, Any, Optional
+from typing import Any, Optional
 from fastapi import HTTPException
 
 from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS
-from my_ghost_writer.type_hints import WordSynonymResult, ContextInfo, SynonymGroup
+from my_ghost_writer.type_hints import SynonymInfo, WordSynonymResult, ContextInfo, SynonymGroup
 
 
+custom_synonyms: dict[str, list[str]] = {}
 # Load spaCy model
 try:
     nlp = spacy.load(SPACY_MODEL_NAME)
@@ -25,7 +26,7 @@ except OSError:
 # Ensure NLTK data is downloaded
 try:
     nltk.download('wordnet', quiet=False)
-    nltk.download('omw-1.4', quiet=False)
+    nltk.download('english_wordnet', quiet=False)
 except Exception as e:
     app_logger.error(f"Failed to download NLTK data: {e}")
 
@@ -36,7 +37,7 @@ def is_nlp_available() -> bool:
 
 
 # --- NEW: Main function for handling multi-word selections ---
-def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> List[WordSynonymResult]:
+def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> list[WordSynonymResult]:
     """
     Finds synonyms for all eligible words within a selected text span.
     It analyzes the span, filters for meaningful words (nouns, verbs, etc.),
@@ -55,7 +56,7 @@ def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> List[Wo
         return []
 
     # Define which POS tags are eligible for synonym lookup
-    results: List[WordSynonymResult] = []
+    results: list[WordSynonymResult] = []
 
     for token in span:
         # Process only if the token is an eligible part of speech and not a stop word or punctuation
@@ -108,7 +109,7 @@ def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> List[Wo
     return results
 
 
-def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, target_word: str) -> Dict[str, Any]:
+def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, target_word: str) -> dict[str, Any]:
     """Extract grammatical and contextual information using character indices"""
     if nlp is None:
         raise HTTPException(status_code=500, detail="spaCy model not available")
@@ -174,8 +175,30 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
         raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(ex)}")
 
 
-def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Get synonyms from wn with optional POS filtering"""
+def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[str, Any]]:
+    """Get synonyms from wn with optional POS filtering.
+    Includes custom synonyms with a flag."""
+
+    # 1. Check for custom synonyms in in-memory store
+    app_logger.info("custom_synonyms:")
+    app_logger.info(custom_synonyms)
+    word_lower = word.lower()
+    if word_lower in custom_synonyms:
+        app_logger.info(f"found custom_synonyms:{custom_synonyms[word_lower]} by word:{word_lower}!")
+        # 2. If custom synonyms exist, create the appropriate structure and return
+        synonyms: list[dict[str, Any]] = [{"synonym": syn, "is_custom": True} for syn in custom_synonyms[word_lower]]
+        if synonyms:
+            # Create a dummy synset for the custom synonyms
+            custom_synset = {
+                'definition': 'User-defined synonym.',
+                'examples': [],
+                'synonyms': synonyms
+            }
+            if pos_tag:
+                custom_synset["pos"] = pos_tag
+            return [custom_synset]  # Returns a list containing one synset
+
+    # 3. If no custom synonyms, proceed with the WordNet lookup
     try:
         synonyms_by_sense = []
 
@@ -199,8 +222,11 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
                 'definition': synset.definition(),
                 'examples': synset.examples()[:2],  # Limit examples
                 'synonyms': [],
-                'pos': synset.pos()
             }
+            # Add pos only if it's available
+            syn_pos = synset.pos()
+            if syn_pos:
+              sense_data['pos'] = syn_pos
 
             # Use a set to avoid duplicate synonyms from different lemmas in the same synset
             unique_synonyms = set()
@@ -210,6 +236,7 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
                     unique_synonyms.add(synonym)
 
             if unique_synonyms:
+                # add synonyms (without is_custom) since these are WordNet synonyms
                 sense_data['synonyms'] = sorted(list(unique_synonyms))
                 synonyms_by_sense.append(sense_data)
 
@@ -220,8 +247,9 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> List[Dict[
         raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
 
 
-def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
+def inflect_synonym(synonym: str, original_token_info: dict[str, Any]) -> str:
     """Adapt the input synonym arg to match the original word's grammatical form"""
+
     if nlp is None:
         return synonym
 
@@ -263,7 +291,7 @@ def inflect_synonym(synonym: str, original_token_info: Dict[str, Any]) -> str:
     return synonym
 
 
-def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict[str, Any]]:
+def process_synonym_groups(word: str, context_info: dict[str, Any]) -> list[dict[str, Any]]:
     """Process synonym groups with inflection matching"""
     # Get synonyms from wn
     t0 = datetime.now()
@@ -288,8 +316,18 @@ def process_synonym_groups(word: str, context_info: Dict[str, Any]) -> List[Dict
 
         for synonym in sense['synonyms']:
             # Get both the base form and inflected form
-            base_form = synonym
-            inflected_form = inflect_synonym(synonym, context_info)
+            app_logger.info("## synonym ##")
+            app_logger.info(type(synonym))
+            app_logger.info(synonym)
+            synonym_str = synonym
+            if isinstance(synonym, dict):
+                synonym_str = synonym["synonym"]
+
+            base_form = synonym_str
+            app_logger.info("## synonym ##")
+            app_logger.info(type(synonym_str))
+            app_logger.info(synonym_str)
+            inflected_form = inflect_synonym(synonym_str, context_info)
 
             processed_sense["synonyms"].append({
                 "base_form": base_form,
