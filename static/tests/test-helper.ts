@@ -182,6 +182,7 @@ export async function expectVisibleTextWithWalker(
       const container = document.getElementById(idElement);
       if (!!container && !container.textContent?.includes(expected)) {
         console.error("expectVisibleTextWithWalker::DEBUG:expected:", expected, "#")
+        console.error("expectVisibleTextWithWalker::DEBUG:container.textContent:", container.textContent, "#")
       }
       return !!container && container.textContent?.includes(expected);
     },

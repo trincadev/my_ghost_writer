@@ -105,7 +105,7 @@ test('test My Ghost Writer/1: READ-ONLY navigation, 1 click, assert thesaurus ri
 })
 
 test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym substitution', async ({ page }: { page: Page }, workerInfo: TestInfo) => {
-  const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
+    const projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
     await fillInputFieldWithString(page, 'look');
     await page.waitForTimeout(200)
     const state = "editable"
@@ -121,10 +121,11 @@ test('test My Ghost Writer/2: EDITABLE, like READ-ONLY plus single synonym subst
 
     await expect(page.getByRole('searchbox', { name: 'synonym mod Input' })).toBeEnabled();
     await expect(page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' })).toBeEnabled();
-    await expect(page.getByRole('button', { name: 'synonym-button-0-0-0' })).toBeEnabled();
-    
-    await page.getByRole('button', { name: 'synonym-button-0-0-0' }).click();
-    await expect(page.getByLabel('synonym-button-0-0-0')).toMatchAriaSnapshot(`- button "synonym-button-0-0-0"`); // assert css class .inflated-synonym-option.synonym-selected
+    const synonymButton000 = page.getByRole('button', { name: 'synonym-button-0-0-0' })
+    await expect(synonymButton000).toBeEnabled();
+    await synonymButton000.click();
+    await page.waitForTimeout(200)
+    await expect(synonymButton000).toHaveClass("inflated-synonym-option synonym-selected")
     await page.getByRole('button', { name: 'thesaurus-synonym-mod-confirm' }).click();
     await page.waitForTimeout(200)
 
