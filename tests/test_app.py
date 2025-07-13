@@ -7,12 +7,14 @@ from unittest.mock import patch, MagicMock
 from fastapi import Request, HTTPException
 from fastapi.testclient import TestClient
 from pymongo.errors import PyMongoError
+from spacy.symbols import EVENT
 
 from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
 
 # Import the module we want to test directly
 from my_ghost_writer import __version__ as version_module
 from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
+from tests import EVENTS_FOLDER
 
 
 # --- NEW TEST CLASS FOR VERSIONING ---
@@ -209,45 +211,93 @@ class TestAppEndpoints(unittest.TestCase):
             self.assertEqual(response.status_code, 500)
             self.assertEqual(response.text, "")
 
-    # --- /thesaurus-inflated Endpoint ---
-    @patch("my_ghost_writer.app.process_synonym_groups")
-    @patch("my_ghost_writer.app.extract_contextual_info_by_indices")
-    def test_get_synonyms_inflated_success(self, mock_extract, mock_process):
-        """NEW: Covers the success path for /thesaurus-inflated."""
-        mock_extract.return_value = {
-            'pos': 'NOUN', 'context_sentence': 'a sentence', 'tag': 'NN', 'context_words': [],
-            'dependency': 'dobj', 'char_start': 0, 'char_end': 4, 'lemma': 'test'
+    # --- /thesaurus-inflated-phrase Endpoint ---
+    def test_get_synonyms_for_phrase_success(self):
+        """Tests the success case for /thesaurus-inflated-phrase."""
+        # Load the expected response from JSON file
+        import json
+        with open(EVENTS_FOLDER / "response_thesaurus_phrase_inflated.json", "r") as f:
+            expected_response = json.load(f)
+
+        body = {
+            "word": "rather severe-looking woman",
+            "text": "Instead he was smiling at a rather severe-looking woman who was wearing square glasses exactly the shape of the markings the cat had had around its eyes.",
+            "start": 28,
+            "end": 55
         }
-        mock_process.return_value = [{"group": "A"}, {"group": "B"}]
-        body = {"text": "some text", "word": "test", "start": 0, "end": 4}
-        response = self.client.post("/thesaurus-inflated", json=body)
+        response = self.client.post("/thesaurus-inflated-phrase", json=body)
         self.assertEqual(response.status_code, 200)
         json_response = response.json()
-        self.assertTrue(json_response["success"])
-        self.assertEqual(len(json_response["synonym_groups"]), 2)
+        self.assertEqual(json_response["success"], expected_response["success"])
+        self.assertEqual(json_response["original_phrase"], expected_response["original_phrase"])
+        self.assertEqual(json_response["original_indices"], expected_response["original_indices"])
+        self.assertEqual(json_response["message"], expected_response["message"])
+        # check only the first result
+        self.assertEqual(json_response["results"][0], expected_response["results"][0])
 
-    @patch("my_ghost_writer.app.process_synonym_groups")
-    @patch("my_ghost_writer.app.extract_contextual_info_by_indices")
-    def test_get_synonyms_inflated_no_synonyms_found(self, mock_extract, mock_process):
-        """NEW: Covers the case where no synonyms are found."""
-        mock_extract.return_value = {
-            'pos': 'NOUN', 'context_sentence': 'a sentence', 'tag': 'NN', 'context_words': [],
-            'dependency': 'dobj', 'char_start': 0, 'char_end': 4, 'lemma': 'test'
+    def test_get_synonyms_for_phrase_no_synonyms(self):
+        """Tests the case where no synonyms are found for the phrase."""
+        body = {
+            "word": "some phrase",
+            "text": "This is some phrase.",
+            "start": 8,
+            "end": 18
         }
-        mock_process.return_value = []  # Simulate no synonyms
-        body = {"text": "some text", "word": "test", "start": 0, "end": 4}
-        response = self.client.post("/thesaurus-inflated", json=body)
+        response = self.client.post("/thesaurus-inflated-phrase", json=body)
         self.assertEqual(response.status_code, 200)
-        json_response = response.json()
-        self.assertTrue(json_response["success"])
-        self.assertEqual(json_response["message"], "No synonyms found for this word")
-        self.assertEqual(json_response["synonym_groups"], [])
+        self.assertEqual(response.json(), {
+            "success": True,
+            "original_phrase": "some phrase",
+            "original_indices": {
+                "start": 8,
+                "end": 18
+            },
+            "results": [],
+            "message": "No words with synonyms found in the selected phrase."
+        })
 
-    @patch("my_ghost_writer.app.extract_contextual_info_by_indices", side_effect=Exception("Unexpected error"))
-    def test_get_synonyms_inflated_unexpected_error(self, mock_extract):
-        """NEW: Covers the generic exception handler for /thesaurus-inflated."""
-        body = {"text": "some text", "word": "test", "start": 0, "end": 4}
-        response = self.client.post("/thesaurus-inflated", json=body)
+    def test_get_synonyms_for_phrase_empty_response(self):
+        """Tests the error handling for /thesaurus-inflated-phrase."""
+        body = {
+            "word": "some phrase",
+            "text": "This is some phrase.",
+            "start": 20,  # introduce an error: start > end
+            "end": 18
+        }
+        response = self.client.post("/thesaurus-inflated-phrase", json=body)
+        self.assertEqual(response.status_code, 200)
+        self.assertDictEqual(
+            response.json(),
+            {'message': 'No words with synonyms found in the selected phrase.', 'original_indices': {'end': 18, 'start': 20}, 'original_phrase': 'some phrase', 'results': [], 'success': True}
+        )
+
+    def test_get_synonyms_for_phrase_error_validation(self):
+        response = self.client.post("/thesaurus-inflated-phrase", json={})
+        self.assertEqual(response.status_code, 422)
+        self.assertIn("Unprocessable Entity", response.json()["detail"])
+
+    @patch("my_ghost_writer.text_parsers2.nlp", new=None)
+    def test_get_synonyms_for_phrase_error_nlp_none(self):
+        body = {
+            "word": "some phrase",
+            "text": "This is some phrase.",
+            "start": 8,  # introduce an error: start > end
+            "end": 18
+        }
+        response = self.client.post("/thesaurus-inflated-phrase", json=body)
+        self.assertEqual(response.status_code, 503)
+        self.assertIn("Service Unavailable", response.json()["detail"])
+
+    @patch("my_ghost_writer.text_parsers2.nlp")
+    def test_get_synonyms_for_phrase_error_exception(self, nlp_mock):
+        nlp_mock.side_effect = Exception("test error")
+        body = {
+            "word": "some phrase",
+            "text": "This is some phrase.",
+            "start": 8,  # introduce an error: start > end
+            "end": 18
+        }
+        response = self.client.post("/thesaurus-inflated-phrase", json=body)
         self.assertEqual(response.status_code, 500)
         self.assertIn("Internal Server Error", response.json()["detail"])
 
@@ -315,3 +365,7 @@ class TestAppEndpoints(unittest.TestCase):
             self.assertEqual(response.status_code, 503)
             # Verify the CORS header is set by our custom handler
             self.assertEqual(response.headers["access-control-allow-origin"], allowed_origin)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -167,42 +167,6 @@ def get_sentence_sliced_by_word_and_positions(body: RequestSplitText | str) -> J
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
-@app.post("/thesaurus-wordnet")
-def get_thesaurus_wordnet(body: RequestQueryThesaurusWordsapiBody | str) -> JSONResponse:
-    t0 = datetime.now()
-    app_logger.info(f"body type: {type(body)} => {body}.")
-    body_validated = RequestQueryThesaurusWordsapiBody.model_validate_json(body)
-    query = body_validated.query
-    app_logger.info(f"query: {type(query)} => {query}, starting get_synsets_by_word_and_language...")
-    use_mongo: bool = db_ok["mongo_ok"]
-    app_logger.info(f"query: {type(query)} => {query}, use mongo? {use_mongo}.")
-    if use_mongo:
-        try:
-            response = pymongo_operations_rw.get_document_by_word(query=query)
-            t1 = datetime.now()
-            duration_t2t1 = (t1 - t0).total_seconds()
-            app_logger.info(f"found local data, duration: {duration_t2t1:.3f}s.")
-            return JSONResponse(status_code=200, content={"duration": duration_t2t1, "thesaurus": response, "source": "local"})
-        except (PyMongoError, AssertionError) as pme:
-            app_logger.info(f"{pme}! Let's try the remote service...")
-
-    response = dict(get_synsets_by_word_and_language(query, lang="eng"))
-    t1 = datetime.now()
-    duration_t1t0 = (t1 - t0).total_seconds()
-    n_results = len(response["results"])
-    app_logger.info(f"response, n_results: {n_results}; duration: {duration_t1t0:.3f}s.")
-    duration = duration_t1t0
-    if use_mongo:
-        app_logger.debug(f"use_mongo:{use_mongo}, inserting response '{response}' by query '{query}' on db...")
-        pymongo_operations_rw.insert_document(response)
-        del response["_id"]  # since we inserted the wordsapi response on mongodb now it have a bson _id object not serializable by default
-        t2 = datetime.now()
-        duration_t2t1 = (t2 - t1).total_seconds()
-        app_logger.info(f"mongo insert, duration: {duration_t2t1:.3f}s.")
-        duration = duration_t1t0 + duration_t2t1
-    return JSONResponse(status_code=200, content={"duration": duration, "thesaurus": response, "source": "wordnet"})
-
-
 @app.post("/thesaurus-wordsapi")
 def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSONResponse:
     t0 = datetime.now()
@@ -262,111 +226,6 @@ def get_thesaurus_wordsapi(body: RequestQueryThesaurusWordsapiBody | str) -> JSO
         raise HTTPException(status_code=response.status_code, detail=msg)
 
 
-@app.post("/thesaurus-inflated", response_model=SingleWordSynonymResponse)
-async def get_synonyms(body: RequestQueryThesaurusInflatedBody):
-    """
-    Get contextually appropriate synonyms for a word at specific indices in text.
-
-    Args:
-        body: Contains text, word, and start/end indices
-
-    Returns:
-        JSON response with synonym groups and contextual information
-    """
-    app_logger.info(f"body tye:{type(body)}!")
-    app_logger.info(f"body:{body}!")
-    t0 = datetime.now()
-    try:
-        body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(body)
-        end = body_validated.end
-        start = body_validated.start
-        text = body_validated.text
-        word = body_validated.word
-    except ValidationError:
-        assert isinstance(body, RequestQueryThesaurusInflatedBody), f"body MUST be of type RequestSplitText, not of '{type(body)}'!"
-        end = body.end
-        start = body.start
-        text = body.text
-        word = body.word
-    app_logger.info(f"end:{end}!")
-    app_logger.info(f"start:{start}!")
-    app_logger.info(f"text:{text}!")
-    app_logger.info(f"word:{word}!")
-    try:
-        # Extract contextual information using indices
-        context_info = extract_contextual_info_by_indices(
-            text,
-            start,
-            end,
-            word
-        )
-        t1 = datetime.now()
-        duration = (t1 - t0).total_seconds()
-        app_logger.info(f"got extract_contextual_info_by_indices() result in: {duration:.3f}s. ...")
-
-        # Process synonym groups
-        processed_synonyms = process_synonym_groups(body.word, context_info)
-        t2 = datetime.now()
-        duration = (t2 - t1).total_seconds()
-        app_logger.info(f"got process_synonym_groups() result in: {duration:.3f}s. ...")
-
-        if not processed_synonyms:
-            return JSONResponse(
-                status_code=200,
-                content={
-                    "success": True,
-                    "original_word": body.word,
-                    "original_indices": {
-                        "start": body.start,
-                        "end": body.end
-                    },
-                    "context_info": {
-                        "pos": context_info['pos'],
-                        "sentence": context_info['context_sentence'],
-                        "grammatical_form": context_info['tag'],
-                        "context_words": context_info['context_words'],
-                        "dependency": context_info['dependency']
-                    },
-                    "synonym_groups": [],
-                    "message": "No synonyms found for this word"
-                }
-            )
-
-        return JSONResponse(
-            status_code=200,
-            content={
-                "success": True,
-                "original_word": body.word,
-                "original_indices": {
-                    "start": body.start,
-                    "end": body.end
-                },
-                "context_info": {
-                    "pos": context_info['pos'],
-                    "sentence": context_info['context_sentence'],
-                    "grammatical_form": context_info['tag'],
-                    "context_words": context_info['context_words'],
-                    "dependency": context_info['dependency']
-                },
-                "synonym_groups": processed_synonyms,
-                "debug_info": {
-                    "spacy_token_indices": {
-                        "start": context_info['char_start'],
-                        "end": context_info['char_end']
-                    },
-                    "lemma": context_info['lemma']
-                }
-            }
-        )
-
-    except HTTPException:
-        # Re-raise HTTPExceptions to be handled by the exception handler
-        raise
-    except Exception as e:
-        app_logger.error(f"Unexpected error in get_synonyms: '{e}'")
-        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
-
-
 @app.post("/thesaurus-inflated-phrase", response_model=MultiWordSynonymResponse)
 async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
     """
@@ -420,9 +279,10 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
             message=message
         )
 
-    except HTTPException:
+    except HTTPException as http_ex:
         # Re-raise known HTTP exceptions to be handled by FastAPI's handler
-        raise
+        app_logger.error(f"http_ex: '{str(http_ex)}'")
+        raise http_ex
     except Exception as e:
         app_logger.error(f"Unexpected error in get_synonyms_for_phrase: '{e}'", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
