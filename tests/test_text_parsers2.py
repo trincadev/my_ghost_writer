@@ -53,14 +53,15 @@ class TestTextParsers2(unittest.TestCase):
         self.assertEqual(context.exception.detail, "spaCy model not available")
 
     def test_extract_contextual_info_word_mismatch(self):
-        """Tests that a 400 HTTPException is raised for a word/index mismatch."""
+        """Tests that a 400->500 HTTPException is raised for a word/index mismatch."""
         text = "The quick brown fox"
+        start_idx, end_idx, target_word = 4, 9, "brown"
         # Indices point to "quick", but target_word is "brown"
         with self.assertRaises(HTTPException) as context:
-            extract_contextual_info_by_indices(text, 4, 9, "brown")
+            extract_contextual_info_by_indices(text, start_idx, end_idx, target_word)
 
-        self.assertEqual(context.exception.status_code, 400)
-        self.assertIn("Word mismatch", context.exception.detail)
+        self.assertEqual(context.exception.status_code, 500)
+        self.assertIn(f"Error analyzing context: 400: Could not find token for word '{target_word}' at indices {start_idx}-{end_idx}", context.exception.detail)
 
     @patch("my_ghost_writer.text_parsers2.nlp")
     def test_extract_contextual_info_word_none(self, nlp_mock):
@@ -259,7 +260,7 @@ class TestTextParsers2(unittest.TestCase):
     @patch("my_ghost_writer.text_parsers2.wn.synsets")
     def test_process_synonym_groups_not_synonyms_by_sense(self, mock_synsets):
         mock_synsets.return_value = []
-        context_info = {'pos': 'VERB'}
+        context_info = {'pos': 'VERB', 'lemma': 'look'}
         result = process_synonym_groups("look", context_info)
         self.assertListEqual(result, [])
 

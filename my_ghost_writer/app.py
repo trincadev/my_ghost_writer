@@ -109,7 +109,7 @@ def health_mongo() -> str:
 def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
     t0 = datetime.now()
     app_logger.info(f"body type: {type(body)}.")
-    app_logger.info(f"body: {body}.")
+    app_logger.debug(f"body: {body}.")
     body_validated = RequestTextFrequencyBody.model_validate_json(body)
     text = body_validated.text
     app_logger.info(f"LOG_LEVEL: '{LOG_LEVEL}', length of text: {len(text)}, type of 'text':'{type(text)}'.")
@@ -130,7 +130,7 @@ def get_words_frequency(body: RequestTextFrequencyBody | str) -> JSONResponse:
 def get_sentence_sliced_by_word_and_positions(body: RequestSplitText | str) -> JSONResponse:
     t0 = datetime.now()
     app_logger.info(f"body type: {type(body)}.")
-    app_logger.info(f"body: {body}.")
+    app_logger.debug(f"body: {body}.")
     try:
         try:
             body_validated = RequestSplitText.model_validate_json(body)
@@ -148,8 +148,8 @@ def get_sentence_sliced_by_word_and_positions(body: RequestSplitText | str) -> J
             sentence, start_in_sentence, end_in_sentence = text_parsers.get_sentence_by_word(text, word, start, end)
         except Exception as e0:
             app_logger.error(f"end:'{end}', start:'{start}', word:'{word}'.")
-            app_logger.info("text:")
-            app_logger.info(text)
+            app_logger.error("text:")
+            app_logger.error(text)
             app_logger.error("## error:")
             app_logger.error(e0)
             raise e0
@@ -300,9 +300,15 @@ async def get_synonyms(body: RequestQueryThesaurusInflatedBody):
             end,
             word
         )
+        t1 = datetime.now()
+        duration = (t1 - t0).total_seconds()
+        app_logger.info(f"got extract_contextual_info_by_indices() result in: {duration:.3f}s. ...")
 
         # Process synonym groups
         processed_synonyms = process_synonym_groups(body.word, context_info)
+        t2 = datetime.now()
+        duration = (t2 - t1).total_seconds()
+        app_logger.info(f"got process_synonym_groups() result in: {duration:.3f}s. ...")
 
         if not processed_synonyms:
             return JSONResponse(
@@ -369,7 +375,7 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
     synonym groups for each.
     """
     app_logger.info(f"body tye:{type(body)}!")
-    app_logger.info(f"body:{body}!")
+    app_logger.debug(f"body:{body}!")
     t0 = datetime.now()
     try:
         body_validated = RequestQueryThesaurusInflatedBody.model_validate_json(body)
@@ -398,7 +404,7 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
         t1 = datetime.now()
         duration = (t1 - t0).total_seconds()
         app_logger.info(f"got find_synonyms_for_phrase() result in: {duration:.3f}s. ...")
-        app_logger.info(results)
+        app_logger.debug(results)
 
         message = f"Got {len(results)} synonym groups." if results else "No words with synonyms found in the selected phrase."
 

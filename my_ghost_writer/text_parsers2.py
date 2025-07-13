@@ -132,7 +132,7 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
         # If the primary loop didn't find a token, it's an unexpected state,
         # but the original code to handle this was unreachable.
         # The most likely failure is now a word/index mismatch, handled above.
-        if target_token is None:
+        if target_token is None or str(target_token) != target_word:
             raise HTTPException(
                 status_code=400,
                 detail=f"Could not find token for word '{target_word}' at indices {start_idx}-{end_idx}"

@@ -315,7 +315,3 @@ class TestAppEndpoints(unittest.TestCase):
             self.assertEqual(response.status_code, 503)
             # Verify the CORS header is set by our custom handler
             self.assertEqual(response.headers["access-control-allow-origin"], allowed_origin)
-
-
-if __name__ == "__main__":
-    unittest.main()
