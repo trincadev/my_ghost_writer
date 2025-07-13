@@ -1,4 +1,15 @@
 {
   "word": "happy",
-  "synonyms": ["joyful", "content", "cheerful", "elated"]
+  "related": [
+    {
+      "definition": "Feeling or showing pleasure or contentment.",
+      "type": "synonym",
+      "words": ["joyful", "content", "cheerful", "elated"]
+    },
+    {
+      "definition": "Feeling or showing sorrow; unhappy.",
+      "type": "antonym",
+      "words": ["sad", "unhappy"]
+    }
+  ]
 }

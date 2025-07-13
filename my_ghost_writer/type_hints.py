@@ -1,22 +1,27 @@
-from typing import Any, TypedDict, Optional
+from typing import Any, TypedDict, Optional, Literal
 from pydantic import BaseModel, field_validator
+
+
+class RelatedEntry(BaseModel):
+    type: Literal["synonym", "antonym", "homonym", "homophone", "homograph"]
+    words: list[str]
+    definition: Optional[str] = None  # Definition is now within RelatedEntry
 
 
 class CustomSynonymRequest(BaseModel):
     word: str
-    synonyms: list[str]
+    related: list[RelatedEntry]
 
-    @field_validator("synonyms")
-    def synonyms_must_not_be_empty(cls, v):
-        if not v:
-            raise ValueError("Synonym list cannot be empty.")
-        return v
+    # @field_validator("synonyms")
+    # def synonyms_must_not_be_empty(cls, v):
+    #     if not v:
+    #         raise ValueError("Synonym list cannot be empty.")
+    #     return v
 
 
 class SynonymInfo(TypedDict):
     synonym: str
     is_custom: bool
-
 
 
 class RequestWordQueryBody(BaseModel):

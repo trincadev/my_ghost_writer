@@ -24,7 +24,7 @@ from my_ghost_writer.constants import (ALLOWED_ORIGIN_LIST, API_MODE, DOMAIN, IS
    ME_CONFIG_MONGODB_HEALTHCHECK_SLEEP, ME_CONFIG_MONGODB_USE_OK, PORT, RAPIDAPI_HOST, STATIC_FOLDER,
    STATIC_FOLDER_LITEKOBOLDAINET, WORDSAPI_KEY, WORDSAPI_URL, app_logger)
 from my_ghost_writer.pymongo_utils import mongodb_health_check
-from my_ghost_writer.text_parsers2 import find_synonyms_for_phrase, custom_synonyms
+from my_ghost_writer.text_parsers2 import find_synonyms_for_phrase, custom_synonym_handler
 from my_ghost_writer.thesaurus import get_current_info_wordnet
 from my_ghost_writer.type_hints import (RequestQueryThesaurusInflatedBody, RequestQueryThesaurusWordsapiBody,
     RequestSplitText, RequestTextFrequencyBody, MultiWordSynonymResponse, CustomSynonymRequest)
@@ -295,17 +295,8 @@ async def get_synonyms_for_phrase(body: RequestQueryThesaurusInflatedBody):
 async def add_custom_synonyms(body: CustomSynonymRequest):
     """Adds custom synonyms for a given word to the in-memory store."""
     try:
-        word = body.word.lower()  # Store words in lowercase
-        synonyms = [syn.lower() for syn in body.synonyms] # all the synonyms too!
-
-        if word in custom_synonyms:
-            # Update the synonyms list (append new synonyms, avoid duplicates)
-            custom_synonyms[word] = list(set(custom_synonyms[word] + synonyms))
-            return {"message": f"Synonyms for '{body.word}' updated successfully (in-memory)."}
-        else:
-            # Insert a new entry
-            custom_synonyms[word] = synonyms
-            return {"message": f"Synonyms for '{body.word}' added successfully (in-memory)."}
+        custom_synonym_handler.add_entry(body.word, [r.model_dump() for r in body.related])
+        return {"message": f"Custom entry for '{body.word}' added/updated successfully (in-memory)."}
 
     except Exception as e:
         app_logger.error(f"Error adding custom synonyms: {e}")

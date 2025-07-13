@@ -9,10 +9,12 @@ from typing import Any, Optional
 from fastapi import HTTPException
 
 from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS
+from my_ghost_writer.custom_synonym_handler import CustomSynonymHandler
 from my_ghost_writer.type_hints import SynonymInfo, WordSynonymResult, ContextInfo, SynonymGroup
 
 
 custom_synonyms: dict[str, list[str]] = {}
+custom_synonym_handler = CustomSynonymHandler()
 # Load spaCy model
 try:
     nlp = spacy.load(SPACY_MODEL_NAME)
@@ -187,36 +189,37 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
     # 1. Custom Synonym Lookup and Preparation
     custom_synset = None  # Initialize to None
     # 1. Direct Lookup: Check if the word is directly in custom_synonyms
-    if word_lower in custom_synonyms:
-        app_logger.info(f"found custom_synonyms:{custom_synonyms[word_lower]} by word:{word_lower}!")
-        # 2. If custom synonyms exist, create the appropriate structure and return
-        synonyms: list[dict[str, Any]] = [{"synonym": syn, "is_custom": True} for syn in custom_synonyms[word_lower]]
-        if synonyms:
-            # Create a dummy synset for the custom synonyms
+    related_synonyms = custom_synonym_handler.get_related(word_lower, "synonym")
+    if related_synonyms:
+        app_logger.info(f"found custom_synonyms:{related_synonyms} by word:{word_lower}!")
+        synonyms_list: list[dict[str, Any]] = []
+        for related in related_synonyms:
+            synonyms_list.append({"synonym": related["word"], "is_custom": True, "definition": related.get("definition")})
+        if synonyms_list:
             custom_synset = {
                 'definition': 'User-defined synonym.',
                 'examples': [],
-                'synonyms': synonyms
+                'synonyms': synonyms_list
             }
             if pos_tag:
                 custom_synset["pos"] = pos_tag
 
     # 2. Reverse Lookup: Check if the word is a *synonym* of any custom word
-    for custom_word, synonym_list in custom_synonyms.items():
-        if word_lower in synonym_list:
-            app_logger.info(f"found reverse match: '{word_lower}' is a synonym of '{custom_word}'")
-            # Found a reverse match!
-            # Include the original custom_word in the synonym list
-            synonyms = [{"synonym": custom_word, "is_custom": True}]  # Start with the original word
-            synonyms.extend([{"synonym": syn, "is_custom": True} for syn in custom_synonyms[custom_word]])  # Add the rest of the synonyms
+    reverse_lookup_words = custom_synonym_handler.reverse_lookup(word_lower)
 
-            custom_synset = {
-                'definition': f'User-defined synonym (reverse match for "{word}").',
-                'examples': [],
-                'synonyms': synonyms
-            }
-            if pos_tag:
-                custom_synset["pos"] = pos_tag
+    if reverse_lookup_words:
+        app_logger.info(f"found reverse match: '{word_lower}' is a synonym of '{reverse_lookup_words}'")
+        # Found a reverse match!
+        # The reverse_lookup return the original word, not a list of synonyms
+        synonyms_list: list[dict[str, Any]] = [{"synonym": reverse_word, "is_custom": True} for reverse_word in reverse_lookup_words]
+
+        custom_synset = {
+            'definition': f'User-defined synonym (reverse match for "{word}").',
+            'examples': [],
+            'synonyms': synonyms_list
+        }
+        if pos_tag:
+            custom_synset["pos"] = pos_tag
 
     # 3. WordNet Lookup
     try:
