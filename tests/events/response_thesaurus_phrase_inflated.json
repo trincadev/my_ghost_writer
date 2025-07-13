@@ -1,0 +1,300 @@
+{
+    "success": true,
+    "original_phrase": "rather severe-looking woman",
+    "original_indices": {
+        "start": 28,
+        "end": 55
+    },
+    "results": [
+        {
+            "original_word": "looking",
+            "original_indices": {
+                "start": 14,
+                "end": 21
+            },
+            "context_info": {
+                "pos": "VERB",
+                "sentence": "Instead he was smiling at a rather severe-looking woman who was wearing square glasses exactly the shape of the markings the cat had had around its eyes.",
+                "grammatical_form": "VBG",
+                "context_words": [
+                    "at",
+                    "a",
+                    "rather",
+                    "severe",
+                    "-",
+                    "looking",
+                    "woman",
+                    "who",
+                    "was",
+                    "wearing",
+                    "square"
+                ],
+                "dependency": "amod"
+            },
+            "synonym_groups": [
+                {
+                    "definition": "give a certain impression or have a certain outward aspect",
+                    "examples": [
+                        "She seems to be sleeping",
+                        "This appears to be a very difficult problem"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "appear",
+                            "inflected_form": "appearing",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "seem",
+                            "inflected_form": "seeming",
+                            "matches_context": true
+                        }
+                    ]
+                },
+                {
+                    "definition": "search or seek",
+                    "examples": [
+                        "We looked all day and finally found the child in the forest",
+                        "Look elsewhere for the perfect gift!"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "search",
+                            "inflected_form": "searching",
+                            "matches_context": true
+                        }
+                    ]
+                },
+                {
+                    "definition": "be oriented in a certain direction, often with respect to another reference point; be opposite to",
+                    "examples": [
+                        "The house looks north",
+                        "My backyard look onto the pond"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "face",
+                            "inflected_form": "facing",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "front",
+                            "inflected_form": "fronting",
+                            "matches_context": true
+                        }
+                    ]
+                },
+                {
+                    "definition": "take charge of or deal with",
+                    "examples": [
+                        "Could you see about lunch?",
+                        "I must attend to this matter"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "attend",
+                            "inflected_form": "attending",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "see",
+                            "inflected_form": "seeing",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "take care",
+                            "inflected_form": "taking care",
+                            "matches_context": true
+                        }
+                    ]
+                },
+                {
+                    "definition": "look forward to the probable occurrence of",
+                    "examples": [
+                        "We were expecting a visit from our relatives",
+                        "She is looking to a promotion"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "await",
+                            "inflected_form": "awaiting",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "expect",
+                            "inflected_form": "expecting",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "wait",
+                            "inflected_form": "waiting",
+                            "matches_context": true
+                        }
+                    ]
+                },
+                {
+                    "definition": "have faith or confidence in",
+                    "examples": [
+                        "you can count on me to help you any time",
+                        "Look to your friends for support"
+                    ],
+                    "wordnet_pos": "v",
+                    "synonyms": [
+                        {
+                            "base_form": "bank",
+                            "inflected_form": "banking",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "bet",
+                            "inflected_form": "betting",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "calculate",
+                            "inflected_form": "calculating",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "count",
+                            "inflected_form": "counting",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "depend",
+                            "inflected_form": "depending",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "reckon",
+                            "inflected_form": "reckoning",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "rely",
+                            "inflected_form": "relying",
+                            "matches_context": true
+                        },
+                        {
+                            "base_form": "swear",
+                            "inflected_form": "swearing",
+                            "matches_context": true
+                        }
+                    ]
+                }
+            ],
+            "debug_info": {
+                "spacy_token_indices": {
+                    "start": 42,
+                    "end": 49
+                },
+                "lemma": "look"
+            }
+        },
+        {
+            "original_word": "woman",
+            "original_indices": {
+                "start": 22,
+                "end": 27
+            },
+            "context_info": {
+                "pos": "NOUN",
+                "sentence": "Instead he was smiling at a rather severe-looking woman who was wearing square glasses exactly the shape of the markings the cat had had around its eyes.",
+                "grammatical_form": "NN",
+                "context_words": [
+                    "a",
+                    "rather",
+                    "severe",
+                    "-",
+                    "looking",
+                    "woman",
+                    "who",
+                    "was",
+                    "wearing",
+                    "square",
+                    "glasses"
+                ],
+                "dependency": "pobj"
+            },
+            "synonym_groups": [
+                {
+                    "definition": "an adult female person (as opposed to a man)",
+                    "examples": [
+                        "the woman kept house while the man hunted"
+                    ],
+                    "wordnet_pos": "n",
+                    "synonyms": [
+                        {
+                            "base_form": "adult female",
+                            "inflected_form": "adult female",
+                            "matches_context": false
+                        }
+                    ]
+                },
+                {
+                    "definition": "a human female employed to do housework",
+                    "examples": [
+                        "the char will clean the carpet",
+                        "I have a woman who comes in four hours a day while I write"
+                    ],
+                    "wordnet_pos": "n",
+                    "synonyms": [
+                        {
+                            "base_form": "char",
+                            "inflected_form": "char",
+                            "matches_context": false
+                        },
+                        {
+                            "base_form": "charwoman",
+                            "inflected_form": "charwoman",
+                            "matches_context": false
+                        },
+                        {
+                            "base_form": "cleaning lady",
+                            "inflected_form": "cleaning lady",
+                            "matches_context": false
+                        },
+                        {
+                            "base_form": "cleaning woman",
+                            "inflected_form": "cleaning woman",
+                            "matches_context": false
+                        }
+                    ]
+                },
+                {
+                    "definition": "women as a class",
+                    "examples": [
+                        "it's an insult to American womanhood",
+                        "woman is the glory of creation"
+                    ],
+                    "wordnet_pos": "n",
+                    "synonyms": [
+                        {
+                            "base_form": "fair sex",
+                            "inflected_form": "fair sex",
+                            "matches_context": false
+                        },
+                        {
+                            "base_form": "womanhood",
+                            "inflected_form": "womanhood",
+                            "matches_context": false
+                        }
+                    ]
+                }
+            ],
+            "debug_info": {
+                "spacy_token_indices": {
+                    "start": 50,
+                    "end": 55
+                },
+                "lemma": "woman"
+            }
+        }
+    ],
+    "message": "Got 2 synonym groups."
+}
