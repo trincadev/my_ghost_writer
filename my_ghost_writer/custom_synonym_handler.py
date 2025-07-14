@@ -15,6 +15,14 @@ class CustomSynonymHandler:
             self.lexicon[word][relation_type] = related_words
             self._update_inverted_index(word, relation_type, related_words)
 
+    def delete_entry(self, word: str):
+        """Deletes a custom synonym entry if it exists."""
+        word_lower = word.lower()
+        if word_lower in self.lexicon:
+            del self.lexicon[word_lower]
+        else:
+            raise KeyError(f"No custom synonyms found for word '{word}'.")
+
     def get_related(self, word: str, relation_type: str) -> list[dict[str, Any]]:
         word = word.lower()
         if word in self.lexicon and relation_type in self.lexicon[word]:

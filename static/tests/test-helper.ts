@@ -419,7 +419,6 @@ export async function openMobileMenu(page: Page, msg: string) {
   }
 }
 
-
 export async function standardCheck(page: Page, projectName: string, expectedString: string, testName: string, click: boolean = true) {
   // start as a normal test
   if (click) await page.getByRole('button', { name: 'id-perform-wordsearch' }).click();
@@ -434,4 +433,52 @@ export async function standardCheck(page: Page, projectName: string, expectedStr
   await page.getByLabel('id-div-candidate-1-nth').click();
   await assertVisibleTextAfterNavigation(page, 'id-div-1-range-1-nth', expectedString, "bottom", "gametext", projectName);
   await page.waitForTimeout(200)
+}
+
+export async function deleteCustomSynonym(word: string) {
+  // The URL of your backend endpoint.
+  // Make sure the port (7860) matches your server configuration.
+  const apiUrl = `http://localhost:7860/thesaurus-custom/${word}`;
+
+  try {
+    // 1. Await the fetch call to complete.
+    const response = await fetch(apiUrl, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    // 2. Await the parsing of the JSON body.
+    const responseData = await response.json();
+
+    // 3. Check if the request was successful.
+    if (!response.ok) {
+      // If not, throw an error with details from the server's response.
+      throw new Error(`HTTP error! Status: ${response.status}, Detail: ${responseData.detail}`);
+    }
+
+    // 4. Handle the successful response data.
+    console.log('Success:', responseData);
+
+    // You can now access the message property directly for assertions.
+    const message = responseData.message;
+    console.log('Message from server:', message);
+
+    // Example of an assertion similar to your Playwright test:
+    if (message.includes(`Synonyms for '${word}' deleted successfully`)) {
+      console.log('Assertion passed: The message content is correct.');
+    } else {
+      console.error('Assertion failed: The message content is incorrect.');
+    }
+
+    return responseData; // Return the data for further use.
+
+  } catch (error) {
+    // Handle any errors that occurred during the fetch operation.
+    console.error('Error:', error);
+    // Example: alert('Error: ' + error.message);
+    // Re-throw the error if you want calling functions to handle it.
+    throw error;
+  }
 }

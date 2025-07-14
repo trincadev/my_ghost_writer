@@ -303,6 +303,19 @@ async def add_custom_synonyms(body: CustomSynonymRequest):
         raise HTTPException(status_code=500, detail=f"Failed to add custom synonyms: {str(e)}")
 
 
+@app.delete("/thesaurus-custom/{word}")
+async def delete_custom_synonyms(word: str):
+    """Deletes custom synonyms for a given word from the in-memory store."""
+    try:
+        custom_synonym_handler.delete_entry(word)
+        return {"message": f"Synonyms for '{word}' deleted successfully (in-memory)."}
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        app_logger.error(f"Error deleting custom synonyms: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to delete custom synonyms: {str(e)}")
+
+
 @app.exception_handler(HTTPException)
 def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
     origin = request.headers.get("origin")
