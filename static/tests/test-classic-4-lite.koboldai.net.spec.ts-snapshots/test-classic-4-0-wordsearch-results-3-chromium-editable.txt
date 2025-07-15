@@ -1,0 +1,20 @@
+- heading "Smart Synonyms for thesaurus-original-word-span-0nth" [level=2]
+- paragraph:
+  - strong: "Part of Speech:"
+  - text: ADJ (JJ)
+- paragraph:
+  - strong: "Context:"
+  - text: Even Muggles like yourself should be celebrating, this happy, happy day!"
+- paragraph:
+  - strong: "Dependency:"
+  - text: amod
+- separator
+- strong: "Definition:"
+- text: User-defined synonym.
+- strong: "WordNet POS:"
+- text: ADJ
+- heading "synonyms-title-0-0" [level=4]: "Available Synonyms:"
+- button "synonym-button-0-0-0"
+- button "synonym-button-0-0-1"
+- button "synonym-button-0-0-2"
+- group "details-0": Debug Information
