@@ -4,6 +4,7 @@ import {
     ensureThesaurusPanelClosed,
     ensureThesaurusPanelOpen,
     fillInputFieldWithString,
+    handleDialogWithExpectedMessage,
     initTest
 } from './test-helper';
 
@@ -51,13 +52,8 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.getByRole('button', { name: 'thesaurus-custom-button-internal0' }).click();
     // try to submit immediately, we'll get an error because we didn't filled the forms
     console.log("#")
-    await page.getByRole('button', { name: 'thesaurus-custom-submit' }).click();
-    page.once('dialog', dialog1 => {
-      const msg1 = dialog1.message()
-      // expect(msg1).toContain("Please enter a word.")
-      console.error(`Dialog message: '${msg1}'`); // Dialog message: Please enter a word.
-      dialog1.dismiss().catch(() => {});
-    });
+    const thesaurusCustomSubmitBtn = page.getByRole('button', { name: 'thesaurus-custom-submit' })
+    await handleDialogWithExpectedMessage({page, locator: thesaurusCustomSubmitBtn, expectedText: "Please enter a word."})
     await page.waitForTimeout(200)
 
     await page.getByRole('button', { name: 'thesaurus-custom-cancel' }).click(); // close the thesaurus custom form
@@ -84,17 +80,8 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await expect(page.getByLabel('thesaurus-custom-form-content')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-2-${projectName}-${state}.txt` });
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-2nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-2nth' }).fill('joyful,happyness,content');
-    // handle second dialog message
-    page.once('dialog', dialog2 => {
-      const msg2 = dialog2.message()
-      // expect(msg2).toContain("Thesaurus entry added successfully!")
-      console.error(`Dialog message: '${msg2}'`); // Dialog message: Thesaurus entry added successfully!
-      dialog2.dismiss().catch(() => {});
-    });
-    await page.waitForTimeout(200)
 
-    // submit the form content
-    await page.getByRole('button', { name: 'thesaurus-custom-submit' }).click();
+    await handleDialogWithExpectedMessage({page, locator: thesaurusCustomSubmitBtn, expectedText: "Thesaurus entry added successfully!"})
     await page.waitForTimeout(200)
 
     await ensureThesaurusPanelClosed(page);

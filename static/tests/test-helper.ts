@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import * as crypto from "node:crypto";
-import { Locator, Page, TestInfo, expect } from '@playwright/test';
+import { Dialog, Locator, Page, TestInfo, expect } from '@playwright/test';
 
 interface CellObject {
   table: number
@@ -481,4 +481,30 @@ export async function deleteCustomSynonym(word: string) {
     // Re-throw the error if you want calling functions to handle it.
     throw error;
   }
+}
+export async function handleDialogWithExpectedMessage({page, locator, expectedText}: {page: Page, locator: Locator, expectedText: string}) {
+  // Set up the dialog handler before clicking
+  const dialogPromise = page.waitForEvent('dialog', { timeout: 200 });
+
+  // Trigger the action that should show the dialog
+  try {
+    await locator.click({timeout: 100});
+  } catch(err0) {
+    console.error(`handleDialogWithExpectedMessage::error on dismissing dialog:'${err0}'`)
+  }
+  // Wait for and handle the dialog
+  const dialog = await dialogPromise;
+  const message = dialog.message();
+
+  console.log(`Dialog message: "${message}"`);
+
+  // Assert the message content
+  expect(message).toContain(expectedText);
+
+  // Dismiss the dialog
+  dialog.dismiss().catch((err1) => {console.error(`handleDialogWithExpectedMessage::error on dismissing dialog:'${err1}'`)});
+
+  // Wait a bit to ensure the dialog is fully dismissed
+  await page.waitForTimeout(100);
+
 }
