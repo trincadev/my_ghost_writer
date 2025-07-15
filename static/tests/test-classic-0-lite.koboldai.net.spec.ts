@@ -40,8 +40,8 @@ async function prepareTestWithOpenRightPanel(args:PrepareTestWithOpenRightPanelA
     await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
     await ensureThesaurusPanelOpen(page)
     
-    const synonymContainer = page.getByLabel('content-inflated-synonyms-container')
-    await page.getByLabel('content-inflated-synonyms-container').click();
+    const synonymContainer = page.getByLabel('content-inflated-synonyms-container', { exact: true })
+    // await synonymContainer.click();
     await expect(synonymContainer).toMatchAriaSnapshot({ name: `test-classic-0-${idText}-wordsearch_results-0-${projectName}-${state}.txt` });
 }
 

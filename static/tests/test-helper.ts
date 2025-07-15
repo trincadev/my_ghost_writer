@@ -382,6 +382,14 @@ export async function fillInputFieldWithString(page: Page, inputString: string, 
   }
 }
 
+async function setLocalMode(page: Page) {
+  await page.getByRole('link', { name: 'AI', exact: true }).click();
+  await page.locator('#customapidropdown').selectOption('1');
+  await page.getByRole('textbox', { name: 'Enter KoboldCpp Custom' }).click();
+  await page.getByRole('textbox', { name: 'Enter KoboldCpp Custom' }).fill('http://localhost:5001');
+  await page.getByRole('button', { name: 'Ok' }).click();  
+}
+
 export async function initTest({page, workerInfo, filepath, targetUrl = 'http://localhost:8000/', setUi = true}: {
   page: Page,
   workerInfo: TestInfo,

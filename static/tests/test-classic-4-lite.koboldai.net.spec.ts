@@ -24,7 +24,7 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
         test.fixme()
         await page.close()
     }
-    const word = ("happy"+projectName).replace(/ /g,'').replace(/\(/g,'').replace(/\)/g,'')
+    const word = ("happy"+projectName).replace(/\s/g,'').replace(/\(/g,'').replace(/\)/g,'')
     console.log("word:", word, "#")
     const state = "editable"
     // search the word 'happy'
