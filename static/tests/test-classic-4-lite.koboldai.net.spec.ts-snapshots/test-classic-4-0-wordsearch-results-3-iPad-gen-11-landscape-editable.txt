@@ -4,7 +4,7 @@
   - text: NOUN (NN)
 - paragraph:
   - strong: "Context:"
-  - text: happychromium
+  - text: happyiPadgen11landscape
 - paragraph:
   - strong: "Dependency:"
   - text: ROOT

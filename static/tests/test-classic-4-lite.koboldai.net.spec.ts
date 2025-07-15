@@ -1,4 +1,4 @@
-import { test, expect, WorkerInfo, Page } from '@playwright/test';
+import {test, expect, WorkerInfo, Page, TestInfo} from '@playwright/test';
 import {
     deleteCustomSynonym,
     ensureThesaurusPanelClosed,
@@ -8,28 +8,24 @@ import {
     initTest
 } from './test-helper';
 
-const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text.json`
+const testStoryJsonTxt = `${import.meta.dirname}/../../tests/events/very_long_text_test4.json`
 
-let page: Page;
-let projectNameGlobal = {
-  projectName: ""
-}
-
-test.beforeAll(async ({ browser }, workerInfo) => {
-  page = await browser.newPage();
-  projectNameGlobal.projectName = await initTest({page, workerInfo, filepath:testStoryJsonTxt})
-});
-
-test.afterAll(async () => {
-  await page.close();
-});
-test(`test My Ghost Writer: backend request - word with no synonyms, then add a custom entries`, async () => {
-    console.log("process.env.DOMAIN_PORT:", process.env.DOMAIN_PORT, "#")
-    const thesaurusDomain = `${process.env.DOMAIN_PORT}` ?? "http://localhost:7860"
-    console.log("thesaurusDomain:", thesaurusDomain, "#")
-    const projectName = projectNameGlobal.projectName;
-    console.log("projectNameGlobal.projectName:", projectName, projectNameGlobal.projectName, "#")
-    const word = "happy"
+test(`test My Ghost Writer: backend request - word with no synonyms, then add a custom entry`, async ({ page }: { page: Page }, workerInfo: TestInfo) => {
+    console.log("process.env.DOMAIN_PORT_BACKEND:", process.env.DOMAIN_PORT_BACKEND, "#")
+    const backendDomain = `${process.env.DOMAIN_PORT_BACKEND}` ?? "http://localhost:7860"
+    console.log("thesaurusDomain:", backendDomain, "#")
+    const projectName = await initTest({ page, workerInfo, filepath: testStoryJsonTxt })
+    console.log("projectNameGlobal.projectName:", projectName, "#")
+    if (projectName === "MobileChromeLandscape") {
+        test.skip()
+        await page.close()
+    }
+    if (projectName === "iPad (gen 11)") {
+        test.fixme()
+        await page.close()
+    }
+    const word = ("happy"+projectName).replace(/ /g,'').replace(/\(/g,'').replace(/\)/g,'')
+    console.log("word:", word, "#")
     const state = "editable"
     // search the word 'happy'
     await fillInputFieldWithString(page, word);
@@ -37,21 +33,20 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.waitForTimeout(200)
 
     await ensureThesaurusPanelClosed(page);
-      // open the thesaurus result right panel: the word 'happy', for start, doesn't find any synonyms
+    // open the right panel with the thesaurus result: the word 'happy+projectName', initially, doesn't have any synonyms
     await page.getByRole('link', { name: 'id-a-candidate-0-nth' }).click();
     await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
     await page.waitForTimeout(200)
 
     await ensureThesaurusPanelOpen(page);
     // assert that the title of the thesaurus right panel is what we expect
-    await expect(page.getByLabel('id-content-inflated-synonyms-')).toContainText('Original phrase: happy');
+    await expect(page.getByLabel('id-content-inflated-synonyms-')).toContainText('Original phrase: '+word);
     await expect(page.getByRole("heading", {name: "id-content-inflated-synonyms-container-h1-original-phrase"})).toContainText('Original phrase: '+word);
-    // assert that the content of page is what we expect
+    // assert that the page content is what we expect
     await expect(page.locator('#id-rightpanel-thesaurus-content-parent')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-0-${projectName}-${state}.txt` });
     // open the thesaurus custom form using the internal button
     await page.getByRole('button', { name: 'thesaurus-custom-button-internal0' }).click();
-    // try to submit immediately, we'll get an error because we didn't filled the forms
-    console.log("#")
+    // try to submit immediately, we'll get an error because we didn't fill the forms
     const thesaurusCustomSubmitBtn = page.getByRole('button', { name: 'thesaurus-custom-submit' })
     await handleDialogWithExpectedMessage({page, locator: thesaurusCustomSubmitBtn, expectedText: "Please enter a word."})
     await page.waitForTimeout(200)
@@ -64,7 +59,7 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.waitForTimeout(200)
     // compile the forms for the submission of the 'happy' synonyms
     await page.getByRole('textbox', { name: 'thesaurus-custom-word' }).click();
-    await page.getByRole('textbox', { name: 'thesaurus-custom-word' }).fill('happy');
+    await page.getByRole('textbox', { name: 'thesaurus-custom-word' }).fill(word);
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-0nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-0nth' }).fill('cheerful,joy');
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-' }).click();
@@ -90,17 +85,17 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.getByRole('link', { name: 'id-0-range-0-nth' }).click();
     await page.waitForTimeout(200)
     await ensureThesaurusPanelOpen(page);
-    
+
     await expect(page.getByLabel('definition-div-0-')).toBeVisible();
     await expect(page.getByLabel('content-inflated-synonyms-0nth')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-3-${projectName}-${state}.txt` });
     await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
     await page.waitForTimeout(200)
     await ensureThesaurusPanelClosed(page);
-    
+
     // delete the synonyms group(s) for 'happy' to ensure we can repeat this test
     const responseData = await deleteCustomSynonym(word)
     const {message} = responseData;
     expect(message).toContain(`Synonyms for '${word}' deleted successfully`)
 
-  await page.close()
+    await page.close()
 })

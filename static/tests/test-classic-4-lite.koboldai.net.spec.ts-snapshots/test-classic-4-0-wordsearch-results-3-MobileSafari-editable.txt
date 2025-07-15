@@ -1,10 +1,10 @@
 - heading "Smart Synonyms for thesaurus-original-word-span-0nth" [level=2]
 - paragraph:
   - strong: "Part of Speech:"
-  - text: NOUN (NN)
+  - text: PROPN (NNP)
 - paragraph:
   - strong: "Context:"
-  - text: happychromium
+  - text: happyMobileSafari
 - paragraph:
   - strong: "Dependency:"
   - text: ROOT
@@ -12,7 +12,7 @@
 - strong: "Definition:"
 - text: User-defined synonym.
 - strong: "WordNet POS:"
-- text: NOUN
+- text: PROPN
 - heading "synonyms-title-0-0" [level=4]: "Available Synonyms:"
 - button "synonym-button-0-0-0"
 - button "synonym-button-0-0-1"

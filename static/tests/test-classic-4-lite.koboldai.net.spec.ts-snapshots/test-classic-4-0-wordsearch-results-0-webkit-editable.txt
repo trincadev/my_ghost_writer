@@ -1,0 +1,5 @@
+- button "id-rightpanel-thesaurus-close"
+- searchbox "synonym mod Input"
+- button "thesaurus-synonym-mod-confirm-button"
+- button "thesaurus-custom-button-internal0"
+- heading "id-content-inflated-synonyms-container-h1-original-phrase" [level=1]
