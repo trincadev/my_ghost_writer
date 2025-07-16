@@ -14,6 +14,7 @@ from my_ghost_writer.app import app, mongo_health_check_background_task, lifespa
 # Import the module we want to test directly
 from my_ghost_writer import __version__ as version_module
 from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
+from my_ghost_writer.constants import app_logger
 from tests import EVENTS_FOLDER
 
 
@@ -272,9 +273,16 @@ class TestAppEndpoints(unittest.TestCase):
         )
 
     def test_get_synonyms_for_phrase_error_validation(self):
+        from http.client import responses
         response = self.client.post("/thesaurus-inflated-phrase", json={})
         self.assertEqual(response.status_code, 422)
-        self.assertIn("Unprocessable Entity", response.json()["detail"])
+        response_json = response.json()
+        app_logger.info(f"responses_422:'{responses[422]}'")
+        app_logger.info(f"response_json:'{response_json}'")
+        try:
+            self.assertIn("Unprocessable Entity", response_json["detail"])
+        except AssertionError:
+            self.assertIn("Unprocessable Content", response_json["detail"])
 
     @patch("my_ghost_writer.text_parsers2.nlp", new=None)
     def test_get_synonyms_for_phrase_error_nlp_none(self):
