@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.4.5
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.5.0
 
 LABEL authors="trincadev"
 
@@ -8,6 +8,7 @@ ENV VIRTUAL_ENV=${WORKDIR_ROOT}/.venv PATH="${WORKDIR_ROOT}/.venv/bin:$PATH"
 ENV WRITE_TMP_ON_DISK=""
 ENV MOUNT_GRADIO_APP=""
 ENV HOME_USER=/home/python
+ENV SPACY_MODEL="en_core_web_sm"
 
 # Set working directory to function root directory
 WORKDIR ${WORKDIR_ROOT}
@@ -29,6 +30,9 @@ RUN ls -l ${WORKDIR_ROOT}
 RUN ls -ld ${WORKDIR_ROOT}
 RUN ls -l ${WORKDIR_ROOT}/
 RUN python -c "import sys; print(sys.path)"
+RUN python -c "import spacy"
+RUN echo "python -m spacy download \"${SPACY_MODEL}\""
+RUN python -m spacy download "${SPACY_MODEL}"
 RUN python -c "import fastapi"
 RUN python -c "import uvicorn"
 RUN python -c "import pymongo"
