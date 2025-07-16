@@ -16,14 +16,15 @@ from my_ghost_writer.type_hints import SynonymInfo, WordSynonymResult, ContextIn
 custom_synonyms: dict[str, list[str]] = {}
 custom_synonym_handler = CustomSynonymHandler()
 # Load spaCy model
+nlp = None
 try:
     nlp = spacy.load(SPACY_MODEL_NAME)
     app_logger.info(f"spacy model {SPACY_MODEL_NAME} has type:'{type(nlp)}'")
-except OSError:
+except (OSError, IOError) as ex:
+    app_logger.error(ex)
     app_logger.error(
-        f"spaCy model '{SPACY_MODEL_NAME}' not found. Please install it with: -python -m spacy download {SPACY_MODEL_NAME}'"
+        f"spaCy model '{SPACY_MODEL_NAME}' not found. Please install it with: 'python -m spacy download {SPACY_MODEL_NAME}'"
     )
-    nlp = None
 
 # Ensure NLTK data is downloaded
 try:
@@ -45,6 +46,9 @@ def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> list[Wo
     and returns a list of synonym results for each.
     """
     if nlp is None:
+        app_logger.error(
+            f"spaCy model '{SPACY_MODEL_NAME}' not found. Please install it with: 'python -m spacy download {SPACY_MODEL_NAME}'"
+        )
         raise HTTPException(status_code=503, detail="NLP service is unavailable")
 
     doc = nlp(text)
