@@ -4,21 +4,16 @@ import unittest
 from http.client import responses
 from unittest.mock import patch, MagicMock
 
-from fastapi import Request, HTTPException
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
 from pymongo.errors import PyMongoError
-from spacy.symbols import EVENT
 
-from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
-
-# Import the module we want to test directly
 from my_ghost_writer import __version__ as version_module
 from my_ghost_writer.app import app, mongo_health_check_background_task, lifespan
 from my_ghost_writer.constants import app_logger
 from tests import EVENTS_FOLDER
 
 
-# --- NEW TEST CLASS FOR VERSIONING ---
 class TestVersion(unittest.TestCase):
     """
     Tests the version fallback mechanism.
