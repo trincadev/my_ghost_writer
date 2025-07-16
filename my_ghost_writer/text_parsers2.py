@@ -27,8 +27,9 @@ except (OSError, IOError) as io_ex:
 
 # Ensure NLTK data is downloaded
 try:
+    nltk.download('punkt_tab', quiet=False)
     nltk.download('wordnet', quiet=False)
-    nltk.download('english_wordnet', quiet=False)
+    nltk.download('wordnet31', quiet=False)
 except Exception as e:
     app_logger.error(f"Failed to download NLTK data: {e}")
 
