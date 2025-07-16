@@ -7,14 +7,16 @@ authors = [
 ]
 license = {text = "AGPL-3.0"}
 readme = "README.md"
-requires-python = ">=3.10,<4.0.0"
+requires-python = ">=3.10,<3.14.0"
 dependencies = [
     "nltk (>=3.9.1,<4.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
     "structlog (>=25.2.0,<26.0.0)",
     "requests (>=2.32.4,<3.0.0)",
     "uvicorn (==0.34.3)",
-    "pymongo (==4.13.2)"
+    "pymongo (==4.13.2)",
+    "spacy (>=3.8.7,<4.0.0)",
+    "pyinflect (>=0.5.1,<0.6.0)"
 ]
 
 [tool.poetry.group.test]
