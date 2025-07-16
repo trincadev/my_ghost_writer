@@ -1,0 +1,5 @@
+asgi-correlation-id
+fastapi
+pymongo
+requests
+uvicorn

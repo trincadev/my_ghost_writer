@@ -1,0 +1,20 @@
+nltk
+pyinflect
+pymongo
+python-dotenv
+requests
+spacy
+structlog
+uvicorn
+
+# test
+pytest
+pytest-cov
+httpx
+
+# webserver
+asgi-correlation-id
+fastapi
+pymongo
+requests
+uvicorn
