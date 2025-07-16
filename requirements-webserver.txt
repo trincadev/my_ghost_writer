@@ -1,3 +1,4 @@
 asgi-correlation-id==4.3.4
-fastapi==0.115.12
-uvicorn==0.34.2
+fastapi==0.115.14
+requests==2.32.4
+uvicorn==0.34.3

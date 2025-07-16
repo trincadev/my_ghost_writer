@@ -12,7 +12,6 @@ dependencies = [
     "nltk (>=3.9.1,<4.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
     "structlog (>=25.2.0,<26.0.0)",
-    "requests (>=2.32.4,<3.0.0)",
     "uvicorn (==0.34.3)",
     "pymongo (==4.13.2)",
     "spacy (>=3.8.7,<4.0.0)",
@@ -33,6 +32,7 @@ optional = true
 [tool.poetry.group.webserver.dependencies]
 asgi-correlation-id = "^4.3.4"
 fastapi = "^0.115.12"
+requests = ">=2.32.4,<3.0.0"
 uvicorn = "^0.34.2"
 pymongo = {extras = ["srv"], version = "^4.13.2"}
 
