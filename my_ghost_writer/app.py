@@ -46,8 +46,8 @@ async def lifespan(app: FastAPI):
     task.cancel()
     try:
         await task
-    except asyncio.CancelledError:
-        pass
+    except asyncio.CancelledError as asyncio_ex:
+        app_logger.warning(f"asyncio_ex:'{asyncio_ex}'")
 
 
 fastapi_title = "My Ghost Writer"

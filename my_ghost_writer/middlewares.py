@@ -63,4 +63,5 @@ async def logging_middleware(request: Request, call_next: Callable) -> Response:
             duration=process_time,
         )
         response.headers["X-Process-Time"] = str(process_time / 10 ** 9)
+        # return needed here to avoid errors
         return response

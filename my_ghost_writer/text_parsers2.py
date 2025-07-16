@@ -265,9 +265,9 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
                 sense_data['synonyms'] = sorted(list(unique_synonyms))
                 synonyms_by_sense.append(sense_data)
 
-    except Exception as ex:
-        app_logger.error(f"Error getting wn synonyms: {ex}")
-        raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex)}")
+    except Exception as ex1:
+        app_logger.error(f"Error getting wn synonyms: {ex1}")
+        raise HTTPException(status_code=500, detail=f"Error retrieving synonyms: {str(ex1)}")
 
     # 4. Combine Custom and WordNet Synsets
     if custom_synset:
@@ -312,10 +312,9 @@ def inflect_synonym(synonym: str, original_token_info: dict[str, Any]) -> str:
                     return inflected + synonym[len(doc[0].text):]
                 return synonym # Return original if inflection fails
 
-    except Exception as ex:
-        app_logger.warning(f"Inflection error for '{synonym}': '{ex}'")
+    except Exception as ex2:
+        app_logger.warning(f"Inflection error for '{synonym}': '{ex2}'")
         # Return the original synonym if inflection fails
-        pass
 
     return synonym
 
