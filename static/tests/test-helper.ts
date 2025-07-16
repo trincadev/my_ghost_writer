@@ -359,7 +359,14 @@ export async function assertVisibleTextAfterNavigation(page: Page, idElement: st
   // assert visible gametext
   
   if (projectName !== "MobileChromeLandscape") {
-    await expectVisibleTextWithWalker(page, idElementContentEditable, expectedString)
+    console.error("assertVisibleTextAfterNavigation::expectedString:", expectedString, "#")
+    try {
+      await expectVisibleTextWithWalker(page, idElementContentEditable, expectedString)
+    } catch (err) {
+      console.error("assertVisibleTextAfterNavigation::expectedString_FAILED:", expectedString, "#")
+      console.error("assertVisibleTextAfterNavigation::err:", err, "#")
+      throw err
+    }
   } else {
     try {
       await expect(page.locator(idElementContentEditable)).toHaveScreenshot()
