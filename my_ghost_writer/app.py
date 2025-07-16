@@ -7,7 +7,7 @@ from http.client import responses
 import requests
 import uvicorn
 from asgi_correlation_id import CorrelationIdMiddleware
-from fastapi import FastAPI, HTTPException, Body
+from fastapi import FastAPI, HTTPException
 from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -384,6 +384,8 @@ except Exception as ex_route_main:
 
 if __name__ == "__main__":
     try:
+        info_start = get_current_info_wordnet(True)
+        app_logger.info(f"info_start, with NLTK preload:{info_start}.")
         app_logger.info(
             f"Starting fastapi/gradio application {fastapi_title}, run in api mode: {API_MODE} (no static folder and main route)...")
         uvicorn.run("my_ghost_writer.app:app", host=DOMAIN, port=PORT, reload=bool(IS_TESTING))

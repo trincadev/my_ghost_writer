@@ -2,7 +2,6 @@ from datetime import datetime
 
 import spacy
 import nltk
-from nltk.corpus import wordnet31 as wn
 # pynflect needed to avoid different inflection
 import pyinflect
 from typing import Any, Optional
@@ -10,7 +9,8 @@ from fastapi import HTTPException
 
 from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS
 from my_ghost_writer.custom_synonym_handler import CustomSynonymHandler
-from my_ghost_writer.type_hints import SynonymInfo, WordSynonymResult, ContextInfo, SynonymGroup
+from my_ghost_writer.thesaurus import wn
+from my_ghost_writer.type_hints import WordSynonymResult, ContextInfo, SynonymGroup
 
 
 custom_synonyms: dict[str, list[str]] = {}
@@ -20,8 +20,8 @@ nlp = None
 try:
     nlp = spacy.load(SPACY_MODEL_NAME)
     app_logger.info(f"spacy model {SPACY_MODEL_NAME} has type:'{type(nlp)}'")
-except (OSError, IOError) as ex:
-    app_logger.error(ex)
+except (OSError, IOError) as io_ex:
+    app_logger.error(io_ex)
     app_logger.error(
         f"spaCy model '{SPACY_MODEL_NAME}' not found. Please install it with: 'python -m spacy download {SPACY_MODEL_NAME}'"
     )
@@ -108,8 +108,8 @@ def find_synonyms_for_phrase(text: str, start_idx: int, end_idx: int) -> list[Wo
 
             except HTTPException as http_ex:
                 app_logger.warning(f"Could not process token '{token.text}': '{http_ex.detail}'")
-            except Exception as ex:
-                app_logger.error(f"Unexpected error processing token '{token.text}': '{ex}'", exc_info=True)
+            except Exception as synonym_ex:
+                app_logger.error(f"Unexpected error processing token '{token.text}': '{synonym_ex}'", exc_info=True)
 
     return results
 
@@ -175,9 +175,9 @@ def extract_contextual_info_by_indices(text: str, start_idx: int, end_idx: int, 
             'original_indices': {'start': start_idx, 'end': end_idx}
         }
 
-    except Exception as ex:
-        app_logger.error(f"Error in contextual analysis: {ex}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(ex)}")
+    except Exception as indices_ex:
+        app_logger.error(f"Error in contextual analysis: {indices_ex}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Error analyzing context: {str(indices_ex)}")
 
 
 def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[str, Any]]:
