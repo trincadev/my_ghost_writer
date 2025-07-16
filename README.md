@@ -99,13 +99,15 @@ To build the project with docker:
 
 ```
 DOCKER_VERSION=$(grep version pyproject.toml |head -1|cut -d'=' -f2|cut -d'"' -f2);
-docker build . --progress=plain --tag registry.gitlab.com/aletrn/my_ghost_writer:${DOCKER_VERSION}
 docker build . -f dockerfiles/dockerfile_my_ghost_writer_base  --progress=plain --tag registry.gitlab.com/aletrn/my_ghost_writer_base:${DOCKER_VERSION}
+docker build . --progress=plain --tag registry.gitlab.com/aletrn/my_ghost_writer:${DOCKER_VERSION}
 ```
 
 To run the docker container (you still need to configure the mongodb endpoint to use the single my_ghost_writer container):
 ```
-docker run -d --name my_ghost_writer -p 7860:7860 -e WORDSAPI_KEY=${WORDSAPI_KEY} -e ME_CONFIG_MONGODB_USE_OK=TRUE registry.gitlab.com/aletrn/my_ghost_writer:0.4.0; docker logs -f my_ghost_writer
+docker run -d --name my_ghost_writer -p 7860:7860 -e ME_CONFIG_MONGODB_USE_OK=FALSE \
+    -e ALLOWED_ORIGIN=http://localhost:7860,http://localhost:8000 \
+    registry.gitlab.com/aletrn/my_ghost_writer:${DOCKER_VERSION}; docker logs -f my_ghost_writer
 ```
 
 To source more than one env variable, you can use this command:
