@@ -13,7 +13,6 @@ from my_ghost_writer.thesaurus import wn
 from my_ghost_writer.type_hints import WordSynonymResult, ContextInfo, SynonymGroup
 
 
-custom_synonyms: dict[str, list[str]] = {}
 custom_synonym_handler = CustomSynonymHandler()
 # Load spaCy model
 nlp = None
@@ -185,8 +184,6 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
     Includes custom synonyms with a flag.  Also performs a reverse lookup."""
 
     # 1. Check for custom synonyms in in-memory store
-    app_logger.info("custom_synonyms:")
-    app_logger.info(custom_synonyms)
     word_lower = word.lower()
     synonyms_by_sense: list[dict[str, Any]] = []  # Initialize the list here
 
@@ -198,7 +195,9 @@ def get_wordnet_synonyms(word: str, pos_tag: Optional[str] = None) -> list[dict[
         app_logger.info(f"found custom_synonyms:{related_synonyms} by word:{word_lower}!")
         synonyms_list: list[dict[str, Any]] = []
         for related in related_synonyms:
-            synonyms_list.append({"synonym": related["word"], "is_custom": True, "definition": related.get("definition")})
+            words = related["words"]
+            for word_from_related_words in words:
+                synonyms_list.append({"synonym": word_from_related_words, "is_custom": True, "definition": related.get("definition")})
         if synonyms_list:
             custom_synset = {
                 'definition': 'User-defined synonym.',

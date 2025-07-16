@@ -3,25 +3,43 @@ from typing import Any
 
 class CustomSynonymHandler:
     def __init__(self):
-        self.lexicon: dict[str, list[dict[str, Any]]] = {} # {word: {relation_type: [{word: related_word, definition: definition}]}}
-        self.inverted_index: dict[str, set[str]] = {}  # For reverse lookups
+        # {word: {relation_type: [{word: related_word, definition: definition}]}}
+        self.lexicon: dict[str, dict[str, list[dict[str, Any]]]] = {}
+        # For reverse lookups
+        self.inverted_index: dict[str, set[str]] = {}
 
     def add_entry(self, word: str, related: list[dict[str, Any]]):
         word = word.lower()
-        self.lexicon[word] = {}
+        if word not in self.lexicon:
+            self.lexicon[word] = {}
         for relation in related:
             relation_type = relation["type"]
-            related_words = [{"word": w.lower(), "definition": relation.get("definition")} for w in relation["words"]]
-            self.lexicon[word][relation_type] = related_words
-            self._update_inverted_index(word, relation_type, related_words)
+            group = {
+                "words": [w.lower().strip() for w in relation["words"]],
+                "definition": relation.get("definition")
+            }
+            if relation_type not in self.lexicon[word]:
+                self.lexicon[word][relation_type] = []
+            self.lexicon[word][relation_type].append(group)
+            # Update inverted index
+            for w in group["words"]:
+                if w not in self.inverted_index:
+                    self.inverted_index[w] = set()
+                self.inverted_index[w].add(word)
 
     def delete_entry(self, word: str):
-        """Deletes a custom synonym entry if it exists."""
-        word_lower = word.lower()
-        if word_lower in self.lexicon:
-            del self.lexicon[word_lower]
-        else:
+        word = word.lower()
+        if word not in self.lexicon:
             raise KeyError(f"No custom synonyms found for word '{word}'.")
+        # Remove from inverted index
+        for relation_groups in self.lexicon[word].values():
+            for group in relation_groups:
+                for w in group["words"]:
+                    if w in self.inverted_index:
+                        self.inverted_index[w].discard(word)
+                        if not self.inverted_index[w]:
+                            del self.inverted_index[w]
+        del self.lexicon[word]
 
     def get_related(self, word: str, relation_type: str) -> list[dict[str, Any]]:
         word = word.lower()
@@ -31,14 +49,4 @@ class CustomSynonymHandler:
 
     def reverse_lookup(self, related_word: str) -> set[str]:
         related_word = related_word.lower()
-        if related_word in self.inverted_index:
-            return self.inverted_index[related_word]
-        return set()
-
-    def _update_inverted_index(self, word: str, relation_type: str, related_words: list[dict[str, Any]]):
-        """Updates the inverted index for reverse lookups."""
-        for related in related_words:
-            related_word = related["word"]
-            if related_word not in self.inverted_index:
-                self.inverted_index[related_word] = set()
-            self.inverted_index[related_word].add(word)
+        return self.inverted_index.get(related_word, set())
