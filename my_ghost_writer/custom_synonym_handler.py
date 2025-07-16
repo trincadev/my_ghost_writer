@@ -21,7 +21,6 @@ class CustomSynonymHandler:
             if relation_type not in self.lexicon[word]:
                 self.lexicon[word][relation_type] = []
             self.lexicon[word][relation_type].append(group)
-            # Update inverted index
             for w in group["words"]:
                 if w not in self.inverted_index:
                     self.inverted_index[w] = set()
@@ -34,12 +33,15 @@ class CustomSynonymHandler:
         # Remove from inverted index
         for relation_groups in self.lexicon[word].values():
             for group in relation_groups:
-                for w in group["words"]:
-                    if w in self.inverted_index:
-                        self.inverted_index[w].discard(word)
-                        if not self.inverted_index[w]:
-                            del self.inverted_index[w]
+                self._update_group_words(group, word)
         del self.lexicon[word]
+
+    def _update_group_words(self, group, word):
+        for w in group["words"]:
+            if w in self.inverted_index:
+                self.inverted_index[w].discard(word)
+                if not self.inverted_index[w]:
+                    del self.inverted_index[w]
 
     def get_related(self, word: str, relation_type: str) -> list[dict[str, Any]]:
         word = word.lower()
