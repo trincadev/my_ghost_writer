@@ -89,6 +89,22 @@ class TestTextParsers2(unittest.TestCase):
         self.assertIn('synonyms', first_result)
         self.assertIsInstance(first_result['synonyms'], list)
 
+    def test_get_wordnet_synonyms_custom_entry(self):
+        word = "happy"
+        pos = "ADJ"
+        synonyms_list = get_wordnet_synonyms(word, pos)
+        for synonym_by_sense in synonyms_list:
+            self.assertIsInstance(synonym_by_sense, dict)
+            self.assertIsInstance(synonym_by_sense["definition"], str)
+            self.assertEqual(synonym_by_sense["pos"], pos)
+            self.assertIsInstance(synonym_by_sense["examples"], list)
+            synonyms = synonym_by_sense["synonyms"]
+            for synonym_dict in synonyms:
+                self.assertIsInstance(synonym_dict, dict)
+                self.assertIsInstance(synonym_dict["definition"], str)
+                self.assertIsInstance(synonym_dict["synonym"], str)
+                self.assertIsInstance(synonym_dict["is_custom"], bool)
+
     def test_get_wordnet_synonyms_pos_filter(self):
         # Test with POS filtering
         word = "hunt"
@@ -256,6 +272,30 @@ class TestTextParsers2(unittest.TestCase):
         self.assertIn('inflected_form', first_synonym_info)
         # For a past-tense verb, the inflected form should be different from the base
         self.assertNotEqual(first_synonym_info['base_form'], first_synonym_info['inflected_form'])
+
+    def test_process_synonym_groups_custom_entry(self):
+        word = "happy"
+        context_info = {
+            'char_end': 60, 'char_start': 55,
+            'context_sentence': 'Even Muggles like yourself should be celebrating, this happy, happy day!"',
+            'context_words': ['should', 'be', 'celebrating', ',', 'this', 'happy', ',', 'happy', 'day', '!', '"'],
+            'dependency': 'amod', 'is_lower': True, 'is_title': False, 'is_upper': False, 'lemma': 'happy',
+            'original_indices': {'end': 60, 'start': 55}, 'pos': 'ADJ', 'sentence_position': 9,
+            'tag': 'JJ', 'word': 'happy'
+        }
+        result_synonym_groups_list = process_synonym_groups(word, context_info)
+        self.assertIsInstance(result_synonym_groups_list, list)
+        for expected_synonym_group in result_synonym_groups_list:
+            self.assertIsInstance(expected_synonym_group, dict)
+            self.assertIsInstance(expected_synonym_group["definition"], str)
+            self.assertEqual(expected_synonym_group["wordnet_pos"], context_info["pos"])
+            self.assertIsInstance(expected_synonym_group["examples"], list)
+            synonyms = expected_synonym_group["synonyms"]
+            for synonym_dict in synonyms:
+                self.assertIsInstance(synonym_dict, dict)
+                self.assertIsInstance(synonym_dict["base_form"], str)
+                self.assertIsInstance(synonym_dict["inflected_form"], str)
+                self.assertIsInstance(synonym_dict["matches_context"], bool)
 
     @patch("my_ghost_writer.text_parsers2.wn.synsets")
     def test_process_synonym_groups_not_synonyms_by_sense(self, mock_synsets):
