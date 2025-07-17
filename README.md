@@ -115,8 +115,6 @@ To source more than one env variable, you can use this command:
 set -o allexport && source <(cat ./.env) && set +o allexport;
 ```
 
-Instead to simple
-
 ## Contributing
 
 Pull requests are welcome! Please make sure to test your changes thoroughly before submitting a pull request.

@@ -6,7 +6,7 @@ services:
     build:
       context: .
       tags:
-        - registry.gitlab.com/aletrn/my_ghost_writer:0.4.0
+        - registry.gitlab.com/aletrn/my_ghost_writer:0.5.1
     ports:
       - "7860:7860"
     environment:
