@@ -1,22 +1,18 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.5.2
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.5.3
 
 LABEL authors="trincadev"
 
 # Include global arg in this stage of the build
-ARG WORKDIR_ROOT="/var/task"
-ENV VIRTUAL_ENV=${WORKDIR_ROOT}/.venv PATH="${WORKDIR_ROOT}/.venv/bin:$PATH"
+ARG HOME="/home/python"
+ENV VIRTUAL_ENV=${HOME}/.venv PATH="${HOME}/.venv/bin:$PATH"
 ENV WRITE_TMP_ON_DISK=""
 ENV MOUNT_GRADIO_APP=""
-ENV HOME_USER=/home/python
 ENV SPACY_MODEL="en_core_web_sm"
 
 # Set working directory to function root directory
-WORKDIR ${WORKDIR_ROOT}
-# workaround for missing /home folder
-RUN ls -ld ${HOME_USER}
-RUN ls -lA ${HOME_USER}
+WORKDIR ${HOME}
 
-# RUN . ${WORKDIR_ROOT}/.venv && which python && echo "# install samgis #" && pip install .
+# RUN . ${HOME}/.venv && which python && echo "# install samgis #" && pip install .
 RUN if [ "${WRITE_TMP_ON_DISK}" != "" ]; then mkdir {WRITE_TMP_ON_DISK}; fi
 RUN if [ "${WRITE_TMP_ON_DISK}" != "" ]; then ls -l {WRITE_TMP_ON_DISK}; fi
 
@@ -25,10 +21,10 @@ RUN /usr/bin/which python
 RUN python --version
 RUN pip list
 RUN echo "PATH: ${PATH}."
-RUN echo "WORKDIR_ROOT: ${WORKDIR_ROOT}."
-RUN ls -l ${WORKDIR_ROOT}
-RUN ls -ld ${WORKDIR_ROOT}
-RUN ls -l ${WORKDIR_ROOT}/
+RUN echo "HOME: ${HOME}."
+RUN ls -l ${HOME}
+RUN ls -ld ${HOME}
+RUN ls -l ${HOME}/
 RUN python -c "import sys; print(sys.path)"
 RUN python -c "import spacy"
 RUN echo "python -m spacy download \"${SPACY_MODEL}\""
@@ -38,9 +34,9 @@ RUN python -c "import uvicorn"
 RUN python -c "import pymongo"
 RUN python -c "import requests"
 RUN df -h
-RUN ls -l ${WORKDIR_ROOT}/my_ghost_writer/app.py
-RUN ls -l ${WORKDIR_ROOT}/static/index.html
-RUN ls -l ${WORKDIR_ROOT}/lite.koboldai.net/index.html
+RUN ls -l ${HOME}/my_ghost_writer/app.py
+RUN ls -l ${HOME}/static/index.html
+RUN ls -l ${HOME}/lite.koboldai.net/index.html
 
 USER 999
 EXPOSE 7860
