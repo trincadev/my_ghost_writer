@@ -3,6 +3,7 @@ venv/
 __cache__
 .idea
 tmp/
+*.log
 .env*
 __pycache__
 .DS_Store

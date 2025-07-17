@@ -70,7 +70,7 @@ RUN . ${WORKDIR_ROOT}/.venv && which python && pip list
 COPY --chown=python:python ./lite.koboldai.net ${WORKDIR_ROOT}/lite.koboldai.net
 COPY --chown=python:python ./my_ghost_writer ${WORKDIR_ROOT}/my_ghost_writer
 RUN mkdir ${WORKDIR_ROOT}/static && chown python:python ${WORKDIR_ROOT}/static
-COPY static/index-dark.css static/index.html static/index_dark.html static/index.css static/index.js ${WORKDIR_ROOT}/static/
+COPY --chown=python:python static/index-dark.css static/index.html static/index_dark.html static/index.css static/index.js ${WORKDIR_ROOT}/static/
 
 RUN echo "new WORKDIR_ROOT after hidden venv copy => ${WORKDIR_ROOT}"
 RUN ls -ld ${WORKDIR_ROOT}/
