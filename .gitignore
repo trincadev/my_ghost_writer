@@ -670,3 +670,4 @@ $RECYCLE.BIN/
 tmp/*
 lite.koboldai.net
 lite.koboldai.net/*
+nltk_data/*

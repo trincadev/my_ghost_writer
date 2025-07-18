@@ -7,7 +7,7 @@ import pyinflect
 from typing import Any, Optional
 from fastapi import HTTPException
 
-from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS
+from my_ghost_writer.constants import SPACY_MODEL_NAME, app_logger, ELIGIBLE_POS, NLTK_DATA
 from my_ghost_writer.custom_synonym_handler import CustomSynonymHandler
 from my_ghost_writer.thesaurus import wn
 from my_ghost_writer.type_hints import WordSynonymResult, ContextInfo, SynonymGroup
@@ -27,9 +27,10 @@ except (OSError, IOError) as io_ex:
 
 # Ensure NLTK data is downloaded
 try:
-    nltk.download('punkt_tab', quiet=False)
-    nltk.download('wordnet', quiet=False)
-    nltk.download('wordnet31', quiet=False)
+    app_logger.info(f"Downloading NLTK data to the folder:'{NLTK_DATA}'")
+    nltk.download('punkt_tab', quiet=False, download_dir=NLTK_DATA)
+    nltk.download('wordnet', quiet=False, download_dir=NLTK_DATA)
+    nltk.download('wordnet31', quiet=False, download_dir=NLTK_DATA)
 except Exception as e:
     app_logger.error(f"Failed to download NLTK data: {e}")
 
