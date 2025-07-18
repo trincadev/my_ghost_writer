@@ -18,6 +18,7 @@ WORKDIR ${HOME}
 
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
 RUN mkdir ${HOME}/my_ghost_writer && chown python:python ${HOME}/my_ghost_writer
+RUN mkdir -p {HOME}/nltk_data && chown python:python ${HOME}/nltk_data
 COPY --chown=python:python ./lite.koboldai.net* ${HOME}/lite.koboldai.net
 COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
 
