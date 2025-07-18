@@ -65,7 +65,9 @@ WORKDIR ${HOME}
 COPY --from=builder_global ${HOME}/.venv ${HOME}/.venv
 RUN . ${HOME}/.venv && which python && pip list
 
-RUN mkdir -p ${HOME}/static ${HOME}/.cache/pip ${HOME}/nltk_data && chown python:python ${HOME}/static ${HOME}/.cache ${HOME}/.cache/pip ${HOME}/nltk_data
+RUN mkdir -p ${HOME}/nltk_data/corpora ${HOME}/nltk_data/tokenizers/punkt_tab \
+    ${HOME}/nltk_data/tokenizers/punkt ${HOME}/nltk_data/taggers && chown python:python -R ${HOME}/nltk_data
+RUN mkdir -p ${HOME}/static ${HOME}/.cache/pip && chown python:python -R ${HOME}/static ${HOME}/.cache ${HOME}/.cache/pip
 COPY --chown=python:python static/index-dark.css static/index.html static/index_dark.html static/index.css static/index.js ${HOME}/static/
 COPY --chown=python:python lite.koboldai.net.txt my_ghost_writer.txt ${HOME}/
 COPY --chown=python:python scripts/download.sh scripts/download_file.py ${HOME}/

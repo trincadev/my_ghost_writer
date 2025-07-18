@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.6.1
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.6.2
 
 LABEL authors="trincadev"
 
@@ -17,8 +17,12 @@ ENV BASEURL2=https://raw.githubusercontent.com/trincadev/my_ghost_writer/refs/he
 WORKDIR ${HOME}
 
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
-RUN mkdir ${HOME}/my_ghost_writer && chown python:python ${HOME}/my_ghost_writer
-RUN mkdir -p ${HOME}/nltk_data && chown python:python ${HOME}/nltk_data
+RUN mkdir ${HOME}/my_ghost_writer && chown python:python -R ${HOME}/my_ghost_writer
+RUN mkdir -p ${HOME}/my_ghost_writer/nltk_data && chown python:python -R ${HOME}/my_ghost_writer/nltk_data
+RUN ls -lA ${HOME}/
+RUN ls -lA ${HOME}/.cache ${HOME}/.cache/pip
+RUN ls -lAd ${HOME}/.cache ${HOME}/.cache/pip
+RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
 COPY --chown=python:python ./lite.koboldai.net* ${HOME}/lite.koboldai.net
 COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
 
