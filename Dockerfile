@@ -12,14 +12,15 @@ ARG BASEURLCOMMITS1=https://api.github.com/repos/trincadev/lite.koboldai.net/com
 ARG BASEURLCOMMITS2=https://api.github.com/repos/trincadev/my_ghost_writer/commits?per_page=1
 ENV BASEURL1=https://raw.githubusercontent.com/trincadev/lite.koboldai.net/refs/heads/mgw_smart_thesaurus
 ENV BASEURL2=https://raw.githubusercontent.com/trincadev/my_ghost_writer/refs/heads/main
+ENV NLTK_DATA=${HOME}/nltk_data
 
 # Set working directory to function root directory
 WORKDIR ${HOME}
 
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
 RUN mkdir ${HOME}/my_ghost_writer && chown python:python -R ${HOME}/my_ghost_writer
-RUN mkdir -p ${HOME}/my_ghost_writer/nltk_data && chown python:python -R ${HOME}/my_ghost_writer/nltk_data
-RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
+RUN mkdir -p ${NLTK_DATA} && chown python:python -R ${NLTK_DATA}
+RUN ls -lAd ${NLTK_DATA} ${NLTK_DATA}/*
 RUN ls -lA ${HOME}/
 RUN ls -lA ${HOME}/.cache ${HOME}/.cache/pip
 RUN ls -lAd ${HOME}/.cache ${HOME}/.cache/pip
@@ -56,9 +57,6 @@ RUN python -c "import sys; print(sys.path)"
 RUN python -c "import spacy"
 RUN echo "python -m spacy download \"${SPACY_MODEL}\""
 RUN python -m spacy download "${SPACY_MODEL}"
-RUN python -c "import nltk; nltk.download('punkt_tab', quiet=False, download_dir=NLTK_DATA)"
-RUN python -c "import nltk; nltk.download('wordnet', quiet=False, download_dir=NLTK_DATA)"
-RUN python -c "import nltk; nltk.download('wordnet31', quiet=False, download_dir=NLTK_DATA)"
 RUN python -c "import fastapi"
 RUN python -c "import uvicorn"
 RUN python -c "import pymongo"
@@ -67,9 +65,6 @@ RUN df -h
 RUN ls -l ${HOME}/my_ghost_writer/app.py
 RUN ls -l ${HOME}/static/index.html
 RUN ls -l ${HOME}/lite.koboldai.net/index.html
-
-RUN chown python:python -R ${HOME}/my_ghost_writer/nltk_data
-RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
 
 USER 999
 EXPOSE 7860
