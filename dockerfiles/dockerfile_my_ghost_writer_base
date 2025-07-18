@@ -65,7 +65,7 @@ WORKDIR ${HOME}
 COPY --from=builder_global ${HOME}/.venv ${HOME}/.venv
 RUN . ${HOME}/.venv && which python && pip list
 
-RUN mkdir ${HOME}/static && chown python:python ${HOME}/static
+RUN mkdir -p ${HOME}/static ${HOME}/.cache/pip && chown python:python ${HOME}/static ${HOME}/.cache ${HOME}/.cache/pip
 COPY --chown=python:python static/index-dark.css static/index.html static/index_dark.html static/index.css static/index.js ${HOME}/static/
 COPY --chown=python:python lite.koboldai.net.txt my_ghost_writer.txt ${HOME}/
 COPY --chown=python:python scripts/download.sh scripts/download_file.py ${HOME}/

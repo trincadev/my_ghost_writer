@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.6.0
+FROM registry.gitlab.com/aletrn/my_ghost_writer_base:0.6.1
 
 LABEL authors="trincadev"
 
@@ -16,8 +16,8 @@ WORKDIR ${HOME}
 
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
 RUN mkdir ${HOME}/my_ghost_writer && chown python:python ${HOME}/my_ghost_writer
-#COPY --chown=python:python ./lite.koboldai.net* ${HOME}/lite.koboldai.net
-#COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
+COPY --chown=python:python ./lite.koboldai.net* ${HOME}/lite.koboldai.net
+COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
 
 # for lite.koboldai.net.txt we don't need the folder name: we are splitting the paths to keep only the filenames
 # ${x##*/} will keep only the filename, in case of lite.koboldai.net
