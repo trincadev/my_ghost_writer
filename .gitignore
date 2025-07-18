@@ -668,3 +668,5 @@ $RECYCLE.BIN/
 # onnx models
 *.onnx
 tmp/*
+lite.koboldai.net
+lite.koboldai.net/*

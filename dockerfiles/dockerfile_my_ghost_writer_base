@@ -18,6 +18,7 @@ ARG POETRY_NO_INTERACTION
 ARG POETRY_VIRTUALENVS_IN_PROJECT
 ARG POETRY_VIRTUALENVS_CREATE
 ARG POETRY_CACHE_DIR
+ARG HOME
 
 RUN echo "ARCH: $ARCH ..."
 RUN echo "HOME: ${HOME} ..."
@@ -64,15 +65,14 @@ WORKDIR ${HOME}
 COPY --from=builder_global ${HOME}/.venv ${HOME}/.venv
 RUN . ${HOME}/.venv && which python && pip list
 
-COPY --chown=python:python ./lite.koboldai.net ${HOME}/lite.koboldai.net
-COPY --chown=python:python ./my_ghost_writer ${HOME}/my_ghost_writer
 RUN mkdir ${HOME}/static && chown python:python ${HOME}/static
 COPY --chown=python:python static/index-dark.css static/index.html static/index_dark.html static/index.css static/index.js ${HOME}/static/
+COPY --chown=python:python lite.koboldai.net.txt my_ghost_writer.txt ${HOME}/
+COPY --chown=python:python scripts/download.sh scripts/download_file.py ${HOME}/
+RUN chmod +x ${HOME}/download.sh
 
 RUN echo "new HOME after hidden venv copy => ${HOME}"
 RUN ls -ld ${HOME}/
 RUN ls -lA ${HOME}/
-RUN ls -l ${HOME}/lite.koboldai.net/index.html
 RUN ls -l ${HOME}/static/index.html
-RUN ls -l ${HOME}/my_ghost_writer/app.py
-RUN ls -l ${HOME}/my_ghost_writer/custom_synonym_handler.py
+

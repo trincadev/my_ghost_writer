@@ -1,0 +1,15 @@
+my_ghost_writer/__init__.py
+my_ghost_writer/custom_synonym_handler.py
+my_ghost_writer/thesaurus.py
+my_ghost_writer/constants.py
+my_ghost_writer/middlewares.py
+my_ghost_writer/exception_handlers.py
+my_ghost_writer/text_parsers.py
+my_ghost_writer/api_clients/a.txt
+my_ghost_writer/app.py
+my_ghost_writer/pymongo_operations_rw.py
+my_ghost_writer/pymongo_utils.py
+my_ghost_writer/session_logger.py
+my_ghost_writer/text_parsers2.py
+my_ghost_writer/__version__.py
+my_ghost_writer/type_hints.py

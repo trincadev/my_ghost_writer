@@ -1,0 +1,13 @@
+lite.koboldai.net/niko.png
+lite.koboldai.net/package.json
+lite.koboldai.net/koboldcpp_api.json
+lite.koboldai.net/kudorank.html
+lite.koboldai.net/sw.js
+lite.koboldai.net/README.md
+lite.koboldai.net/CNAME
+lite.koboldai.net/LICENSE.md
+lite.koboldai.net/preview2.png
+lite.koboldai.net/manifest.json
+lite.koboldai.net/koboldcpp_api.html
+lite.koboldai.net/preview1.png
+lite.koboldai.net/index.html
