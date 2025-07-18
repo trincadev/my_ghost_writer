@@ -19,10 +19,10 @@ WORKDIR ${HOME}
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
 RUN mkdir ${HOME}/my_ghost_writer && chown python:python -R ${HOME}/my_ghost_writer
 RUN mkdir -p ${HOME}/my_ghost_writer/nltk_data && chown python:python -R ${HOME}/my_ghost_writer/nltk_data
+RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
 RUN ls -lA ${HOME}/
 RUN ls -lA ${HOME}/.cache ${HOME}/.cache/pip
 RUN ls -lAd ${HOME}/.cache ${HOME}/.cache/pip
-RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
 COPY --chown=python:python ./lite.koboldai.net* ${HOME}/lite.koboldai.net
 COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
 
@@ -56,6 +56,9 @@ RUN python -c "import sys; print(sys.path)"
 RUN python -c "import spacy"
 RUN echo "python -m spacy download \"${SPACY_MODEL}\""
 RUN python -m spacy download "${SPACY_MODEL}"
+RUN python -c "import nltk; nltk.download('punkt_tab', quiet=False, download_dir=NLTK_DATA)"
+RUN python -c "import nltk; nltk.download('wordnet', quiet=False, download_dir=NLTK_DATA)"
+RUN python -c "import nltk; nltk.download('wordnet31', quiet=False, download_dir=NLTK_DATA)"
 RUN python -c "import fastapi"
 RUN python -c "import uvicorn"
 RUN python -c "import pymongo"
@@ -64,6 +67,9 @@ RUN df -h
 RUN ls -l ${HOME}/my_ghost_writer/app.py
 RUN ls -l ${HOME}/static/index.html
 RUN ls -l ${HOME}/lite.koboldai.net/index.html
+
+RUN chown python:python -R ${HOME}/my_ghost_writer/nltk_data
+RUN ls -lAd ${HOME}/nltk_data ${HOME}/nltk_data/*
 
 USER 999
 EXPOSE 7860
