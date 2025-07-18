@@ -8,8 +8,10 @@ ENV VIRTUAL_ENV=${HOME}/.venv PATH="${HOME}/.venv/bin:$PATH"
 ENV WRITE_TMP_ON_DISK=""
 ENV MOUNT_GRADIO_APP=""
 ENV SPACY_MODEL="en_core_web_sm"
+ARG BASEURLCOMMITS1=https://api.github.com/repos/trincadev/lite.koboldai.net/commits?per_page=1
+ARG BASEURLCOMMITS2=https://api.github.com/repos/trincadev/my_ghost_writer/commits?per_page=1
 ENV BASEURL1=https://raw.githubusercontent.com/trincadev/lite.koboldai.net/refs/heads/mgw_smart_thesaurus
-ENV BASEURL2=https://gitlab.com/aletrn/my_ghost_writer/-/raw/main
+ENV BASEURL2=https://raw.githubusercontent.com/trincadev/my_ghost_writer/refs/heads/main
 
 # Set working directory to function root directory
 WORKDIR ${HOME}
@@ -21,10 +23,12 @@ COPY --chown=python:python ./my_ghost_writer* ${HOME}/my_ghost_writer
 
 # for lite.koboldai.net.txt we don't need the folder name: we are splitting the paths to keep only the filenames
 # ${x##*/} will keep only the filename, in case of lite.koboldai.net
+ADD ${BASEURLCOMMITS1} latest_commit
 RUN ls -l ${HOME}/lite.koboldai.net/index.html || for x in $(cat ${HOME}/lite.koboldai.net.txt); do ${HOME}/download.sh "${BASEURL1}/${x##*/}" ${HOME}/lite.koboldai.net/; done
 RUN ls -l ${HOME}/lite.koboldai.net/index.html || echo "did you checked if the files list from lite.koboldai.net.txt is ok? Maybe not keeping only the filenames?"
 RUN ls -l ${HOME}/lite.koboldai.net/index.html
 
+ADD ${BASEURLCOMMITS2} latest_commit
 RUN ls -l ${HOME}/my_ghost_writer/app.py || for x in $(cat ${HOME}/my_ghost_writer.txt); do ${HOME}/download.sh "${BASEURL2}/$x" ${HOME}/my_ghost_writer/; done
 RUN ls -l ${HOME}/my_ghost_writer/app.py
 RUN ls -l ${HOME}/my_ghost_writer/custom_synonym_handler.py
