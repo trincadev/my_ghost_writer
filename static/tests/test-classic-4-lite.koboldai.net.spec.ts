@@ -26,6 +26,11 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     }
     const word = ("happy"+projectName).replace(/\s/g,'').replace(/\(/g,'').replace(/\)/g,'')
     console.log("word:", word, "#")
+    let responseData = null;
+    try {
+        responseData = await deleteCustomSynonym(word)
+        console.log("message:", responseData.message, "#")
+    } catch {}
     const state = "editable"
     // search the word 'happy'
     await fillInputFieldWithString(page, word);
@@ -94,9 +99,8 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await ensureThesaurusPanelClosed(page);
 
     // delete the synonyms group(s) for 'happy' to ensure we can repeat this test
-    const responseData = await deleteCustomSynonym(word)
-    const {message} = responseData;
-    expect(message).toContain(`Synonyms for '${word}' deleted successfully`)
+    responseData = await deleteCustomSynonym(word)
+    expect(responseData.message).toContain(`Synonyms for '${word}' deleted successfully`)
 
     await page.close()
 })
