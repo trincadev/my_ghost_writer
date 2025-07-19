@@ -19,6 +19,7 @@ WORKDIR ${HOME}
 
 RUN mkdir ${HOME}/lite.koboldai.net && chown python:python ${HOME}/lite.koboldai.net
 RUN mkdir ${HOME}/my_ghost_writer && chown python:python -R ${HOME}/my_ghost_writer
+RUN echo "NLTK_DATA: '${NLTK_DATA}'"
 RUN mkdir -p ${NLTK_DATA} && chown python:python -R ${NLTK_DATA}
 RUN ls -lAd ${NLTK_DATA} ${NLTK_DATA}/*
 RUN ls -lA ${HOME}/
@@ -54,6 +55,9 @@ RUN ls -l ${HOME}
 RUN ls -ld ${HOME}
 RUN ls -l ${HOME}/
 RUN python -c "import sys; print(sys.path)"
+RUN python -c "import nltk; nltk.download('punkt_tab', quiet=False)"
+RUN python -c "import nltk; nltk.download('wordnet', quiet=False)"
+RUN python -c "import nltk; nltk.download('wordnet31', quiet=False)"
 RUN python -c "import spacy"
 RUN echo "python -m spacy download \"${SPACY_MODEL}\""
 RUN python -m spacy download "${SPACY_MODEL}"
@@ -65,6 +69,9 @@ RUN df -h
 RUN ls -l ${HOME}/my_ghost_writer/app.py
 RUN ls -l ${HOME}/static/index.html
 RUN ls -l ${HOME}/lite.koboldai.net/index.html
+RUN chown python:python -R ${NLTK_DATA}
+RUN ls -ld ${NLTK_DATA}
+RUN find ${NLTK_DATA} -ls
 
 USER 999
 EXPOSE 7860
