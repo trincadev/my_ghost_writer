@@ -1556,8 +1556,6 @@
   - /url: "#"
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
-- link /id-a-candidate-\d+-nth/:
-  - /url: "#"
   - text: Emphasis aka italics (1)
 - link /id-a-candidate-\d+-nth/:
   - /url: "#"
