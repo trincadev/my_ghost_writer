@@ -63,7 +63,8 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-0nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-0nth' }).fill('cheerful,joy');
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-' }).click();
-    await page.getByLabel('thesaurus-custom-related-type-1nth').selectOption('antonym');
+    console.log("#")
+    await page.getByLabel('thesaurus-custom-related-type-1nth').selectOption('Antonym');
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-1nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-1nth' }).fill('sad,sadness');
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-definition-1nth' }).click();
