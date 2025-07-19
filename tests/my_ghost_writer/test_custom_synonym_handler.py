@@ -3,7 +3,7 @@ import unittest
 from my_ghost_writer.custom_synonym_handler import CustomSynonymHandler
 
 
-class Test(unittest.TestCase):
+class TestCustomSynonymHandler(unittest.TestCase):
     def test_custom_synonym_handler_add_entry_ok1(self):
         word_input = "happy"
         related_input = [
