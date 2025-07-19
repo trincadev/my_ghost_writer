@@ -92,7 +92,7 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.waitForTimeout(200)
     await ensureThesaurusPanelOpen(page);
 
-    await expect(page.getByLabel('definition-div-0-')).toBeVisible();
+    await expect(page.getByLabel('definition-div-0nth')).toBeVisible();
     await expect(page.getByLabel('content-inflated-synonyms-0nth')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-3-${projectName}-${state}.txt` });
     await page.getByRole('button', { name: 'id-rightpanel-thesaurus-close' }).click();
     await page.waitForTimeout(200)
