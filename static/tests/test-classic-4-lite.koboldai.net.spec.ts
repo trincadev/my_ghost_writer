@@ -69,13 +69,15 @@ test(`test My Ghost Writer: backend request - word with no synonyms, then add a 
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-0nth' }).fill('cheerful,joy');
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-' }).click();
     console.log("#")
-    await page.getByLabel('thesaurus-custom-related-type-1nth').selectOption('Antonym');
+    await page.getByLabel('thesaurus-custom-related-type-1nth', { exact: true }).selectOption('antonym');
+
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-1nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-words-1nth' }).fill('sad,sadness');
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-definition-1nth' }).click();
     await page.getByRole('textbox', { name: 'thesaurus-custom-related-definition-1nth' }).fill('I\'m a sad person');
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-add-0nth' }).click();
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-del-2nth' }).click(); // delete an entry
+    console.log("projectName:", projectName, ", state: ", state, "#")
     await expect(page.getByLabel('thesaurus-custom-form-content')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-1-${projectName}-${state}.txt` });
     await page.getByRole('button', { name: 'thesaurus-custom-related-btn-add-0nth' }).click();
     await expect(page.getByLabel('thesaurus-custom-form-content')).toMatchAriaSnapshot({ name: `test-classic-4-0-wordsearch_results-2-${projectName}-${state}.txt` });
