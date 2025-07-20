@@ -1,5 +1,13 @@
 # Changelog
 
+# 0.5.2
+
+- Improved docker build process to fix HuggingFace space deploy
+- Read API to get thesaurus functionality
+- Added adding custom voices (write API) to the thesaurus functionality
+- updated backend tests
+- updated frontend tests
+
 ## 0.3.0
 
 - add an installation script (python required), mostly useful for lite.koboldai.net users

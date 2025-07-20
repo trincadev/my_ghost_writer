@@ -40,7 +40,7 @@ uvicorn = "^0.34.2"
 pymongo = {extras = ["srv"], version = "^4.13.2"}
 
 [tool.pytest.ini_options]
-addopts = "--cov=my_ghost_writer --cov-report html"
+addopts = "--cov=my_ghost_writer --cov-report=term-missing"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
