@@ -1,0 +1,24 @@
+- heading "Add Custom Thesaurus Entry" [level=3]
+- textbox "thesaurus-custom-word": happyresponsivePortrait
+- button "thesaurus-custom-related-btn-add-0nth"
+- text: "Relationship:"
+- combobox "thesaurus-custom-related-type-0nth":
+  - option "Synonym" [selected]
+  - option "Antonym"
+  - option "Homonym"
+  - option "Homophone"
+  - option "Homograph"
+- textbox "thesaurus-custom-related-words-0nth"
+- textbox "thesaurus-custom-related-definition-0nth"
+- button "thesaurus-custom-related-btn-del-1nth"
+- text: "Relationship:"
+- combobox "thesaurus-custom-related-type-1nth":
+  - option "thesaurus-custom-related-type-1nth-synonym"
+  - option "thesaurus-custom-related-type-1nth-antonym" [selected]
+  - option "thesaurus-custom-related-type-1nth-homonym"
+  - option "thesaurus-custom-related-type-1nth-homophone"
+  - option "thesaurus-custom-related-type-1nth-homograph"
+- textbox "thesaurus-custom-related-words-1nth"
+- textbox "thesaurus-custom-related-definition-1nth"
+- button "thesaurus-custom-submit"
+- button "thesaurus-custom-cancel"

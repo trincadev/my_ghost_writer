@@ -1,0 +1,6 @@
+- text: /✅ POST http:\/\/localhost:\d+\/thesaurus-custom completed/
+- button "notification-close"
+- text: 📋 1
+- heading "notification-history-title" [level=3]
+- button "notification-history-close"
+- text: /✅ POST http:\/\/localhost:\d+\/thesaurus-custom \d+:\d+:\d+ PM/
